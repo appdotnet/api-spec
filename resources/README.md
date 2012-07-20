@@ -1,5 +1,5 @@
 # Resources
-The App.net Stream API is a REST-style API.
+The App.net Stream API is a JSON API.
 
 Guiding principles are:
 
