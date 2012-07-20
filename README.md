@@ -43,4 +43,4 @@ Open an issue! Submit a pull request! If you have ideas, let us know. Don't hold
 
 * [Bryan Berg](http://ber.gd) ([github.com/berg](http://github.com/berg), [@berg](http://twitter.com/berg), bryan@ber.gd)
 * Mark Thurman ([github.com/mthurman](http://github.com/mthurman), mthurman@gmail.com)
-* [Alex Kessinger](http://alexkessinger.net) (@voidfiles, voidfiles@gmail.com)
+* [Alex Kessinger](http://alexkessinger.net) ([github.com/voidfiles](http://github.com/voidfiles) [@voidfiles](http://twitter.com/voidfiles), voidfiles@gmail.com)
