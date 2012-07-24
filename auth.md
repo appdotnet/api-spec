@@ -39,6 +39,7 @@ You must keep your client_secret confidential. That means that you may not inclu
         ?client_id=[your client ID]
         &response_type=code
         &redirect_uri=[your redirect URI]
+        &scopes=[scopes separated by commas]
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
@@ -76,6 +77,7 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
         ?client_id=[your client ID]
         &response_type=token
         &redirect_uri=[your redirect URI]
+        &scopes=[scopes separated by commas]
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
@@ -101,7 +103,22 @@ If a user is redirected to your application with an error code, you should be su
 
 ### Scopes
 
-TBD.
+Scopes are how an application specifies what kind of data it wants from a User. They are specified on the initial access token request. A user will be able to see a list of the permissions you are requesting with explanations of what each of the permissions means. They will be able to authorize any permissions they choose. Your app should not assume that an access token has all the requested scopes.
+
+When using an OAuth token, App.net will include an extra HTTP headers so the app knows what scopes that token has authorized. For example:
+
+> X-OAuth-Scopes: email,follow
+
+means that the current token has permission to see the user's email and to follow new users.
+
+Here is the current list of scopes on App.net:
+
+* **stream**: read a user's stream (always included)
+* **email**: access a user's email address
+* **write_post**: create a new post as a user
+* **follow**: add or remove follows for this user
+* **messages**: send and receive private messages as this user
+
 
 ## Authenticated API Requests
 
