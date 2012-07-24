@@ -1,6 +1,6 @@
 # Posts
 
-## General filters
+## General parameters
 
 Requests for streams of Posts can be filtered by passing query string parameters along with the request.
 
@@ -42,7 +42,7 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>include_annotations</code></td>
             <td>Optional</td>
             <td>boolean</td>
-            <td>Should the <a href="/appdotnet/api-spec/blob/master/objects.md#annotations">annotations</a> be included in the Post? (Default: <code>True</code>)</td>
+            <td>Should the <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">post annotations</a> be included in the Post? (Default: <code>True</code>)</td>
         </tr>
         <tr>
             <td><code>include_replies</code></td>
@@ -88,7 +88,7 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
             <td><code>annotations</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>A JSON string that contains extended information about the Post as described in <a href="/appdotnet/api-spec/blob/master/objects.md#annotations">the annotations documentation</a>.</td>
+            <td>A JSON string that contains extended information about the Post as described in <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">the post annotations documentation</a>.</td>
         </tr>
         <tr>
             <td><code>links</code></td>
@@ -297,7 +297,7 @@ Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spe
     </tbody>
 </table>
 
-*See [General Filters](#general-filters) for optional filters you can use with this query.*
+*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -360,7 +360,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
     </tbody>
 </table>
 
-*See [General Filters](#general-filters) for optional filters you can use with this query.*
+*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -431,7 +431,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
     </tbody>
 </table>
 
-*See [General Filters](#general-filters) for optional filters you can use with this query.*
+*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -486,7 +486,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 ### Parameters
 
-*See [General Filters](#general-filters) for optional filters you can use with this query.*
+*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 

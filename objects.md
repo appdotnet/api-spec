@@ -49,6 +49,15 @@ A user is the central object utilized by the App.net Stream API. They have usern
         "follows": 100,
         "followed_by": 200,
         "posts": 24
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
+    "filters": {
+        "my_family": ...,
+        "on_the_go": ...,
+        "san francisco": ...
     }
 }
 ```
@@ -168,6 +177,16 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 </tr>
             </table>
         </td>
+    </tr>
+    <tr>
+        <td><code>app_data</code></td>
+        <td>object</td>
+        <td>Object where each app can store opaque information for this user. This could be useful for storing application state (read pointers, default filters in the app, etc).</td>
+    </tr>
+    <tr>
+        <td><code>filters</code></td>
+        <td>object</td>
+        <td>A mapping from key to a <a href="#filters">filter object</a> so a User can save filters and share them among multiple clients.</td>
     </tr>
 </table>
 
@@ -305,8 +324,8 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 * TODOs
     * Reply model
 
-### Annotations
-Annotations are attributes (key, value pairs) that describe the entire post. There will be globally defined annotation formats (like geo above) but each application can also define annotations in their own namespace (like the Rdio song).
+### Post Annotations
+Post annotations are attributes (key, value pairs) that describe the entire post. There will be globally defined annotation formats (like geo above) but each application can also define annotations in their own namespace (like the Rdio song).
 
 TODO
 
@@ -412,6 +431,63 @@ Link to another website.
         <td>list</td>
         <td>A 2 element long list which represents what subset of the <code>text</code> is linked.</td>
     </tr>
+</table>
+
+## Filters
+
+A Filter functions as either a whitelist or a blacklist over a stream of Posts.
+
+```js
+{
+    "type": "show",
+    "name": "On the go"
+    "user_ids": ["1", "2"],
+    "hashtags": ["sf", "python"],
+    "link_domains": ["app.net"],
+    "mention_user_ids": ["1"]
+}
+```
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>Either <code>show</code> or <code>block</code> for whether this filter should exclude everything except for what's shown or show everything except for what's blocked.</td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>string</td>
+            <td>A User assigned name for this filter.</td>
+        </tr>
+        <tr>
+            <td><code>user_ids</code></td>
+            <td>list</td>
+            <td>A list of user ids a Post must or must not be created by.</td>
+        </tr>
+        <tr>
+            <td><code>hashtags</code></td>
+            <td>list</td>
+            <td>A list of hashtags a Post must or must not have.</td>
+        </tr>
+        <tr>
+            <td><code>link_domains</code></td>
+            <td>list</td>
+            <td>A list of domains a Post must or must not have a link to.</td>
+        </tr>
+        <tr>
+            <td><code>mention_user_ids</code></td>
+            <td>list</td>
+            <td>A list of user ids a Post must or must not mention.</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Notes on data formats

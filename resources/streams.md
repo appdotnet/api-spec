@@ -26,40 +26,7 @@ receiving every Post.
 
 ### Filters
 
-**This filter specification is still very fluid. We'd appreciate your feedback**
-
-Streams will give you lots of data, much of which your application may not want. We provide the following filter parameters which can be passed to any of the following endpoints at creation time, or can be passed to the [Stream control endpoint](#control-a-stream) after a Stream exists. These filters will determine what messages are actually delivered to your App by our servers.
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>hashtag</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>A hashtag to match exactly.</td>
-        </tr>
-        <tr>
-            <td><code>domain</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>A domain that the Post must contain a link to.</td>
-        </tr>
-        <tr>
-            <td><code>mention</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>A username that the Post must exactly mention.</td>
-        </tr>
-    </tbody>
-</table>
+Streams will give you lots of data, much of which your application may not want. A [Filter](/appdotnet/api-spec/blob/master/objects.md#filter) can be passed to any of the following endpoints at creation time, or can be passed to the [Stream control endpoint](#control-a-stream) after a Stream exists. These filters will determine what messages are actually delivered to your App by our servers.
 
 ### Response Format
 
@@ -78,7 +45,7 @@ The Stream contains frames separated by ```\r\n```. Each frame consists of a mes
     9\r\nHELLO\r\n4\r\n\r\n12\r\nWORLD!!!\r\n
 
 
-Each message is either a [Post](/appdotnet/api-spec/blob/master/objects.md#Post), a [control message](#control-message), or an empty
+Each message is either a [Post](/appdotnet/api-spec/blob/master/objects.md#post), a [control message](#control-message), or an empty
 line. An empty line will be sent when there are no other messages in order to keep the connection alive.
 
 #### Control Message
