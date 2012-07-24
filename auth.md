@@ -118,6 +118,7 @@ Here is the current list of scopes on App.net:
 * **write_post**: create a new post as a user
 * **follow**: add or remove follows for this user
 * **messages**: send and receive private messages as this user
+* **export**: bulk export all of your App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
 
 ## Authenticated API Requests
