@@ -427,4 +427,6 @@ where `2012` is the year, `12` represents December, `31` represents the 31st day
 This format was chosen to minimize ambiguity and edge cases in terms of parsing while maximizing readability of dates during
 development.
 
+### Object IDs
 
+If you are storing object IDs, ensure that you store them as strings, not integers. IDs may at some future point contain any printable 7-bit ASCII character, even if these example data structures only have numeric IDs.
