@@ -54,11 +54,6 @@ A user is the central object utilized by the App.net Stream API. They have usern
         "appdotnet": {...},
         "rdio": {...}
     },
-    "filters": {
-        "my_family": ...,
-        "on_the_go": ...,
-        "san francisco": ...
-    }
 }
 ```
 
@@ -182,11 +177,6 @@ A user is the central object utilized by the App.net Stream API. They have usern
         <td><code>app_data</code></td>
         <td>object</td>
         <td>Object where each app can store opaque information for this user. This could be useful for storing application state (read pointers, default filters in the app, etc).</td>
-    </tr>
-    <tr>
-        <td><code>filters</code></td>
-        <td>object</td>
-        <td>A mapping from key to a <a href="#filters">filter object</a> so a User can save filters and share them among multiple clients.</td>
     </tr>
 </table>
 
@@ -433,16 +423,17 @@ Link to another website.
     </tr>
 </table>
 
-## Filters
+## Filter
 
-A Filter functions as either a whitelist or a blacklist over a stream of Posts.
+A Filter functions as either a whitelist or a blacklist over a stream of Posts. All the predicates are logically OR'ed together. For instance, with the following example, a post will be shown if it's from user 1, or it's from user 2, or it has hashtag 'sf', or it links to app.net, or it mentions user 1.
 
 ```js
 {
+    "id": "1",
     "type": "show",
-    "name": "On the go"
+    "name": "On the go",
     "user_ids": ["1", "2"],
-    "hashtags": ["sf", "python"],
+    "hashtags": ["sf"],
     "link_domains": ["app.net"],
     "mention_user_ids": ["1"]
 }
@@ -503,4 +494,6 @@ where `2012` is the year, `12` represents December, `31` represents the 31st day
 This format was chosen to minimize ambiguity and edge cases in terms of parsing while maximizing readability of dates during
 development.
 
+### Object IDs
 
+If you are storing object IDs, ensure that you store them as strings, not integers. IDs may at some future point contain any printable 7-bit ASCII character, even if these example data structures only have numeric IDs.

@@ -23,10 +23,6 @@ We want to think big with you. What would you like to see?
 From time to time we'll ask for feedback on specific parts of the spec in particular. Right now, focus your mental energy on:
 
 * Object definitions, specifically:
-    * Image format definitions
-        * Are these good enough for you? You'll be able to request 1x, 2x versions (etc.) via query string params on resources.
-        * Do you need to request >1 format, or are you OK with only receiving one per image type?
-        * War stories about which sizes to choose would be appreciated. :)
     * Annotation definitions.
     * Entity definitions.
 * Feed filters.

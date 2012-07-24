@@ -146,3 +146,37 @@ Guiding principles are:
         </tr>
     </tbody>
 </table>
+
+### [Filters](/appdotnet/api-spec/blob/master/resources/filters.md)
+
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Method</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/stream/0/filters</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#get-current-users-filters">Get current user's Filters</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/filters</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#create-a-filter">Create a Filter</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/filters/[filter_id]</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#retrieve-a-filter">Retrieve a Filter</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/filters/[filter_id]</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#delete-a-filter">Delete a Filter</a></td>
+        </tr>
+    </tbody>
+</table>
