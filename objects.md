@@ -11,33 +11,37 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "id": "1", // note this is a string
     "username": "mthurman",
     "name": "Mark Thurman",
-    "description": "Hi, Im Mark Thurman and I'm teaching you about the App.net Stream API.",
-    "url": "http://www.example.com/mthurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span class=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span class=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "indices": [52, 62]
+           }],
+           "hashtags": [{
+               "name": "api",
+               "indices": [70, 74]
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec"
+                   "indices": [29, 41],
+           }]
+        }
+    },
     "timezone": "US/Pacific",
     "locale": "en_US",
     "avatar_image": {
-        "57s": {
-            "height": 57,
-            "width": 57,
-            "url": "https://example.com/avatar_57x57_image.jpg"
-        },
-        "114s": {
-            "height": 114,
-            "width": 114,
-            "url": "https://example.com/avatar_114x114_image.jpg"
-        },
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
     },
     "cover_image": {
-        "320r": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/cover_320x118_image.jpg"
-        },
-        "640r": {
-            "height": 237,
-            "width": 640,
-            "url": "https://example.com/cover_640x237_image.jpg"
-        },
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
     },
     "type": "human",
     "created_at": "2012-07-16T17:23:34Z",
@@ -74,8 +78,32 @@ A user is the central object utilized by the App.net Stream API. They have usern
     </tr>
     <tr>
         <td><code>description</code></td>
-        <td>string</td>
-        <td>User supplied biographical information. All Unicode characters allowed. Maximum length N characters.</td>
+        <td>object</td>
+        <td>
+            <br>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>text</code></td>
+                    <td>string</td>
+                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length N characters.</td>
+                </tr>
+                <tr>
+                    <td><code>html</code></td>
+                    <td>string</td>
+                    <td>Server-generated annotated HTML version of biographical information.</td>
+                </tr>
+                <tr>
+                    <td><code>entities</code></td>
+                    <td>object</td>
+                    <td>Entities included in biographical information. See information on post entities for reference.</td>
+                </tr>
+            </table>
+        </td>
     </tr>
     <tr>
         <td><code>url</code></td>
@@ -95,12 +123,12 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>avatar_image</code></td>
         <td><a href="#images">image object</a></td>
-        <td>Object representing different sizes of the urls of the user's avatar.</td>
+        <td>Object representing the URL and original size of the user's avatar.</td>
     </tr>
     <tr>
         <td><code>cover_image</code></td>
         <td><a href="#images">image object</a></td>
-        <td>Object representing different sizes of the urls of the user's larger cover image.</td>
+        <td>Object representing the URL and original size of the user's over image.</td>
     </tr>
     <tr>
         <td><code>type</code></td>
@@ -115,13 +143,8 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>counts</code></td>
         <td>object</td>
-        <td><pre>
-"counts": {
-    "follows": 100,
-    "followed_by": 200,
-    "posts": 24
-}
-</pre>
+        <td>
+            <br>
             <table>
                 <tr>
                     <th>Field</th>
@@ -153,27 +176,15 @@ Images are objects so that app developers can more easily pick the appropriated 
 
 ```js
 {
-    "57s": {
-        "height": 57,
-        "width": 57,
-        "url": "https://example.com/square_57x57_image.jpg"
-    },
-    "114s": {
-        "height": 114,
-        "width": 114,
-        "url": "https://example.com/square_114x114_image.jpg"
-    },
-    ...
+    "height": 512,
+    "width": 512,
+    "url": "https://example.com/image.jpg"
 }
 ```
 
-Top level keys are strings matching the following regular expression:
-
-    ^([0-9]+)([sr])$
-
-* $1 is the width of the image
-* $2 is the format of the image, ```s``` or ```r``` depending on if the image is square or rectangular.
-* For each image kind, the keys will be well defined based on commonly requested sizes.
+Images may be dynamically resized on the server by adding `w` and/or `h` parameters to the query string of the URL as desired. If
+one of the parameters is omitted, the omitted dimension will be scaled according to the aspect ratio of the original image. Images
+will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
 ## Post
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
@@ -186,17 +197,17 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+   "html": "<span class=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span class=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
@@ -246,15 +257,15 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td>User supplied text of the post.</td>
     </tr>
     <tr>
+        <td><code>html</code></td>
+        <td>string</td>
+        <td>Server-generated annotated HTML rendering of post text.</td>
+    </tr>
+    <tr>
         <td><code>source</code></td>
         <td>object</td>
         <td>
-            <pre>
-"source": {
-    "name": "Rdio for iOS",
-    "link": "http://rdio.com"
-}
-</pre>
+            <br>
             <table>
                 <tr>
                     <th>Field</th>
@@ -303,6 +314,8 @@ TODO
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
+
+Ranges specified by entities may be adjacent, but may not overlap.
 
 All of the following examples are about the following post:
 
@@ -400,3 +413,18 @@ Link to another website.
         <td>A 2 element long list which represents what subset of the <code>text</code> is linked.</td>
     </tr>
 </table>
+
+## Notes on data formats
+
+### Dates
+
+Dates will be formatted as a **strict** subset of [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601). Dates are parseable by almost any ISO 8601 date parser or merely by parsing from position. All dates will be formatted as follows:
+
+`2012-12-31T13:22:55Z`
+
+where `2012` is the year, `12` represents December, `31` represents the 31st day of the month, `13` represents 1 PM, `22` minutes and `55` seconds past the hour. All times will be expressed in terms of UTC.
+
+This format was chosen to minimize ambiguity and edge cases in terms of parsing while maximizing readability of dates during
+development.
+
+
