@@ -13,7 +13,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "name": "Mark Thurman",
     "description": {
        "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span class=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span class=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
        "entities": {
            "mentions": [{
                "name": "appdotnet",
@@ -206,7 +206,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
-   "html": "<span class=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span class=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+   "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
         "name": "Clientastic for iOS",
         "link": "http://app.net"
