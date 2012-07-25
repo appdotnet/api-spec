@@ -36,33 +36,37 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
     "id": "1", // note this is a string
     "username": "mthurman",
     "name": "Mark Thurman",
-    "description": "Hi, I'm Mark Thurman and I'm teaching you about the App.net Stream API.",
-    "url": "http://www.example.com/mthurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "indices": [52, 62]
+           }],
+           "hashtags": [{
+               "name": "api",
+               "indices": [70, 74]
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec"
+                   "indices": [29, 41],
+           }]
+        }
+    },
     "timezone": "US/Pacific",
     "locale": "en_US",
     "avatar_image": {
-        "57s": {
-            "height": 57,
-            "width": 57,
-            "url": "https://example.com/avatar_57x57_image.jpg"
-        },
-        "114s": {
-            "height": 114,
-            "width": 114,
-            "url": "https://example.com/avatar_114x114_image.jpg"
-        },
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
     },
     "cover_image": {
-        "320r": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/cover_320x118_image.jpg"
-        },
-        "640r": {
-            "height": 237,
-            "width": 640,
-            "url": "https://example.com/cover_640x237_image.jpg"
-        },
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
     },
     "type": "human",
     "created_at": "2012-07-16T17:23:34Z",
@@ -70,6 +74,10 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
         "follows": 100,
         "followed_by": 200,
         "posts": 24
-    }
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
 }
 ```

@@ -110,11 +110,6 @@ A user is the central object utilized by the App.net Stream API. They have usern
         </td>
     </tr>
     <tr>
-        <td><code>url</code></td>
-        <td>string</td>
-        <td>User supplied descriptive URL. Maximum length N characters.</td>
-    </tr>
-    <tr>
         <td><code>timezone</code></td>
         <td>string</td>
         <td>User timezone in tzinfo format.</td>
