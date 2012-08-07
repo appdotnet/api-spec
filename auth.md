@@ -4,7 +4,7 @@
 
 As a developer working with App.net, you are required to follow some simple rules to ensure that the privacy and security of user data is protected. To help you achieve that, we've put together this document on how App.net intends to authenticate users.
 
-All requests to the API—authenticated or not—must be made over HTTPS. We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-30) for API authentication, but only certain portions of the specification. For instance, we only support the use of bearer tokens as access tokens. The specification is a little dense on the standards-speak, but we encourage you to take a look. We'll explain our specific use of OAuth 2 in this document.
+All requests to the API—authenticated or not—must be made over HTTPS. We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-31) for API authentication, but only certain portions of the specification. For instance, we only support the use of bearer tokens as access tokens. The specification is a little dense on the standards-speak, but we encourage you to take a look. We'll explain our specific use of OAuth 2 in this document.
 
 ## Initial Developer Setup
 
@@ -18,12 +18,12 @@ It should go without saying, but for the sake of user privacy and security, plea
 
 ## How does I get an access token?
 
-If you're only interested in obtaining a **client token**, you can use the [Client Password](http://tools.ietf.org/html/draft-ietf-oauth-v2-30#section-2.3) flow. (Note: we support sending the `client_id` / `client_secret` parameters in the HTTP message body only.)
+If you're only interested in obtaining a **client token**, you can use the [Client Password](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3) flow. (Note: we support sending the `client_id` / `client_secret` parameters in the HTTP message body only.)
 
 If you want a **user token**, you must use one of these two flows:
 
-* If you're building a web application backed by a server, you probably want to use our **server-side flow**. (The OAuth 2.0 internet-draft calls this the "[Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-30#section-4.1).")
-* If you're building an application without a central server, like a mobile app or a client-side Javascript app, you can use the **client-side flow**. (The spec calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-30#section-4.2).)
+* If you're building a web application backed by a server, you probably want to use our **server-side flow**. (The OAuth 2.0 internet-draft calls this the "[Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).")
+* If you're building an application without a central server, like a mobile app or a client-side Javascript app, you can use the **client-side flow**. (The spec calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
 
 We also intend to provide a SDK you can embed into your mobile applications to provide seamless authentication with App.net to your application's users.
 
@@ -61,6 +61,8 @@ You must keep your client_secret confidential. That means that you may not inclu
         &code=[code received from redirect URI]
     ```
 
+    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
+
 1. App.net will respond with a JSON-encoded token:
     ```js
 {"access_token": "[user access token]"}
@@ -95,7 +97,7 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 If an error occurs while obtaining an access token, we'll notify you by redirecting the user to the **Redirection URI** with the following additional query string or fragment parameters:
 
-* `error` — a single error code from [this list](http://tools.ietf.org/html/draft-ietf-oauth-v2-30#section-4.1.2.1)
+* `error` — a single error code from [this list](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1.2.1)
 * `error_description` — a human readable error description.
 * `error_uri` — a URI identifying a human-readable webpage with information about the error.
 
