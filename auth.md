@@ -39,7 +39,7 @@ You must keep your client_secret confidential. That means that you may not inclu
         ?client_id=[your client ID]
         &response_type=code
         &redirect_uri=[your redirect URI]
-        &scopes=[scopes separated by commas]
+        &scope=[scopes separated by spaces]
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
@@ -79,7 +79,7 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
         ?client_id=[your client ID]
         &response_type=token
         &redirect_uri=[your redirect URI]
-        &scopes=[scopes separated by commas]
+        &scope=[scopes separated by spaces]
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
