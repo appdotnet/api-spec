@@ -52,9 +52,12 @@ You must keep your client_secret confidential. That means that you may not inclu
     > If you included a query string in your redirect URI, the `code` parameter will be appended. Likewise, the scheme of your redirect URI will be respected, though we strongly recommend sending all traffic over HTTPS.
 
 1. On your server, your application should then make the following request:
+    `POST https://api.app.net/oauth/access_token`
+
+    with URL-encoded POST body:
+
     ```
-    https://api.app.net/oauth/access_token
-        ?client_id=[your client ID]
+        client_id=[your client ID]
         &client_secret=[your client secret]
         &grant_type=authorization_code
         &redirect_uri=[your registered redirect URI]
