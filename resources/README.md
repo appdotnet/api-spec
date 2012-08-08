@@ -113,7 +113,7 @@ Guiding principles are:
     </tbody>
 </table>
 
-### [Real-time updates](/appdotnet/api-spec/blob/master/resources/realtime.md)
+### [Real-time updates](/appdotnet/api-spec/blob/master/resources/subscriptions.md)
 
 <table>
     <thead>
