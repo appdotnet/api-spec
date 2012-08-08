@@ -16,7 +16,7 @@ You authenticate to our API by use of an **access token**. There are two types o
 
 It should go without saying, but for the sake of user privacy and security, please ensure that your App.net account has a **strong password**.
 
-## How does I get an access token?
+## How do I get an access token?
 
 If you're only interested in obtaining a **client token**, you can use the [Client Password](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3) flow. (Note: we support sending the `client_id` / `client_secret` parameters in the HTTP message body only.)
 
@@ -115,13 +115,14 @@ means that the current token has permission to see the user's email and to follo
 
 Here is the current list of scopes on App.net:
 
-* **stream**: read a user's stream (always included)
+* **stream**: read a user's stream
 * **email**: access a user's email address
 * **write_post**: create a new post as a user
 * **follow**: add or remove follows for this user
 * **messages**: send and receive private messages as this user
 * **export**: bulk export all of your App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
+If scope is omitted, only basic profile information will be available.
 
 ## Authenticated API Requests
 
