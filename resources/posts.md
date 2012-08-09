@@ -1,6 +1,8 @@
 # Posts
 
-## General parameters
+Posts are currently the best implemented objects on the system. If you're looking to play around with part of the API, start here.
+
+## General parameters - coming soon
 
 Requests for streams of Posts can be filtered by passing query string parameters along with the request.
 
@@ -269,7 +271,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 }
 ```
 
-## Retrieve the replies to a Post
+## Retrieve the replies to a Post - coming soon
 
 Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
 

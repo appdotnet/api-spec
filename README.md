@@ -6,6 +6,12 @@ Please submit feedback to us — feel free to comment on commits, open issues, o
 
 The App.net Stream API Spec project is just one part of the App.net movement. If this project is interesting to you, we'd appreciate your support. You can provide support by [backing the project](https://join.app.net) or just by participating in the process to help define it.
 
+## Very Important Warning
+
+**As we've started to open up the API to people as part of our early alpha program, it's important to note that this documentation is
+imperfect in many ways.** In particular, we're not done implementing all of the endpoints that you see here, and sometimes what we
+have written differs from this documentation. If you're running in to issues, drop us a line and we'll try to help.
+
 ## Table of Contents
 
 * [Object definitions](/appdotnet/api-spec/blob/master/objects.md)

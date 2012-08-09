@@ -1,5 +1,7 @@
 # Streams
 
+**NOT YET IMPLEMENTED** - still seeking comment on these from developers.
+
 ## General Information
 
 ### Basic Use

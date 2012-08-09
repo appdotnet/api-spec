@@ -1,5 +1,7 @@
 # Filters
 
+**NOT YET IMPLEMENTED** - still seeking comment on these from developers.
+
 ## Get current user's Filters
 
 Return the <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filters</a> for the current user.

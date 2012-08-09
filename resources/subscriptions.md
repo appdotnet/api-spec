@@ -1,5 +1,7 @@
 # Subscriptions
 
+**NOT YET IMPLEMENTED** - still seeking comment on these from developers.
+
 ## General Information
 
 App.net allows Apps to subscribe to updates when data changes in our system. When an event that you've subscribed to happens, we'll
