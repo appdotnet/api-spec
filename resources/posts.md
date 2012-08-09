@@ -533,3 +533,59 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 ...
 ]
 ```
+
+
+## Retrieve the Global stream
+
+Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s from the Global stream.
+
+### URL
+> https://api.app.net/stream/0/posts/stream/global
+
+### Parameters
+
+*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+
+### Example
+
+> GET https://api.app.net/stream/0/posts/stream/global
+```js
+[{
+    "id": "1", // note this is a string
+    "user": {
+        ...
+    },
+    "created_at": "2012-07-16T17:25:47Z",
+    "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "source": {
+        "name": "Rdio for iOS",
+        "link": "http://rdio.com"
+    },
+    "reply_to": null,
+    "annotations": {
+        "wellknown:geo": {
+            "type": "Point",
+            "coordinates": [102.0, .5]
+        },
+        "rdio:song": ...
+    },
+    "entities": {
+        "mentions": [{
+            "name": "berg",
+            "id": "2",
+            "indices": [0, 4]
+        }],
+        "hashtags": [{
+            "name": "newsocialnetwork",
+            "indices": [34, 50]
+        }],
+        "links": [{
+            "text": "this new site",
+            "url": "https://join.app.net"
+            "indices": [20, 32],
+        }]
+    }
+},
+...
+]
+```
