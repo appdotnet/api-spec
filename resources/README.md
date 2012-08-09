@@ -72,6 +72,11 @@ Guiding principles are:
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream">Retrieve a User's personalized stream</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/posts/stream/global</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-the-global-stream">Retrieve the Global stream</a></td>
+        </tr>        
     </tbody>
 </table>
 
