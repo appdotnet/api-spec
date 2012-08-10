@@ -5,7 +5,7 @@
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object.
 
 ### URL
-> https://api.app.net/stream/1/users/[user_id]
+> https://api.app.net/stream/0/users/[user_id]
 
 ### Parameters
 
@@ -30,7 +30,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 
 ### Example
 
-> GET https://api.app.net/stream/1/users/1
+> GET https://api.app.net/stream/0/users/1
 ```js
 {
     "id": "1", // note this is a string
@@ -79,5 +79,107 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
         "appdotnet": {...},
         "rdio": {...}
     },
+}
+```
+
+## Follow a User
+
+Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being followed.
+
+### URL
+> https://api.app.net/stream/0/users/[user_id]/follow
+
+### Parameters
+
+None.
+
+### Example
+
+> POST https://api.app.net/stream/0/users/1/follow
+```js
+{
+    "app_data": null,
+    "avatar_image": {
+        "height": "500",
+        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
+        "width": "500"
+    },
+    "counts": {
+        "followed_by": "0",
+        "follows": "0",
+        "posts": "0"
+    },
+    "cover_image": {
+        "height": "686",
+        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
+        "width": "1081"
+    },
+    "created_at": "2012-07-25T21:44:03Z",
+    "description": {
+        "entities": {
+            "hashtags": [],
+            "links": [],
+            "mentions": []
+        },
+        "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
+        "text": "Just working on something new"
+    },
+    "id": "1",
+    "locale": "en_US",
+    "name": "Mark Thurman",
+    "timezone": "America/Los_Angeles",
+    "type": "human",
+    "username": "mthurman"
+}
+```
+
+## Unfollow a User
+
+Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being unfollowed.
+
+### URL
+> https://api.app.net/stream/0/users/[user_id]/follow
+
+### Parameters
+
+None.
+
+### Example
+
+> DELETE https://api.app.net/stream/0/users/1/follow
+```js
+{
+    "app_data": null,
+    "avatar_image": {
+        "height": "500",
+        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
+        "width": "500"
+    },
+    "counts": {
+        "followed_by": "0",
+        "follows": "0",
+        "posts": "0"
+    },
+    "cover_image": {
+        "height": "686",
+        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
+        "width": "1081"
+    },
+    "created_at": "2012-07-25T21:44:03Z",
+    "description": {
+        "entities": {
+            "hashtags": [],
+            "links": [],
+            "mentions": []
+        },
+        "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
+        "text": "Just working on something new"
+    },
+    "id": "1",
+    "locale": "en_US",
+    "name": "Mark Thurman",
+    "timezone": "America/Los_Angeles",
+    "type": "human",
+    "username": "mthurman"
 }
 ```

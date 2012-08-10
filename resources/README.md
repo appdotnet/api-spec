@@ -24,6 +24,16 @@ Guiding principles are:
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/follow</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#follow-a-user">Follow a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/follow</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#unfollow-a-user">Unfollow a User</a></td>
+        </tr>
     </tbody>
 </table>
 
