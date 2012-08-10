@@ -104,7 +104,7 @@ doesn't match, return a ```400 BAD REQUEST``` and ignore the update.
 List all the Subscriptions this app is currently subscribed to. **This resource must be accessed with an App access token**.
 
 ### URL
-> https://api.app.net/stream/0/subscriptions
+> https://alpha-api.app.net/stream/0/subscriptions
 
 ### Parameters
 
@@ -112,7 +112,7 @@ None
 
 ### Example
 
-> GET https://api.app.net/stream/0/subscriptions
+> GET https://alpha-api.app.net/stream/0/subscriptions
 ```js
 [
     {
@@ -138,7 +138,7 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 **This resource must be accessed with an App access token**.
 
 ### URL
-> https://api.app.net/stream/0/subscriptions
+> https://alpha-api.app.net/stream/0/subscriptions
 
 ### Data
 
@@ -181,7 +181,7 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 
 ### Example
 
-> POST https://api.app.net/stream/0/subscriptions
+> POST https://alpha-api.app.net/stream/0/subscriptions
 >
 > DATA object=user&verify_token=user%3Apost&aspect=post&callback_url=https%3A%2F%2Fexample.com%2Fwebhooks%2Fapp_net
 ```js
@@ -199,7 +199,7 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 Delete a single subscription. Returns the deleted subscription. **This resource must be accessed with an App access token**.
 
 ### URL
-> https://api.app.net/stream/0/subscriptions/[subscription_id]
+> https://alpha-api.app.net/stream/0/subscriptions/[subscription_id]
 
 ### Data
 
@@ -224,7 +224,7 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/subscriptions/1
+> DELETE https://alpha-api.app.net/stream/0/subscriptions/1
 ```js
 {
     "id": "1"
@@ -241,7 +241,7 @@ Delete all subscriptions for the authorized App. Returns a list of the deleted s
 **This resource must be accessed with an App access token**.
 
 ### URL
-> https://api.app.net/stream/0/subscriptions
+> https://alpha-api.app.net/stream/0/subscriptions
 
 ### Data
 
@@ -249,7 +249,7 @@ None
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/subscriptions
+> DELETE https://alpha-api.app.net/stream/0/subscriptions
 ```js
 [
     {

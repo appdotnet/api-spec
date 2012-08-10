@@ -5,7 +5,7 @@
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object.
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]
+> https://alpha-api.app.net/stream/0/users/[user_id]
 
 ### Parameters
 
@@ -30,7 +30,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 
 ### Example
 
-> GET https://api.app.net/stream/0/users/1
+> GET https://alpha-api.app.net/stream/0/users/1
 ```js
 {
     "id": "1", // note this is a string
@@ -87,7 +87,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being followed.
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/follow
+> https://alpha-api.app.net/stream/0/users/[user_id]/follow
 
 ### Parameters
 
@@ -95,7 +95,7 @@ None.
 
 ### Example
 
-> POST https://api.app.net/stream/0/users/1/follow
+> POST https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
     "app_data": null,
@@ -138,7 +138,7 @@ None.
 Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being unfollowed.
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/follow
+> https://alpha-api.app.net/stream/0/users/[user_id]/follow
 
 ### Parameters
 
@@ -146,7 +146,7 @@ None.
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/users/1/follow
+> DELETE https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
     "app_data": null,

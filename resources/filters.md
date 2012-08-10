@@ -7,7 +7,7 @@
 Return the <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filters</a> for the current user.
 
 ### URL
-> https://api.app.net/stream/0/filters
+> https://alpha-api.app.net/stream/0/filters
 
 ### Parameters
 
@@ -15,7 +15,7 @@ None.
 
 ### Example
 
-> GET https://api.app.net/stream/0/filters
+> GET https://alpha-api.app.net/stream/0/filters
 ```js
 [
     {
@@ -36,7 +36,7 @@ None.
 Create a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> for the current user.
 
 ### URL
-> https://api.app.net/stream/0/filters
+> https://alpha-api.app.net/stream/0/filters
 
 ### Data
 
@@ -61,7 +61,7 @@ Create a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> 
 
 ### Example
 
-> POST https://api.app.net/stream/0/filters
+> POST https://alpha-api.app.net/stream/0/filters
 >
 > POST DATA filter=%7B%27name%27%3A+%27On+the+go%27%2C+%27link_domains%27%3A+%5B%27app.net%27%5D%2C+%27hashtags%27%3A+%5B%27sf%27%5D%2C+%27user_ids%27%3A+%5B%271%27%2C+%272%27%5D%2C+%27mention_user_ids%27%3A+%5B%271%27%5D%2C+%27type%27%3A+%27show%27%2C+%27id%27%3A+%271%27%7D
 ```js
@@ -81,7 +81,7 @@ Create a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> 
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> object.
 
 ### URL
-> https://api.app.net/stream/0/filters/[filter_id]
+> https://alpha-api.app.net/stream/0/filters/[filter_id]
 
 ### Parameters
 
@@ -106,7 +106,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 
 ### Example
 
-> GET https://api.app.net/stream/0/filters/1
+> GET https://alpha-api.app.net/stream/0/filters/1
 ```js
 {
     "id": "1",
@@ -124,7 +124,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>. The Filter must belong to the current User. It returns the deleted Filter on success.
 
 ### URL
-> https://api.app.net/stream/0/[filter_id]
+> https://alpha-api.app.net/stream/0/[filter_id]
 
 ### Data
 
@@ -149,7 +149,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>.
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/1
+> DELETE https://alpha-api.app.net/stream/0/1
 ```js
 {
     "id": "1",

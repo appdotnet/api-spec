@@ -35,7 +35,7 @@ You must keep your client_secret confidential. That means that you may not inclu
 
 1. Direct the user that you want to authenticate to this URL:
     ```
-    https://api.app.net/oauth/authenticate
+    https://alpha.app.net/oauth/authenticate
         ?client_id=[your client ID]
         &response_type=code
         &redirect_uri=[your redirect URI]
@@ -52,7 +52,7 @@ You must keep your client_secret confidential. That means that you may not inclu
     > If you included a query string in your redirect URI, the `code` parameter will be appended. Likewise, the scheme of your redirect URI will be respected, though we strongly recommend sending all traffic over HTTPS.
 
 1. On your server, your application should then make the following request:
-    `POST https://api.app.net/oauth/access_token`
+    `POST https://alpha.app.net/oauth/access_token`
 
     with URL-encoded POST body:
 
@@ -78,7 +78,7 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 1. Direct the user that you want to authenticate to this URL:
     ```
-    https://api.app.net/oauth/authenticate
+    https://alpha.app.net/oauth/authenticate
         ?client_id=[your client ID]
         &response_type=token
         &redirect_uri=[your redirect URI]
@@ -144,13 +144,13 @@ When making a call to one of our API resources, there are three ways to include 
     ```bash
     curl -H 'Authorization: Bearer [access token]' \
          -F 'text=Test post' \
-         https://api.app.net/stream/0/posts
+         https://alpha-api.app.net/stream/0/posts
 
     ```
 
 * Add `access_token` to query string
     ```bash
-    curl https://api.app.net/stream/0/posts/1?access_token=[access token]
+    curl https://alpha-api.app.net/stream/0/posts/1?access_token=[access token]
     ```
 
 * Add `access_token` to HTTP body
@@ -158,5 +158,5 @@ When making a call to one of our API resources, there are three ways to include 
     ```bash
     curl -F 'access_token=[access token]' \
          -F 'text=Test post' \
-         https://api.app.net/stream/0/posts
+         https://alpha-api.app.net/stream/0/posts
     ```

@@ -62,7 +62,7 @@ as a key in the object so it is easy to distinguish from a Post.
 Retrieve a personalized [Stream](#streams) for the current authorized User. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
 
 ### URL
-> https://api.app.net/stream/0/streams/user
+> https://alpha-api.app.net/stream/0/streams/user
 
 ### Parameters
 
@@ -70,7 +70,7 @@ Retrieve a personalized [Stream](#streams) for the current authorized User. This
 
 ### Example
 
-> GET https://api.app.net/stream/0/streams/user
+> GET https://alpha-api.app.net/stream/0/streams/user
 >
 > *See [Response Format](#response-format) for details about the response.*
 
@@ -81,7 +81,7 @@ Retrieve a personalized [Stream](#streams) for the current authorized User. This
 Retrieve a personalized [Stream](#streams) for the specified users. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
 
 ### URL
-> https://api.app.net/stream/0/streams/app
+> https://alpha-api.app.net/stream/0/streams/app
 
 ### Parameters
 
@@ -106,7 +106,7 @@ Retrieve a personalized [Stream](#streams) for the specified users. This endpoin
 
 ### Example
 
-> GET https://api.app.net/stream/0/streams/app?user_ids=%5B%221%22%5D
+> GET https://alpha-api.app.net/stream/0/streams/app?user_ids=%5B%221%22%5D
 >
 > *See [Response Format](#response-format) for details about the response.*
 
@@ -116,7 +116,7 @@ Retrieve a personalized [Stream](#streams) for the specified users. This endpoin
 Retrieve a [Stream](#streams) of all public Posts on App.net.
 
 ### URL
-> https://api.app.net/stream/0/streams/public
+> https://alpha-api.app.net/stream/0/streams/public
 
 ### Parameters
 
@@ -124,7 +124,7 @@ Retrieve a [Stream](#streams) of all public Posts on App.net.
 
 ### Example
 
-> GET https://api.app.net/stream/0/streams/public
+> GET https://alpha-api.app.net/stream/0/streams/public
 >
 > *See [Response Format](#response-format) for details about the response.*
 
@@ -134,7 +134,7 @@ Retrieve a [Stream](#streams) of all public Posts on App.net.
 Retrieve the current status for a specific [Stream](#stream)
 
 ### URL
-> https://api.app.net/stream/0/streams/[stream_id]
+> https://alpha-api.app.net/stream/0/streams/[stream_id]
 
 ### Parameters
 
@@ -159,7 +159,7 @@ Retrieve the current status for a specific [Stream](#stream)
 
 ### Example
 
-> GET https://api.app.net/stream/0/streams/abc123
+> GET https://alpha-api.app.net/stream/0/streams/abc123
 ```js
 {
     "sent": 128,
@@ -173,7 +173,7 @@ Retrieve the current status for a specific [Stream](#stream)
         "value": "join.app.net"
     }],
     "links": {
-        "self": "https://api.app.net/stream/0/streams/abc123"
+        "self": "https://alpha-api.app.net/stream/0/streams/abc123"
     }
 }
 ```
@@ -184,7 +184,7 @@ Retrieve the current status for a specific [Stream](#stream)
 Change the Posts returned in the specified Stream.
 
 ### URL
-> https://api.app.net/stream/0/streams/[stream_id]
+> https://alpha-api.app.net/stream/0/streams/[stream_id]
 
 ### Data
 
@@ -211,7 +211,7 @@ Change the Posts returned in the specified Stream.
 
 ### Example
 
-> POST https://api.app.net/stream/0/streams/abc123
+> POST https://alpha-api.app.net/stream/0/streams/abc123
 >
 > DATA mention=berg
 ```js
@@ -231,7 +231,7 @@ Change the Posts returned in the specified Stream.
         "value": "berg"
     }],
     "links": {
-        "self": "https://api.app.net/stream/0/streams/abc123"
+        "self": "https://alpha-api.app.net/stream/0/streams/abc123"
     }
 }
 ```

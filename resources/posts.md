@@ -60,7 +60,7 @@ Requests for streams of Posts can be filtered by passing query string parameters
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs. To create a link in a post without using a bare URL, include the anchor text in the post's text and include a link entity in the post creation call.
 
 ### URL
-> https://api.app.net/stream/0/posts
+> https://alpha-api.app.net/stream/0/posts
 
 ### Data
 
@@ -103,7 +103,7 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
 
 ### Example
 
-> POST https://api.app.net/stream/0/posts
+> POST https://alpha-api.app.net/stream/0/posts
 > 
 > DATA text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork
 ```js
@@ -136,7 +136,7 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]
+> https://alpha-api.app.net/stream/0/posts/[post_id]
 
 ### Parameters
 
@@ -161,7 +161,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
 
 ### Example
 
-> GET https://api.app.net/stream/0/posts/1
+> GET https://alpha-api.app.net/stream/0/posts/1
 ```js
 {
     "id": "1", // note this is a string
@@ -206,7 +206,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
 Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The current user must be the same user who created the Post. It returns the deleted Post on success.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]
+> https://alpha-api.app.net/stream/0/posts/[post_id]
 
 ### Data
 
@@ -231,7 +231,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/posts/1
+> DELETE https://alpha-api.app.net/stream/0/posts/1
 ```js
 {
     "id": "1", // note this is a string
@@ -276,7 +276,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]/replies
+> https://alpha-api.app.net/stream/0/posts/[post_id]/replies
 
 ### Parameters
 
@@ -303,7 +303,7 @@ Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spe
 
 ### Example
 
-> GET https://api.app.net/stream/0/posts/1/replies
+> GET https://alpha-api.app.net/stream/0/posts/1/replies
 ```js
 [{
     "id": "2", // note this is a string
@@ -339,7 +339,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 *Note: the User object is not returned for these Posts.*
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/posts
+> https://alpha-api.app.net/stream/0/users/[user_id]/posts
 
 ### Parameters
 
@@ -366,7 +366,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 
 ### Example
 
-> GET https://api.app.net/stream/0/users/1/posts
+> GET https://alpha-api.app.net/stream/0/users/1/posts
 ```js
 [{
     "id": "1", // note this is a string
@@ -410,7 +410,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s mentioning by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse chronological order.
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/mentions
+> https://alpha-api.app.net/stream/0/users/[user_id]/mentions
 
 ### Parameters
 
@@ -437,7 +437,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 
 ### Example
 
-> GET https://api.app.net/stream/0/users/2/mentions
+> GET https://alpha-api.app.net/stream/0/users/2/mentions
 ```js
 [{
     "id": "1", // note this is a string
@@ -484,7 +484,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s from the current User and the Users they follow.
 
 ### URL
-> https://api.app.net/stream/0/posts/stream
+> https://alpha-api.app.net/stream/0/posts/stream
 
 ### Parameters
 
@@ -492,7 +492,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 ### Example
 
-> GET https://api.app.net/stream/0/posts/stream
+> GET https://alpha-api.app.net/stream/0/posts/stream
 ```js
 [{
     "id": "1", // note this is a string
@@ -540,7 +540,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s from the Global stream.
 
 ### URL
-> https://api.app.net/stream/0/posts/stream/global
+> https://alpha-api.app.net/stream/0/posts/stream/global
 
 ### Parameters
 
@@ -548,7 +548,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 ### Example
 
-> GET https://api.app.net/stream/0/posts/stream/global
+> GET https://alpha-api.app.net/stream/0/posts/stream/global
 ```js
 [{
     "id": "1", // note this is a string
