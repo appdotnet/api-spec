@@ -271,7 +271,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 }
 ```
 
-## Retrieve the replies to a Post - coming soon
+## Retrieve the replies to a Post
 
 Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
 
