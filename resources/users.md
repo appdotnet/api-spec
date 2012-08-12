@@ -183,3 +183,111 @@ None.
     "username": "mthurman"
 }
 ```
+
+## List users a user is following
+
+Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects the specified user is following.
+
+### URL
+
+> https://alpha-api.app.net/stream/0/users/[user_id]/following
+
+### Parameters
+
+None.
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/users/1/following
+```js
+[
+    {
+        "app_data": null,
+        "avatar_image": {
+            "height": "500",
+            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
+            "width": "500"
+        },
+        "counts": {
+            "followed_by": "0",
+            "follows": "0",
+            "posts": "0"
+        },
+        "cover_image": {
+            "height": "686",
+            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
+            "width": "1081"
+        },
+        "created_at": "2012-07-25T21:44:03Z",
+        "description": {
+            "entities": {
+                "hashtags": [],
+                "links": [],
+                "mentions": []
+            },
+            "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
+            "text": "Just working on something new"
+        },
+        "id": "1",
+        "locale": "en_US",
+        "name": "Mark Thurman",
+        "timezone": "America/Los_Angeles",
+        "type": "human",
+        "username": "mthurman"
+    }
+]
+```
+
+## List users following a user
+
+Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user.
+
+### URL
+
+> https://alpha-api.app.net/stream/0/users/[user_id]/followers
+
+### Parameters
+
+None.
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/users/1/followers
+```js
+[
+    {
+        "app_data": null,
+        "avatar_image": {
+            "height": "500",
+            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
+            "width": "500"
+        },
+        "counts": {
+            "followed_by": "0",
+            "follows": "0",
+            "posts": "0"
+        },
+        "cover_image": {
+            "height": "686",
+            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
+            "width": "1081"
+        },
+        "created_at": "2012-07-25T21:44:03Z",
+        "description": {
+            "entities": {
+                "hashtags": [],
+                "links": [],
+                "mentions": []
+            },
+            "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
+            "text": "Just working on something new"
+        },
+        "id": "1",
+        "locale": "en_US",
+        "name": "Mark Thurman",
+        "timezone": "America/Los_Angeles",
+        "type": "human",
+        "username": "mthurman"
+    }
+]
+```

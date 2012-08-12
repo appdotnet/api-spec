@@ -34,6 +34,16 @@ Guiding principles are:
             <td>DELETE</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#unfollow-a-user">Unfollow a User</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/following</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-a-user-is-following">List users a User is following</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/followers</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-following-a-user">List users following a User</a></td>
+        </tr>
     </tbody>
 </table>
 
