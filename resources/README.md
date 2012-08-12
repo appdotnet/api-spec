@@ -96,11 +96,16 @@ Guiding principles are:
             <td>/stream/0/posts/stream/global</td>
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-the-global-stream">Retrieve the Global stream</a></td>
-        </tr>        
+        </tr>
+        <tr>
+            <td>/stream/0/posts/tag/[hashtag]</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-tagged-posts">Retrieve tagged Posts</a></td>
+        </tr>
     </tbody>
 </table>
 
-### [Streams](/appdotnet/api-spec/blob/master/resources/streams.md)
+## [Streams](/appdotnet/api-spec/blob/master/resources/streams.md) -- coming soon
 <table>
     <thead>
         <tr>
@@ -138,7 +143,7 @@ Guiding principles are:
     </tbody>
 </table>
 
-### [Real-time updates](/appdotnet/api-spec/blob/master/resources/subscriptions.md)
+## [Real-time updates](/appdotnet/api-spec/blob/master/resources/subscriptions.md) -- coming soon
 
 <table>
     <thead>
@@ -172,7 +177,7 @@ Guiding principles are:
     </tbody>
 </table>
 
-### [Filters](/appdotnet/api-spec/blob/master/resources/filters.md)
+## [Filters](/appdotnet/api-spec/blob/master/resources/filters.md) -- coming soon
 
 <table>
     <thead>
