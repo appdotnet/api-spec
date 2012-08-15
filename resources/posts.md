@@ -17,16 +17,28 @@ Requests for streams of Posts can be filtered by passing query string parameters
     </thead>
     <tbody>
         <tr>
-            <td><code>min_id</code></td>
+            <td><code>min_id</code> (<em><a href="#deprecating-min_id-and-max_id">Deprecating</a></em>)</td>
             <td>Optional</td>
             <td>string</td>
-            <td>The minimum Post id to return (the response *will include* this post id if it is valid)</td>
+            <td>The minimum Post id to return (the response *will include* this post id if it is valid).</td>
         </tr>
         <tr>
-            <td><code>max_id</code></td>
+            <td><code>max_id</code> (<em><a href="#deprecating-min_id-and-max_id">Deprecating</a></em>)</td>
             <td>Optional</td>
             <td>string</td>
             <td>The maximum Post id to return (the response *will include* this post id if it is valid)</td>
+        </tr>
+        <tr>
+            <td><code>since_id</code></td>
+            <td>Optional</td>
+            <td>string</td>
+            <td>Include posts with post ids greater than this id. The response <strong>will not include</strong> this post id.</td>
+        </tr>
+        <tr>
+            <td><code>before_id</code></td>
+            <td>Optional</td>
+            <td>string</td>
+            <td>Include posts with post ids smaller than this id. The response <strong>will not include</strong> this post id.</td>
         </tr>
         <tr>
             <td><code>count</code></td>
@@ -55,6 +67,13 @@ Requests for streams of Posts can be filtered by passing query string parameters
     </tbody>
 </table>
 
+### Deprecating min_id and max_id
+
+After thinking through the pagination use cases more, we don't think ```min_id``` and ```max_id``` are the most useful parameters. We're planning on deprecating them in favor of ```since_id``` and ```before_id```. If you have a use case that would benefit from inclusive parameters (```min_id``` and ```max_id```), please [let us know](https://github.com/appdotnet/api-spec/issues).
+
+## Sorting Posts
+
+Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward.
 
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs. To create a link in a post without using a bare URL, include the anchor text in the post's text and include a link entity in the post creation call.
@@ -114,18 +133,31 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "source": {},
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+    "source": {
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
+    },
     "reply_to": null,
-    "annotations": {},
+    "thread_id": "1",
+    "num_replies": 0,
+    "annotations": {
+        "wellknown:geo": {
+            "type": "Point",
+            "coordinates": [102.0, .5]
+        }
+    },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": []
     }
@@ -170,32 +202,37 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 }
@@ -240,32 +277,37 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 }
@@ -312,19 +354,28 @@ Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spe
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@mthurman stop trolling",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
     "source": {
-        "name": "App.net for iPhone",
-        "link": "https://app.net"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": "1",
-    "annotations": {},
+    "thread_id": "1",
+    "num_replies": 0,
+    "annotations": {
+        "wellknown:geo": {
+            "type": "Point",
+            "coordinates": [102.0, .5]
+        }
+    },
     "entities": {
         "mentions": [{
             "name": "mthurman",
-            "id": "1",
-            "indices": [0, 8]
+            "id": "2",
+            "pos": 0,
+            "len": 9
         }],
-        "hashtags": [],
+        "hashtags": [{],
         "links": []
     }
 },
@@ -334,7 +385,7 @@ Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spe
 
 ## Retrieve Posts created by a User
 
-Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s created by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse chronological order.
+Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s created by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse post order.
 
 *Note: the User object is not returned for these Posts.*
 
@@ -370,34 +421,42 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 ```js
 [{
     "id": "1", // note this is a string
+    "user": {
+        ...
+    },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 },
@@ -407,7 +466,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 
 ## Retrieve Posts mentioning a User
 
-Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s mentioning by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse chronological order.
+Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s mentioning by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse post order.
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/mentions
@@ -446,32 +505,37 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 },
@@ -501,32 +565,37 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 },
@@ -557,32 +626,37 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 },
@@ -611,32 +685,37 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
-        "name": "Rdio for iOS",
-        "link": "http://rdio.com"
+        "name": "Clientastic for iOS",
+        "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
             "coordinates": [102.0, .5]
-        },
-        "rdio:song": ...
+        }
     },
     "entities": {
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 },

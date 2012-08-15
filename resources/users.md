@@ -43,16 +43,19 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
            "mentions": [{
                "name": "appdotnet",
                "id": "3",
-               "indices": [52, 62]
+               "pos": 52,
+               "len": 10
            }],
            "hashtags": [{
                "name": "api",
-               "indices": [70, 74]
+               "pos": 70,
+               "len": 4
            }],
            "links": [{
                "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec"
-                   "indices": [29, 41],
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
            }]
         }
     },
@@ -79,6 +82,9 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
         "appdotnet": {...},
         "rdio": {...}
     },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
 }
 ```
 
@@ -98,38 +104,58 @@ None.
 > POST https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
-    "app_data": null,
-    "avatar_image": {
-        "height": "500",
-        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
-        "width": "500"
+    "id": "1", // note this is a string
+    "username": "mthurman",
+    "name": "Mark Thurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "pos": 52,
+               "len": 10
+           }],
+           "hashtags": [{
+               "name": "api",
+               "pos": 70,
+               "len": 4
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
+           }]
+        }
     },
-    "counts": {
-        "followed_by": "0",
-        "follows": "0",
-        "posts": "0"
+    "timezone": "US/Pacific",
+    "locale": "en_US",
+    "avatar_image": {
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
     },
     "cover_image": {
-        "height": "686",
-        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
-        "width": "1081"
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
     },
-    "created_at": "2012-07-25T21:44:03Z",
-    "description": {
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
-        "text": "Just working on something new"
-    },
-    "id": "1",
-    "locale": "en_US",
-    "name": "Mark Thurman",
-    "timezone": "America/Los_Angeles",
     "type": "human",
-    "username": "mthurman"
+    "created_at": "2012-07-16T17:23:34Z",
+    "counts": {
+        "follows": 100,
+        "followed_by": 200,
+        "posts": 24
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
 }
 ```
 
@@ -149,38 +175,58 @@ None.
 > DELETE https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
-    "app_data": null,
-    "avatar_image": {
-        "height": "500",
-        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
-        "width": "500"
+    "id": "1", // note this is a string
+    "username": "mthurman",
+    "name": "Mark Thurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "pos": 52,
+               "len": 10
+           }],
+           "hashtags": [{
+               "name": "api",
+               "pos": 70,
+               "len": 4
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
+           }]
+        }
     },
-    "counts": {
-        "followed_by": "0",
-        "follows": "0",
-        "posts": "0"
+    "timezone": "US/Pacific",
+    "locale": "en_US",
+    "avatar_image": {
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
     },
     "cover_image": {
-        "height": "686",
-        "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
-        "width": "1081"
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
     },
-    "created_at": "2012-07-25T21:44:03Z",
-    "description": {
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
-        "text": "Just working on something new"
-    },
-    "id": "1",
-    "locale": "en_US",
-    "name": "Mark Thurman",
-    "timezone": "America/Los_Angeles",
     "type": "human",
-    "username": "mthurman"
+    "created_at": "2012-07-16T17:23:34Z",
+    "counts": {
+        "follows": 100,
+        "followed_by": 200,
+        "posts": 24
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
+    "follows_you": false,
+    "you_follow": false,
+    "you_muted": false,
 }
 ```
 
@@ -198,43 +244,63 @@ None.
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/following
+> GET https://alpha-api.app.net/stream/0/users/2/following
 ```js
-[
-    {
-        "app_data": null,
-        "avatar_image": {
-            "height": "500",
-            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
-            "width": "500"
-        },
-        "counts": {
-            "followed_by": "0",
-            "follows": "0",
-            "posts": "0"
-        },
-        "cover_image": {
-            "height": "686",
-            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
-            "width": "1081"
-        },
-        "created_at": "2012-07-25T21:44:03Z",
-        "description": {
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
-            "text": "Just working on something new"
-        },
-        "id": "1",
-        "locale": "en_US",
-        "name": "Mark Thurman",
-        "timezone": "America/Los_Angeles",
-        "type": "human",
-        "username": "mthurman"
-    }
+[{
+    "id": "1", // note this is a string
+    "username": "mthurman",
+    "name": "Mark Thurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "pos": 52,
+               "len": 10
+           }],
+           "hashtags": [{
+               "name": "api",
+               "pos": 70,
+               "len": 4
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
+           }]
+        }
+    },
+    "timezone": "US/Pacific",
+    "locale": "en_US",
+    "avatar_image": {
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
+    },
+    "cover_image": {
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
+    },
+    "type": "human",
+    "created_at": "2012-07-16T17:23:34Z",
+    "counts": {
+        "follows": 100,
+        "followed_by": 200,
+        "posts": 24
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
+},
+...
 ]
 ```
 
@@ -252,42 +318,62 @@ None.
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/followers
+> GET https://alpha-api.app.net/stream/0/users/2/followers
 ```js
-[
-    {
-        "app_data": null,
-        "avatar_image": {
-            "height": "500",
-            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/20/00/00/2000000000000000.png",
-            "width": "500"
-        },
-        "counts": {
-            "followed_by": "0",
-            "follows": "0",
-            "posts": "0"
-        },
-        "cover_image": {
-            "height": "686",
-            "url": "https://d2o3sl9fkn83li.cloudfront.net/assets/user/91/00/00/9100000000000000.png",
-            "width": "1081"
-        },
-        "created_at": "2012-07-25T21:44:03Z",
-        "description": {
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">Just working on something new</span>",
-            "text": "Just working on something new"
-        },
-        "id": "1",
-        "locale": "en_US",
-        "name": "Mark Thurman",
-        "timezone": "America/Los_Angeles",
-        "type": "human",
-        "username": "mthurman"
-    }
+[{
+    "id": "1", // note this is a string
+    "username": "mthurman",
+    "name": "Mark Thurman",
+    "description": {
+       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+       "entities": {
+           "mentions": [{
+               "name": "appdotnet",
+               "id": "3",
+               "pos": 52,
+               "len": 10
+           }],
+           "hashtags": [{
+               "name": "api",
+               "pos": 70,
+               "len": 4
+           }],
+           "links": [{
+               "text": "teaching you",
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
+           }]
+        }
+    },
+    "timezone": "US/Pacific",
+    "locale": "en_US",
+    "avatar_image": {
+        "height": 512,
+        "width": 512,
+        "url": "https://example.com/avatar_image.jpg"
+    },
+    "cover_image": {
+        "height": 118,
+        "width": 320,
+        "url": "https://example.com/cover_image.jpg"
+    },
+    "type": "human",
+    "created_at": "2012-07-16T17:23:34Z",
+    "counts": {
+        "follows": 100,
+        "followed_by": 200,
+        "posts": 24
+    },
+    "app_data": {
+        "appdotnet": {...},
+        "rdio": {...}
+    },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
+},
+...
 ]
 ```

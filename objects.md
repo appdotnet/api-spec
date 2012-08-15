@@ -18,16 +18,19 @@ A user is the central object utilized by the App.net Stream API. They have usern
            "mentions": [{
                "name": "appdotnet",
                "id": "3",
-               "indices": [52, 62]
+               "pos": 52,
+               "len": 10
            }],
            "hashtags": [{
                "name": "api",
-               "indices": [70, 74]
+               "pos": 70,
+               "len": 4
            }],
            "links": [{
                "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec"
-                   "indices": [29, 41],
+               "url": "https://github.com/appdotnet/api-spec",
+               "pos": 29,
+               "len": 12
            }]
         }
     },
@@ -54,6 +57,9 @@ A user is the central object utilized by the App.net Stream API. They have usern
         "appdotnet": {...},
         "rdio": {...}
     },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
 }
 ```
 
@@ -68,7 +74,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>id</code></td>
         <td>string</td>
-        <td>Primary identifier for a post. Alphanumeric, always expressed as a string. This idspace is unique to Post objects. There can be a Post and User with the same ID; no relation is implied.</td>
+        <td>Primary identifier for a user. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed. This idspace is unique to User objects. There can be a Post and User with the same ID; no relation is implied.</td>
     </tr>
     <tr>
         <td><code>username</code></td>
@@ -104,7 +110,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 <tr>
                     <td><code>entities</code></td>
                     <td>object</td>
-                    <td>Entities included in biographical information. See information on post entities for reference.</td>
+                    <td>Entities included in biographical information. See information on <a href="#entities">entities</a> for reference.</td>
                 </tr>
             </table>
         </td>
@@ -173,6 +179,21 @@ A user is the central object utilized by the App.net Stream API. They have usern
         <td>object</td>
         <td>Object where each app can store opaque information for this user. This could be useful for storing application state (read pointers, default filters in the app, etc).</td>
     </tr>
+    <tr>
+        <td><code>follows_you</code></td>
+        <td>boolean</td>
+        <td>Does this user follow the user making the request? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>you_follow</code></td>
+        <td>boolean</td>
+        <td>Does the user making the request follow this user? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>you_muted</code></td>
+        <td>boolean</td>
+        <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
+    </tr>
 </table>
 
 ### Images
@@ -201,12 +222,14 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     },
     "created_at": "2012-07-16T17:25:47Z",
     "text": "@berg FIRST post on this new site #newsocialnetwork",
-   "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
     "source": {
         "name": "Clientastic for iOS",
         "link": "http://app.net"
     },
     "reply_to": null,
+    "thread_id": "1",
+    "num_replies": 3,
     "annotations": {
         "wellknown:geo": {
             "type": "Point",
@@ -217,16 +240,19 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         "mentions": [{
             "name": "berg",
             "id": "2",
-            "indices": [0, 4]
+            "pos": 0,
+            "len": 5
         }],
         "hashtags": [{
             "name": "newsocialnetwork",
-            "indices": [34, 50]
+            "pos": 34,
+            "len": 17
         }],
         "links": [{
             "text": "this new site",
             "url": "https://join.app.net"
-            "indices": [20, 32],
+            "pos": 20,
+            "len": 13
         }]
     }
 }
@@ -243,7 +269,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>id</code></td>
         <td>string</td>
-        <td>Always present.</td>
+        <td>Primary identifier for a post. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
     </tr>
     <tr>
         <td><code>user</code></td>
@@ -279,12 +305,12 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
                 <tr>
                     <td><code>name</code></td>
                     <td>string</td>
-                    <td>Description of the API consumer.</td>
+                    <td>Description of the API consumer that created this post.</td>
                 </tr>
                 <tr>
                     <td><code>link</code></td>
                     <td>string</td>
-                    <td>Provided by the API consumer.</td>
+                    <td>Link provided by the API consumer that created this post.</td>
                 </tr>
             </table>
         </td>
@@ -293,6 +319,16 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td><code>reply_to</code></td>
         <td>string</td>
         <td>The id of the post this post is replying to (or <code>null</code> if not a reply).</td>
+    </tr>
+    <tr>
+        <td><code>thread_id</code></td>
+        <td>string</td>
+        <td>The id of the post at the root of the thread that this post is a part of. If <code>thread_id==id</code> than this property does not guarantee that the thread has > 1 post. Please see <code>num_replies</code>.</td>
+    </tr>
+    <tr>
+        <td><code>num_replies</code></td>
+        <td>integer</td>
+        <td>The number of posts created in reply to this post.</td>
     </tr>
     <tr>
         <td><code>annotations</code></td>
@@ -304,6 +340,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td>object</td>
         <td>Rich text information for this post. See the <a href="/appdotnet/api-spec/blob/master/objects.md#entities">entities documentation</a>.</td>
     </tr>
+    <tr>
+        <td><code>is_deleted</code></td>
+        <td>boolean</td>
+        <td>Has this post been deleted? For non-deleted posts, this key may be omitted instead of being <code>false</code>. If a post has been deleted, the <code>text</code>, <code>html</code>, and <code>entities</code> properties will be empty and may be omitted.</td>
+    </tr>
 </table>
 
 * TODOs
@@ -314,7 +355,7 @@ Post annotations are attributes (key, value pairs) that describe the entire post
 
 TODO
 
-### Entities
+## Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
@@ -325,14 +366,15 @@ All of the following examples are about the following post:
 
 > @berg FIRST post on this new site #newsocialnetwork
 
-#### Mentions
+### Mentions
 Bring another user's attention to your post. A mention starts with <code>@</code>.
 
 ```js
 "mentions": [{
     "name": "berg",
     "id": "2",
-    "indices": [0, 4]
+    "pos": 0,
+    "len": 5,
 }]
 ```
 <table>
@@ -352,19 +394,25 @@ Bring another user's attention to your post. A mention starts with <code>@</code
         <td>The user id of the mentioned user.</td>
     </tr>
     <tr>
-        <td><code>indices</code></td>
-        <td>list</td>
-        <td>A 2 element long list which represents what subset of the <code>text</code> is formatted (include @).</td>
+        <td><code>pos</code></td>
+        <td>integer</td>
+        <td>The 0 based index where this entity begins <code>text</code> (include @).</td>
+    </tr>
+    <tr>
+        <td><code>len</code></td>
+        <td>integer</td>
+        <td>The length of the substring in <code>text</code> that represents this mention. Since <code>@</code> is included, <code>len</code> will be the length of the <code>name</code> + 1.</td>
     </tr>
 </table>
 
-#### Hashtags
+### Hashtags
 Tag a post about a specific subject. A hashtag starts with <code>#</code>.
 
 ```js
 "hashtags": [{
     "name": "newsocialnetwork",
-    "indices": [34, 50]
+    "pos": 34,
+    "len": 17
 }]
 ```
 <table>
@@ -379,20 +427,26 @@ Tag a post about a specific subject. A hashtag starts with <code>#</code>.
         <td>The text of the hashtag (not including #).</td>
     </tr>
     <tr>
-        <td><code>indices</code></td>
-        <td>list</td>
-        <td>A 2 element long list which represents what subset of the <code>text</code> is formatted (include #).</td>
+        <td><code>pos</code></td>
+        <td>integer</td>
+        <td>The 0 based index where this entity begins <code>text</code> (include #).</td>
+    </tr>
+    <tr>
+        <td><code>len</code></td>
+        <td>integer</td>
+        <td>The length of the substring in <code>text</code> that represents this hashtag. Since <code>#</code> is included, <code>len</code> will be the length of the <code>name</code> + 1.</td>
     </tr>
 </table>
 
-#### Links
+### Links
 Link to another website.
 
 ```js
 "links": [{
     "text": "this new site",
     "url": "https://join.app.net"
-    "indices": [20, 32],
+    "pos": 20,
+    "len": 13
 }]
 ```
 <table>
@@ -412,9 +466,14 @@ Link to another website.
         <td>The destination url (only http or https accepted).</td>
     </tr>
     <tr>
-        <td><code>indices</code></td>
-        <td>list</td>
-        <td>A 2 element long list which represents what subset of the <code>text</code> is linked.</td>
+        <td><code>pos</code></td>
+        <td>integer</td>
+        <td>The 0 based index where this entity begins <code>text</code>.</td>
+    </tr>
+    <tr>
+        <td><code>len</code></td>
+        <td>integer</td>
+        <td>The length of the substring in <code>text</code> that represents this link.</td>
     </tr>
 </table>
 
@@ -491,4 +550,4 @@ development.
 
 ### Object IDs
 
-If you are storing object IDs, ensure that you store them as strings, not integers. IDs may at some future point contain any printable 7-bit ASCII character, even if these example data structures only have numeric IDs.
+Object ids will always be transferred as strings to avoid issues with with limitations of JavaScript integers. You can assume that object ids are integers.
