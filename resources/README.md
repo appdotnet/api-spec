@@ -60,7 +60,7 @@ Guiding principles are:
         <tr>
             <td>/stream/0/token</td>
             <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/token.md">Check current Token</a></td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/token.md#retrieve-current-token">Check current Token</a></td>
         </tr>
     </tbody>
 </table>
