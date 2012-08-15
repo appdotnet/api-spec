@@ -47,7 +47,7 @@ Guiding principles are:
     </tbody>
 </table>
 
-## [Token](/appdotnet/api-spec/blob/master/resources/token.md)
+## [Token](/appdotnet/api-spec/blob/master/resources/)
 <table>
     <thead>
         <tr>
@@ -60,7 +60,7 @@ Guiding principles are:
         <tr>
             <td>/stream/0/token</td>
             <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/token.md">Check current Token</a></td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/">Check current Token</a></td>
         </tr>
     </tbody>
 </table>
