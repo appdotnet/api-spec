@@ -47,6 +47,25 @@ Guiding principles are:
     </tbody>
 </table>
 
+## [Token](/appdotnet/api-spec/blob/master/resources/token.md)
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Method</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/stream/0/token</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/token.md">Check current Token</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## [Posts](/appdotnet/api-spec/blob/master/resources/posts.md)
 <table>
     <thead>
