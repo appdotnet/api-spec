@@ -9,6 +9,9 @@ Guiding principles are:
 * If we need complex data structures from you, you should send them as a JSON string. We don't need any more conventions for putting arrays and dictionaries directly into URL-encoded GET/POST values.
 * We follow a convention of including the API version number in the resource path. API calls of version 0 are subject to change throughout the process. Once we promote something to version 1, we hope to keep its implementation stable.
 
+## Hostname
+Please use https://alpha-api.app.net/ to access the APIs.
+
 ## [Users](/appdotnet/api-spec/blob/master/resources/users.md)
 <table>
     <thead>
