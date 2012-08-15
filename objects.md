@@ -68,7 +68,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>id</code></td>
         <td>string</td>
-        <td>Primary identifier for a post. Alphanumeric, always expressed as a string. This idspace is unique to Post objects. There can be a Post and User with the same ID; no relation is implied.</td>
+        <td>Primary identifier for a user. Alphanumeric, always expressed as a string. This idspace is unique to User objects. There can be a Post and User with the same ID; no relation is implied.</td>
     </tr>
     <tr>
         <td><code>username</code></td>
