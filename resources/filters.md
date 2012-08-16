@@ -123,6 +123,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 
 Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>. The Filter must belong to the current User. It returns the deleted Filter on success.
 
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
 ### URL
 > https://alpha-api.app.net/stream/0/[filter_id]
 

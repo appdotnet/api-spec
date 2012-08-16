@@ -198,6 +198,8 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 
 Delete a single subscription. Returns the deleted subscription. **This resource must be accessed with an App access token**.
 
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions/[subscription_id]
 
@@ -239,6 +241,8 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
 
 Delete all subscriptions for the authorized App. Returns a list of the deleted subscriptions.
 **This resource must be accessed with an App access token**.
+
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions

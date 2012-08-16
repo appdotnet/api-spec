@@ -47,6 +47,21 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-following-a-user">List users following a User</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/mute</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#mute-a-user">Mute a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/mute</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#unmute-a-user">Unmute a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/muted</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-muted-users">List muted users</a></td>
+        </tr>
     </tbody>
 </table>
 

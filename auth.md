@@ -121,7 +121,7 @@ Here is the current list of scopes on App.net:
 * **stream**: read a user's stream
 * **email**: access a user's email address
 * **write_post**: create a new post as a user
-* **follow**: add or remove follows for this user
+* **follow**: add or remove follows (or mutes) for this user
 * **messages**: send and receive private messages as this user
 * **export**: bulk export all of your App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
@@ -153,7 +153,7 @@ When making a call to one of our API resources, there are three ways to include 
     curl https://alpha-api.app.net/stream/0/posts/1?access_token=[access token]
     ```
 
-* Add `access_token` to HTTP body
+* Add `access_token` to HTTP body. *Note: this method will only work with the ```PUT```, ```POST```, and ```PATCH``` methods. ```GET``` and ```DELETE``` do not accept an HTTP body.*
 
     ```bash
     curl -F 'access_token=[access token]' \

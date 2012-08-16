@@ -78,6 +78,10 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs. To create a link in a post without using a bare URL, include the anchor text in the post's text and include a link entity in the post creation call.
 
+### Required Scopes
+
+* ```write_post```
+
 ### URL
 > https://alpha-api.app.net/stream/0/posts
 
@@ -241,6 +245,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
 ## Delete a Post
 
 Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The current user must be the same user who created the Post. It returns the deleted Post on success.
+
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]
