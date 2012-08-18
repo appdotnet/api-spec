@@ -1,7 +1,5 @@
 # Authentication
 
-**NOTE: These endpoints aren't yet live (nor is the developer dashboard). As we develop them, we're inviting the developers that will consume them to comment on them and help us make them the best they can be. If you've signed up to back the project as a developer, we'll send you a note when you can obtain OAuth credentials.**
-
 As a developer working with App.net, you are required to follow some simple rules to ensure that the privacy and security of user data is protected. To help you achieve that, we've put together this document on how App.net intends to authenticate users.
 
 All requests to the API—authenticated or not—must be made over HTTPS. We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-31) for API authentication, but only certain portions of the specification. For instance, we only support the use of bearer tokens as access tokens. The specification is a little dense on the standards-speak, but we encourage you to take a look. We'll explain our specific use of OAuth 2 in this document.
