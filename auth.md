@@ -10,7 +10,7 @@ Once you have signed up as a developer, you will be able to create an app from t
 
 Once you have created an application, you will be assigned a **client ID** and **client secret**. You will use these in the authenticaion flow. The client ID may be publicly shared (e.g., included in a compiled binary or in the source code of a web page), but the client secret **must** be kept confidential.
 
-You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user.
+You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. **Client tokens** are not enabled yet.
 
 It should go without saying, but for the sake of user privacy and security, please ensure that your App.net account has a **strong password**.
 
