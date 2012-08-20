@@ -42,6 +42,8 @@ You must keep your client_secret confidential. That means that you may not inclu
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
 
+    > To comply with Apple's App Store Guidelines, you can add the query string parameter ```adnview=appstore``` to hide all signup links on the authentication pages.
+
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
 
 1. If the user decides to authorize your application, they will be redirected to:
@@ -84,6 +86,8 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
+
+    > To comply with Apple's App Store Guidelines, you can add the query string parameter ```adnview=appstore``` to hide all signup links on the authentication pages.
 
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
 

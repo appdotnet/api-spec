@@ -196,6 +196,10 @@ A user is the central object utilized by the App.net Stream API. They have usern
     </tr>
 </table>
 
+#### Deprecations
+
+* ```is_following```, ```is_follower```, and ```is_muted``` have all been deprecated and replaced with ```follows_you```, ```you_follow```, and ```you_muted```. These keys should not be used and will be removed from the User object soon.
+
 ### Images
 Images are objects so that app developers can more easily pick the appropriated sized image for different contexts.
 
@@ -347,8 +351,9 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     </tr>
 </table>
 
-* TODOs
-    * Reply model
+#### Deprecations
+
+* ```deleted``` has been deprecated and replaced with ```is_deleted```. This key should not be used and will be removed from the Post object soon.
 
 ### Post Annotations
 Post annotations are attributes (key, value pairs) that describe the entire post. There will be globally defined annotation formats (like geo above) but each application can also define annotations in their own namespace (like the Rdio song).

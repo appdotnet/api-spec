@@ -23,7 +23,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used.</td>
+            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -115,7 +115,7 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id to be followed.</td>
+            <td>The user id to be followed. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -209,7 +209,7 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id to stop following.</td>
+            <td>The user id to stop following. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -298,7 +298,7 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used.</td>
+            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -389,7 +389,7 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used.</td>
+            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -484,7 +484,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The id of the User to mute.</td>
+            <td>The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -578,7 +578,7 @@ Stop hiding all posts for a given user.
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The id of the User to unmute.</td>
+            <td>The id of the User to unmute. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
