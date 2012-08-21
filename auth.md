@@ -10,7 +10,7 @@ Once you have signed up as a developer, you will be able to create an app from t
 
 Once you have created an application, you will be assigned a **client ID** and **client secret**. You will use these in the authenticaion flow. The client ID may be publicly shared (e.g., included in a compiled binary or in the source code of a web page), but the client secret **must** be kept confidential.
 
-You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user.
+You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. **Client tokens** are not enabled yet.
 
 It should go without saying, but for the sake of user privacy and security, please ensure that your App.net account has a **strong password**.
 
@@ -41,6 +41,8 @@ You must keep your client_secret confidential. That means that you may not inclu
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
+
+    > To comply with Apple's App Store Guidelines, you can add the query string parameter ```adnview=appstore``` to hide all signup links on the authentication pages.
 
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
 
@@ -84,6 +86,8 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
     ```
 
     > To avoid cross-site scripting attacks, we also support the **state** paramater. If you include a state parameter, we will append it to the query parameters when redirecting the user to your **Redirection URI**.
+
+    > To comply with Apple's App Store Guidelines, you can add the query string parameter ```adnview=appstore``` to hide all signup links on the authentication pages.
 
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
 

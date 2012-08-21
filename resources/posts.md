@@ -414,7 +414,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used.</td>
+            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -493,7 +493,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             <td><code>user_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used.</td>
+            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
         </tr>
     </tbody>
 </table>
