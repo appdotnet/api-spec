@@ -274,7 +274,8 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>user</code></td>
         <td>object</td>
-        <td>This is an embedded version of the <a href='#user'>User</a> object.</td>
+        <td>This is an embedded version of the <a href='#user'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user
+                account has been deleted), this key may be omitted.</td>
     </tr>
     <tr>
         <td><code>created_at</code></td>
