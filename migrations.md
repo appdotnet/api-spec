@@ -41,6 +41,6 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
         <tr>
             <td>Disable Min/Max ID</td>
             <td>disable_min_max_id</td>
-            <td>Disables the min_id and max_id general parameters on endpoints that return Post objects. The new parameters are since_id and before_id.</td>
+            <td>Disables the min_id and max_id <a href="resources/posts.md#general-parameters">general parameters</a> on endpoints that return Post objects. The new parameters are since_id and before_id.</td>
     </tbody>
 </table>
