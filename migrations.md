@@ -38,5 +38,9 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
             <td>response_envelope</td>
             <td>Wraps all responses in a JSON envelope containing two-top level keys -- <code>meta</code> and <code>data</code>. <code>data</code> will contain the requested item or items (<code>{}</code> or <code>[]</code>) while <code>meta</code> contains <code>code</code> (response code number) and extra info such as any errors or pagination data.</td>
         </tr>
+        <tr>
+            <td>Disable Min/Max ID</td>
+            <td>disable_min_max_id</td>
+            <td>Disables the min_id and max_id general parameters on endpoints that return Post objects. The new parameters are since_id and before_id.</td>
     </tbody>
 </table>
