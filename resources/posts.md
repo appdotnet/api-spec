@@ -47,21 +47,33 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>The number of Posts to return, up to a maximum of 200.</td>
         </tr>
         <tr>
-            <td><code>include_user</code></td>
+            <td><code>include_muted</code></td>
             <td>Optional</td>
-            <td>boolean</td>
+            <td>integer (0 or 1)</td>
+            <td>Should posts from muted users be included? Defaults to false except when you specifically request a Post from a muted user or when you specifically request a muted user's stream.</td>
+        </tr>
+        <tr>
+            <td><code>include_deleted</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should deleted posts be included? Defaults to true.</td>
+        </tr>
+        <tr>
+            <td><code>include_user</code> (<em>Coming soon</em>)</td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
             <td>Should the nested User object be included in the Post? (Default depends upon the endpoint)</td>
         </tr>
         <tr>
-            <td><code>include_annotations</code></td>
+            <td><code>include_annotations</code> (<em>Coming soon</em>)</td>
             <td>Optional</td>
-            <td>boolean</td>
+            <td>integer (0 or 1)</td>
             <td>Should the <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">post annotations</a> be included in the Post? (Default: <code>True</code>)</td>
         </tr>
         <tr>
-            <td><code>include_replies</code></td>
+            <td><code>include_replies</code> (<em>Coming soon</em>)</td>
             <td>Optional</td>
-            <td>boolean</td>
+            <td>integer (0 or 1)</td>
             <td>Should reply Posts be included in the results? (Default: <code>True</code>)</td>
         </tr>
     </tbody>
@@ -321,7 +333,9 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 
 ## Retrieve the replies to a Post
 
-Retrieve the Posts that are 'in reply to' a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
+Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
+
+**This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/replies

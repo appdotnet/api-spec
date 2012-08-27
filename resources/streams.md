@@ -40,8 +40,8 @@ filters, how full the Stream buffer is, etc.) and alter the Stream (adjust filte
 
 The response will be encoded using HTTP ```Transfer-Encoding: chunked```.
 
-The Stream contains frames separated by ```\r\n```. Each frame consists of a message prepended by the length of the message and
-```\r\n```. For example:
+The Stream contains frames separated by ```\r\n```. Each frame consists of a message prepended by the length of the message
+(including the separator). For example:
 
 
     9\r\nHELLO\r\n4\r\n\r\n12\r\nWORLD!!!\r\n

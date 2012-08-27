@@ -215,6 +215,8 @@ Images may be dynamically resized on the server by adding `w` and/or `h` paramet
 one of the parameters is omitted, the omitted dimension will be scaled according to the aspect ratio of the original image. Images
 will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
+**Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
+
 ## Post
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
 
