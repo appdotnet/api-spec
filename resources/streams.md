@@ -61,6 +61,8 @@ as a key in the object so it is easy to distinguish from a Post.
 
 Retrieve a personalized [Stream](#streams) for the current authorized User. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
 
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
 ### URL
 > https://alpha-api.app.net/stream/0/streams/user
 
@@ -79,6 +81,8 @@ Retrieve a personalized [Stream](#streams) for the current authorized User. This
 ## Retrieve a real-time, personalized Stream for multiple Users
 
 Retrieve a personalized [Stream](#streams) for the specified users. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams/app
@@ -115,6 +119,8 @@ Retrieve a personalized [Stream](#streams) for the specified users. This endpoin
 
 Retrieve a [Stream](#streams) of all public Posts on App.net.
 
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
 ### URL
 > https://alpha-api.app.net/stream/0/streams/public
 
@@ -132,6 +138,8 @@ Retrieve a [Stream](#streams) of all public Posts on App.net.
 ## Get Stream status
 
 Retrieve the current status for a specific [Stream](#stream)
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams/[stream_id]
@@ -162,18 +170,25 @@ Retrieve the current status for a specific [Stream](#stream)
 > GET https://alpha-api.app.net/stream/0/streams/abc123
 ```js
 {
-    "sent": 128,
-    "buffer": 0.8,
-    "filters": [{
-        "name": "hashtag",
-        "value": "joinus"
+    "data": {
+        "sent": 128,
+        "buffer": 0.8,
+        "filters": [
+            {
+                "name": "hashtag",
+                "value": "joinus"
+            },
+            {
+                "name": "domain",
+                "value": "join.app.net"
+            }
+        ],
+        "links": {
+            "self": "https://alpha-api.app.net/stream/0/streams/abc123"
+        }
     },
-    {
-        "name": "domain",
-        "value": "join.app.net"
-    }],
-    "links": {
-        "self": "https://alpha-api.app.net/stream/0/streams/abc123"
+    "meta": {
+        "code": 200
     }
 }
 ```
@@ -182,6 +197,8 @@ Retrieve the current status for a specific [Stream](#stream)
 ## Control a Stream
 
 Change the Posts returned in the specified Stream.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams/[stream_id]
@@ -216,22 +233,29 @@ Change the Posts returned in the specified Stream.
 > DATA mention=berg
 ```js
 {
-    "sent": 128,
-    "buffer": 0.8,
-    "filters": [{
-        "name": "hashtag",
-        "value": "joinus"
+    "data": {
+        "sent": 128,
+        "buffer": 0.8,
+        "filters": [
+            {
+                "name": "hashtag",
+                "value": "joinus"
+            },
+            {
+                "name": "domain",
+                "value": "join.app.net"
+            },
+            {
+                "name": "mention",
+                "value": "berg"
+            }
+        ],
+        "links": {
+            "self": "https://alpha-api.app.net/stream/0/streams/abc123"
+        }
     },
-    {
-        "name": "domain",
-        "value": "join.app.net"
-    },
-    {
-        "name": "mention",
-        "value": "berg"
-    }],
-    "links": {
-        "self": "https://alpha-api.app.net/stream/0/streams/abc123"
+    "meta": {
+        "code": 200
     }
 }
 ```

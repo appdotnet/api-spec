@@ -4,6 +4,8 @@
 
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object.
 
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]
 
@@ -33,64 +35,71 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 > GET https://alpha-api.app.net/stream/0/users/1
 ```js
 {
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman",
+        "description": {
+           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+           "entities": {
+               "mentions": [{
+                   "name": "appdotnet",
+                   "id": "3",
+                   "pos": 52,
+                   "len": 10
+               }],
+               "hashtags": [{
+                   "name": "api",
+                   "pos": 70,
+                   "len": 4
+               }],
+               "links": [{
+                   "text": "teaching you",
+                   "url": "https://github.com/appdotnet/api-spec",
+                   "pos": 29,
+                   "len": 12
+               }]
+            }
+        },
+        "timezone": "US/Pacific",
+        "locale": "en_US",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg"
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg"
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "follows": 100,
+            "followed_by": 200,
+            "posts": 24
+        },
+        "app_data": {
+            "appdotnet": {...},
+            "rdio": {...}
+        },
+        "follows_you": false,
+        "you_follow": true,
+        "you_muted": false,
     },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": false,
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
 ## Follow a User
 
 Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being followed.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
 
@@ -125,58 +134,63 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
 > POST https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman",
+        "description": {
+           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+           "entities": {
+               "mentions": [{
+                   "name": "appdotnet",
+                   "id": "3",
+                   "pos": 52,
+                   "len": 10
+               }],
+               "hashtags": [{
+                   "name": "api",
+                   "pos": 70,
+                   "len": 4
+               }],
+               "links": [{
+                   "text": "teaching you",
+                   "url": "https://github.com/appdotnet/api-spec",
+                   "pos": 29,
+                   "len": 12
+               }]
+            }
+        },
+        "timezone": "US/Pacific",
+        "locale": "en_US",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg"
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg"
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "follows": 100,
+            "followed_by": 200,
+            "posts": 24
+        },
+        "app_data": {
+            "appdotnet": {...},
+            "rdio": {...}
+        },
+        "follows_you": false,
+        "you_follow": true,
+        "you_muted": false,
     },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": false,
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
@@ -185,6 +199,8 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
 Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being unfollowed.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
 
@@ -219,64 +235,71 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
 > DELETE https://alpha-api.app.net/stream/0/users/1/follow
 ```js
 {
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman",
+        "description": {
+           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+           "entities": {
+               "mentions": [{
+                   "name": "appdotnet",
+                   "id": "3",
+                   "pos": 52,
+                   "len": 10
+               }],
+               "hashtags": [{
+                   "name": "api",
+                   "pos": 70,
+                   "len": 4
+               }],
+               "links": [{
+                   "text": "teaching you",
+                   "url": "https://github.com/appdotnet/api-spec",
+                   "pos": 29,
+                   "len": 12
+               }]
+            }
+        },
+        "timezone": "US/Pacific",
+        "locale": "en_US",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg"
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg"
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "follows": 100,
+            "followed_by": 200,
+            "posts": 24
+        },
+        "app_data": {
+            "appdotnet": {...},
+            "rdio": {...}
+        },
+        "follows_you": false,
+        "you_follow": false,
+        "you_muted": false,
     },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": false,
-    "you_muted": false,
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
 ## List users a user is following
 
 Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects the specified user is following.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 
@@ -307,67 +330,75 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
 
 > GET https://alpha-api.app.net/stream/0/users/2/following
 ```js
-[{
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
-    },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": false,
-},
-...
-]
+{
+    "data": [
+        {
+            "id": "1", // note this is a string
+            "username": "mthurman",
+            "name": "Mark Thurman",
+            "description": {
+               "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+               "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+               "entities": {
+                   "mentions": [{
+                       "name": "appdotnet",
+                       "id": "3",
+                       "pos": 52,
+                       "len": 10
+                   }],
+                   "hashtags": [{
+                       "name": "api",
+                       "pos": 70,
+                       "len": 4
+                   }],
+                   "links": [{
+                       "text": "teaching you",
+                       "url": "https://github.com/appdotnet/api-spec",
+                       "pos": 29,
+                       "len": 12
+                   }]
+                }
+            },
+            "timezone": "US/Pacific",
+            "locale": "en_US",
+            "avatar_image": {
+                "height": 512,
+                "width": 512,
+                "url": "https://example.com/avatar_image.jpg"
+            },
+            "cover_image": {
+                "height": 118,
+                "width": 320,
+                "url": "https://example.com/cover_image.jpg"
+            },
+            "type": "human",
+            "created_at": "2012-07-16T17:23:34Z",
+            "counts": {
+                "follows": 100,
+                "followed_by": 200,
+                "posts": 24
+            },
+            "app_data": {
+                "appdotnet": {...},
+                "rdio": {...}
+            },
+            "follows_you": false,
+            "you_follow": true,
+            "you_muted": false,
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200
+    }
+}
 ```
 
 ## List users following a user
 
 Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 
@@ -398,68 +429,76 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
 
 > GET https://alpha-api.app.net/stream/0/users/2/followers
 ```js
-[{
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
-    },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": false,
-},
-...
-]
+{
+    "data": [
+        {
+            "id": "1", // note this is a string
+            "username": "mthurman",
+            "name": "Mark Thurman",
+            "description": {
+               "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+               "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+               "entities": {
+                   "mentions": [{
+                       "name": "appdotnet",
+                       "id": "3",
+                       "pos": 52,
+                       "len": 10
+                   }],
+                   "hashtags": [{
+                       "name": "api",
+                       "pos": 70,
+                       "len": 4
+                   }],
+                   "links": [{
+                       "text": "teaching you",
+                       "url": "https://github.com/appdotnet/api-spec",
+                       "pos": 29,
+                       "len": 12
+                   }]
+                }
+            },
+            "timezone": "US/Pacific",
+            "locale": "en_US",
+            "avatar_image": {
+                "height": 512,
+                "width": 512,
+                "url": "https://example.com/avatar_image.jpg"
+            },
+            "cover_image": {
+                "height": 118,
+                "width": 320,
+                "url": "https://example.com/cover_image.jpg"
+            },
+            "type": "human",
+            "created_at": "2012-07-16T17:23:34Z",
+            "counts": {
+                "follows": 100,
+                "followed_by": 200,
+                "posts": 24
+            },
+            "app_data": {
+                "appdotnet": {...},
+                "rdio": {...}
+            },
+            "follows_you": false,
+            "you_follow": true,
+            "you_muted": false,
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200
+    }
+}
 ```
 
 
 ## Mute a User
 
 Hide all posts for a User in all streams. *Note: if you still explicitly request a this User's stream or a Post from this user, it will not be hidden.*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
 
@@ -494,58 +533,63 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 > POST https://api.app.net/stream/0/users/1/mute
 ```js
 {
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman",
+        "description": {
+           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+           "entities": {
+               "mentions": [{
+                   "name": "appdotnet",
+                   "id": "3",
+                   "pos": 52,
+                   "len": 10
+               }],
+               "hashtags": [{
+                   "name": "api",
+                   "pos": 70,
+                   "len": 4
+               }],
+               "links": [{
+                   "text": "teaching you",
+                   "url": "https://github.com/appdotnet/api-spec",
+                   "pos": 29,
+                   "len": 12
+               }]
+            }
+        },
+        "timezone": "US/Pacific",
+        "locale": "en_US",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg"
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg"
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "follows": 100,
+            "followed_by": 200,
+            "posts": 24
+        },
+        "app_data": {
+            "appdotnet": {...},
+            "rdio": {...}
+        },
+        "follows_you": false,
+        "you_follow": true,
+        "you_muted": true,
     },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": true,
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
@@ -554,6 +598,8 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 Stop hiding all posts for a given user.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
 
@@ -588,64 +634,71 @@ Stop hiding all posts for a given user.
 > DELETE https://api.app.net/stream/0/users/1/mute
 ```js
 {
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman",
+        "description": {
+           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+           "entities": {
+               "mentions": [{
+                   "name": "appdotnet",
+                   "id": "3",
+                   "pos": 52,
+                   "len": 10
+               }],
+               "hashtags": [{
+                   "name": "api",
+                   "pos": 70,
+                   "len": 4
+               }],
+               "links": [{
+                   "text": "teaching you",
+                   "url": "https://github.com/appdotnet/api-spec",
+                   "pos": 29,
+                   "len": 12
+               }]
+            }
+        },
+        "timezone": "US/Pacific",
+        "locale": "en_US",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg"
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg"
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "follows": 100,
+            "followed_by": 200,
+            "posts": 24
+        },
+        "app_data": {
+            "appdotnet": {...},
+            "rdio": {...}
+        },
+        "follows_you": false,
+        "you_follow": true,
+        "you_muted": false,
     },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": false,
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
 ## List muted users
 
 List the users muted by the current user. *Note: you can only request this list for the current user.*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://api.app.net/stream/0/users/me/muted
@@ -658,60 +711,66 @@ None.
 
 > GET https://api.app.net/stream/0/users/me/muted
 ```js
-[{
-    "id": "1", // note this is a string
-    "username": "mthurman",
-    "name": "Mark Thurman",
-    "description": {
-       "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-       "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-       "entities": {
-           "mentions": [{
-               "name": "appdotnet",
-               "id": "3",
-               "pos": 52,
-               "len": 10
-           }],
-           "hashtags": [{
-               "name": "api",
-               "pos": 70,
-               "len": 4
-           }],
-           "links": [{
-               "text": "teaching you",
-               "url": "https://github.com/appdotnet/api-spec",
-               "pos": 29,
-               "len": 12
-           }]
-        }
-    },
-    "timezone": "US/Pacific",
-    "locale": "en_US",
-    "avatar_image": {
-        "height": 512,
-        "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
-    },
-    "cover_image": {
-        "height": 118,
-        "width": 320,
-        "url": "https://example.com/cover_image.jpg"
-    },
-    "type": "human",
-    "created_at": "2012-07-16T17:23:34Z",
-    "counts": {
-        "follows": 100,
-        "followed_by": 200,
-        "posts": 24
-    },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
-    "follows_you": false,
-    "you_follow": true,
-    "you_muted": true,
-},
-...
-]
+{
+    "data": [
+        {
+            "id": "1", // note this is a string
+            "username": "mthurman",
+            "name": "Mark Thurman",
+            "description": {
+               "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+               "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+               "entities": {
+                   "mentions": [{
+                       "name": "appdotnet",
+                       "id": "3",
+                       "pos": 52,
+                       "len": 10
+                   }],
+                   "hashtags": [{
+                       "name": "api",
+                       "pos": 70,
+                       "len": 4
+                   }],
+                   "links": [{
+                       "text": "teaching you",
+                       "url": "https://github.com/appdotnet/api-spec",
+                       "pos": 29,
+                       "len": 12
+                   }]
+                }
+            },
+            "timezone": "US/Pacific",
+            "locale": "en_US",
+            "avatar_image": {
+                "height": 512,
+                "width": 512,
+                "url": "https://example.com/avatar_image.jpg"
+            },
+            "cover_image": {
+                "height": 118,
+                "width": 320,
+                "url": "https://example.com/cover_image.jpg"
+            },
+            "type": "human",
+            "created_at": "2012-07-16T17:23:34Z",
+            "counts": {
+                "follows": 100,
+                "followed_by": 200,
+                "posts": 24
+            },
+            "app_data": {
+                "appdotnet": {...},
+                "rdio": {...}
+            },
+            "follows_you": false,
+            "you_follow": true,
+            "you_muted": true,
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200
+    }
+}
 ```

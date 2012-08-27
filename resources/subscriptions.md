@@ -72,22 +72,27 @@ When App.net sends you updates, we will post a JSON string of the following form
 occurred*.
 
 ```js
-[
-    {
-        "subscription_id": "1",
-        "object": "user",
-        "aspect": "post",
-        "object_id": "1",
-        "time": "2012-07-19T23:59:51Z"
-    },
-    {
-        "subscription_id": "2",
-        "object": "user",
-        "aspect": "mention",
-        "object_id": "3",
-        "time": "2012-07-20T00:00:31Z"
+{
+    "data": [
+        {
+            "subscription_id": "1",
+            "object": "user",
+            "aspect": "post",
+            "object_id": "1",
+            "time": "2012-07-19T23:59:51Z"
+        },
+        {
+            "subscription_id": "2",
+            "object": "user",
+            "aspect": "mention",
+            "object_id": "3",
+            "time": "2012-07-20T00:00:31Z"
+        }
+    ],
+    "meta": {
+        "code": 200
     }
-]
+}
 ```
 
 When we send your app updates, we will also include a authentication header so you can verify the update is coming from App.net and
@@ -103,6 +108,8 @@ doesn't match, return a ```400 BAD REQUEST``` and ignore the update.
 
 List all the Subscriptions this app is currently subscribed to. **This resource must be accessed with an App access token**.
 
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions
 
@@ -114,28 +121,35 @@ None
 
 > GET https://alpha-api.app.net/stream/0/subscriptions
 ```js
-[
-    {
-        "id": "1"
-        "object": "user",
-        "aspect": "post",
-        "callback_url": "https://example.com/webhooks/app_net",
-        "created_at": "2012-07-20T00:18:55Z"
-    },
-    {
-        "id": "2"
-        "object": "user",
-        "aspect": "mention",
-        "callback_url": "https://example.com/webhooks/app_net",
-        "created_at": "2012-07-20T00:18:56Z"
+{
+    "data": [
+        {
+            "id": "1"
+            "object": "user",
+            "aspect": "post",
+            "callback_url": "https://example.com/webhooks/app_net",
+            "created_at": "2012-07-20T00:18:55Z"
+        },
+        {
+            "id": "2"
+            "object": "user",
+            "aspect": "mention",
+            "callback_url": "https://example.com/webhooks/app_net",
+            "created_at": "2012-07-20T00:18:56Z"
+        }
+    ],
+    "meta": {
+        "code": 200
     }
-]
+}
 ```
 
 ## Create a Subscription
 
 Create a new subscription. Returns either ```201 CREATED``` or an error status code. Please read the [general subscription information](#general-information) to understand the entire subscription process.
 **This resource must be accessed with an App access token**.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions
@@ -186,11 +200,16 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 > DATA object=user&verify_token=user%3Apost&aspect=post&callback_url=https%3A%2F%2Fexample.com%2Fwebhooks%2Fapp_net
 ```js
 {
-    "id": "1"
-    "object": "user",
-    "aspect": "post",
-    "callback_url": "https://example.com/webhooks/app_net",
-    "created_at": "2012-07-20T00:18:55Z"
+    "data": {
+        "id": "1"
+        "object": "user",
+        "aspect": "post",
+        "callback_url": "https://example.com/webhooks/app_net",
+        "created_at": "2012-07-20T00:18:55Z"
+    },
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
@@ -199,6 +218,8 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 Delete a single subscription. Returns the deleted subscription. **This resource must be accessed with an App access token**.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions/[subscription_id]
@@ -229,11 +250,16 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
 > DELETE https://alpha-api.app.net/stream/0/subscriptions/1
 ```js
 {
-    "id": "1"
-    "object": "user",
-    "aspect": "post",
-    "callback_url": "https://example.com/webhooks/app_net",
-    "created_at": "2012-07-20T00:18:55Z"
+    "data": {
+        "id": "1"
+        "object": "user",
+        "aspect": "post",
+        "callback_url": "https://example.com/webhooks/app_net",
+        "created_at": "2012-07-20T00:18:55Z"
+    },
+    "meta": {
+        "code": 200
+    }
 }
 ```
 
@@ -243,6 +269,8 @@ Delete all subscriptions for the authorized App. Returns a list of the deleted s
 **This resource must be accessed with an App access token**.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions
@@ -255,20 +283,25 @@ None
 
 > DELETE https://alpha-api.app.net/stream/0/subscriptions
 ```js
-[
-    {
-        "id": "1"
-        "object": "user",
-        "aspect": "post",
-        "callback_url": "https://example.com/webhooks/app_net",
-        "created_at": "2012-07-20T00:18:55Z"
-    },
-    {
-        "id": "2"
-        "object": "user",
-        "aspect": "mention",
-        "callback_url": "https://example.com/webhooks/app_net",
-        "created_at": "2012-07-20T00:18:56Z"
+{
+    "data": [
+        {
+            "id": "1"
+            "object": "user",
+            "aspect": "post",
+            "callback_url": "https://example.com/webhooks/app_net",
+            "created_at": "2012-07-20T00:18:55Z"
+        },
+        {
+            "id": "2"
+            "object": "user",
+            "aspect": "mention",
+            "callback_url": "https://example.com/webhooks/app_net",
+            "created_at": "2012-07-20T00:18:56Z"
+        }
+    ],
+    "meta": {
+        "code": 200
     }
-]
+}
 ```

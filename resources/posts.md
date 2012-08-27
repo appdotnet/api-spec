@@ -83,12 +83,45 @@ Requests for streams of Posts can be filtered by passing query string parameters
 
 After thinking through the pagination use cases more, we don't think ```min_id``` and ```max_id``` are the most useful parameters. We're planning on deprecating them in favor of ```since_id``` and ```before_id```. If you have a use case that would benefit from inclusive parameters (```min_id``` and ```max_id```), please [let us know](https://github.com/appdotnet/api-spec/issues).
 
+## Extra Meta Contents
+
+Requests to the Post endpoints that return multiple Posts will also contain meta data about pagination. This data can be found in the response envelope's ```meta``` section.
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>max_id</code></td>
+            <td>string</td>
+            <td>The greatest ID returned in the data set. Inclusive.</td>
+        </tr>
+        <tr>
+            <td><code>min_id</code></td>
+            <td>string</td>
+            <td>The least ID returned in the data set. Inclusive.</td>
+        </tr>
+        <tr>
+            <td><code>more</code></td>
+            <td>boolean</td>
+            <td>If <code>more</code> is <code>true</code>, there are more matches available for the given query than would fit within <code>count</code> objects. If <code>more</code> is <code>false</code>, there are no more matches available.</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Sorting Posts
 
-Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward.
+Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria e.g. before_id and count.
 
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs. To create a link in a post without using a bare URL, include the anchor text in the post's text and include a link entity in the post creation call.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
 
@@ -139,49 +172,56 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/posts
-> 
+>
 > DATA text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork
 ```js
 {
-    "id": "1", // note this is a string
-    "user": {
-        ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 0,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
+    "data": {
+        "id": "1", // note this is a string
+        "user": {
+            ...
+        },
+        "created_at": "2012-07-16T17:25:47Z",
+        "text": "@berg FIRST post on this new site #newsocialnetwork",
+        "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+        "source": {
+            "name": "Clientastic for iOS",
+            "link": "http://app.net"
+        },
+        "reply_to": null,
+        "thread_id": "1",
+        "num_replies": 0,
+        "annotations": {
+            "wellknown:geo": {
+                "type": "Point",
+                "coordinates": [102.0, .5]
+            }
+        },
+        "entities": {
+            "mentions": [{
+                "name": "berg",
+                "id": "2",
+                "pos": 0,
+                "len": 5
+            }],
+            "hashtags": [{
+                "name": "newsocialnetwork",
+                "pos": 34,
+                "len": 17
+            }],
+            "links": []
         }
     },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": []
+    "meta": {
+        "code": 200,
     }
 }
 ```
 
 ## Retrieve a Post
 Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]
@@ -212,44 +252,49 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
 > GET https://alpha-api.app.net/stream/0/posts/1
 ```js
 {
-    "id": "1", // note this is a string
-    "user": {
-        ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
+    "data": {
+        "id": "1", // note this is a string
+        "user": {
+            ...
+        },
+        "created_at": "2012-07-16T17:25:47Z",
+        "text": "@berg FIRST post on this new site #newsocialnetwork",
+        "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+        "source": {
+            "name": "Clientastic for iOS",
+            "link": "http://app.net"
+        },
+        "reply_to": null,
+        "thread_id": "1",
+        "num_replies": 3,
+        "annotations": {
+            "wellknown:geo": {
+                "type": "Point",
+                "coordinates": [102.0, .5]
+            }
+        },
+        "entities": {
+            "mentions": [{
+                "name": "berg",
+                "id": "2",
+                "pos": 0,
+                "len": 5
+            }],
+            "hashtags": [{
+                "name": "newsocialnetwork",
+                "pos": 34,
+                "len": 17
+            }],
+            "links": [{
+                "text": "this new site",
+                "url": "https://join.app.net"
+                "pos": 20,
+                "len": 13
+            }]
         }
     },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+    "meta": {
+        "code": 200,
     }
 }
 ```
@@ -259,6 +304,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
 Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The current user must be the same user who created the Post. It returns the deleted Post on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]
@@ -289,44 +336,49 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 > DELETE https://alpha-api.app.net/stream/0/posts/1
 ```js
 {
-    "id": "1", // note this is a string
-    "user": {
-        ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
+    "data": {
+        "id": "1", // note this is a string
+        "user": {
+            ...
+        },
+        "created_at": "2012-07-16T17:25:47Z",
+        "text": "@berg FIRST post on this new site #newsocialnetwork",
+        "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+        "source": {
+            "name": "Clientastic for iOS",
+            "link": "http://app.net"
+        },
+        "reply_to": null,
+        "thread_id": "1",
+        "num_replies": 3,
+        "annotations": {
+            "wellknown:geo": {
+                "type": "Point",
+                "coordinates": [102.0, .5]
+            }
+        },
+        "entities": {
+            "mentions": [{
+                "name": "berg",
+                "id": "2",
+                "pos": 0,
+                "len": 5
+            }],
+            "hashtags": [{
+                "name": "newsocialnetwork",
+                "pos": 34,
+                "len": 17
+            }],
+            "links": [{
+                "text": "this new site",
+                "url": "https://join.app.net"
+                "pos": 20,
+                "len": 13
+            }]
         }
     },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+    "meta": {
+        "code": 200,
     }
 }
 ```
@@ -336,6 +388,8 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
 Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
 
 **This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/replies
@@ -367,40 +421,49 @@ Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post<
 
 > GET https://alpha-api.app.net/stream/0/posts/1/replies
 ```js
-[{
-    "id": "2", // note this is a string
-    "user": {
+{
+    "data": [
+        {
+            "id": "2", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@mthurman stop trolling",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": "1",
+            "thread_id": "1",
+            "num_replies": 0,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "mthurman",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 9
+                }],
+                "hashtags": [{],
+                "links": []
+            }
+        },
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@mthurman stop trolling",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": "1",
-    "thread_id": "1",
-    "num_replies": 0,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "mthurman",
-            "id": "2",
-            "pos": 0,
-            "len": 9
-        }],
-        "hashtags": [{],
-        "links": []
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
     }
-},
-...
-]
+}
 ```
 
 ## Retrieve Posts created by a User
@@ -408,6 +471,8 @@ Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post<
 Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s created by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse post order.
 
 *Note: the User object is not returned for these Posts.*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/posts
@@ -439,54 +504,65 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 
 > GET https://alpha-api.app.net/stream/0/users/1/posts
 ```js
-[{
-    "id": "1", // note this is a string
-    "user": {
+{
+    "data": [
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+        {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            }
+        },
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "47",
+        "min_id": "1"
+        "more": true
     }
-},
-...
-]
+}
 ```
 
 ## Retrieve Posts mentioning a User
 
 Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s mentioning by a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> in reverse post order.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/mentions
@@ -518,54 +594,65 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
 
 > GET https://alpha-api.app.net/stream/0/users/2/mentions
 ```js
-[{
-    "id": "1", // note this is a string
-    "user": {
+{
+    "data": [
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+        {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            }
+        },
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "36",
+        "min_id": "1",
+        "more": false
     }
-},
-...
-]
+}
 ```
 
 ## Retrieve a User's personalized stream
 
 Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s from the current User and the Users they follow.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/stream
@@ -578,55 +665,66 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 > GET https://alpha-api.app.net/stream/0/posts/stream
 ```js
-[{
-    "id": "1", // note this is a string
-    "user": {
+{
+    "data": [
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+        {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            }
+        },
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "39",
+        "min_id": "1",
+        "more": true
     }
-},
-...
-]
+}
 ```
 
 
 ## Retrieve the Global stream
 
 Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s from the Global stream.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/stream/global
@@ -639,53 +737,64 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/global
 ```js
-[{
-    "id": "1", // note this is a string
-    "user": {
+{
+    "data": [
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+        {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            }
+        },
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "33",
+        "min_id": "1",
+        "more": true
     }
-},
-...
-]
+}
 ```
 ## Retrieve tagged Posts
 
 Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>s for a specific hashtag.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/tag/[hashtag]
@@ -698,47 +807,56 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
 
 > GET https://alpha-api.app.net/stream/0/posts/tag/newsocialnetwork
 ```js
-[{
-    "id": "1", // note this is a string
-    "user": {
+{
+    "data": [
         ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "reply_to": null,
-    "thread_id": "1",
-    "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
-        }
-    },
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
+        {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "annotations": {
+                "wellknown:geo": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            },
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            }
+        },
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "78",
+        "min_id": "1",
+        "more": false
     }
-},
-...
-]
+}
 ```
