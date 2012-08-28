@@ -1,8 +1,6 @@
 # Migrations
 
-> This document describes a feature that is coming soon. We provide the details below so that developers can become acquainted with this new system.
-
-From time to time, we reserve the right to make incremental changes to the API. In order to make it possible to change the API but still support legacy applications, we will make use of migrations. Migrations are a per-app feature that developers may toggle for their own apps from the time that the old behavior is deprecated until the time that it has reached the end of its life (EOL). Once the EOL date is reached, the migration will be enabled for all apps with no legacy mode available.
+We reserve the right to make incremental changes to the API as we deem necessary. In order to make it possible to change the API but still support legacy applications, we will make use of migrations. Migrations are a per-app feature that developers may toggle for their own apps from the time that the old behavior is deprecated until the time that it has reached the end of its life (EOL). Once the EOL date is reached, the migration will be enabled for all apps with no legacy mode available.
 
 ## Accessing Migration Data
 
@@ -27,20 +25,24 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
 <table>
     <thead>
         <tr>
-            <th>Migration (name)</th>
             <th>Key</th>
+            <th>Migration (name)</th>
             <th>Description</th>
+            <th>EOL</th>
         </tr>
     </thead>
     <tbody>
         <tr>
+            <td><code>response_envelope</code></td>
             <td>Response Envelope</td>
-            <td>response_envelope</td>
             <td>Wraps all responses in a JSON envelope containing two-top level keys -- <code>meta</code> and <code>data</code>. <code>data</code> will contain the requested item or items (<code>{}</code> or <code>[]</code>) while <code>meta</code> contains <code>code</code> (response code number) and extra info such as any errors or pagination data. If you are looking for the legacy portion of this envelope, use the contents of <code>data</code>.</td>
+            <td>2012-11-26</td>
         </tr>
         <tr>
+            <td><code>disable_min_max_id</code></td>
             <td>Disable Min/Max ID</td>
-            <td>disable_min_max_id</td>
             <td>Disables the min_id and max_id <a href="resources/posts.md#general-parameters">general parameters</a> on endpoints that return Post objects. The new parameters are since_id and before_id.</td>
+            <td>2012-11-26</td>
+        </tr>
     </tbody>
 </table>

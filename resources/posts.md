@@ -83,37 +83,6 @@ Requests for streams of Posts can be filtered by passing query string parameters
 
 After thinking through the pagination use cases more, we don't think ```min_id``` and ```max_id``` are the most useful parameters. We're planning on deprecating them in favor of ```since_id``` and ```before_id```. If you have a use case that would benefit from inclusive parameters (```min_id``` and ```max_id```), please [let us know](https://github.com/appdotnet/api-spec/issues).
 
-## Extra Meta Contents
-
-Requests to the Post endpoints that return multiple Posts will also contain meta data about pagination. This data can be found in the response envelope's ```meta``` section.
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>max_id</code></td>
-            <td>string</td>
-            <td>The greatest ID returned in the data set. Inclusive.</td>
-        </tr>
-        <tr>
-            <td><code>min_id</code></td>
-            <td>string</td>
-            <td>The least ID returned in the data set. Inclusive.</td>
-        </tr>
-        <tr>
-            <td><code>more</code></td>
-            <td>boolean</td>
-            <td>If <code>more</code> is <code>true</code>, there are more matches available for the given query than would fit within <code>count</code> objects. If <code>more</code> is <code>false</code>, there are no more matches available.</td>
-        </tr>
-    </tbody>
-</table>
-
 ## Sorting Posts
 
 Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria e.g. before_id and count.
