@@ -35,7 +35,7 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
         <tr>
             <td><code>response_envelope</code></td>
             <td>Response Envelope</td>
-            <td>Wraps all responses in a JSON envelope containing two-top level keys -- <code>meta</code> and <code>data</code>. <code>data</code> will contain the requested item or items (<code>{}</code> or <code>[]</code>) while <code>meta</code> contains <code>code</code> (response code number) and extra info such as any errors or pagination data. If you are looking for the legacy portion of this envelope, use the contents of <code>data</code>.</td>
+            <td>Wraps all responses in a JSON <a href="/appdotnet/api-spec/blob/master/responses.md">Response envelope</a>.</td>
             <td>2012-11-26</td>
         </tr>
         <tr>
