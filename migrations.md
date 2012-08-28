@@ -28,6 +28,7 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
             <th>Key</th>
             <th>Migration (name)</th>
             <th>Description</th>
+            <th>EOL</th>
         </tr>
     </thead>
     <tbody>
@@ -35,10 +36,13 @@ All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string 
             <td><code>response_envelope</code></td>
             <td>Response Envelope</td>
             <td>Wraps all responses in a JSON envelope containing two-top level keys -- <code>meta</code> and <code>data</code>. <code>data</code> will contain the requested item or items (<code>{}</code> or <code>[]</code>) while <code>meta</code> contains <code>code</code> (response code number) and extra info such as any errors or pagination data. If you are looking for the legacy portion of this envelope, use the contents of <code>data</code>.</td>
+            <td>2012-11-26</td>
         </tr>
         <tr>
             <td><code>disable_min_max_id</code></td>
             <td>Disable Min/Max ID</td>
             <td>Disables the min_id and max_id <a href="resources/posts.md#general-parameters">general parameters</a> on endpoints that return Post objects. The new parameters are since_id and before_id.</td>
+            <td>2012-11-26</td>
+        </tr>
     </tbody>
 </table>
