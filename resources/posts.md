@@ -59,6 +59,12 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Should deleted posts be included? Defaults to true.</td>
         </tr>
         <tr>
+            <td><code>include_directed_posts</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. Defaults to false for "My Stream" and true everywhere else.</td>
+        </tr>
+        <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
@@ -69,12 +75,6 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should the <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">post annotations</a> be included in the Post? (Default: <code>True</code>)</td>
-        </tr>
-        <tr>
-            <td><code>include_replies</code> (<em>Coming soon</em>)</td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should reply Posts be included in the results? (Default: <code>True</code>)</td>
         </tr>
     </tbody>
 </table>
@@ -119,7 +119,9 @@ Requests to the Post endpoints that return multiple Posts will also contain meta
 Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria e.g. before_id and count.
 
 ## Create a Post
-Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs. To create a link in a post without using a bare URL, include the anchor text in the post's text and include a link entity in the post creation call.
+Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
+
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text``` and ```reply_to```. Once we accept complex posts (annotations, links with anchor text that isn't the url, etc.), you must use the JSON interface.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -153,18 +155,6 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> 
             <td>Optional</td>
             <td>string</td>
             <td>The id of the post that this new post is replying to</td>
-        </tr>
-        <tr>
-            <td><code>annotations</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>A JSON string that contains extended information about the Post as described in <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">the post annotations documentation</a>.</td>
-        </tr>
-        <tr>
-            <td><code>links</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>A JSON string that contains formatting information for links when the anchor text is different than the URL. The JSON must follow the <a href="/appdotnet/api-spec/blob/master/objects.md#links">links entity specification</a>.</td>
         </tr>
     </tbody>
 </table>
