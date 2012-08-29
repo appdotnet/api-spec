@@ -31,16 +31,6 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
             <td>The passed OAuth token was not valid. It may have been corrupted or missing some of its data</td>
         </tr>
         <tr>
-            <td><code>code-used</code></td>
-            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
-            <td>The passed OAuth <code>code</code> was already used to generate a token.</td>
-        </tr>
-        <tr>
-            <td><code>redirect-uri-required</code></td>
-            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
-            <td>The call to access_token must include <code>redirect_uri</code>.</td>
-        </tr>
-        <tr>
             <td><code>not-authorized</code></td>
             <td>global</td>
             <td>The User for the given token has likely explicitly revoked access to your App. You may wish to reauthenticate that User.</td>
@@ -49,6 +39,16 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
             <td><code>token-expired</code></td>
             <td>global</td>
             <td>The passed token (or code) has reached the end of its lifetime. A new token will have to be generated.</td>
+        </tr>
+        <tr>
+            <td><code>code-used</code></td>
+            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
+            <td>The passed OAuth <code>code</code> was already used to generate a token.</td>
+        </tr>
+        <tr>
+            <td><code>redirect-uri-required</code></td>
+            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
+            <td>The call to access_token must include <code>redirect_uri</code>.</td>
         </tr>
     </tbody>
 </table>
