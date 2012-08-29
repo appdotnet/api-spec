@@ -47,7 +47,7 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
         </tr>
         <tr>
             <td><code>token-expired</code></td>
-            <td>glboal</td>
+            <td>global</td>
             <td>The passed token (or code) has reached the end of its lifetime. A new token will have to be generated.</td>
         </tr>
     </tbody>
