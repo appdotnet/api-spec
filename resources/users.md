@@ -299,7 +299,7 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
 
 Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects the specified user is following.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+> This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 
@@ -389,7 +389,10 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
         ...
     ],
     "meta": {
-        "code": 200
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": true
     }
 }
 ```
@@ -398,7 +401,7 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
 
 Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+> This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
 
@@ -488,7 +491,10 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
         ...
     ],
     "meta": {
-        "code": 200
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": true
     }
 }
 ```
