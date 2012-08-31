@@ -27,8 +27,8 @@ Right now, we're still working with developers to build out this system. As App.
 First here are some of the more technical details of annotations:
 
 - Each annotation can be thought of as a dictionary or JSON object.
-- Each Post have have at most 8kB worth of annotations (when serialized as JSON).
-- Annotations are immutable and this can only be added to a Post at creation time
+- Each Post have have at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Annotations are immutable and can only be added to a Post at creation time.
 
 #### Annotation format
 
@@ -90,10 +90,20 @@ Annotations are currently live on in the API. To create them you must give App.n
 
 #### Displaying annotations
 
-Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a published schema.
+Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a published schema. Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8kB, they are not included with posts be default. When you make a request for posts, you can include the parameter ```include_annoations=1``` to receive the annotations object. See [general Post parameters](github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information
+Since annotations can be up to 8192 bytes, they are not included with posts be default. When you make a request for posts, you can include the parameter ```include_annoations=1``` to receive the annotations object. See [general Post parameters](github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
 
 # Annotations formats #
 
 Since annotations are just launching, we invite the community to propose schemas and collaborate on them. In the next week, we hope to publish common formats for things like photos, other media, and geographic data. To propose these formats, please [open an issue]() and tag it with the ```annotations``` label. Once a schema is accepted, it will be published here.
+
+We will be defining annotations soon for the following types of data:
+
+* Geographic data
+* Media enclosures, e.g., photos, video, etc.
+* Long-form content
+* Attribution and source
+* Additional content license grants, where users can opt in to Creative Commons licensing, etc., if desired.
+
+Developers are invited to create ad-hoc annotations for data not well represented here; if possible, care should be taken not to overlap with existing annotations. If possible, Posts with ad-hoc annotations designed to address edge-cases in well-known annotations should include both the well-known annotation and only the augmented parts in the ad-hoc annotation.
