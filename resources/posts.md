@@ -65,16 +65,16 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. Defaults to false for "My Stream" and true everywhere else.</td>
         </tr>
         <tr>
+            <td><code>include_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should the <a href="/appdotnet/api-spec/blob/master/annotaions.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+        </tr>
+        <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should the nested User object be included in the Post? (Default depends upon the endpoint)</td>
-        </tr>
-        <tr>
-            <td><code>include_annotations</code> (<em>Coming soon</em>)</td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should the <a href="/appdotnet/api-spec/blob/master/objects.md#post-annotations">post annotations</a> be included in the Post? (Default: <code>True</code>)</td>
         </tr>
     </tbody>
 </table>
@@ -90,7 +90,7 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text``` and ```reply_to```. Once we accept complex posts (annotations, links with anchor text that isn't the url, etc.), you must use the JSON interface.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, and ```annotations```. To create complex posts, you must use the JSON interface.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
