@@ -27,7 +27,7 @@ Right now, we're still working with developers to build out this system. As App.
 First here are some of the more technical details of annotations:
 
 - Each annotation can be thought of as a dictionary or JSON object.
-- Each Post have have at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Each Post is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
 - Annotations are immutable and can only be added to a Post at creation time.
 
 #### Annotation format
