@@ -6,7 +6,7 @@ We're really excited to be launching this feature and appreciate any feedback on
 
 ## Concretely, what are annotations
 
-Let's say I'm at a restaurant eating a great dinner, but instead of just telling my followers about this restaurant I want them to be able to see a map of where it is. My Post could include geographic information about the address for the restaurant and then clients that support this geographic annotation could show the restaurant on a map (in addition to showing my post). If the restaurant is on [OpenTable](www.opentable.com), I could include an annotation indicating that and my followers could see the menu and make a reservation in their own App.net client. Annotations are what power complex posts with maps, pictures, videos, etc.
+Let's say I'm at a restaurant eating a great dinner, but instead of just telling my followers about this restaurant I want them to be able to see a map of where it is. My Post could include geographic information about the address for the restaurant and then clients that support this geographic annotation could show the restaurant on a map (in addition to showing my post). If the restaurant is on [OpenTable](http://www.opentable.com), I could include an annotation indicating that and my followers could see the menu and make a reservation in their own App.net client. Annotations are what power complex posts with maps, pictures, videos, etc.
 
 ## As a developer, why should I use annotations
 
@@ -86,17 +86,17 @@ The ```post.annotations``` field will be a list of individual annotation objects
 
 #### Creating annotations
 
-Annotations are currently live on in the API. To create them you must give App.net a well-formed JSON encoded post that matches the [Post schema](github.com/appdotnet/api-spec/blob/master/objects.md#post). Please see the [Create Post](github.com/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post) documentations for more information.
+Annotations are currently live on in the API. To create them you must give App.net a well-formed JSON encoded post that matches the [Post schema](https://github.com/appdotnet/api-spec/blob/master/objects.md#post). Please see the [Create Post](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post) documentations for more information.
 
 #### Displaying annotations
 
 Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a published schema. Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8192 bytes, they are not included with posts be default. When you make a request for posts, you can include the parameter ```include_annoations=1``` to receive the annotations object. See [general Post parameters](github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
+Since annotations can be up to 8192 bytes, they are not included with posts be default. When you make a request for posts, you can include the parameter ```include_annoations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
 
 # Annotations formats #
 
-Since annotations are just launching, we invite the community to propose schemas and collaborate on them. In the next week, we hope to publish common formats for things like photos, other media, and geographic data. To propose these formats, please [open an issue]() and tag it with the ```annotations``` label. Once a schema is accepted, it will be published here.
+Since annotations are just launching, we invite the community to propose schemas and collaborate on them. In the next week, we hope to publish common formats for things like photos, other media, and geographic data. To propose these formats, please [open an issue](https://github.com/appdotnet/api-spec/issues) and tag it with the ```annotations``` label. Once a schema is accepted, it will be published here.
 
 We will be defining annotations soon for the following types of data:
 
