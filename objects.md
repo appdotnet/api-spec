@@ -359,9 +359,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 * ```deleted``` has been deprecated and replaced with ```is_deleted```. This key should not be used and will be removed from the Post object soon.
 
 ### Post Annotations
-Post annotations are attributes (key, value pairs) that describe the entire post. There will be globally defined annotation formats (like geo above) but each application can also define annotations in their own namespace (like the Rdio song).
-
-TODO
+Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](github.com/appdotnet/api-spec/blob/master/annotations.md) for more information
 
 ## Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
