@@ -236,12 +236,15 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     "reply_to": null,
     "thread_id": "1",
     "num_replies": 3,
-    "annotations": {
-        "wellknown:geo": {
-            "type": "Point",
-            "coordinates": [102.0, .5]
+    "annotations": [
+        {
+            "type": "net.app.core.geo",
+            "value": {
+                "type": "Point",
+                "coordinates": [102.0, .5]
+            }
         }
-    },
+    ],
     "entities": {
         "mentions": [{
             "name": "berg",
@@ -359,7 +362,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 * ```deleted``` has been deprecated and replaced with ```is_deleted```. This key should not be used and will be removed from the Post object soon.
 
 ### Post Annotations
-Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](github.com/appdotnet/api-spec/blob/master/annotations.md) for more information
+Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](github.com/appdotnet/api-spec/blob/master/annotations.md) for more information.
 
 ## Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.

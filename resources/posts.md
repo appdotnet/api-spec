@@ -90,7 +90,7 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, and ```annotations```. To create complex posts, you must use the JSON interface.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, and ```annotations```. To create complex posts, you must use the JSON interface. See the [JSON example](#json-example) below.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -150,12 +150,58 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 0,
-        "annotations": {
-            "wellknown:geo": {
-                "type": "Point",
-                "coordinates": [102.0, .5]
-            }
+        "entities": {
+            "mentions": [{
+                "name": "berg",
+                "id": "2",
+                "pos": 0,
+                "len": 5
+            }],
+            "hashtags": [{
+                "name": "newsocialnetwork",
+                "pos": 34,
+                "len": 17
+            }],
+            "links": []
+        }
+    },
+    "meta": {
+        "code": 200,
+    }
+}
+```
+
+### JSON Example
+
+> POST https://alpha-api.app.net/stream/0/posts?include_annotations=1
+> Content-Type: application/json
+> DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geo", "value": {"type": "Point", "coordinates": [102.0, 0.5]}}]}'
+```js
+{
+    "data": {
+        "id": "1", // note this is a string
+        "user": {
+            ...
         },
+        "created_at": "2012-07-16T17:25:47Z",
+        "text": "@berg FIRST post on this new site #newsocialnetwork",
+        "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+        "source": {
+            "name": "Clientastic for iOS",
+            "link": "http://app.net"
+        },
+        "reply_to": null,
+        "thread_id": "1",
+        "num_replies": 0,
+        "annotations": [
+            {
+                "type": "net.app.core.geo",
+                "value": {
+                    "type": "Point",
+                    "coordinates": [102.0, .5]
+                }
+            }
+        ],
         "entities": {
             "mentions": [{
                 "name": "berg",
@@ -226,12 +272,6 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 3,
-        "annotations": {
-            "wellknown:geo": {
-                "type": "Point",
-                "coordinates": [102.0, .5]
-            }
-        },
         "entities": {
             "mentions": [{
                 "name": "berg",
@@ -310,12 +350,6 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 3,
-        "annotations": {
-            "wellknown:geo": {
-                "type": "Point",
-                "coordinates": [102.0, .5]
-            }
-        },
         "entities": {
             "mentions": [{
                 "name": "berg",
@@ -397,12 +431,6 @@ Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post<
             "reply_to": "1",
             "thread_id": "1",
             "num_replies": 0,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "mthurman",
@@ -481,12 +509,6 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "berg",
@@ -571,12 +593,6 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "berg",
@@ -642,12 +658,6 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "berg",
@@ -714,12 +724,6 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "berg",
@@ -784,12 +788,6 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
-            "annotations": {
-                "wellknown:geo": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
-                }
-            },
             "entities": {
                 "mentions": [{
                     "name": "berg",

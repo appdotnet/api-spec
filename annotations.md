@@ -92,7 +92,7 @@ Annotations are currently live on in the API. To create them you must give App.n
 
 Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a published schema. Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8192 bytes, they are not included with posts be default. When you make a request for posts, you can include the parameter ```include_annotations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
+Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts, you can include the parameter ```include_annotations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
 
 # Annotations formats #
 
