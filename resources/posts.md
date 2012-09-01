@@ -68,7 +68,7 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>include_annotations</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should the <a href="/appdotnet/api-spec/blob/master/annotaions.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+            <td>Should the <a href="/appdotnet/api-spec/blob/master/annotations.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>
