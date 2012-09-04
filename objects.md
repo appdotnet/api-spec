@@ -49,8 +49,8 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "type": "human",
     "created_at": "2012-07-16T17:23:34Z",
     "counts": {
-        "follows": 100,
-        "followed_by": 200,
+        "following": 100,
+        "followers": 200,
         "posts": 24
     },
     "app_data": {
@@ -157,12 +157,12 @@ A user is the central object utilized by the App.net Stream API. They have usern
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td><code>follows</code></td>
+                    <td><code>following</code></td>
                     <td>integer</td>
                     <td>The number of users this user is following.</td>
                 </tr>
                 <tr>
-                    <td><code>followed_by</code></td>
+                    <td><code>followers</code></td>
                     <td>integer</td>
                     <td>The number of users following this user.</td>
                 </tr>

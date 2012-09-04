@@ -77,8 +77,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
         "counts": {
-            "follows": 100,
-            "followed_by": 200,
+            "following": 100,
+            "followers": 200,
             "posts": 24
         },
         "app_data": {
@@ -176,8 +176,8 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
         "counts": {
-            "follows": 100,
-            "followed_by": 200,
+            "following": 100,
+            "followers": 200,
             "posts": 24
         },
         "app_data": {
@@ -277,8 +277,8 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
         "counts": {
-            "follows": 100,
-            "followed_by": 200,
+            "following": 100,
+            "followers": 200,
             "posts": 24
         },
         "app_data": {
@@ -374,8 +374,8 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
             "counts": {
-                "follows": 100,
-                "followed_by": 200,
+                "following": 100,
+                "followers": 200,
                 "posts": 24
             },
             "app_data": {
@@ -476,8 +476,8 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
             "counts": {
-                "follows": 100,
-                "followed_by": 200,
+                "following": 100,
+                "followers": 200,
                 "posts": 24
             },
             "app_data": {
@@ -581,8 +581,8 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
         "counts": {
-            "follows": 100,
-            "followed_by": 200,
+            "following": 100,
+            "followers": 200,
             "posts": 24
         },
         "app_data": {
@@ -682,8 +682,8 @@ Stop hiding all posts for a given user.
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
         "counts": {
-            "follows": 100,
-            "followed_by": 200,
+            "following": 100,
+            "followers": 200,
             "posts": 24
         },
         "app_data": {
@@ -761,8 +761,8 @@ None.
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
             "counts": {
-                "follows": 100,
-                "followed_by": 200,
+                "following": 100,
+                "followers": 200,
                 "posts": 24
             },
             "app_data": {

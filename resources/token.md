@@ -69,8 +69,8 @@ None.
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
             "counts": {
-                "follows": 100,
-                "followed_by": 200,
+                "following": 100,
+                "followers": 200,
                 "posts": 24
             },
             "app_data": {
