@@ -97,7 +97,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 
 ## Follow a User
 
-Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being followed.
+Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> object of the user being followed. 
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -297,7 +297,7 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
 
 ## List users a user is following
 
-Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects the specified user is following.
+Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects the specified user is following. Please note that the pagination is not based on user or post ids.
 
 > This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -399,7 +399,7 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
 
 ## List users following a user
 
-Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user.
+Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
 
 > This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
