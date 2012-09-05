@@ -233,6 +233,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         "name": "Clientastic for iOS",
         "link": "http://app.net"
     },
+    "machine_only": false,
     "reply_to": null,
     "thread_id": "1",
     "num_replies": 3,
@@ -355,6 +356,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td>boolean</td>
         <td>Has this post been deleted? For non-deleted posts, this key may be omitted instead of being <code>false</code>. If a post has been deleted, the <code>text</code>, <code>html</code>, and <code>entities</code> properties will be empty and may be omitted.</td>
     </tr>
+    <tr>
+        <td><code>machine_only</code></td>
+        <td>boolean</td>
+        <td>Is this Post meant for humans or other apps? See <a href="#machine-only-posts">Machine only Posts</a> for more information.</td>
+    </tr>
 </table>
 
 #### Deprecations
@@ -363,6 +369,9 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 
 ### Post Annotations
 Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](annotations.md) for more information.
+
+#### Machine only Posts
+Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense in Alpha's Global Feed?"
 
 ## Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.

@@ -71,6 +71,12 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Should the <a href="/appdotnet/api-spec/blob/master/annotations.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
+            <td><code>include_machine</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/appdotnet/api-spec/blob/master/objects.md#machine-only-posts">machine only posts</a> be included? (Default: <code>False</code>)</td>
+        </tr>
+        <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
@@ -90,7 +96,7 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, and ```annotations```. To create complex posts, you must use the JSON interface. See the [JSON example](#json-example) below.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only``` and ```annotations```. To create complex posts, you must use the JSON interface. See the [JSON example](#json-example) below.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -147,6 +153,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
+        "machine_only": false,
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 0,
@@ -190,6 +197,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
+        "machine_only": false,
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 0,
@@ -269,6 +277,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
+        "machine_only": false,
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 3,
@@ -347,6 +356,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
+        "machine_only": false,
         "reply_to": null,
         "thread_id": "1",
         "num_replies": 3,
@@ -428,6 +438,7 @@ Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post<
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": "1",
             "thread_id": "1",
             "num_replies": 0,
@@ -506,6 +517,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
@@ -590,6 +602,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
@@ -655,6 +668,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
@@ -721,6 +735,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
@@ -785,6 +800,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
+            "machine_only": false,
             "reply_to": null,
             "thread_id": "1",
             "num_replies": 3,
