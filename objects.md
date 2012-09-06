@@ -237,6 +237,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     "reply_to": null,
     "thread_id": "1",
     "num_replies": 3,
+    "num_stars": 1,
     "annotations": [
         {
             "type": "net.app.core.geo",
@@ -264,7 +265,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
             "pos": 20,
             "len": 13
         }]
-    }
+    },
+    "you_starred": false,
+    "starred_by": [
+        ...users...
+    ]
 }
 ```
 
@@ -342,8 +347,13 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td>The number of posts created in reply to this post.</td>
     </tr>
     <tr>
+        <td><code>num_stars</code></td>
+        <td>integer</td>
+        <td>The number of users who have starred this post.</td>
+    </tr>
+    <tr>
         <td><code>annotations</code></td>
-        <td>object</td>
+        <td>list</td>
         <td>Metadata about the entire post. See the <a href="/appdotnet/api-spec/blob/master/objects.md#annotations">annotations documentation</a>.</td>
     </tr>
     <tr>
@@ -360,6 +370,16 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td><code>machine_only</code></td>
         <td>boolean</td>
         <td>Is this Post meant for humans or other apps? See <a href="#machine-only-posts">Machine only Posts</a> for more information.</td>
+    </tr>
+    <tr>
+        <td><code>you_starred</code></td>
+        <td>boolean</td>
+        <td>Have you starred this Post?</td>
+    </tr>
+    <tr>
+        <td><code>starred_by</code></td>
+        <td>list</td>
+        <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows.</td>
     </tr>
 </table>
 

@@ -62,6 +62,11 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-muted-users">List muted users</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/posts/[post_id]/stars</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-who-have-starred-a-post">List Users who have starred a Post</a></td>
+        </tr>
     </tbody>
 </table>
 
@@ -118,6 +123,21 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>/stream/0/users/[user_id]/posts</td>
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-created-by-a-user">Retrieve Posts created by a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts/[post_id]/star</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#star-a-post">Star a Post</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts/[post_id]/star</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#unstar-a-post">Unstar a Post</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/stars</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-starred-by-a-user">Retrieve Posts starred by a User</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/[user_id]/mentions</td>
