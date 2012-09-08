@@ -44,7 +44,7 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>count</code></td>
             <td>Optional</td>
             <td>integer</td>
-            <td>The number of Posts to return, up to a maximum of 200. <s><strong>If count is negative, the oldest posts matching the query will be returned.</strong> In that case, the absolute value of count will be used in determining how many posts will be retrieved.</s>Sorry, this is temporarily disabled.</td>
+            <td>The number of Posts to return, up to a maximum of 200. Sorry, negative counts are temporarily disabled.</td>
         </tr>
         <tr>
             <td><code>include_muted</code></td>
