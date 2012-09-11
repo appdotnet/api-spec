@@ -12,6 +12,8 @@ The App.net Stream API Spec project is just one part of the App.net movement. If
 imperfect in many ways.** In particular, we're not done implementing all of the endpoints that you see here, and sometimes what we
 have written differs from this documentation. If you're running in to issues, drop us a line and we'll try to help.
 
+**If you're submitting your application to one of Apple's App Stores, be sure you follow the special instructions for modifying your login flow in the [Authentication](/appdotnet/api-spec/blog/master/auth.md) or your app will be rejected.**
+
 ## Table of Contents
 
 * [Object definitions](/appdotnet/api-spec/blob/master/objects.md)
