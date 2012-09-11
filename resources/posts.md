@@ -102,7 +102,7 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only``` and ```annotations```. To create complex posts, you must use the JSON interface. See the [JSON example](#json-example) below.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only``` and ```annotations```. To create complex posts (including [machine only posts](/appdotnet/api-spec/blob/master/objects.md#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 

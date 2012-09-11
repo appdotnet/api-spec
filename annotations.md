@@ -92,20 +92,101 @@ Annotations are currently live on in the API. To create them you must give App.n
 
 #### Displaying annotations
 
-Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a published schema. Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
+Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
 Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts, you can include the parameter ```include_annotations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
 
-# Annotations formats #
+# Annotations formats
 
-Since annotations are just launching, we invite the community to propose schemas and collaborate on them. In the next week, we hope to publish common formats for things like photos, other media, and geographic data. To propose these formats, please [open an issue](https://github.com/appdotnet/api-spec/issues) and tag it with the ```annotations``` label. Once a schema is accepted, it will be published here.
+Since annotations are just launching, we invite the community to propose schemas and collaborate on them. App.net is currently working with the community to define common schemas for things like photos, other media, and geographic data. To propose these formats, please [open an issue](https://github.com/appdotnet/api-spec/issues) and tag it with the ```annotations``` label.
 
-We will be defining annotations soon for the following types of data:
+Some annotations are core to the platform and their schemas will be [published below](#core-annotations). Other schemas may be useful across multiple App.net apps, but not be "core" to the platform. The community has started a page on the [App.net API wiki](https://github.com/appdotnet/api-spec/wiki/Annotations) to catalog these common non-core annotations.
 
-* Geographic data
+We will be defining core annotations soon for the following types of data:
+
 * Media enclosures, e.g., photos, video, etc.
 * Long-form content
 * Attribution and source
 * Additional content license grants, where users can opt in to Creative Commons licensing, etc., if desired.
 
 Developers are invited to create ad-hoc annotations for data not well represented here; if possible, care should be taken not to overlap with existing annotations. If possible, Posts with ad-hoc annotations designed to address edge-cases in well-known annotations should include both the well-known annotation and only the augmented parts in the ad-hoc annotation.
+
+## Core Annotations
+
+* [Geolocation](#geolocation): net.app.core.geolocation
+
+### Geolocation
+
+```net.app.core.geolocation```
+
+The geolocation annotation is meant to specify a geographic point on the Earth. It is not meant to specify:
+
+* a human place (city, building, park, "San Francisco", "The Misson", "The Moscone Center"). We're investigating how to efficiently provide this data in the core api.
+* paths, regions, or complex geographic shapes. We recommend using a common schema (like [GeoJSON](http://www.geojson.org/)) in your own annotation if you need this kind of solution.
+
+#### Examples
+
+Just the required parameters:
+```js
+{
+    "type": "net.app.core.geolocation",
+    "value": {
+        "latitude": 74.0064,
+        "longitude": 40.7142,
+    }
+}
+```
+
+With all optional parameters:
+```js
+{
+    "type": "net.app.core.geolocation",
+    "value": {
+        "latitude": 74.0064,
+        "longitude": 40.7142,
+        "altitude": 4400,
+        "horizontal_accuracy": 100,
+        "vertical_accuracy": 100,
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>latitude</code></td>
+        <td>Required</td>
+        <td>decimal</td>
+        <td>The latitude of the geographic location in decimal degrees. Must range from -90 (the South Pole) to 90 (the North Pole).</td>
+    </tr>
+    <tr>
+        <td><code>longitude</code></td>
+        <td>Required</td>
+        <td>decimal</td>
+        <td>The longitude of the geographic location in decimal degrees. Must range from -180 to 180.</td>
+    </tr>
+    <tr>
+        <td><code>altitude</code></td>
+        <td>Optional</td>
+        <td>decimal</td>
+        <td>The altitude (in meters) of the geographic location. Can be negative.</td>
+    </tr>
+    <tr>
+        <td><code>horizontal_accuracy</code></td>
+        <td>Optional</td>
+        <td>decimal</td>
+        <td>The horizontal accuracy (in meters) of the instrument providing this geolocation point. Must be >= 0.</td>
+    </tr>
+    <tr>
+        <td><code>vertical_accuracy</code></td>
+        <td>Optional</td>
+        <td>decimal</td>
+        <td>The vertical accuracy (in meters) of the instrument providing this geolocation point. Must be >= 0.</td>
+    </tr>
+</table>
