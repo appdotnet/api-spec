@@ -65,16 +65,22 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. Defaults to false for "My Stream" and true everywhere else.</td>
         </tr>
         <tr>
+            <td><code>include_machine</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/appdotnet/api-spec/blob/master/objects.md#machine-only-posts">machine only posts</a> be included? (Default: <code>False</code>)</td>
+        </tr>
+        <tr>
             <td><code>include_annotations</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should the <a href="/appdotnet/api-spec/blob/master/annotations.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
-            <td><code>include_machine</code></td>
+            <td><code>include_starred_by</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should <a href="/appdotnet/api-spec/blob/master/objects.md#machine-only-posts">machine only posts</a> be included? (Default: <code>False</code>)</td>
+            <td>Should a sample of Users who have starred a Post be returned with the Post objects? Please see the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post schema</a>. (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>

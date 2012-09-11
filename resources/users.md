@@ -79,7 +79,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
         "counts": {
             "following": 100,
             "followers": 200,
-            "posts": 24
+            "posts": 24,
+            "stars": 76
         },
         "app_data": {
             "appdotnet": {...},
@@ -178,7 +179,8 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
         "counts": {
             "following": 100,
             "followers": 200,
-            "posts": 24
+            "posts": 24,
+            "stars": 76
         },
         "app_data": {
             "appdotnet": {...},
@@ -279,7 +281,8 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
         "counts": {
             "following": 100,
             "followers": 200,
-            "posts": 24
+            "posts": 24,
+            "stars": 76
         },
         "app_data": {
             "appdotnet": {...},
@@ -376,7 +379,8 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             "counts": {
                 "following": 100,
                 "followers": 200,
-                "posts": 24
+                "posts": 24,
+                "stars": 76
             },
             "app_data": {
                 "appdotnet": {...},
@@ -478,7 +482,8 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
             "counts": {
                 "following": 100,
                 "followers": 200,
-                "posts": 24
+                "posts": 24,
+                "stars": 76
             },
             "app_data": {
                 "appdotnet": {...},
@@ -583,7 +588,8 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
         "counts": {
             "following": 100,
             "followers": 200,
-            "posts": 24
+            "posts": 24,
+            "stars": 76
         },
         "app_data": {
             "appdotnet": {...},
@@ -684,7 +690,8 @@ Stop hiding all posts for a given user.
         "counts": {
             "following": 100,
             "followers": 200,
-            "posts": 24
+            "posts": 24,
+            "stars": 76
         },
         "app_data": {
             "appdotnet": {...},
@@ -763,7 +770,8 @@ None.
             "counts": {
                 "following": 100,
                 "followers": 200,
-                "posts": 24
+                "posts": 24,
+                "stars": 76
             },
             "app_data": {
                 "appdotnet": {...},
@@ -861,7 +869,8 @@ List all the Users who have starred a given Post.
             "counts": {
                 "following": 100,
                 "followers": 200,
-                "posts": 24
+                "posts": 24,
+                "stars": 76
             },
             "app_data": {
                 "appdotnet": {...},

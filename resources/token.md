@@ -71,7 +71,8 @@ None.
             "counts": {
                 "following": 100,
                 "followers": 200,
-                "posts": 24
+                "posts": 24,
+                "stars": 76
             },
             "app_data": {
                 "appdotnet": {...},

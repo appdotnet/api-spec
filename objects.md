@@ -51,7 +51,8 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "counts": {
         "following": 100,
         "followers": 200,
-        "posts": 24
+        "posts": 24,
+        "stars": 76
     },
     "app_data": {
         "appdotnet": {...},
@@ -170,6 +171,11 @@ A user is the central object utilized by the App.net Stream API. They have usern
                     <td><code>posts</code></td>
                     <td>integer</td>
                     <td>The number of posts created by this user.</td>
+                </tr>
+                <tr>
+                    <td><code>stars</code></td>
+                    <td>integer</td>
+                    <td>The number of posts starred by this user.</td>
                 </tr>
             </table>
         </td>
@@ -379,7 +385,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>starred_by</code></td>
         <td>list</td>
-        <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows.</td>
+        <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if ```include_starred_by=1``` is passed to App.net.</td>
     </tr>
 </table>
 
