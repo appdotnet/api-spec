@@ -113,11 +113,45 @@ Developers are invited to create ad-hoc annotations for data not well represente
 
 ## Core Annotations
 
+* [Crosspost](#crosspost): net.app.core.crosspost
 * [Geolocation](#geolocation): net.app.core.geolocation
+
+### Crosspost
+
+> net.app.core.crosspost
+
+The crosspost annotation is meant to specify the original or canonical source of a Post on App.net from somewhere else on the web.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.crosspost",
+    "value": {
+        "canonical_url": "https://twitter.com/AppDotNet/status/234705338849443840",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>canonical_url</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A valid URL pointing to the source of the original content.</td>
+    </tr>
+</table>
 
 ### Geolocation
 
-```net.app.core.geolocation```
+> net.app.core.geolocation
 
 The geolocation annotation is meant to specify a geographic point on the Earth. It is not meant to specify:
 
