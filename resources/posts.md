@@ -576,7 +576,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]/star
+> https://alpha-api.app.net/stream/0/posts/[post_id]/star
 
 ### Data
 
@@ -601,7 +601,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 ### Example
 
-> POST https://api.app.net/stream/0/posts/1/star
+> POST https://alpha-api.app.net/stream/0/posts/1/star
 ```js
 {
     "data": {
@@ -655,7 +655,7 @@ Remove a Star from a Post.
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]/star
+> https://alpha-api.app.net/stream/0/posts/[post_id]/star
 
 ### Data
 
@@ -680,7 +680,7 @@ Remove a Star from a Post.
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/posts/1/star
+> DELETE https://alpha-api.app.net/stream/0/posts/1/star
 ```js
 {
     "data": {
@@ -735,7 +735,7 @@ save posts without rebroadcasting the Post to their followers.
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/stars
+> https://alpha-api.app.net/stream/0/users/[user_id]/stars
 
 ### Parameters
 
@@ -762,7 +762,7 @@ save posts without rebroadcasting the Post to their followers.
 
 ### Example
 
-> GET https://api.app.net/stream/0/users/1/stars
+> GET https://alpha-api.app.net/stream/0/users/1/stars
 ```js
 {
     "data": [

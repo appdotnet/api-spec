@@ -516,7 +516,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 * ```follow```
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/mute
+> https://alpha-api.app.net/stream/0/users/[user_id]/mute
 
 ### Data
 
@@ -541,7 +541,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 ### Example
 
-> POST https://api.app.net/stream/0/users/1/mute
+> POST https://alpha-api.app.net/stream/0/users/1/mute
 ```js
 {
     "data": {
@@ -618,7 +618,7 @@ Stop hiding all posts for a given user.
 * ```follow```
 
 ### URL
-> https://api.app.net/stream/0/users/[user_id]/mute
+> https://alpha-api.app.net/stream/0/users/[user_id]/mute
 
 ### Parameters
 
@@ -643,7 +643,7 @@ Stop hiding all posts for a given user.
 
 ### Example
 
-> DELETE https://api.app.net/stream/0/users/1/mute
+> DELETE https://alpha-api.app.net/stream/0/users/1/mute
 ```js
 {
     "data": {
@@ -714,7 +714,7 @@ List the users muted by the current user. *Note: you can only request this list 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://api.app.net/stream/0/users/me/muted
+> https://alpha-api.app.net/stream/0/users/me/muted
 
 ### Parameters
 
@@ -722,7 +722,7 @@ None.
 
 ### Example
 
-> GET https://api.app.net/stream/0/users/me/muted
+> GET https://alpha-api.app.net/stream/0/users/me/muted
 ```js
 {
     "data": [
@@ -796,7 +796,7 @@ List all the Users who have starred a given Post.
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://api.app.net/stream/0/posts/[post_id]/stars
+> https://alpha-api.app.net/stream/0/posts/[post_id]/stars
 
 ### Parameters
 
@@ -821,7 +821,7 @@ List all the Users who have starred a given Post.
 
 ### Example
 
-> GET https://api.app.net/stream/0/posts/1/stars
+> GET https://alpha-api.app.net/stream/0/posts/1/stars
 ```js
 {
     "data": [
