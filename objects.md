@@ -360,7 +360,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>annotations</code></td>
         <td>list</td>
-        <td>Metadata about the entire post. See the <a href="/appdotnet/api-spec/blob/master/objects.md#annotations">annotations documentation</a>.</td>
+        <td>Metadata about the entire post. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
     </tr>
     <tr>
         <td><code>entities</code></td>
