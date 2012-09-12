@@ -20,6 +20,11 @@ would disable [response envelopes](#current-migrations) for that particular call
 ### Migration Response Header
 All calls to our endpoints will return X-ADN-Migrations-Enabled, a query-string encoded list of migration keys that are enabled for that particular API call. This list will take into account globally toggled migrations as well as those enabled by X-ADN-Migration-Overrides.
 
+### Using Migrations with JSONP
+For JSONP requests we offer the ability to override the default migration behavior on a per-call basis. To do this, add a list of valid [migration keys](#current-migrations) and values (0 or 1) to the query string. For example, `https://alpha-api.app.net/stream/0/posts/stream/global?callback=json_callback&response_envelope=0`
+
+**Toggling migrations with the query string is ONLY for availble JSONP requests.** Use the header mechanism for all other requests.
+
 ## Current Migrations
 
 <table>

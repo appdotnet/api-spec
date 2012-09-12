@@ -10,6 +10,26 @@ The top-level response is an object containing two keys. The first key, ```data`
 
 The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain pagination data, when relevant.
 
+## JSONP
+
+We support JSONP for easy, unauthenticated cross-domain API requests with wide browser support. Normal JSON responses are wrapped in a Javascript function so they may be included in a webpage and fetched directly by the browser via a `script` tag. It is not possible to make requests to API endpoints which require authentication with JSONP.
+
+To use JSONP, add a `callback` parameter to the request's query string. For example:
+
+    https://alpha-api.app.net/stream/0/posts/stream/global?callback=awesome
+
+Will result in a response that looks something like this:
+
+    awesome({...})
+
+When using JSONP, our servers will return a 200 status code in the HTTP response, regardless of the effective status code.
+
+For more information on JSONP, see the Wikipedia page for [JSONP](http://en.wikipedia.org/wiki/JSONP).
+
+## CORS
+
+We support CORS for authenticated cross-domain API requests direct from browsers. Support for CORS may vary by browser. When using CORS, you are still responsible for obtaining, storing and supplying a valid access token with each request, if access to authenticated endpoints is required. For more information on CORS, see the Wikipedia page for [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
+
 ### Error Conditions
 
 If the request was unsuccessful for some reason, no ```data``` key will be returned -- the reponse object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.

@@ -380,12 +380,12 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>you_starred</code></td>
         <td>boolean</td>
-        <td>Have you starred this Post?</td>
+        <td>Have you starred this Post? May be omitted if this is not an authenticated request.</td>
     </tr>
     <tr>
         <td><code>starred_by</code></td>
         <td>list</td>
-        <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if ```include_starred_by=1``` is passed to App.net.</td>
+        <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if <code>include_starred_by=1</code> is passed to App.net. May be omitted if this is not an authenticated request.</td>
     </tr>
 </table>
 
