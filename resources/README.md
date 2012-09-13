@@ -26,7 +26,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
         </tr>
         <tr>
@@ -44,13 +44,13 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/users/[user_id]/following</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-a-user-is-following">List users a User is following</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/[user_id]/followers</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-following-a-user">List users following a User</a></td>
         </tr>
         <tr>
@@ -74,7 +74,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/posts/[post_id]/stars</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-who-have-starred-a-post">List Users who have starred a Post</a></td>
         </tr>
     </tbody>
@@ -133,7 +133,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/posts/[post_id]/replies</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-the-replies-to-a-post">Retrieve the replies to a Post</a></td>
         </tr>
         <tr>
@@ -157,7 +157,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/users/[user_id]/stars</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-starred-by-a-user">Retrieve Posts starred by a User</a></td>
         </tr>
         <tr>
