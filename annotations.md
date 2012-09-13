@@ -53,6 +53,7 @@ Here's a sample post with annotations:
     "html": "<span itemscope=\"https://app.net/schemas/Post\">first annotation post</span>",
     "id": "1",
     "num_replies": 0,
+    "num_reposts": 0,
     "num_stars": 0,
     "source": {
         "link": "https://join.app.net/",
@@ -60,7 +61,8 @@ Here's a sample post with annotations:
     },
     "text": "first annotation post",
     "thread_id": "1255",
-    "user": {...}
+    "user": {...},
+    "you_reposted": false,
     "you_starred": false
 }
 ```

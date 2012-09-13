@@ -243,6 +243,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     "reply_to": null,
     "thread_id": "1",
     "num_replies": 3,
+    "num_reposts": 1,
     "num_stars": 1,
     "annotations": [
         {
@@ -272,7 +273,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
             "len": 13
         }]
     },
+    "you_reposted": true,
     "you_starred": false,
+    "reposters": [
+        ...user...
+    ],
     "starred_by": [
         ...users...
     ]
@@ -358,6 +363,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td>The number of users who have starred this post.</td>
     </tr>
     <tr>
+        <td><code>num_reposts</code></td>
+        <td>integer</td>
+        <td>The number of users who have reposted this post.</td>
+    </tr>
+    <tr>
         <td><code>annotations</code></td>
         <td>list</td>
         <td>Metadata about the entire post. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
@@ -386,6 +396,21 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td><code>starred_by</code></td>
         <td>list</td>
         <td>A partial list of users who have starred this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if <code>include_starred_by=1</code> is passed to App.net. May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>you_reposted</code></td>
+        <td>boolean</td>
+        <td>Have you reposted this Post? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>reposters</code></td>
+        <td>list</td>
+        <td>A partial list of users who have reposted this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if <code>include_reposters_=1</code> is passed to App.net. May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>repost_of</code></td>
+        <td>Post object</td>
+        <td>If this post is a repost, this key will contain the complete original Post.</td>
     </tr>
 </table>
 

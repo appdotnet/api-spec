@@ -72,6 +72,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-muted-users">List muted users</a></td>
         </tr>
         <tr>
+            <td>/stream/0/posts/[post_id]/reposters</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-who-have-reposted-a-post">List Users who have reposted a Post</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/posts/[post_id]/stars</td>
             <td>GET</td>
             <td>Yes</td>
@@ -141,6 +147,18 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>GET</td>
             <td>No</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-created-by-a-user">Retrieve Posts created by a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts/[post_id]/repost</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#repost-a-post">Repost a Post</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts/[post_id]/repost</td>
+            <td>DELETE</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#unrepost-a-post">Unrepost a Post</a></td>
         </tr>
         <tr>
             <td>/stream/0/posts/[post_id]/star</td>
