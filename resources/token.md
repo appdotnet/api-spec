@@ -19,6 +19,12 @@ None.
 ```js
 {
     "data": {
+        "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
+        "app": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
+            "link": "http://foo.example.com",
+            "name": "Bryan's app for testing"
+        },
         "scopes": [
             "stream",
             "messages",

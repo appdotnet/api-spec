@@ -162,3 +162,9 @@ When making a call to one of our API resources, there are three ways to include 
          -F 'text=Test post' \
          https://alpha-api.app.net/stream/0/posts
     ```
+
+## How can I authenticate between App.net apps?
+
+We call this Identity Delegation. The detailed [Identity Delegation
+specification](/appdotnet/api-spec/blob/master/identity-delegation.md) has its own page.
+

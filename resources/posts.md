@@ -165,6 +165,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -213,6 +214,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -297,6 +299,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#post">Pos
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -380,6 +383,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a>. The
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -466,6 +470,7 @@ Retrieve all the <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post<
             "text": "@mthurman stop trolling",
             "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -549,6 +554,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -650,6 +656,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
         "text": ">> @berg: a really insightful post that must be shared with the world"
         "html": ">> <span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span>: a really insightful post that must be shared with the world",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -670,6 +677,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
             "text": "a really insightful post that must be shared with the world",
             "html": "a really insightful post that must be shared with the world",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -738,6 +746,7 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -821,6 +830,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -902,6 +912,7 @@ Remove a Star from a Post.
         "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
+            "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
             "name": "Clientastic for iOS",
             "link": "http://app.net"
         },
@@ -988,6 +999,7 @@ save posts without rebroadcasting the Post to their followers.
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -1077,6 +1089,7 @@ Get the most recent <a href="/appdotnet/api-spec/blob/master/objects.md#post">Po
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -1147,6 +1160,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -1218,6 +1232,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
@@ -1287,6 +1302,7 @@ Return the 20 most recent <a href="/appdotnet/api-spec/blob/master/objects.md#po
             "text": "@berg FIRST post on this new site #newsocialnetwork",
             "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
             "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
                 "name": "Clientastic for iOS",
                 "link": "http://app.net"
             },
