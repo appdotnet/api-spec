@@ -405,7 +405,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>reposters</code></td>
         <td>list</td>
-        <td>A partial list of users who have reposted this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if <code>include_reposters_=1</code> is passed to App.net. May be omitted if this is not an authenticated request.</td>
+        <td>A partial list of users who have reposted this post. This is not comprehensive and is meant to be a sample of users who have starred this post giving preference to users the current user follows. This is only included if <code>include_reposters=1</code> is passed to App.net. May be omitted if this is not an authenticated request.</td>
     </tr>
     <tr>
         <td><code>repost_of</code></td>
