@@ -73,7 +73,7 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
     </tbody>
 </table>
 
-### Pagination Metadata
+## Pagination Metadata
 
 <table>
     <thead>
