@@ -30,7 +30,7 @@ For more information on JSONP, see the Wikipedia page for [JSONP](http://en.wiki
 
 We support CORS for authenticated cross-domain API requests direct from browsers. Support for CORS may vary by browser. When using CORS, you are still responsible for obtaining, storing and supplying a valid access token with each request, if access to authenticated endpoints is required. For more information on CORS, see the Wikipedia page for [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
 
-### Error Conditions
+## Error Conditions
 
 If the request was unsuccessful for some reason, no ```data``` key will be returned -- the reponse object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
 
