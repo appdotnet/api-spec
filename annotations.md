@@ -157,7 +157,7 @@ The crosspost annotation is meant to specify the original or canonical source of
 
 The geolocation annotation is meant to specify a geographic point on the Earth. It is not meant to specify:
 
-* a human place (city, building, park, "San Francisco", "The Misson", "The Moscone Center"). We're investigating how to efficiently provide this data in the core api.
+* a human place (city, building, park, "San Francisco", "The Mission", "The Moscone Center"). We're investigating how to efficiently provide this data in the core api.
 * paths, regions, or complex geographic shapes. We recommend using a common schema (like [GeoJSON](http://www.geojson.org/)) in your own annotation if you need this kind of solution.
 
 #### Examples
