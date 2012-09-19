@@ -132,7 +132,7 @@ Here is the current list of scopes on App.net:
 * **messages**: send and receive private messages as this user
 * **export**: bulk export all of this user's App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
-The basic scope will always be granted on creation of access token, even if the token request omits it.
+The **basic** scope will always be granted on creation of access token, even if the token request omits it.
 
 ## Authenticated API Requests
 
