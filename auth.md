@@ -124,14 +124,15 @@ means that the current token has permission to see the user's email and to follo
 
 Here is the current list of scopes on App.net:
 
-* **stream**: read a user's stream
-* **email**: access a user's email address
-* **write_post**: create a new post as a user
+* **basic**: see basic information about this user
+* **stream**: read this user's stream
+* **email**: access this user's email address
+* **write_post**: create a new post as this user
 * **follow**: add or remove follows (or mutes) for this user
 * **messages**: send and receive private messages as this user
-* **export**: bulk export all of your App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
+* **export**: bulk export all of this user's App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
-If scope is omitted, only basic profile information will be available.
+The basic scope will always be granted on creation of access token, even if the token request omits it.
 
 ## Authenticated API Requests
 
