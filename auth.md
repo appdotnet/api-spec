@@ -98,6 +98,10 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
     The access_token will be appended to the URI in the fragment section, encoded as if it were a query string. Your client-side code should parse this for the access_token.
 
+### Password Flow
+
+If you're building a native application and want to avoid implementing a web-based authentication flow, the [Password Flow](/appdotnet/api-spec/blob/master/password_auth.md) may be appropriate. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security, so it's described on [its own page](/appdotnet/api-spec/blob/master/password_auth.md).
+
 ### Errors
 
 If an error occurs while obtaining an access token, we'll notify you by redirecting the user to the **Redirection URI** with the following additional query string or fragment parameters:
