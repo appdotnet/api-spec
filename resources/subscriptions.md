@@ -59,7 +59,7 @@ We must receive a ```200 OK``` response from your callback url with only the ```
 > 0x12fh47djtufhdjfu85e
 
 Once we verify your subscription, your original subscription request will return with a ```201 Created``` if successful or an
-appropriate HTTP error. If the subscription was succesful, the response will include a ```Location``` header representing the newly
+appropriate HTTP error. If the subscription was successful, the response will include a ```Location``` header representing the newly
 created subscription.
 
 ##### Receive an update

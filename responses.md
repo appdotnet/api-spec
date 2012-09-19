@@ -32,7 +32,7 @@ We support CORS for authenticated cross-domain API requests direct from browsers
 
 ## Error Conditions
 
-If the request was unsuccessful for some reason, no ```data``` key will be returned -- the reponse object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
+If the request was unsuccessful for some reason, no ```data``` key will be returned -- the response object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` and ```error_id``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
 
 #### Error Slugs
 
