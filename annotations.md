@@ -116,6 +116,7 @@ Developers are invited to create ad-hoc annotations for data not well represente
 ## Core Annotations
 
 * [Crosspost](#crosspost): net.app.core.crosspost
+* [Embedded Media](#embedded-media): net.app.core.oembed
 * [Geolocation](#geolocation): net.app.core.geolocation
 
 ### Crosspost
@@ -150,6 +151,193 @@ The crosspost annotation is meant to specify the original or canonical source of
         <td>A valid URL pointing to the source of the original content.</td>
     </tr>
 </table>
+
+### Embedded Media
+
+> net.app.core.oembed
+
+The embedded media annotation specifies an image, video, or other rich content that should be displayed with this post. It uses the [JSON oEmbed specification](http://oembed.com). We only support the ```photo```, ```video```, and ```rich``` oEmbed types.
+
+We highly recommend using the [crosspost annotation](#crosspost) with the embedded media annotation so Posts contain a pointer to the original content.
+
+#### Examples
+
+##### Photo
+
+```js
+{
+    "type": "net.app.core.oembed",
+    "value": {
+        "version": "1.0",
+        "type": "photo",
+        "width": 240,
+        "height": 160,
+        "title": "ZB8T0193",
+        "url": "http://farm4.static.flickr.com/3123/2341623661_7c99f48bbf_m.jpg",
+        "author_name": "Bees",
+        "author_url": "http://www.flickr.com/photos/bees/",
+        "provider_name": "Flickr",
+        "provider_url": "http://www.flickr.com/"
+    }
+}
+```
+
+##### Video
+
+```js
+{
+    "type": "net.app.core.oembed",
+    "value": {
+        "version": "1.0",
+        "type": "video",
+        "provider_name": "YouTube",
+        "provider_url": "http://youtube.com/",
+        "width": 425,
+        "height": 344,
+        "title": "Amazing Nintendo Facts",
+        "author_name": "ZackScott",
+        "author_url": "http://www.youtube.com/user/ZackScott",
+        "html":
+            "<object width=\"425\" height=\"344\">
+                <param name=\"movie\" value=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"></param>
+                <param name=\"allowFullScreen\" value=\"true\"></param>
+                <param name=\"allowscriptaccess\" value=\"always\"></param>
+                <embed src=\"http://www.youtube.com/v/M3r2XDceM6A&fs=1\"
+                    type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
+                    allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
+            </object>",
+    }
+}
+
+```
+
+##### Rich
+
+```js
+{
+    "type": "net.app.core.oembed",
+    "value": {
+        "provider_url": "http://soundcloud.com",
+        "description": "Listen to Merenti - La Karambaa by M\u00e9renti | Create, record and share the sounds you create anywhere to friends, family and the world with SoundCloud, the world's largest community of sound creators.",
+        "title": "Merenti - La Karambaa by M\u00e9renti",
+        "html": "<iframe width=\"500\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F6733249&show_artwork=true&maxwidth=900\"></iframe>",
+        "author_name": "M\u00e9renti",
+        "height": 166,
+        "width": 500,
+        "thumbnail_url": "http://i1.sndcdn.com/artworks-000003051440-mm2z46-t500x500.jpg?d95e793",
+        "thumbnail_width": 500,
+        "version": "1.0",
+        "provider_name": "SoundCloud",
+        "type": "rich",
+        "thumbnail_height": 500,
+        "author_url": "http://soundcloud.com/mrenti"
+    }
+}
+
+```
+#### Fields
+
+**To correspond with the oEmbed spec, this annotation accepts keys that are not specified below.**
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>type</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td><code>photo</code>, <code>video</code>, or <code>rich</code> corresponding to the oEmbed type.</td>
+    </tr>
+    <tr>
+        <td><code>version</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>Must be <code>1.0</code>.</td>
+    </tr>
+    <tr>
+        <td><code>width</code></td>
+        <td>Required</td>
+        <td>integer</td>
+        <td>The width in pixels needed to display the embeddable content.</td>
+    </tr>
+    <tr>
+        <td><code>height</code></td>
+        <td>Required</td>
+        <td>integer</td>
+        <td>The height in pixels needed to display the embeddable content.</td>
+    </tr>
+    <tr>
+        <td><code>url</code></td>
+        <td>Required if <code>type="photo"</code></td>
+        <td>string</td>
+        <td>The source URL for the image.</td>
+    </tr>
+    <tr>
+        <td><code>html</code></td>
+        <td>Required if <code>type="video"</code> or <code>type="rich"</code></td>
+        <td>string</td>
+        <td>The HTML to display the rich or video content. It should have no margins or padding. App.net does <strong>no validation</strong> of of this field. Please program defensively. You may wish to load this in an off-domain iframe to avoid XSS vulnerabilities.</td>
+    </tr>
+    <tr>
+        <td><code>title</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>A title for this embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>author_name</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The author of this embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>author_url</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The URL for the author of this embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>provider_name</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The service that provides this embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>provider_url</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The URL for the service that provides this embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>cache_age</code></td>
+        <td>Optional</td>
+        <td>integer</td>
+        <td>How long (in seconds) should clients cache the embedded content.</td>
+    </tr>
+    <tr>
+        <td><code>thumbnail_url</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>A URL to an image that represents this resource. If this parameter is specified, <code>thumbnail_height</code> and <code>thumbnail_width</code> must also be present.</td>
+    </tr>
+    <tr>
+        <td><code>thumbnail_height</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The height of the thumbnail image. If this parameter is specified, <code>thumbnail_url</code> and <code>thumbnail_width</code> must also be present.</td>
+    </tr>
+    <tr>
+        <td><code>thumbnail_width</code></td>
+        <td>Optional</td>
+        <td>string</td>
+        <td>The height of the thumbnail image. If this parameter is specified, <code>thumbnail_height</code> and <code>thumbnail_url</code> must also be present.</td>
+    </tr>
+</table>
+
 
 ### Geolocation
 
