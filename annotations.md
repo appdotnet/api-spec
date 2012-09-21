@@ -207,7 +207,7 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
                     type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                     allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
-        "embeddable_url": "http://youtube.com/watch%3Fv%3DM3r2XDceM6A"
+        "embeddable_url": "http://youtube.com/watch?v=M3r2XDceM6A"
     }
 }
 
