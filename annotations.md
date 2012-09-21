@@ -158,7 +158,7 @@ The crosspost annotation is meant to specify the original or canonical source of
 
 The embedded media annotation specifies an image, video, or other rich content that should be displayed with this post. It uses the [JSON oEmbed specification](http://oembed.com). We only support the ```photo```, ```video```, and ```rich``` oEmbed types.
 
-We highly recommend using the [crosspost annotation](#crosspost) with the embedded media annotation so Posts contain a pointer to the original content.
+We highly recommend providing the ```embeddable_url``` attribute so other clients can request different oEmbed details for this object from the original oEmbed provider (if there is one).
 
 #### Examples
 
@@ -177,7 +177,8 @@ We highly recommend using the [crosspost annotation](#crosspost) with the embedd
         "author_name": "Bees",
         "author_url": "http://www.flickr.com/photos/bees/",
         "provider_name": "Flickr",
-        "provider_url": "http://www.flickr.com/"
+        "provider_url": "http://www.flickr.com/",
+        "embeddable_url": "http://www.flickr.com/photos/bees/2341623661/"
     }
 }
 ```
@@ -206,6 +207,7 @@ We highly recommend using the [crosspost annotation](#crosspost) with the embedd
                     type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
                     allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
             </object>",
+        "embeddable_url": "http://youtube.com/watch%3Fv%3DM3r2XDceM6A"
     }
 }
 
@@ -231,6 +233,7 @@ We highly recommend using the [crosspost annotation](#crosspost) with the embedd
         "type": "rich",
         "thumbnail_height": 500,
         "author_url": "http://soundcloud.com/mrenti"
+        "embeddable_url": "http://soundcloud.com/mrenti/merenti-la-karambaa"
     }
 }
 
@@ -281,6 +284,12 @@ We highly recommend using the [crosspost annotation](#crosspost) with the embedd
         <td>Required if <code>type="video"</code> or <code>type="rich"</code></td>
         <td>string</td>
         <td>The HTML to display the rich or video content. It should have no margins or padding. App.net does <strong>no validation</strong> of of this field. Please program defensively. You may wish to load this in an off-domain iframe to avoid XSS vulnerabilities.</td>
+    </tr>
+    <tr>
+        <td><code>embeddable_url</code></td>
+        <td>Optional (but recommended)</td>
+        <td>string</td>
+        <td>A URL that can be given to an oEmbed provider to recreate the oEmbed data contained in this annotation. This is useful so other clients can get updated information or retrieve a different sized embedding through an oEmbed endpoint.</td>
     </tr>
     <tr>
         <td><code>title</code></td>
