@@ -69,7 +69,13 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>/stream/0/users/me/muted</td>
             <td>GET</td>
             <td>Yes</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-muted-users">List muted users</a></td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-muted-users">List muted Users</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/search</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#search-for-users">Search for Users</a></td>
         </tr>
         <tr>
             <td>/stream/0/posts/[post_id]/reposters</td>
