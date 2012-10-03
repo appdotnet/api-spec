@@ -242,6 +242,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     "machine_only": false,
     "reply_to": null,
     "thread_id": "1",
+    "canonical_url": "https://alpha.app.net/mthurman/post/1",
     "num_replies": 3,
     "num_reposts": 1,
     "num_stars": 1,
@@ -346,6 +347,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         <td><code>reply_to</code></td>
         <td>string</td>
         <td>The id of the post this post is replying to (or <code>null</code> if not a reply).</td>
+    </tr>
+    <tr>
+        <td><code>canonical_url</code></td>
+        <td>string</td>
+        <td>The URL of the post's detail page on Alpha.</td>
     </tr>
     <tr>
         <td><code>thread_id</code></td>
