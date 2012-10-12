@@ -10,24 +10,25 @@ Once you have signed up as a developer, you will be able to create an app from t
 
 Once you have created an application, you will be assigned a **client ID** and **client secret**. You will use these in the authentication flow. The client ID may be publicly shared (e.g., included in a compiled binary or in the source code of a web page), but the client secret **must** be kept confidential.
 
-You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. **Client tokens** are not enabled yet.
+You authenticate to our API by use of an **access token**. There are two types of access tokens—client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. Some resources are only accessible to client or user tokens.
 
 It should go without saying, but for the sake of user privacy and security, please ensure that your App.net account has a **strong password**.
 
 ## How do I get an access token?
 
-If you're only interested in obtaining a **client token**, you can use the [Client Password](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3) flow. (Note: we support sending the `client_id` / `client_secret` parameters in the HTTP message body only.)
+If you want a **user token**, you must use one of these three flows:
 
-If you want a **user token**, you must use one of these two flows:
+* If you're building a web application backed by a server, you probably want to use our **[server-side flow](#server-side-flow)**. (The OAuth 2.0 internet-draft calls this the "[Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).")
+* If you're building an application without a central server, like a mobile app or a client-side Javascript app, you can use the **[client-side flow](#client-side-flow)**. (The OAuth2 spec calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
+* If you're building a native application (or an application where it is difficult to use a web browser), you may use our [password flow](#password-flow).
 
-* If you're building a web application backed by a server, you probably want to use our **server-side flow**. (The OAuth 2.0 internet-draft calls this the "[Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).")
-* If you're building an application without a central server, like a mobile app or a client-side Javascript app, you can use the **client-side flow**. (The spec calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
+If you're only interested in obtaining a **client token** (sometimes called an "App token"), you can use the [app access token flow](#app-access-token-flow). (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)
 
 We also intend to provide a SDK you can embed into your mobile applications to provide seamless authentication with App.net to your application's users.
 
-### Server-side Flow (Ruby, Python, PHP, Java, etc.)
+### Server-side Flow
 
-This is the easiest way to get an access token—we recommend it to most users of the API.
+This is the easiest way to get an access token—we recommend it to most users of the API. If you're writing an app on a server using a language like  Ruby, Python, PHP, Java, etc. you should use this flow.
 
 You must keep your client_secret confidential. That means that you may not include it in the source code or binary of an application that you ship to end-users, even in obscured form. The [client-side flow](#client-side-flow) is the proper flow to use in these cases.
 
@@ -101,6 +102,30 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 ### Password Flow
 
 If you're building a native application and want to avoid implementing a web-based authentication flow, the [Password Flow](/appdotnet/api-spec/blob/master/password_auth.md) may be appropriate. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security, so it's described on [its own page](/appdotnet/api-spec/blob/master/password_auth.md).
+
+### App Access Token Flow
+
+The App Access Token Flow is used to request a token that is tied to your application instead of a specific user. App access tokens cannot be distributed and must must only be used from a server. If you would like a client (i.e. mobile) application to use an app access token, that app must connect to a server you control that stores the app access token.
+
+To retrieve an app access token, your app must make the following request:
+
+    `POST https://alpha.app.net/oauth/access_token`
+
+    with URL-encoded POST body:
+
+    ```
+        client_id=[your client ID]
+        &client_secret=[your client secret]
+        &grant_type=client_credentials
+    ```
+
+    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
+
+App.net will respond with a JSON-encoded token:
+    ```js
+{"access_token": "[app access token]"}
+    ```
+    You can use this access_token to make authenticated calls to the App.net API on behalf of your app.
 
 ### Errors
 

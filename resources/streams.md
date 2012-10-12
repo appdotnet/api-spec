@@ -10,7 +10,7 @@ A Stream is a real-time, ordered collection of messages. A message will always b
 
 There are 3 different kinds of Streams, but they all follow the same pattern:
 
-* Public stream: A Stream containing all public activity. **It must be accessed with an App access token**.
+* Public stream: A Stream containing all public activity. **It must be accessed with an [App access token](/appdotnet/api-spec/blob/master/auth.md#app-access-token-flow)**.
 
 * Coming soon:
     * User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
