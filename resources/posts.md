@@ -32,13 +32,13 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>since_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with post ids greater than this id. The response <strong>will not include</strong> this post id.</td>
+            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and should come from the <code>max_id</code> parameter of a previous request's <a href="/appdotnet/api-spec/blob/master/responses.md#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>before_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with post ids smaller than this id. The response <strong>will not include</strong> this post id.</td>
+            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and should come from the <code>min_id</code> parameter of a previous request's <a href="/appdotnet/api-spec/blob/master/responses.md#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>count</code></td>
