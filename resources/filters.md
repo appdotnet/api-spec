@@ -1,7 +1,5 @@
 # Filters
 
-**NOT YET IMPLEMENTED** - still seeking comment on these from developers.
-
 ## Get current user's Filters
 
 Return the <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filters</a> for the current user.
@@ -22,18 +20,25 @@ None.
 {
     "data": [
         {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "contains",
+                    "value": "rollout"
+                }
+            ],
             "id": "1",
-            "type": "show",
-            "name": "On the go",
-            "user_ids": ["1", "2"],
-            "hashtags": ["sf"],
-            "link_domains": ["app.net"],
-            "mention_user_ids": ["1"]
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
         },
         ...
     ],
     "meta": {
-        "code": 200
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
     }
 }
 ```
@@ -42,6 +47,8 @@ None.
 
 Create a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> for the current user.
 
+Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/objects.md#filter">filter schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
+
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
@@ -49,43 +56,75 @@ Create a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a> 
 
 ### Data
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>filter</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A JSON object representing the filter to create. See <a href="/appdotnet/api-spec/blob/master/objects.md#filter">the filter object</a> for more information. (Omit the <code>id</code> parameter).</td>
-        </tr>
-    </tbody>
-</table>
+A JSON object representing the filter to create. See <a href="/appdotnet/api-spec/blob/master/objects.md#filter">the filter object</a> for more information. (Omit the <code>id</code> parameter).</td>
 
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/filters
->
-> POST DATA filter=%7B%27name%27%3A+%27On+the+go%27%2C+%27link_domains%27%3A+%5B%27app.net%27%5D%2C+%27hashtags%27%3A+%5B%27sf%27%5D%2C+%27user_ids%27%3A+%5B%271%27%2C+%272%27%5D%2C+%27mention_user_ids%27%3A+%5B%271%27%5D%2C+%27type%27%3A+%27show%27%2C+%27id%27%3A+%271%27%7D
+> Content-Type: application/json
+> DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
 ```js
 {
     "data": {
+        "clauses": [
+            {
+                "field": "/data/entities/hashtags/*/name",
+                "object_type": "post",
+                "operator": "contains",
+                "value": "rollout"
+            }
+        ],
         "id": "1",
-        "type": "show",
-        "name": "On the go",
-        "user_ids": ["1", "2"],
-        "hashtags": ["sf"],
-        "link_domains": ["app.net"],
-        "mention_user_ids": ["1"]
+        "match_policy": "include_any",
+        "name": "Posts about rollouts"
     },
     "meta": {
         "code": 200
+    }
+}
+```
+
+## Delete all of the current user's Filters
+
+Delete all <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filters</a> for the current user. It returns the deleted Filters on success.
+
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### URL
+> https://alpha-api.app.net/stream/0/filters
+
+### Data
+
+None.
+
+### Example
+
+> DELETE https://alpha-api.app.net/stream/0/filters
+```js
+{
+    "data": [
+        {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "contains",
+                    "value": "rollout"
+                }
+            ],
+            "id": "1",
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
     }
 }
 ```
@@ -126,13 +165,17 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 ```js
 {
     "data": {
+        "clauses": [
+            {
+                "field": "/data/entities/hashtags/*/name",
+                "object_type": "post",
+                "operator": "contains",
+                "value": "rollout"
+            }
+        ],
         "id": "1",
-        "type": "show",
-        "name": "On the go",
-        "user_ids": ["1", "2"],
-        "hashtags": ["sf"],
-        "link_domains": ["app.net"],
-        "mention_user_ids": ["1"]
+        "match_policy": "include_any",
+        "name": "Posts about rollouts"
     },
     "meta": {
         "code": 200
@@ -149,7 +192,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>.
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://alpha-api.app.net/stream/0/[filter_id]
+> https://alpha-api.app.net/stream/0/filters/[filter_id]
 
 ### Data
 
@@ -174,17 +217,21 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>.
 
 ### Example
 
-> DELETE https://alpha-api.app.net/stream/0/1
+> DELETE https://alpha-api.app.net/stream/0/filters/1
 ```js
 {
     "data": {
+        "clauses": [
+            {
+                "field": "/data/entities/hashtags/*/name",
+                "object_type": "post",
+                "operator": "contains",
+                "value": "rollout"
+            }
+        ],
         "id": "1",
-        "type": "show",
-        "name": "On the go",
-        "user_ids": ["1", "2"],
-        "hashtags": ["sf"],
-        "link_domains": ["app.net"],
-        "mention_user_ids": ["1"]
+        "match_policy": "include_any",
+        "name": "Posts about rollouts"
     },
     "meta": {
         "code": 200

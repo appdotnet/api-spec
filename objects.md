@@ -554,19 +554,25 @@ Link to another website.
 
 ## Filter
 
-A Filter functions as either a whitelist or a blacklist over a stream of Posts. All the predicates are logically OR'ed together. For instance, with the following example, a post will be shown if it's from user 1, or it's from user 2, or it has hashtag 'sf', or it links to app.net, or it mentions user 1.
+A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](#stream) are currently the only way to use filters right now.
 
 ```js
 {
+    "clauses": [
+        {
+            "field": "/data/entities/hashtags/*/name",
+            "object_type": "post",
+            "operator": "contains",
+            "value": "rollout"
+        }
+    ],
     "id": "1",
-    "type": "show",
-    "name": "On the go",
-    "user_ids": ["1", "2"],
-    "hashtags": ["sf"],
-    "link_domains": ["app.net"],
-    "mention_user_ids": ["1"]
+    "match_policy": "include_any",
+    "name": "Posts about rollouts"
 }
 ```
+
+### Filter fields
 
 <table>
     <thead>
@@ -578,34 +584,222 @@ A Filter functions as either a whitelist or a blacklist over a stream of Posts. 
     </thead>
     <tbody>
         <tr>
-            <td><code>type</code></td>
+            <td><code>id</code></td>
             <td>string</td>
-            <td>Either <code>show</code> or <code>block</code> for whether this filter should exclude everything except for what's shown or show everything except for what's blocked.</td>
+            <td>Primary identifier for a filter. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
         </tr>
         <tr>
             <td><code>name</code></td>
             <td>string</td>
-            <td>A User assigned name for this filter.</td>
+            <td>An optional User assigned name for this filter.</td>
         </tr>
         <tr>
-            <td><code>user_ids</code></td>
+            <td><code>clauses</code></td>
             <td>list</td>
-            <td>A list of user ids a Post must or must not be created by.</td>
+            <td>A list of <a href="#filter-clauses">filter clauses</a> to match against. Must be non-empty.</td>
         </tr>
         <tr>
-            <td><code>hashtags</code></td>
-            <td>list</td>
-            <td>A list of hashtags a Post must or must not have.</td>
+            <td><code>match_policy</code></td>
+            <td>string</td>
+            <td>How should the clauses be joined together? One of <code>include_any</code>, <code>include_all</code>, <code>exclude_any</code>, or <code>exclude_all</code>. For example, <code>include_any</code> will include a message if it matches any of the clauses and <code>exclude_all</code> will exclude a message if it matches all of the clauses. This allows either white- or blacklist filtering.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Filter Clauses
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>object_type</code></td>
+            <td>string</td>
+            <td>What type of object does this filter operate on? Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>. </td>
         </tr>
         <tr>
-            <td><code>link_domains</code></td>
-            <td>list</td>
-            <td>A list of domains a Post must or must not have a link to.</td>
+            <td><code>operator</code></td>
+            <td>string</td>
+            <td>How should <code>field</code> be matched against <code>value</code>.
+                <br>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>equals</code></td>
+                        <td>Does <code>field</code> equal <code>value</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>matches</code></td>
+                        <td>Is the string <code>value</code> a substring of <code>field</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>lt</code></td>
+                        <td>Is the integer in <code>field</code> &lt; <code>value</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>le</code></td>
+                        <td>Is the integer in <code>field</code> &le; <code>value</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>gt</code></td>
+                        <td>Is the integer in <code>field</code> &gt; <code>value</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>ge</code></td>
+                        <td>Is the integer in <code>field</code> &ge; <code>value</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>one_of</code></td>
+                        <td>Is the <code>field</code> an element in the list <code>value</code>.</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
         <tr>
-            <td><code>mention_user_ids</code></td>
+            <td><code>field</code></td>
+            <td>string</td>
+            <td>A <a href="#json-pointer">JSON Pointer</a> string that specifies what part of the message we should match against.</td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>string, int, or list</td>
+            <td>A string, integer, or list that the message's data is compared against.</td>
+        </tr>
+    </tbody>
+</table>
+
+### JSON Pointer
+
+We use a slightly modified version of the [JSON Pointer](http://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-04) standard to specify which part of a message we should filter against. According to the spec:
+
+> JSON Pointer defines a string syntax for identifying a specific value within a JSON document.
+
+For instance, in the message:
+
+```js
+{
+    "data": [
+        {
+            "id": "2", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@mthurman stop trolling",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
+            "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "machine_only": false,
+            "reply_to": "1",
+            "thread_id": "1",
+            "num_replies": 0,
+            "num_reposts": 0,
+            "num_stars": 0,
+            "entities": {
+                "mentions": [{
+                    "name": "mthurman",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 9
+                }],
+                "hashtags": [{],
+                "links": []
+            },
+            "you_reposted": false,
+            "you_starred": false
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
+    }
+}
+```
+
+* ```/data/source/client_id``` = "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"
+* ```/data/entities/mentions/0/name``` = "mthurman"
+* ```/data/num_replies``` = 0
+
+We extend JSON pointer slightly to allow all the elements of a list to match. For example, to answer the question "Does this post contain the hashtag 'rollout'", you'd use a field selector like ```/data/entities/hashtags/*/name```. Following the JSON Pointer spec, if you'd like to encode a literal ```*``` you can use ```~2``` instead.
+
+
+## Stream
+
+A customized view of the global stream that is streamed to the client instead of polling.
+
+```js
+{
+    "endpoint": "https://stream-channel.app.net...",
+    "filter": {
+        "clauses": [
+            {
+                "field": "/data/entities/hashtags/*/name",
+                "object_type": "post",
+                "operator": "contains",
+                "value": "rollout"
+            }
+        ],
+        "id": "1",
+        "match_policy": "include_any",
+        "name": "Posts about rollouts"
+    },
+    "id": "1",
+    "object_types": [
+        "post"
+    ],
+    "type": "long_poll"
+}
+```
+
+### Stream Fields
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td>string</td>
+            <td>Primary identifier for a stream. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+        </tr>
+        <tr>
+            <td><code>endpoint</code></td>
+            <td>string</td>
+            <td>The fully qualified URL the client should use to connect to this stream.</td>
+        </tr>
+        <tr>
+            <td><code>filter</code></td>
+            <td>object</td>
+            <td>An optional filter to apply when generating the stream.</td>
+        </tr>
+        <tr>
+            <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of user ids a Post must or must not mention.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>.</td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>A string specifying the type of stream this is. This can affect the transport method of the endpoint url as well as characteristics of the stream (how many messages it can process, how long lived it is, etc). Currently, the only option is <code>long_poll</code>.</td>
         </tr>
     </tbody>
 </table>

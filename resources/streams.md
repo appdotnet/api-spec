@@ -1,54 +1,45 @@
 # Streams
 
-**NOT YET IMPLEMENTED** - still seeking comment on these from developers.
+**These features are still highly experimental. If you make use of them, please idle in our [developer chat room](https://www.hipchat.com/garqCaGOZ) so you can report bugs and we can communicate updates.**
 
 ## General Information
 
 ### Basic Use
 
-A Stream is a real-time, ordered collection of Posts.
+A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/appdotnet/api-spec/blob/master/migrations.md#current-migrations). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
 There are 3 different kinds of Streams, but they all follow the same pattern:
 
-* User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
+* Public stream: A Stream containing all public activity. **It must be accessed with an App access token**.
+
+* Coming soon:
+    * User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
 (/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream) endpoint. It is very useful for client
 based Apps that need a single User's Stream. **It must be accessed with a User access token**.
-* App stream: A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the
+    * App stream: A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the
 streams of lots of users. **It must be accessed with an App access token**.
-* Public stream: A Stream containing all public Posts. **It must be accessed with an App access token**.
 
-Once a Stream has been created through one of the following endpoints, you will receive a link representing the Stream which can be
-used to alter the Stream's contents and check the status. Please refer to the [Stream control endpoint](#control-a-stream) and
-[Stream status endpoint](#get-stream-status) documentation.
-
-Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of Posts to send to a
+Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of messages to send to a
 client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that
-you can actually process. If you find that you are falling behind, we provide mechanisms for you to sample a Stream instead of
-receiving every Post.
+you can actually process.
 
 ### Filters
 
-Streams will give you lots of data, much of which your application may not want. A [Filter](/appdotnet/api-spec/blob/master/objects.md#filter) can be passed to any of the following endpoints at creation time, or can be passed to the [Stream control endpoint](#control-a-stream) after a Stream exists. These filters will determine what messages are actually delivered to your App by our servers.
+Streams will give you lots of data, much of which your application may not want. A [Filter](/appdotnet/api-spec/blob/master/objects.md#filter) can be passed to the [stream creation endpoint](#create-a-stream) to control what messages are actually delivered to your App by our servers.
 
 ### Response Format
 
-A Stream is a long-lived HTTP connection that enables clients to receive Posts in near real-time from App.net.
+A Stream is a long-lived HTTP connection that enables clients to receive messages in near real-time from App.net.
 
-When a Stream is established, App.net will send a response code of ```201 Created``` if successful. The ```Location``` header will
-contain a link representing the new stream. This link will allow the client to check the status of the stream (what are the current
-filters, how full the Stream buffer is, etc.) and alter the Stream (adjust filters, sample Posts, etc.).
+When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream.
 
-The response will be encoded using HTTP ```Transfer-Encoding: chunked```.
+Once connected to the stream endpoint, the response will be encoded using HTTP ```Transfer-Encoding: chunked```.
 
-The Stream contains frames separated by ```\r\n```. Each frame consists of a message prepended by the length of the message
-(including the separator). For example:
+The Stream contains frames separated by ```\r\n\r\n```. For example:
 
 
-    9\r\nHELLO\r\n4\r\n\r\n12\r\nWORLD!!!\r\n
+    HELLO\r\n\r\nWORLD!!!\r\n\r\n
 
-
-Each message is either a [Post](/appdotnet/api-spec/blob/master/objects.md#post), a [control message](#control-message), or an empty
-line. An empty line will be sent when there are no other messages in order to keep the connection alive.
 
 #### Control Message
 
@@ -57,135 +48,99 @@ is getting too full, the client will receive a control message with that warning
 as a key in the object so it is easy to distinguish from a Post.
 
 
-## Retrieve a real-time, personalized Stream for a User
+## Get current token's Streams
 
-Retrieve a personalized [Stream](#streams) for the current authorized User. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
-
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
-
-### URL
-> https://alpha-api.app.net/stream/0/streams/user
-
-### Parameters
-
-*See [Filters](#filters) for optional filters you can use with this query.*
-
-### Example
-
-> GET https://alpha-api.app.net/stream/0/streams/user
->
-> *See [Response Format](#response-format) for details about the response.*
-
-
-
-## Retrieve a real-time, personalized Stream for multiple Users
-
-Retrieve a personalized [Stream](#streams) for the specified users. This endpoint is similar to the '[Retrieve a User's personalized stream](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream)' endpoint.
+Return the <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Streams</a> for the current token.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://alpha-api.app.net/stream/0/streams/app
+> https://alpha-api.app.net/stream/0/streams
 
 ### Parameters
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A JSON encoded list of the user ids whose Streams should be returned</td>
-        </tr>
-    </tbody>
-</table>
+None.
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/streams/app?user_ids=%5B%221%22%5D
->
-> *See [Response Format](#response-format) for details about the response.*
+> GET https://alpha-api.app.net/stream/0/streams
+```js
+{
+    "data": [
+        {
+            "endpoint": "https://stream-channel.app.net...",
+            "filter": {
+                "clauses": [
+                    {
+                        "field": "/data/entities/hashtags/*/name",
+                        "object_type": "post",
+                        "operator": "contains",
+                        "value": "rollout"
+                    }
+                ],
+                "id": "1",
+                "match_policy": "include_any",
+                "name": "Posts about rollouts"
+            },
+            "id": "1",
+            "object_types": [
+                "post"
+            ],
+            "type": "long_poll"
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
+    }
+}
+```
 
+## Create a Stream
 
-## Retrieve a public Stream of real-time posts
+Create a <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Stream</a> for the current token.
 
-Retrieve a [Stream](#streams) of all public Posts on App.net.
+Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/objects.md#stream">stream schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type``` and ```filter_id```. If you don't want to specify a filter, omit ```filter_id```.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL
-> https://alpha-api.app.net/stream/0/streams/public
+> https://alpha-api.app.net/stream/0/streams
 
-### Parameters
+### Data
 
-*See [Filters](#filters) for optional filters you can use with this query.*
-
-### Example
-
-> GET https://alpha-api.app.net/stream/0/streams/public
->
-> *See [Response Format](#response-format) for details about the response.*
-
-
-## Get Stream status
-
-Retrieve the current status for a specific [Stream](#stream)
-
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
-
-### URL
-> https://alpha-api.app.net/stream/0/streams/[stream_id]
-
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>stream_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The stream id.</td>
-        </tr>
-    </tbody>
-</table>
+A JSON object representing the stream to create. See <a href="/appdotnet/api-spec/blob/master/objects.md#stream">the stream object</a> for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).</td>
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/streams/abc123
+> POST https://alpha-api.app.net/stream/0/streams
+> Content-Type: application/json
+> DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1"}
 ```js
 {
     "data": {
-        "sent": 128,
-        "buffer": 0.8,
-        "filters": [
-            {
-                "name": "hashtag",
-                "value": "joinus"
-            },
-            {
-                "name": "domain",
-                "value": "join.app.net"
-            }
+        "endpoint": "https://stream-channel.app.net...",
+        "filter": {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "contains",
+                    "value": "rollout"
+                }
+            ],
+            "id": "1",
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
+        },
+        "id": "1",
+        "object_types": [
+            "post"
         ],
-        "links": {
-            "self": "https://alpha-api.app.net/stream/0/streams/abc123"
-        }
+        "type": "long_poll"
     },
     "meta": {
         "code": 200
@@ -193,10 +148,126 @@ Retrieve the current status for a specific [Stream](#stream)
 }
 ```
 
+## Delete all of the current user's Streams
 
-## Control a Stream
+Delete all <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Streams</a> for the current token. It returns the deleted Streams on success.
 
-Change the Posts returned in the specified Stream.
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### URL
+> https://alpha-api.app.net/stream/0/streams
+
+### Data
+
+None.
+
+### Example
+
+> DELETE https://alpha-api.app.net/stream/0/streams
+```js
+{
+    "data": [
+        {
+            "endpoint": "https://stream-channel.app.net...",
+            "filter": {
+                "clauses": [
+                    {
+                        "field": "/data/entities/hashtags/*/name",
+                        "object_type": "post",
+                        "operator": "contains",
+                        "value": "rollout"
+                    }
+                ],
+                "id": "1",
+                "match_policy": "include_any",
+                "name": "Posts about rollouts"
+            },
+            "id": "1",
+            "object_types": [
+                "post"
+            ],
+            "type": "long_poll"
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "2",
+        "min_id": "1",
+        "more": false
+    }
+}
+```
+
+## Retrieve a Stream
+
+Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Stream</a> object.
+
+> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### URL
+> https://alpha-api.app.net/stream/0/streams/[streams_id]
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>streams_id</code></td>
+            <td>Required</td>
+            <td>string</td>
+            <td>The stream id</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/streams/1
+```js
+{
+    "data": {
+        "endpoint": "https://stream-channel.app.net...",
+        "filter": {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "contains",
+                    "value": "rollout"
+                }
+            ],
+            "id": "1",
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
+        },
+        "id": "1",
+        "object_types": [
+            "post"
+        ],
+        "type": "long_poll"
+    },
+    "meta": {
+        "code": 200
+    }
+}
+```
+
+## Delete a Stream
+
+Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Stream</a>. The Stream must belong to the current User. It returns the deleted Stream on success.
+
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -219,40 +290,36 @@ Change the Posts returned in the specified Stream.
             <td><code>stream_id</code></td>
             <td>Required</td>
             <td>string</td>
-            <td>The stream id.</td>
+            <td>The stream id</td>
         </tr>
     </tbody>
 </table>
 
-*See [Filters](#filters) for optional filters you can use with this query.*
-
 ### Example
 
-> POST https://alpha-api.app.net/stream/0/streams/abc123
->
-> DATA mention=berg
+> DELETE https://alpha-api.app.net/stream/0/streams/1
 ```js
 {
     "data": {
-        "sent": 128,
-        "buffer": 0.8,
-        "filters": [
-            {
-                "name": "hashtag",
-                "value": "joinus"
-            },
-            {
-                "name": "domain",
-                "value": "join.app.net"
-            },
-            {
-                "name": "mention",
-                "value": "berg"
-            }
+        "endpoint": "https://stream-channel.app.net...",
+        "filter": {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "contains",
+                    "value": "rollout"
+                }
+            ],
+            "id": "1",
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
+        },
+        "id": "1",
+        "object_types": [
+            "post"
         ],
-        "links": {
-            "self": "https://alpha-api.app.net/stream/0/streams/abc123"
-        }
+        "type": "long_poll"
     },
     "meta": {
         "code": 200

@@ -211,79 +211,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Streams](/appdotnet/api-spec/blob/master/resources/streams.md) -- coming soon
-<table>
-    <thead>
-        <tr>
-            <th>Path</th>
-            <th>HTTP Method</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>/stream/0/streams/user</td>
-            <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-real-time-personalized-stream-for-a-user">Retrieve a real-time, personalized Stream for a User</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/streams/app</td>
-            <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-real-time-personalized-stream-for-multiple-users">Retrieve a real-time, personalized Stream for multiple Users</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/streams/public</td>
-            <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-public-stream-of-real-time-posts">Retrieve a public Stream of real-time posts</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/streams/[stream_id]</td>
-            <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#get-stream-status">Get Stream status</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/streams/[stream_id]</td>
-            <td>POST</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#control-a-stream">Control a Stream</a></td>
-        </tr>
-    </tbody>
-</table>
-
-## [Real-time updates](/appdotnet/api-spec/blob/master/resources/subscriptions.md) -- coming soon
-
-<table>
-    <thead>
-        <tr>
-            <th>Path</th>
-            <th>HTTP Method</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>/stream/0/subscriptions</td>
-            <td>GET</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/subscriptions.md#list-subscriptions">List Subscriptions</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/subscriptions</td>
-            <td>POST</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/subscriptions.md#create-a-subscription">Create a Subscription</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/subscriptions/[subscription_id]</td>
-            <td>DELETE</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/subscriptions.md#delete-a-subscription">Delete a Subscription</a></td>
-        </tr>
-        <tr>
-            <td>/stream/0/subscriptions</td>
-            <td>DELETE</td>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/subscriptions.md#delete-all-subscriptions">Delete all Subscriptions</a></td>
-        </tr>
-    </tbody>
-</table>
-
-## [Filters](/appdotnet/api-spec/blob/master/resources/filters.md) -- coming soon
+## [Filters](/appdotnet/api-spec/blob/master/resources/filters.md)
 
 <table>
     <thead>
@@ -305,6 +233,11 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#create-a-filter">Create a Filter</a></td>
         </tr>
         <tr>
+            <td>/stream/0/filters</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#delete-all-of-the-current-users-filters">Delete all of the current user's Filters</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/filters/[filter_id]</td>
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#retrieve-a-filter">Retrieve a Filter</a></td>
@@ -313,6 +246,44 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>/stream/0/filters/[filter_id]</td>
             <td>DELETE</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#delete-a-filter">Delete a Filter</a></td>
+        </tr>
+    </tbody>
+</table>
+
+## [Streams](/appdotnet/api-spec/blob/master/resources/streams.md)&mdash;experimental
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Method</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/stream/0/streams</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#get-current-tokens-streams">Get current tokens's Streams</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/streams</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#create-a-stream">Create a Stream</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/streams</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-all-of-the-current-tokens-streams">Delete all of the current tokens's Stream</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/streams/[streams_id]</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-stream">Retrieve a Stream</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/streams/[streams_id]</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-a-stream">Delete a Stream</a></td>
         </tr>
     </tbody>
 </table>
