@@ -105,7 +105,7 @@ If you're building a native application and want to avoid implementing a web-bas
 
 ### App Access Token Flow
 
-The App Access Token Flow is used to request a token that is tied to your application instead of a specific user. App access tokens cannot be distributed and must must only be used from a server. If you would like a client (i.e. mobile) application to use an app access token, that app must connect to a server you control that stores the app access token.
+The App Access Token Flow is used to request a token that is tied to your application instead of a specific user. **App access tokens cannot be distributed and must only be used from a server. You should consider them secret.** If you would like a client (i.e. mobile) application to use an app access token, that app must connect to a server you control that stores the app access token.
 
 To retrieve an app access token, your app must make the following request:
 
