@@ -244,6 +244,11 @@ Please use https://alpha-api.app.net/ to access the APIs.
         </tr>
         <tr>
             <td>/stream/0/filters/[filter_id]</td>
+            <td>PUT</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#update-a-filter">Update a Filter</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/filters/[filter_id]</td>
             <td>DELETE</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/filters.md#delete-a-filter">Delete a Filter</a></td>
         </tr>
