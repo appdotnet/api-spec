@@ -61,7 +61,9 @@ A JSON object representing the filter to create. See <a href="/appdotnet/api-spe
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/filters
+> 
 > Content-Type: application/json
+> 
 > DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
 ```js
 {
@@ -216,7 +218,9 @@ Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 ### Example
 
 > PUT https://alpha-api.app.net/stream/0/filters/1
+> 
 > Content-Type: application/json
+> 
 > DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
 ```js
 {

@@ -201,7 +201,9 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 ### JSON Example
 
 > POST https://alpha-api.app.net/stream/0/posts?include_annotations=1
+> 
 > Content-Type: application/json
+> 
 > DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geo", "value": {"type": "Point", "coordinates": [102.0, 0.5]}}]}'
 ```js
 {
