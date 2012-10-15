@@ -117,7 +117,9 @@ A JSON object representing the stream to create. See <a href="/appdotnet/api-spe
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/streams
+> 
 > Content-Type: application/json
+> 
 > DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1"}
 ```js
 {
