@@ -53,7 +53,7 @@ You must keep your client_secret confidential. That means that you may not inclu
     > If you included a query string in your redirect URI, the `code` parameter will be appended. Likewise, the scheme of your redirect URI will be respected, though we strongly recommend sending all traffic over HTTPS.
 
 1. On your server, your application should then make the following request:
-    `POST https://alpha.app.net/oauth/access_token`
+    ```POST https://alpha.app.net/oauth/access_token```
 
     with URL-encoded POST body:
 
@@ -68,7 +68,7 @@ You must keep your client_secret confidential. That means that you may not inclu
     > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
 
 1. App.net will respond with a JSON-encoded token:
-    ```js
+    ```
 {"access_token": "[user access token]"}
     ```
     You can use this access_token to make authenticated calls to the App.net API on behalf of a user.
@@ -109,23 +109,21 @@ The App Access Token Flow is used to request a token that is tied to your applic
 
 To retrieve an app access token, your app must make the following request:
 
-    `POST https://alpha.app.net/oauth/access_token`
+    POST https://alpha.app.net/oauth/access_token
 
-    with URL-encoded POST body:
+with URL-encoded POST body:
 
-    ```
         client_id=[your client ID]
         &client_secret=[your client secret]
         &grant_type=client_credentials
-    ```
 
-    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
+> Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
 
 App.net will respond with a JSON-encoded token:
-    ```js
-{"access_token": "[app access token]"}
-    ```
-    You can use this access_token to make authenticated calls to the App.net API on behalf of your app.
+
+    {"access_token": "[app access token]"}
+
+You can use this access_token to make authenticated calls to the App.net API on behalf of your app.
 
 ### Errors
 
