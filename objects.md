@@ -435,6 +435,8 @@ Entities allow users and applications to provide rich text formatting for posts.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
 
+Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entites](#user-specified-entities) documentation for more information.
+
 Ranges specified by entities may be adjacent, but may not overlap.
 
 All of the following examples are about the following post:
@@ -551,6 +553,77 @@ Link to another website.
         <td>The length of the substring in <code>text</code> that represents this link.</td>
     </tr>
 </table>
+
+### User Specified Entites
+
+Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
+
+#### Mentions in machine only posts
+
+[Machine only posts](#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a [directed post](/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
+
+```js
+{
+    "annotations": ...,
+    "machine_only": true,
+    "entities": {
+        "mentions": [
+            {
+                "name": "mthurman"
+            },
+            {
+                "id": "1"
+            },
+            ...
+        ]
+    }
+}
+```
+
+#### Links with custom anchor text
+
+If you'd like to provide a link without including the entire URL in your post text, you can specify a custom link at Post creation time. If you provide any links at post creation time, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities.
+
+To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters will not count against the 256 character Post limit.
+
+The ```text``` attribute of a link should be omitted as it will always be filled in from the post text.
+
+##### Example
+
+If you created the following post:
+
+```js
+{
+    "text": "I love this website!",
+    "entities": {
+        "links": [
+            {
+                "pos": 7,
+                "len": 12,
+                "url": "https://alpha.app.net"
+            }
+        ]
+    }
+}
+```
+
+App.net will store and return:
+
+```js
+{
+    "text": "I love this website [alpha.app.net]!",
+    "entities": {
+        "links": [
+            {
+                "pos": 7,
+                "len": 12,
+                "url": "https://alpha.app.net"
+            }
+        ]
+    },
+    ...
+}
+```
 
 ## Filter
 

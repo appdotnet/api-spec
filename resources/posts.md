@@ -62,7 +62,7 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>include_directed_posts</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. Defaults to false for "My Stream" and true everywhere else.</td>
+            <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. A machine only post with mentions is also considered a directed post. Defaults to false for "My Stream" and true everywhere else.</td>
         </tr>
         <tr>
             <td><code>include_machine</code></td>
@@ -108,7 +108,7 @@ Post id is the ordering field for multiple posts (not ```created_at```). ```crea
 ## Create a Post
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#post">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only``` and ```annotations```. To create complex posts (including [machine only posts](/appdotnet/api-spec/blob/master/objects.md#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/appdotnet/api-spec/blob/master/objects.md#post">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only```, ```annotations``` and ```entities```. To create complex posts (including [machine only posts](/appdotnet/api-spec/blob/master/objects.md#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entites](/appdotnet/api-spec/blob/master/objects.md#user-specified-entities) documentation.
 
 *Note: You cannot reply to a repost. Please reply to the parent Post.*
 
