@@ -59,11 +59,28 @@ Return the <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Streams</
 
 ### Parameters
 
-None.
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>key</code></td>
+            <td>Optional</td>
+            <td>string</td>
+            <td>Only retrieve the stream that matches the given key</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/streams
+> GET https://alpha-api.app.net/stream/0/streams?key=rollout_stream
 ```js
 {
     "data": [
@@ -86,7 +103,8 @@ None.
             "object_types": [
                 "post"
             ],
-            "type": "long_poll"
+            "type": "long_poll",
+            "key": "rollout_stream"
         },
         ...
     ],
@@ -120,7 +138,7 @@ A JSON object representing the stream to create. See <a href="/appdotnet/api-spe
 > 
 > Content-Type: application/json
 > 
-> DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1"}
+> DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1", "key": "rollout_stream"}
 ```js
 {
     "data": {
@@ -142,7 +160,8 @@ A JSON object representing the stream to create. See <a href="/appdotnet/api-spe
         "object_types": [
             "post"
         ],
-        "type": "long_poll"
+        "type": "long_poll",
+        "key": "rollout_stream"
     },
     "meta": {
         "code": 200

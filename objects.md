@@ -761,7 +761,8 @@ A customized view of the global stream that is streamed to the client instead of
     "object_types": [
         "post"
     ],
-    "type": "long_poll"
+    "type": "long_poll",
+    "key": "rollout_stream"
 }
 ```
 
@@ -800,6 +801,11 @@ A customized view of the global stream that is streamed to the client instead of
             <td><code>type</code></td>
             <td>string</td>
             <td>A string specifying the type of stream this is. This can affect the transport method of the endpoint url as well as characteristics of the stream (how many messages it can process, how long lived it is, etc). Currently, the only option is <code>long_poll</code>.</td>
+        </tr>
+        <tr>
+            <td><code>key</code></td>
+            <td>string</td>
+            <td>An optional User assigned string that names this stream so it's easy to query for later. If a key is given, it must be unique for all streams created by a single token.</td>
         </tr>
     </tbody>
 </table>
