@@ -117,6 +117,7 @@ Developers are invited to create ad-hoc annotations for data not well represente
 
 * [Crosspost](#crosspost): net.app.core.crosspost
 * [Embedded Media](#embedded-media): net.app.core.oembed
+* [Language](#language): net.app.core.language
 * [Geolocation](#geolocation): net.app.core.geolocation
 
 ### Crosspost
@@ -347,6 +348,38 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
     </tr>
 </table>
 
+### Language
+
+> net.app.core.language
+
+The language annotation allows a User to indicate what language this post was written in.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.language",
+    "value": {
+        "language": "en",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>language</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A valid ISO 639-1 language code. Note that we only accept a subset of language codes right now. Please see <a href="https://github.com/appdotnet/api-spec/wiki/Language-codes">our current list</a> of accepted language codes. If we're missing your language, please <a href="https://github.com/appdotnet/api-spec/issues">open an issue</a>.</td>
+    </tr>
+</table>
 
 ### Geolocation
 
