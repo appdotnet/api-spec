@@ -259,7 +259,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 ```
 
 ## Retrieve multiple Posts
-Returns multiple Posts requested by id.
+Returns multiple Posts requested by id. At most 200 posts can be requested.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
