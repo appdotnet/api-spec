@@ -1,7 +1,7 @@
 # Users
 
 ## Retrieve multiple Users
-Returns multiple Users requested by id.
+Returns multiple Users requested by id. At most 200 users can be requested.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
