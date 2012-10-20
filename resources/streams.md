@@ -31,14 +31,14 @@ Streams will give you lots of data, much of which your application may not want.
 
 A Stream is a long-lived HTTP connection that enables clients to receive messages in near real-time from App.net.
 
-When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream.
+When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any messages previously queued up for this stream.
 
 Once connected to the stream endpoint, the response will be encoded using HTTP ```Transfer-Encoding: chunked```.
 
-The Stream contains frames separated by ```\r\n\r\n```. For example:
+The Stream contains frames separated by ```\r\n```. For example:
 
 
-    HELLO\r\n\r\nWORLD!!!\r\n\r\n
+    HELLO\r\nWORLD!!!\r\n
 
 
 #### Control Message
