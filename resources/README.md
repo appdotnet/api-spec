@@ -24,6 +24,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </thead>
     <tbody>
         <tr>
+            <td>/stream/0/users</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-multiple-users">Retrieve multiple Users</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
             <td>Yes</td>
@@ -129,6 +135,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>POST</td>
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post">Create a Post</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-multiple-posts">Retrieve multiple Posts</a></td>
         </tr>
         <tr>
             <td>/stream/0/posts/[post_id]</td>
