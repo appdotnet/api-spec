@@ -204,7 +204,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 > 
 > Content-Type: application/json
 > 
-> DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geo", "value": {"type": "Point", "coordinates": [102.0, 0.5]}}]}'
+> DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geolocation", "value": {"latitude": 74.0064, "longitude": 40.7142}}]}'
 ```js
 {
     "data": {
@@ -228,10 +228,10 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "num_stars": 0,
         "annotations": [
             {
-                "type": "net.app.core.geo",
+                "type": "net.app.core.geolocation",
                 "value": {
-                    "type": "Point",
-                    "coordinates": [102.0, .5]
+                    "latitude": 74.0064,
+                    "longitude": 40.7142
                 }
             }
         ],
