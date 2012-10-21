@@ -33,7 +33,7 @@ For JSONP requests we offer the ability to override the default migration behavi
             <th>Key</th>
             <th>Migration (name)</th>
             <th>Description</th>
-            <th>EOL</th>
+            <th>End-Of-Life Date</th>
         </tr>
     </thead>
     <tbody>
