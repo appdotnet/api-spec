@@ -398,7 +398,7 @@ Just the required parameters:
     "type": "net.app.core.geolocation",
     "value": {
         "latitude": 74.0064,
-        "longitude": 40.7142,
+        "longitude": 40.7142
     }
 }
 ```

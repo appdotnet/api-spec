@@ -248,10 +248,10 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     "num_stars": 1,
     "annotations": [
         {
-            "type": "net.app.core.geo",
+            "type": "net.app.core.geolocation",
             "value": {
-                "type": "Point",
-                "coordinates": [102.0, .5]
+                "latitude": 74.0064,
+                "longitude": 40.7142,
             }
         }
     ],
