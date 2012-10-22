@@ -744,7 +744,26 @@ A Filter restricts a stream of messages on the server side so your client only s
         <tr>
             <td><code>value</code></td>
             <td>string, int, or list</td>
-            <td>A string, integer, or list that the message's data is compared against.</td>
+            <td>A string, integer, or list that the message's data is compared against. Some <a href="#filter-variables">variables</a> are also accepted.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Filter variables
+
+<table>
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>$authorized_userids</code></td>
+            <td>list</td>
+            <td>A list of the current user ids who have authorized the App that is using this filter in a stream. Since this is a list, make sure you use the <code>one_of</code> operator with this variable.</td>
         </tr>
     </tbody>
 </table>
