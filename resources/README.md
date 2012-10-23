@@ -209,6 +209,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream">Retrieve a User's personalized stream</a></td>
         </tr>
         <tr>
+            <td>/stream/0/posts/stream/unified</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-unified-stream">Retrieve a User's unified stream</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/posts/stream/global</td>
             <td>GET</td>
             <td>No</td>
