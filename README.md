@@ -4,8 +4,6 @@ This is a living, working document. We're in the early implementation stages of 
 
 Please submit feedback to us — feel free to comment on commits, open issues, open pull requests, etc.
 
-The App.net Stream API Spec project is just one part of the App.net movement. If this project is interesting to you, we'd appreciate your support. You can provide support by [backing the project](https://join.app.net) or just by participating in the process to help define it.
-
 ## Very Important Warning
 
 **As we've started to open up the API to people as part of our early alpha program, it's important to note that this documentation is
@@ -31,13 +29,8 @@ We want to think big with you. What would you like to see?
 
 From time to time we'll ask for feedback on specific parts of the spec in particular. Right now, focus your mental energy on:
 
-* Object definitions, specifically:
-    * Annotation definitions.
-    * Entity definitions.
-* Feed filters.
+* Object definitions, specifically annotation definitions.
 * Data export APIs. These are very, very important to us. If you were writing a backup tool, what would you want to see?
-* Re-share, reply semantics.
-* Creating objects with body content-type application/json instead of application/x-www-urlencoded.
 * What do you think is missing?
 
 ## How do I get involved?
