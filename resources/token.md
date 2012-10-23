@@ -80,10 +80,6 @@ None.
                 "posts": 24,
                 "stars": 76
             },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
-            },
             "follows_you": false,
             "you_follow": true,
             "you_muted": false,

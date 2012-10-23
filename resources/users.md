@@ -136,10 +136,6 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
             "posts": 24,
             "stars": 76
         },
-        "app_data": {
-            "appdotnet": {...},
-            "rdio": {...}
-        },
         "follows_you": false,
         "you_follow": true,
         "you_muted": false,
@@ -235,10 +231,6 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
             "followers": 200,
             "posts": 24,
             "stars": 76
-        },
-        "app_data": {
-            "appdotnet": {...},
-            "rdio": {...}
         },
         "follows_you": false,
         "you_follow": true,
@@ -338,10 +330,6 @@ Returns the <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> o
             "posts": 24,
             "stars": 76
         },
-        "app_data": {
-            "appdotnet": {...},
-            "rdio": {...}
-        },
         "follows_you": false,
         "you_follow": false,
         "you_muted": false,
@@ -435,10 +423,6 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
                 "followers": 200,
                 "posts": 24,
                 "stars": 76
-            },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
             },
             "follows_you": false,
             "you_follow": true,
@@ -538,10 +522,6 @@ Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">Us
                 "followers": 200,
                 "posts": 24,
                 "stars": 76
-            },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
             },
             "follows_you": false,
             "you_follow": true,
@@ -645,10 +625,6 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
             "posts": 24,
             "stars": 76
         },
-        "app_data": {
-            "appdotnet": {...},
-            "rdio": {...}
-        },
         "follows_you": false,
         "you_follow": true,
         "you_muted": true,
@@ -747,10 +723,6 @@ Stop hiding all posts for a given user.
             "posts": 24,
             "stars": 76
         },
-        "app_data": {
-            "appdotnet": {...},
-            "rdio": {...}
-        },
         "follows_you": false,
         "you_follow": true,
         "you_muted": false,
@@ -826,10 +798,6 @@ None.
                 "followers": 200,
                 "posts": 24,
                 "stars": 76
-            },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
             },
             "follows_you": false,
             "you_follow": true,
@@ -1024,10 +992,6 @@ List all the Users who have reposted a given Post.
                 "posts": 24,
                 "stars": 76
             },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
-            },
             "follows_you": false,
             "you_follow": true,
             "you_muted": true,
@@ -1122,10 +1086,6 @@ List all the Users who have starred a given Post.
                 "followers": 200,
                 "posts": 24,
                 "stars": 76
-            },
-            "app_data": {
-                "appdotnet": {...},
-                "rdio": {...}
             },
             "follows_you": false,
             "you_follow": true,

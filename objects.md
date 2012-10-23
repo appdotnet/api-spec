@@ -54,10 +54,6 @@ A user is the central object utilized by the App.net Stream API. They have usern
         "posts": 24,
         "stars": 76
     },
-    "app_data": {
-        "appdotnet": {...},
-        "rdio": {...}
-    },
     "follows_you": false,
     "you_follow": true,
     "you_muted": false,
@@ -179,11 +175,6 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 </tr>
             </table>
         </td>
-    </tr>
-    <tr>
-        <td><code>app_data</code></td>
-        <td>object</td>
-        <td>Object where each app can store opaque information for this user. This could be useful for storing application state (read pointers, default filters in the app, etc).</td>
     </tr>
     <tr>
         <td><code>follows_you</code></td>
