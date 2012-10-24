@@ -10,11 +10,7 @@ The base URL for this intent is ```https://alpha.app.net/intent/post```.
 
 You may optionally prepopulate the post creation box by supplying a ```text``` query parameter to the URL.
 
-For example, this URL,
-
-```https://alpha.app.net/intent/post?text=@voidfiles+save+some+coffee+for+me```
-
-will create a post that reads
+For example, this URL ```https://alpha.app.net/intent/post?text=@voidfiles+save+some+coffee+for+me``` will create a post that reads:
 
     @voidfiles save some coffee for me
 
