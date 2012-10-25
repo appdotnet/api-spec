@@ -36,6 +36,24 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
         </tr>
         <tr>
+            <td>/stream/0/users/me</td>
+            <td>PUT</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-user">Update a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/avatar</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-users-avatar-image">Update a User's avatar image</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/cover</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-users-cover-image">Update a User's cover image</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/users/[user_id]/follow</td>
             <td>POST</td>
             <td>Yes</td>

@@ -573,7 +573,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 #### Links with custom anchor text
 
-If you'd like to provide a link without including the entire URL in your post text, you can specify a custom link at Post creation time. If you provide any links at post creation time, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
+If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. If you provide any links, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
 
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters will not count against the 256 character Post limit.
 
