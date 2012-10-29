@@ -32,7 +32,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
-            <td>Yes</td>
+            <td>No</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
         </tr>
         <tr>
@@ -40,6 +40,18 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>PUT</td>
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-user">Update a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/avatar</td>
+            <td>GET</td>
+            <td>No</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-avatar-image">Retrieve a User's avatar image</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/cover</td>
+            <td>GET</td>
+            <td>No</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-cover-image">Retrieve a User's cover image</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/me/avatar</td>

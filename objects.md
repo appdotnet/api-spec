@@ -214,6 +214,8 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
 
+A user's avatar and cover images can be [directly requested](/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-avatar-image) without requesting the entire user object.
+
 ## Post
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
 
