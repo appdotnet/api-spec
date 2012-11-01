@@ -153,6 +153,7 @@ Here is the current list of scopes on App.net:
 * **write_post**: create a new post as this user
 * **follow**: add or remove follows (or mutes) for this user
 * **messages**: send and receive private messages as this user
+* **update_profile**: update a user's name, images, and other profile information
 * **export**: bulk export all of this user's App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
 The **basic** scope will always be granted on creation of access token, even if the token request omits it.
