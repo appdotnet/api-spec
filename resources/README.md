@@ -84,10 +84,22 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-a-user-is-following">List users a User is following</a></td>
         </tr>
         <tr>
+            <td>/stream/0/users/[user_id]/following/ids</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-ids-a-user-is-following">List user ids a User is following</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/users/[user_id]/followers</td>
             <td>GET</td>
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-following-a-user">List users following a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/followers/ids</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-ids-following-a-user">List user ids following a User</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/[user_id]/mute</td>
