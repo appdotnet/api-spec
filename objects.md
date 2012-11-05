@@ -908,6 +908,112 @@ A customized view of the global stream that is streamed to the client instead of
     </tbody>
 </table>
 
+## Interactions
+
+Interactions are objects that represent a user taking certain actions on App.net. For instance, when a User replies to a post, follows someone new, reposts or stars a post, an interaction is created. Interactions are very abstract objects that essentially form a sentence like: User X took action Y on object Z. If multiple users take the same action (multiple people reply to one post), the interaction will combine those events into one interaction. Here are some sample interactions:
+
+* @dalton and @berg reposted post 1
+
+    {
+        "action": "repost",
+        "objects": [
+            {
+                "id": "1"
+            }
+        ],
+        "users": [
+            {
+                "id": "2",
+                "name": "berg"
+            },
+            {
+                "id": "1",
+                "name": "dalton"
+            },
+        ]
+    }
+
+* @berg started following user 1
+
+    {
+        "action": "follow",
+        "objects": [
+            {
+                "id": "1"
+            }
+        ],
+        "users": [
+            {
+                "id": "2",
+                "name": "berg"
+            }
+        ]
+    }
+
+* @berg starred post 1
+
+    {
+        "action": "star",
+        "objects": [
+            {
+                "id": "1"
+            }
+        ],
+        "users": [
+            {
+                "id": "2",
+                "name": "berg"
+            }
+        ]
+    }
+
+* @berg replied to post 1
+
+    {
+        "action": "reply",
+        "objects": [
+            {
+                "id": "1"
+            }
+        ],
+        "users": [
+            {
+                "id": "2",
+                "name": "berg"
+            }
+        ]
+    }
+
+
+### Interactions Fields
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>action</code></td>
+            <td>string</td>
+            <td>What ```users``` did. Currently one of ```follow```, ```reply```, ```repost```, or ```star```</td>
+        </tr>
+        <tr>
+            <td><code>objects</code></td>
+            <td>list</td>
+            <td>A list of objects that ```users``` took ```action``` on. Currently, this is always a single element list and it will either contains the post id (that was starred, reposted, or replied to) or the user id (that was followed).</td>
+        </tr>
+        <tr>
+            <td><code>users</code></td>
+            <td>list</td>
+            <td>A list of objects representing the Users that took ```action``` on ```objects```. Each object will have an ```id``` and a ```name``` that contains the user id and username respectively.</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Notes on data formats
 
 ### Dates
