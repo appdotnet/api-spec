@@ -57,6 +57,14 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "follows_you": false,
     "you_follow": true,
     "you_muted": false,
+    "annotations": [
+        {
+            "type": "net.app.core.directory.blog",
+            "value": {
+                "url": "http://myawesomeblog.com"
+            }
+        }
+    ]
 }
 ```
 
@@ -190,6 +198,11 @@ A user is the central object utilized by the App.net Stream API. They have usern
         <td><code>you_muted</code></td>
         <td>boolean</td>
         <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>annotations</code></td>
+        <td>list</td>
+        <td>Metadata about the user. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
     </tr>
 </table>
 

@@ -150,6 +150,8 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">Use
 
 Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#user">User's</a> profile details. You can update a user by PUTing an object that matches the [user schema](/appdotnet/api-spec/blob/master/objects.md#user) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specific [custom links](/appdotnet/api-spec/blob/master/objects.md#user-specified-entities) for a user description.
 
+If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
+
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
@@ -165,11 +167,11 @@ None.
 
 ### Example
 
-> PUT https://alpha-api.app.net/stream/0/users/me
+> PUT https://alpha-api.app.net/stream/0/users/me?include_annotations=1
 >
 > Content-Type: application/json
 >
-> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}}
+> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": "http://mynewblog.com"}]}
 ```js
 {
     "data": {
@@ -201,6 +203,12 @@ None.
             "posts": 24,
             "stars": 76
         },
+        "annotations": [
+            {
+                "type": "net.app.core.directory.blog",
+                "value": "http://mynewblog.com"
+            }
+        ]
     },
     "meta": {
         "code": 200
