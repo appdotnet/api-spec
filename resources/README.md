@@ -137,6 +137,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-who-have-starred-a-post">List Users who have starred a Post</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/users/me/interactions</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-interactions-with-me">List User interactions with me</a></td>
+        </tr>
     </tbody>
 </table>
 
