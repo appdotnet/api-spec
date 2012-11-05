@@ -1,6 +1,6 @@
 # Annotations
 
-Annotations are metadata that are attached to Post when they are created. This allows developers and users to add extra information to the post without interfering with the text content of the Post. Annotations will enable developers to build complex posts and new systems on top of the current App.net infrastructure.
+Annotations are metadata that are attached to Users or to Posts when they are created. This allows developers and users to add extra information to the post without interfering with the text content of the Post. They also allow developers to attach machine readable information about a user to the user object. Annotations will enable developers to build complex posts and new systems on top of the current App.net infrastructure.
 
 We're really excited to be launching this feature and appreciate any feedback on the following document. Please [open a github issue](https://github.com/appdotnet/api-spec/issues) to contribute to this document.
 
@@ -12,7 +12,7 @@ Let's say I'm at a restaurant eating a great dinner, but instead of just telling
 
 To build amazing things. This feature enables new ideas to be built without having to create a brand new API or ecosystem to support the idea. This is the plumbing that will enable new kinds of clients that aren't just about microblogging.
 
-Annotations are how App.net will do reposting, geographic information, attaching media to posts, and lots of other things that our 3rd party developers will create.
+Annotations are how App.net will do geographic information, attaching media to posts, and lots of other things that our 3rd party developers will create.
 
 ## How do I use annotations
 
@@ -22,17 +22,47 @@ Right now, we're still working with developers to build out this system. As App.
 
 ### As a developer
 
-**We're still working on updating all the sample Posts in the spec to show this annotations format.**
-
 First here are some of the more technical details of annotations:
 
 - Each annotation can be thought of as a dictionary or JSON object.
-- Each Post is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
-- Annotations are immutable and can only be added to a Post at creation time.
+- Each User or Post is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Post Annotations are immutable and can only be added to a Post at creation time.
+- User Annotations are mutable and can be updated at any time. Because they are mutable, each User can only have one annotation of each "type" (unlike Post annotations).
 
 #### Annotation format
 
-Here's a sample post with annotations:
+In general, annotations are a list of objects that have a ```type``` and a ```value```.
+
+```js
+[
+    {
+        "type": "com.example.awesome",
+        "value": {
+            "annotations work": "beautifully"
+        }
+    }
+]
+```
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>type</code></td>
+        <td>string</td>
+        <td>A string that looks like a reversed domain name to identify the data format for this annotation. <em>There is no authentication or authorization performed on this field. Just because you create annotations with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the <code>value</code> will match the format you expect.</em></td>
+    </tr>
+    <tr>
+        <td><code>value</code></td>
+        <td>object</td>
+        <td>A complex object containing the metadata for this annotation. <em>Be extremely careful with this data, except for well known annotations, no validation is performed on this field.</em></td>
+    </tr>
+</table>
+
+##### Post Annotation format
 
 ```js
 {
@@ -69,34 +99,54 @@ Here's a sample post with annotations:
 
 The ```post.annotations``` field will be a list of individual annotation objects.
 
-<table>
-    <tr>
-        <th>Field</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td><code>type</code></td>
-        <td>string</td>
-        <td>A string that looks like a reversed domain name to identify the data format for this annotation. <em>There is no authentication or authorization performed on this field. Just because you create annotations with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the <code>value</code> will match the format you expect.</em></td>
-    </tr>
-    <tr>
-        <td><code>value</code></td>
-        <td>object</td>
-        <td>A complex object containing the metadata for this annotation. <em>Be extremely careful with this data, except for well known annotations, no validation is performed on this field.</em></td>
-    </tr>
-</table>
+##### User Annotation format
+
+User annotations are meant to provide more information about the user. **They are not meant to be an arbitrary data store for apps**. For example, if a user has a homepage, a blog, or a handle on a different social network, that information belongs in the User annotation.
+
+
+```js
+{
+    "id": "1", // note this is a string
+    "username": "mthurman",
+    "name": "Mark Thurman",
+    "description": { ... },
+    "timezone": "US/Pacific",
+    "locale": "en_US",
+    "avatar_image": { ... },
+    "cover_image": { ... },
+    "type": "human",
+    "created_at": "2012-07-16T17:23:34Z",
+    "counts": { ... },
+    "follows_you": false,
+    "you_follow": true,
+    "you_muted": false,
+    "annotations": [
+        {
+            "type": "net.app.core.directory.blog",
+            "value": {
+                "url": "http://myawesomeblog.com"
+            }
+        }
+    ]
+}
+```
+
+The ```user.annotations``` field will be a list of individual annotation objects.
 
 
 #### Creating annotations
 
-Annotations are currently live on in the API. To create them you must give App.net a well-formed JSON encoded post that matches the [Post schema](https://github.com/appdotnet/api-spec/blob/master/objects.md#post). Please see the [Create Post](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post) documentations for more information.
+Annotations are currently live in the API.
+
+To create Post annotations you must give App.net a well-formed JSON encoded post that matches the [Post schema](https://github.com/appdotnet/api-spec/blob/master/objects.md#post). Please see the [Create Post](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post) documentations for more information.
+
+To add or update User annotations, you [Update a user profile](https://github.com/appdotnet/api-spec/blob/master/resources/users.md#update-a-user) and pass in the annotations you want to add or update. To delete an annotation, pass in ```"value": {}``` for the annotation type.
 
 #### Displaying annotations
 
 Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts, you can include the parameter ```include_annotations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
+Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts or users, you can include the parameter ```include_annotations=1``` to receive the annotations object. See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
 
 # Annotations formats
 
@@ -115,10 +165,53 @@ Developers are invited to create ad-hoc annotations for data not well represente
 
 ## Core Annotations
 
+### Post
+
 * [Crosspost](#crosspost): net.app.core.crosspost
 * [Embedded Media](#embedded-media): net.app.core.oembed
-* [Language](#language): net.app.core.language
 * [Geolocation](#geolocation): net.app.core.geolocation
+* [Language](#language): net.app.core.language
+
+### User
+
+* [Blog URL](#blog): net.app.core.directory.blog
+* [Facebook Id](#facebook): net.app.core.directory.facebook
+* [Homepage](#homepage): net.app.core.directory.homepage
+* [Twitter Username](#twitter): net.app.core.directory.twitter
+
+
+### Blog
+
+> net.app.core.directory.blog
+
+A pointer to the user's blog.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.directory.blog",
+    "value": {
+        "url": "http://myawesomeblog.com",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>url</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A valid URL pointing to the User's blog.</td>
+    </tr>
+</table>
 
 ### Crosspost
 
@@ -348,19 +441,19 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
     </tr>
 </table>
 
-### Language
+### Facebook
 
-> net.app.core.language
+> net.app.core.directory.facebook
 
-The language annotation allows a User to indicate what language this post was written in.
+A pointer to the user's Facebook account.
 
 #### Example
 
 ```js
 {
-    "type": "net.app.core.language",
+    "type": "net.app.core.directory.facebook",
     "value": {
-        "language": "en",
+        "id": "244611465578667",
     }
 }
 ```
@@ -374,10 +467,10 @@ The language annotation allows a User to indicate what language this post was wr
         <th>Description</th>
     </tr>
     <tr>
-        <td><code>language</code></td>
+        <td><code>id</code></td>
         <td>Required</td>
         <td>string</td>
-        <td>A valid ISO 639-1 language code. Note that we only accept a subset of language codes right now. Please see <a href="https://github.com/appdotnet/api-spec/wiki/Language-codes">our current list</a> of accepted language codes. If we're missing your language, please <a href="https://github.com/appdotnet/api-spec/issues">open an issue</a>.</td>
+        <td>A Facebook user id representing the App.net User.</td>
     </tr>
 </table>
 
@@ -454,5 +547,104 @@ With all optional parameters:
         <td>Optional</td>
         <td>decimal</td>
         <td>The vertical accuracy (in meters) of the instrument providing this geolocation point. Must be >= 0.</td>
+    </tr>
+</table>
+
+### Homepage
+
+> net.app.core.directory.homepage
+
+A pointer to the user's homepage.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.directory.homepage",
+    "value": {
+        "url": "http://thisisme.com",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>url</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A valid URL pointing to the User's homepage.</td>
+    </tr>
+</table>
+
+### Language
+
+> net.app.core.language
+
+The language annotation allows a User to indicate what language this post was written in.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.language",
+    "value": {
+        "language": "en",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>language</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A valid ISO 639-1 language code. Note that we only accept a subset of language codes right now. Please see <a href="https://github.com/appdotnet/api-spec/wiki/Language-codes">our current list</a> of accepted language codes. If we're missing your language, please <a href="https://github.com/appdotnet/api-spec/issues">open an issue</a>.</td>
+    </tr>
+</table>
+
+### Twitter
+
+> net.app.core.directory.twitter
+
+A pointer to the user's Twitter account.
+
+#### Example
+
+```js
+{
+    "type": "net.app.core.directory.twitter",
+    "value": {
+        "username": "appdotnet",
+    }
+}
+```
+#### Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Required?</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>username</code></td>
+        <td>Required</td>
+        <td>string</td>
+        <td>A Twitter username representing the App.net User.</td>
     </tr>
 </table>
