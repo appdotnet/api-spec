@@ -822,7 +822,7 @@ Returns an array of user ids the specified user is following.
 
 ## List users following a user
 
-Returns a list of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
+Returns an array of <a href="/appdotnet/api-spec/blob/master/objects.md#user">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
 
 > This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
@@ -1523,68 +1523,6 @@ List all the Users who have starred a given Post.
     ],
     "meta": {
         "code": 200
-    }
-}
-```
-
-## List User interactions with me
-
-List all the [Interactions](/appdotnet/api-spec/blob/master/objects.md#interactions) other users have had with me. *Note: you can only request this list for the current user.*
-
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
-
-### URL
-> https://alpha-api.app.net/stream/0/users/me/interactions
-
-### Parameters
-
-None.
-
-### Example
-
-> GET https://alpha-api.app.net/stream/0/users/me/interactions
-```js
-{
-    "data": [
-        {
-            "action": "repost",
-            "objects": [
-                {
-                    "id": "1"
-                }
-            ],
-            "users": [
-                {
-                    "id": "2",
-                    "name": "berg"
-                },
-                {
-                    "id": "1",
-                    "name": "dalton"
-                },
-            ]
-        },
-        {
-            "action": "follow",
-            "objects": [
-                {
-                    "id": "1"
-                }
-            ],
-            "users": [
-                {
-                    "id": "2",
-                    "name": "berg"
-                }
-            ]
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": 10,
-        "min_id": 4,
-        "more": true
     }
 }
 ```
