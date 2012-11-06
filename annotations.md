@@ -178,6 +178,7 @@ Developers are invited to create ad-hoc annotations for data not well represente
 * [Facebook Id](#facebook): net.app.core.directory.facebook
 * [Homepage](#homepage): net.app.core.directory.homepage
 * [Twitter Username](#twitter): net.app.core.directory.twitter
+* [Geolocation](#geolocation): net.app.core.geolocation
 
 
 ### Blog
