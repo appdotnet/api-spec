@@ -171,7 +171,7 @@ None.
 >
 > Content-Type: application/json
 >
-> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": "http://mynewblog.com"}]}
+> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": {"url": "http://mynewblog.com"}}]}
 ```js
 {
     "data": {
