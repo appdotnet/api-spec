@@ -167,7 +167,7 @@ None.
 
 ### Example
 
-> PUT https://alpha-api.app.net/stream/0/users/me?include_annotations=1
+> PUT https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
 >
 > Content-Type: application/json
 >
