@@ -8,7 +8,27 @@ All responses to requests to the App.net API endpoints described in [Resources](
 
 The top-level response is an object containing two keys. The first key, ```data```, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no ```data``` key will be present.
 
-The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain pagination data, when relevant.
+The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination data](#pagination-metadata) or [stream marker data](/appdotnet/api-spec/blob/master/objects.md#stream-marker), when relevant.
+
+### Sample Response Envelope
+```js
+{
+    "data": ...,
+    "meta": {
+        "code": 200,
+        "marker": {
+            "id": "1",
+            "name": "global",
+            "percentage": 0,
+            "updated_at": "2012-11-09T23:35:38Z",
+            "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
+        },
+        "max_id": 65039,
+        "min_id": 65039,
+        "more": true
+    }
+}
+```
 
 ## JSONP
 

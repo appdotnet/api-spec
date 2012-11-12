@@ -274,6 +274,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>No</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-tagged-posts">Retrieve tagged Posts</a></td>
         </tr>
+        <tr>
+            <td>/stream/0/posts/marker</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#update-a-stream-marker">Update a Stream Marker</a></td>
+        </tr>
     </tbody>
 </table>
 
