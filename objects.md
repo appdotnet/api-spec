@@ -1,5 +1,13 @@
 # Objects
 
+* [Entities](#entities) are links, tags, and mentions in Posts and User descriptions.
+* [Filters](#filter) allow you to only receive Posts you want from our Stream API.
+* [Interactions](#interactions) show what other Users have done with your Posts (replies, starred, reposted, etc).
+* [Posts](#post) are the central message of the App.net API.
+* [Streams](#stream) are real-time, filterable view of all Posts and actions happening on App.net
+* [Stream Markers](#stream-marker) allow a User's position in a Stream of posts to be saved and synced between Apps.
+* [Users](#user) are the central object that takes actions in the App.net API.
+
 ## User
 
 A user is the central object utilized by the App.net Stream API. They have usernames, follow other users, and post content for their followers.
@@ -57,6 +65,14 @@ A user is the central object utilized by the App.net Stream API. They have usern
     "follows_you": false,
     "you_follow": true,
     "you_muted": false,
+    "annotations": [
+        {
+            "type": "net.app.core.directory.blog",
+            "value": {
+                "url": "http://myawesomeblog.com"
+            }
+        }
+    ]
 }
 ```
 
@@ -191,6 +207,11 @@ A user is the central object utilized by the App.net Stream API. They have usern
         <td>boolean</td>
         <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
     </tr>
+    <tr>
+        <td><code>annotations</code></td>
+        <td>list</td>
+        <td>Metadata about the user. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
+    </tr>
 </table>
 
 #### Deprecations
@@ -213,6 +234,8 @@ one of the parameters is omitted, the omitted dimension will be scaled according
 will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
+
+A user's avatar and cover images can be [directly requested](/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-avatar-image) without requesting the entire user object.
 
 ## Post
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
@@ -573,7 +596,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 #### Links with custom anchor text
 
-If you'd like to provide a link without including the entire URL in your post text, you can specify a custom link at Post creation time. If you provide any links at post creation time, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities.
+If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. If you provide any links, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
 
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters will not count against the 256 character Post limit.
 
@@ -892,6 +915,167 @@ A customized view of the global stream that is streamed to the client instead of
         </tr>
     </tbody>
 </table>
+
+## Interactions
+
+Interactions are objects that represent a user taking certain actions on App.net. For instance, when a User replies to a post, follows someone new, reposts or stars a post, an interaction is created. Interactions are very abstract objects that essentially form a sentence like: User X took action Y on object Z. If multiple users take the same action (multiple people reply to one post), the interaction will combine those events into one interaction. Here are some sample interactions:
+
+* @dalton and @berg reposted post 1
+
+    {
+        "action": "repost",
+        "objects": [
+            {
+                ...post 1..
+            }
+        ],
+        "users": [
+            {
+                ...@berg's user object...
+            },
+            {
+                ...@dalton's user object...
+            },
+        ]
+    }
+
+* @berg started following user 1
+
+    {
+        "action": "follow",
+        "objects": [
+            {
+                ...user 1...
+            }
+        ],
+        "users": [
+            {
+                ...@berg's user object...
+            }
+        ]
+    }
+
+* @berg starred post 1
+
+    {
+        "action": "star",
+        "objects": [
+            {
+                ...post 1...
+            }
+        ],
+        "users": [
+            {
+                ...@berg's user object...
+            }
+        ]
+    }
+
+* @berg replied to post 1
+
+    {
+        "action": "reply",
+        "objects": [
+            {
+                ...post 1...
+            }
+        ],
+        "users": [
+            {
+                ...@berg's user object...
+            }
+        ]
+    }
+
+
+### Interactions Fields
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>action</code></td>
+            <td>string</td>
+            <td>What ```users``` did. Currently one of ```follow```, ```reply```, ```repost```, or ```star```</td>
+        </tr>
+        <tr>
+            <td><code>objects</code></td>
+            <td>list</td>
+            <td>A list of objects that ```users``` took ```action``` on. These objects will be Users if ```action=follow``` otherwise they will be Posts.</td>
+        </tr>
+        <tr>
+            <td><code>users</code></td>
+            <td>list</td>
+            <td>A list of User objects that took ```action``` on ```objects```.</td>
+        </tr>
+    </tbody>
+</table>
+
+## Stream Marker
+
+Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, you're stream is right where you left off. The current stream marker will be included in the [response envelope]() from any stream that returns Posts.
+
+### Example Stream Marker
+
+If a Stream Marker hasn't yet been set, you will receive the following format:
+```js
+{
+    "name": "global",
+}
+```
+
+A marker that has been set will look like this:
+```js
+{
+    "id": "1234",
+    "name": "global",
+    "percentage": 0,
+    "updated_at": "2012-11-09T23:35:38Z",
+    "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
+}
+```
+
+### Stream Marker fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>id</code></td>
+        <td>string</td>
+        <td>The Post id of the Post at the top of the stream when this Stream's position was last synced.</td>
+    </tr>
+    <tr>
+        <td><code>name</code></td>
+        <td>string</td>
+        <td>The name of the Stream this marker is for.</td>
+    </tr>
+    <tr>
+        <td><code>percentage</code></td>
+        <td>integer</td>
+        <td>An optional field that indicate what percentage this post has been scrolled in the stream. It defaults to 0. This allows for very precise stream syncing but since different clients render Posts with different heights it won't be consistent across different clients.</td>
+    </tr>
+    <tr>
+        <td><code>updated_at</code></td>
+        <td>string</td>
+        <td>The time this marker was last updated in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
+    </tr>
+    <tr>
+        <td><code>version</code></td>
+        <td>string</td>
+        <td>A unique identifier updated every time this Stream Marker is updated.</td>
+    </tr>
+</table>
+
 
 ## Notes on data formats
 

@@ -32,8 +32,38 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
-            <td>Yes</td>
+            <td>No</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me</td>
+            <td>PUT</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-user">Update a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/avatar</td>
+            <td>GET</td>
+            <td>No</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-avatar-image">Retrieve a User's avatar image</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/cover</td>
+            <td>GET</td>
+            <td>No</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-cover-image">Retrieve a User's cover image</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/avatar</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-users-avatar-image">Update a User's avatar image</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/cover</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-users-cover-image">Update a User's cover image</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/[user_id]/follow</td>
@@ -54,10 +84,22 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-a-user-is-following">List users a User is following</a></td>
         </tr>
         <tr>
+            <td>/stream/0/users/[user_id]/following/ids</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-ids-a-user-is-following">List user ids a User is following</a></td>
+        </tr>
+        <tr>
             <td>/stream/0/users/[user_id]/followers</td>
             <td>GET</td>
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-following-a-user">List users following a User</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/[user_id]/followers/ids</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-ids-following-a-user">List user ids following a User</a></td>
         </tr>
         <tr>
             <td>/stream/0/users/[user_id]/mute</td>
@@ -94,6 +136,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>GET</td>
             <td>Yes</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-users-who-have-starred-a-post">List Users who have starred a Post</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/users/me/interactions</td>
+            <td>GET</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#list-user-interactions-with-me">List User interactions with me</a></td>
         </tr>
     </tbody>
 </table>
@@ -225,6 +273,12 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>GET</td>
             <td>No</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-tagged-posts">Retrieve tagged Posts</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/posts/marker</td>
+            <td>POST</td>
+            <td>Yes</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/posts.md#update-a-stream-marker">Update a Stream Marker</a></td>
         </tr>
     </tbody>
 </table>
