@@ -4,6 +4,8 @@ As a developer working with App.net, you are required to follow some simple rule
 
 All requests to the API—authenticated or not—must be made over HTTPS. We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-31) for API authentication, but only certain portions of the specification. For instance, we only support the use of bearer tokens as access tokens. The specification is a little dense on the standards-speak, but we encourage you to take a look. We'll explain our specific use of OAuth 2 in this document.
 
+**Note** We changed the base domain that we use for the authentication flow from **alpha.app.net** to **account.app.net**. The old URLs will continue to work forever.
+
 ## Initial Developer Setup
 
 Once you have signed up as a developer, you will be able to create an app from the App.net developer dashboard. You will need to pre-register a **redirection URI**. This is where we will redirect users after they have successfully authorized your application.
