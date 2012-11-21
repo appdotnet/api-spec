@@ -649,7 +649,7 @@ A Filter restricts a stream of messages on the server side so your client only s
         {
             "field": "/data/entities/hashtags/*/name",
             "object_type": "post",
-            "operator": "contains",
+            "operator": "matches",
             "value": "rollout"
         }
     ],
@@ -855,7 +855,7 @@ A customized view of the global stream that is streamed to the client instead of
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -1002,24 +1002,24 @@ Interactions are objects that represent a user taking certain actions on App.net
         <tr>
             <td><code>action</code></td>
             <td>string</td>
-            <td>What ```users``` did. Currently one of ```follow```, ```reply```, ```repost```, or ```star```</td>
+            <td>What <code>users</code> did. Currently one of <code>follow</code>, <code>reply</code>, <code>repost</code>, or <code>star</code></td>
         </tr>
         <tr>
             <td><code>objects</code></td>
             <td>list</td>
-            <td>A list of objects that ```users``` took ```action``` on. These objects will be Users if ```action=follow``` otherwise they will be Posts.</td>
+            <td>A list of objects that <code>users</code> took <code>action</code> on. These objects will be Users if <code>action=follow</code> otherwise they will be Posts.</td>
         </tr>
         <tr>
             <td><code>users</code></td>
             <td>list</td>
-            <td>A list of User objects that took ```action``` on ```objects```.</td>
+            <td>A list of User objects that took <code>action</code> on <code>objects</code>.</td>
         </tr>
     </tbody>
 </table>
 
 ## Stream Marker
 
-Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, you're stream is right where you left off. The current stream marker will be included in the [response envelope]() from any stream that returns Posts.
+Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, you're stream is right where you left off. The current stream marker will be included in the [response envelope](/appdotnet/api-spec/blob/master/responses.md) from any stream that returns Posts.
 
 ### Example Stream Marker
 
