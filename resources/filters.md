@@ -24,7 +24,7 @@ None.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -64,7 +64,7 @@ A JSON object representing the filter to create. See <a href="/appdotnet/api-spe
 > 
 > Content-Type: application/json
 > 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
+> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
 ```js
 {
     "data": {
@@ -72,7 +72,7 @@ A JSON object representing the filter to create. See <a href="/appdotnet/api-spe
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -112,7 +112,7 @@ None.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -171,7 +171,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -221,7 +221,7 @@ Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
 > 
 > Content-Type: application/json
 > 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
+> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
 ```js
 {
     "data": {
@@ -229,13 +229,13 @@ Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">F
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             },
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "bug"
             }
         ],
@@ -291,7 +291,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Filter</a>.
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
