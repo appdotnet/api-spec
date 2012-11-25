@@ -449,7 +449,7 @@ Entities allow users and applications to provide rich text formatting for posts.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
 
-Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entites](#user-specified-entities) documentation for more information.
+Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entities](#user-specified-entities) documentation for more information.
 
 Ranges specified by entities may be adjacent, but may not overlap.
 
@@ -568,7 +568,7 @@ Link to another website.
     </tr>
 </table>
 
-### User Specified Entites
+### User Specified Entities
 
 Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
 
