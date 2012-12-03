@@ -97,7 +97,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>name</code></td>
         <td>string</td>
-        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length N characters.</td>
+        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length 50 characters.</td>
     </tr>
     <tr>
         <td><code>description</code></td>
@@ -113,7 +113,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 <tr>
                     <td><code>text</code></td>
                     <td>string</td>
-                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length N characters.</td>
+                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length 256 characters.</td>
                 </tr>
                 <tr>
                     <td><code>html</code></td>
