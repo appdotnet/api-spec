@@ -922,6 +922,7 @@ Interactions are objects that represent a user taking certain actions on App.net
 
 * @dalton and @berg reposted post 1
 
+```js
     {
         "action": "repost",
         "objects": [
@@ -938,9 +939,11 @@ Interactions are objects that represent a user taking certain actions on App.net
             },
         ]
     }
+```
 
 * @berg started following user 1
 
+```js
     {
         "action": "follow",
         "objects": [
@@ -954,9 +957,11 @@ Interactions are objects that represent a user taking certain actions on App.net
             }
         ]
     }
+```
 
 * @berg starred post 1
 
+```js
     {
         "action": "star",
         "objects": [
@@ -970,9 +975,11 @@ Interactions are objects that represent a user taking certain actions on App.net
             }
         ]
     }
+```
 
 * @berg replied to post 1
 
+```js
     {
         "action": "reply",
         "objects": [
@@ -986,7 +993,7 @@ Interactions are objects that represent a user taking certain actions on App.net
             }
         ]
     }
-
+```
 
 ### Interactions Fields
 
