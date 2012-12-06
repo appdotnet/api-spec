@@ -923,42 +923,40 @@ Interactions are objects that represent users taking certain actions on App.net.
 > Note: currently only one User or Post will be returned in the ```objects``` list of an Interaction but future actions may target multiple objects per Interaction.
 
 (Example) @dalton and @berg reposted post 1:
-
 ```js
-    {
-        "action": "repost",
-        "objects": [
-            {
-                ...post 1..
-            }
-        ],
-        "users": [
-            {
-                ...@berg's user object...
-            },
-            {
-                ...@dalton's user object...
-            },
-        ]
-    }
+{
+    "action": "repost",
+    "objects": [
+        {
+            ...post 1..
+        }
+    ],
+    "users": [
+        {
+            ...@berg's user object...
+        },
+        {
+            ...@dalton's user object...
+        },
+    ]
+}
 ```
 
 (Example) @berg started following @dalton:
-
 ```js
-    {
-        "action": "follow",
-        "objects": [
-            {
-                ...@dalton's user object...
-            }
-        ],
-        "users": [
-            {
-                ...@berg's user object...
-            }
-        ]
-    }
+{
+    "action": "follow",
+    "objects": [
+        {
+            ...@dalton's user object...
+        }
+    ],
+    "users": [
+        {
+            ...@berg's user object...
+        }
+    ]
+}
 ```
 
 ### Interactions Fields
