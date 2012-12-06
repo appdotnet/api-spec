@@ -928,15 +928,15 @@ Interactions are objects that represent users taking certain actions on App.net.
     "action": "repost",
     "objects": [
         {
-            ...post 1..
+            // ... post 1 ...
         }
     ],
     "users": [
         {
-            ...@berg's user object...
+            // ... @berg's user object ...
         },
         {
-            ...@dalton's user object...
+            // ... @dalton's user object ...
         },
     ]
 }
@@ -948,12 +948,12 @@ Interactions are objects that represent users taking certain actions on App.net.
     "action": "follow",
     "objects": [
         {
-            ...@dalton's user object...
+            // ... @dalton's user object ...
         }
     ],
     "users": [
         {
-            ...@berg's user object...
+            // ... @berg's user object ...
         }
     ]
 }
