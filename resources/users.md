@@ -1529,8 +1529,14 @@ List all the Users who have starred a given Post.
 
 ## List User interactions with me
 
-List all the [Interactions](/appdotnet/api-spec/blob/master/objects.md#interactions) other users have had with me. *Note: you can only request this list for the current user.*
+List all the [Interactions](/appdotnet/api-spec/blob/master/objects.md#interactions) other users have had with me. 
 
+> Note: you can only request this list for the current user.
+
+<!-- -->
+> Note: although this endpoint supports paging, a user's Interactions stream is continuously rebuilt as new actions in the system occur, so developers should generally plan to refetch the stream whenever switching to display it as Interactions may have shifted their position, with users being added or removed. If you need to keep track of activity in a more precise manner, you should using the [Streaming API](/appdotnet/api-spec/blob/master/resources/streams.md) to monitor the global feed for relevant activity.
+
+<!-- -->
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### URL

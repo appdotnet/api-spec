@@ -918,9 +918,11 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Interactions
 
-Interactions are objects that represent a user taking certain actions on App.net. For instance, when a User replies to a post, follows someone new, reposts or stars a post, an interaction is created. Interactions are very abstract objects that essentially form a sentence like: User X took action Y on object Z. If multiple users take the same action (multiple people reply to one post), the interaction will combine those events into one interaction. Here are some sample interactions:
+Interactions are objects that represent users taking certain actions on App.net. Currently an Interaction is created when a User replies to, reposts, or stars a Post, or follows another User. Interactions are structured to form a sentence like: User X took action Y on object Z. If multiple users take the same action (e.g. multiple users reply to one post) within a set time window those events will be combined into a single Interaction. 
 
-* @dalton and @berg reposted post 1
+> Note: currently only one User or Post will be returned in the ```objects``` list of an Interaction but future actions may target multiple objects per Interaction.
+
+(Example) @dalton and @berg reposted post 1:
 
 ```js
     {
@@ -941,50 +943,14 @@ Interactions are objects that represent a user taking certain actions on App.net
     }
 ```
 
-* @berg started following user 1
+(Example) @berg started following @dalton:
 
 ```js
     {
         "action": "follow",
         "objects": [
             {
-                ...user 1...
-            }
-        ],
-        "users": [
-            {
-                ...@berg's user object...
-            }
-        ]
-    }
-```
-
-* @berg starred post 1
-
-```js
-    {
-        "action": "star",
-        "objects": [
-            {
-                ...post 1...
-            }
-        ],
-        "users": [
-            {
-                ...@berg's user object...
-            }
-        ]
-    }
-```
-
-* @berg replied to post 1
-
-```js
-    {
-        "action": "reply",
-        "objects": [
-            {
-                ...post 1...
+                ...@dalton's user object...
             }
         ],
         "users": [
