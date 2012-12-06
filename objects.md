@@ -97,7 +97,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>name</code></td>
         <td>string</td>
-        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length N characters.</td>
+        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length 50 characters.</td>
     </tr>
     <tr>
         <td><code>description</code></td>
@@ -113,7 +113,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 <tr>
                     <td><code>text</code></td>
                     <td>string</td>
-                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length N characters.</td>
+                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length 256 characters.</td>
                 </tr>
                 <tr>
                     <td><code>html</code></td>
@@ -449,7 +449,7 @@ Entities allow users and applications to provide rich text formatting for posts.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
 
-Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entites](#user-specified-entities) documentation for more information.
+Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entities](#user-specified-entities) documentation for more information.
 
 Ranges specified by entities may be adjacent, but may not overlap.
 
@@ -568,7 +568,7 @@ Link to another website.
     </tr>
 </table>
 
-### User Specified Entites
+### User Specified Entities
 
 Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
 
@@ -649,7 +649,7 @@ A Filter restricts a stream of messages on the server side so your client only s
         {
             "field": "/data/entities/hashtags/*/name",
             "object_type": "post",
-            "operator": "contains",
+            "operator": "matches",
             "value": "rollout"
         }
     ],
@@ -855,7 +855,7 @@ A customized view of the global stream that is streamed to the client instead of
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -971,24 +971,24 @@ Interactions are objects that represent users taking certain actions on App.net.
         <tr>
             <td><code>action</code></td>
             <td>string</td>
-            <td>What ```users``` did. Currently one of ```follow```, ```reply```, ```repost```, or ```star```</td>
+            <td>What <code>users</code> did. Currently one of <code>follow</code>, <code>reply</code>, <code>repost</code>, or <code>star</code></td>
         </tr>
         <tr>
             <td><code>objects</code></td>
             <td>list</td>
-            <td>A list of objects that ```users``` took ```action``` on. These objects will be Users if ```action=follow``` otherwise they will be Posts.</td>
+            <td>A list of objects that <code>users</code> took <code>action</code> on. These objects will be Users if <code>action=follow</code> otherwise they will be Posts.</td>
         </tr>
         <tr>
             <td><code>users</code></td>
             <td>list</td>
-            <td>A list of User objects that took ```action``` on ```objects```.</td>
+            <td>A list of User objects that took <code>action</code> on <code>objects</code>.</td>
         </tr>
     </tbody>
 </table>
 
 ## Stream Marker
 
-Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, you're stream is right where you left off. The current stream marker will be included in the [response envelope]() from any stream that returns Posts.
+Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, you're stream is right where you left off. The current stream marker will be included in the [response envelope](/appdotnet/api-spec/blob/master/responses.md) from any stream that returns Posts.
 
 ### Example Stream Marker
 

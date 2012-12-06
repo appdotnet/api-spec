@@ -91,7 +91,7 @@ Return the <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Streams</
                     {
                         "field": "/data/entities/hashtags/*/name",
                         "object_type": "post",
-                        "operator": "contains",
+                        "operator": "matches",
                         "value": "rollout"
                     }
                 ],
@@ -148,7 +148,7 @@ A JSON object representing the stream to create. See <a href="/appdotnet/api-spe
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -197,7 +197,7 @@ None.
                     {
                         "field": "/data/entities/hashtags/*/name",
                         "object_type": "post",
-                        "operator": "contains",
+                        "operator": "matches",
                         "value": "rollout"
                     }
                 ],
@@ -264,7 +264,7 @@ Returns a specific <a href="/appdotnet/api-spec/blob/master/objects.md#stream">S
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -328,7 +328,7 @@ Delete a <a href="/appdotnet/api-spec/blob/master/objects.md#stream">Stream</a>.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
