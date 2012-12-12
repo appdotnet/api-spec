@@ -353,14 +353,101 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-all-of-the-current-tokens-streams">Delete all of the current tokens's Stream</a></td>
         </tr>
         <tr>
-            <td>/stream/0/streams/[streams_id]</td>
+            <td>/stream/0/streams/[stream_id]</td>
             <td>GET</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-stream">Retrieve a Stream</a></td>
         </tr>
         <tr>
-            <td>/stream/0/streams/[streams_id]</td>
+            <td>/stream/0/streams/[stream_id]</td>
             <td>DELETE</td>
             <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-a-stream">Delete a Stream</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+## [Channels](/appdotnet/api-spec/blob/master/resources/channels.md)
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Method</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/stream/0/channels</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#get-current-users-subscribed-channels">Get current user's subscribed channels</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#create-a-channel">Create a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#retrieve-a-channel">Retrieve a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]</td>
+            <td>PUT</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#update-a-channel">Update a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/subscribe</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#subscribe-to-a-channel">Subscribe to a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/subscribe</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#unsubscribe-from-a-channel">Unsubscribe from a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/subscribers</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#retrieve-users-subscribed-to-a-channel">Retrieve users subscribed to a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/subscribers/ids</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/channels.md#retrieve-user-ids-subscribed-to-a-channel">Retrieve user ids subscribed to a Channel</a></td>
+        </tr>
+    </tbody>
+</table>
+
+## [Messages](/appdotnet/api-spec/blob/master/resources/messages.md)
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Method</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/messages</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/messages.md#retrieve-the-messages-in-a-channel">Retrieve the Messages in a Channel</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/messages</td>
+            <td>POST</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/messages.md#create-a-message">Create a Message</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/messages/[message_id]</td>
+            <td>GET</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/messages.md#get-a-message">Retrieve a Message</a></td>
+        </tr>
+        <tr>
+            <td>/stream/0/channels/[channel_id]/messages/[message_id]</td>
+            <td>DELETE</td>
+            <td><a href="/appdotnet/api-spec/blob/master/resources/messages.md#delete-a-message">Delete a Message</a></td>
         </tr>
     </tbody>
 </table>

@@ -1,9 +1,11 @@
 # Objects
 
+* [Channels](#channel) are user-created streams of Messages.
 * [Entities](#entities) are links, tags, and mentions in Posts and User descriptions.
 * [Filters](#filter) allow you to only receive Posts you want from our Stream API.
 * [Interactions](#interactions) show what other Users have done with your Posts (replies, starred, reposted, etc).
-* [Posts](#post) are the central message of the App.net API.
+* [Messages](#message) are public or private pieces of text that can be sent to arbitrary users.
+* [Posts](#post) are the central public pieces of text sent to your followers.
 * [Streams](#stream) are real-time, filterable view of all Posts and actions happening on App.net
 * [Stream Markers](#stream-marker) allow a User's position in a Stream of posts to be saved and synced between Apps.
 * [Users](#user) are the central object that takes actions in the App.net API.
@@ -238,7 +240,7 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 A user's avatar and cover images can be [directly requested](/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-users-avatar-image) without requesting the entire user object.
 
 ## Post
-A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
+A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed. Posts are closely tied to the follow graph. If you want to create data that isn't tied to the follow graph, you should look at [Messages](#messages).
 
 ```js
 {
@@ -442,7 +444,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](annotations.md) for more information.
 
 #### Machine only Posts
-Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense in Alpha's Global Feed?"
+Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense to a human?"
 
 ## Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
@@ -707,7 +709,7 @@ A Filter restricts a stream of messages on the server side so your client only s
         <tr>
             <td><code>object_type</code></td>
             <td>string</td>
-            <td>What type of object does this filter operate on? Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>. </td>
+            <td>What type of object does this filter operate on? Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>message</code>, <code>stream_marker</code>, <code>channel</code>, <code>channel_subscription</code>.</td>
         </tr>
         <tr>
             <td><code>operator</code></td>
@@ -901,7 +903,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>message</code>, <code>stream_marker</code>, <code>channel</code>, <code>channel_subscription</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
@@ -1047,6 +1049,270 @@ A marker that has been set will look like this:
     </tr>
 </table>
 
+
+## Message
+
+A Message is very similar to a Post but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For a high level overview of the Messaging APIs, please see the [Messages docummentation](messages.md).
+
+### Example Message Object
+
+```js
+{
+    "channel_id": "1",
+    "created_at": "2012-12-11T00:31:49Z",
+    "entities": {
+        "hashtags": [],
+        "links": [],
+        "mentions": []
+    },
+    "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
+    "id": "103",
+    "machine_only": false,
+    "num_replies": 0,
+    "source": {
+        "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
+        "link": "https://app.net",
+        "name": "Test app"
+    },
+    "text": "Hello channel!",
+    "thread_id": "103",
+    "user": {
+        ...
+    }
+}
+```
+
+### Message Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>id</code></td>
+        <td>string</td>
+        <td>Primary identifier for a message. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+    </tr>
+    <tr>
+        <td><code>user</code></td>
+        <td>object</td>
+        <td>This is an embedded version of the <a href='#user'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user
+                account has been deleted), this key may be omitted.</td>
+    </tr>
+    <tr>
+        <td><code>created_at</code></td>
+        <td>string</td>
+        <td>The time at which the message was create in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
+    </tr>
+    <tr>
+        <td><code>text</code></td>
+        <td>string</td>
+        <td>User supplied text of the message.</td>
+    </tr>
+    <tr>
+        <td><code>html</code></td>
+        <td>string</td>
+        <td>Server-generated annotated HTML rendering of message text.</td>
+    </tr>
+    <tr>
+        <td><code>source</code></td>
+        <td>object</td>
+        <td>
+            <br>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>string</td>
+                    <td>Description of the API consumer that created this message.</td>
+                </tr>
+                <tr>
+                    <td><code>link</code></td>
+                    <td>string</td>
+                    <td>Link provided by the API consumer that created this message.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td><code>reply_to</code></td>
+        <td>string</td>
+        <td>The id of the message this message is replying to (or <code>null</code> if not a reply).</td>
+    </tr>
+    <tr>
+        <td><code>thread_id</code></td>
+        <td>string</td>
+        <td>The id of the post at the root of the thread that this message is a part of. If <code>thread_id==id</code> than this property does not guarantee that the thread has > 1 message. Please see <code>num_replies</code>.</td>
+    </tr>
+    <tr>
+        <td><code>num_replies</code></td>
+        <td>integer</td>
+        <td>The number of messages created in reply to this message.</td>
+    </tr>
+    <tr>
+        <td><code>annotations</code></td>
+        <td>list</td>
+        <td>Metadata about the entire message. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
+    </tr>
+    <tr>
+        <td><code>entities</code></td>
+        <td>object</td>
+        <td>Rich text information for this message. See the <a href="/appdotnet/api-spec/blob/master/objects.md#entities">entities documentation</a>.</td>
+    </tr>
+    <tr>
+        <td><code>is_deleted</code></td>
+        <td>boolean</td>
+        <td>Has this message been deleted? For non-deleted posts, this key may be omitted instead of being <code>false</code>. If a message has been deleted, the <code>text</code>, <code>html</code>, and <code>entities</code> properties will be empty and may be omitted.</td>
+    </tr>
+    <tr>
+        <td><code>machine_only</code></td>
+        <td>boolean</td>
+        <td>Is this Message meant for humans or other apps? See <a href="#machine-only-messages">Machine only Messages</a> for more information.</td>
+    </tr>
+</table>
+
+### Message Annotations
+
+Message annotations are immutable attributes that describe the entire message. Please see the [Annotations spec](annotations.md) for more information.
+
+#### Machine only Messages
+
+Just like [machine only posts](#machine-only-posts), sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a Machine only Message by including ```annotations``` and not including ```text```. You can request Machine only Messages using the ```include_machine=1``` query string parameter.
+
+## Channel
+
+A Channel is a user created stream of Messages. It controls access to the messages in the channel allowing for (among other things) public, private, and group messaging. For a high level overview of the Messaging APIs, please see the [Messages docummentation](messages.md).
+
+### Channel Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>id</code></td>
+        <td>string</td>
+        <td>Primary identifier for a channel. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+    </tr>
+    <tr>
+        <td><code>type</code></td>
+        <td>string</td>
+        <td>A string that looks like a reversed domain name to identify the intended purpose of this channel. <em>There is no authentication or authorization performed on this field. Just because you create annotations with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the channel ACLs will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
+    </tr>
+    <tr>
+        <td><code>owner</code></td>
+        <td>User object</td>
+        <td>This is an embedded version of the <a href='#user'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user
+                account has been deleted), this key may be omitted.</td>
+    </tr
+    <tr>
+        <td><code>annotations</code></td>
+        <td>list</td>
+        <td>Metadata about the channel. See the <a href="/appdotnet/api-spec/blob/master/annotations.md">annotations documentation</a>.</td>
+    </tr>
+    <tr>
+        <td><code>readers</code></td>
+        <td><a href="#acl">ACL object</a></td>
+        <td>The access control list that describes who can read this channel and its messages.</td>
+    </tr>
+    <tr>
+        <td><code>writers</code></td>
+        <td><a href="#acl">ACL object</a></td>
+        <td>The access control list that describes who can write messages to this channel.</td>
+    </tr>
+    <tr>
+        <td><code>you_subscribed</code></td>
+        <td>boolean</td>
+        <td>Are you currently subscribed to this channel. There are many channels you could have access to read and this indicates whether you are "following" this channel.</td>
+    </tr>
+    <tr>
+        <td><code>you_can_edit</code></td>
+        <td>boolean</td>
+        <td>Can you edit the channel.</td>
+    </tr>
+    <tr>
+        <td><code>has_unread</code></td>
+        <td>boolean</td>
+        <td>Are there unread messages in this channel (according to the stream marker you have saved for this channel)?</td>
+    </tr>
+</table>
+
+### Channel Annotations
+
+Channel annotations are mutable attributes that describe the channel. Please see the [Annotations spec](annotations.md) for more information.
+
+### ACL
+
+```js
+"readers": {
+    "any_user": false,
+    "immutable": false,
+    "public": false,
+    "user_ids": [],
+    "you": true
+},
+"writers": {
+    "any_user": false,
+    "immutable": false,
+    "public": false,
+    "user_ids": [
+        "1",
+        "2",
+        "3"
+    ],
+    "you": true
+}
+```
+
+Access control lists (ACLs) specify who can read and who can write Messages in a Channel. In our permissions model, writing implies reading. Note that ```any_user```, ```public```, and non-empty ```user_ids``` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has write access and will not be specified in the ```user_ids``` list. For some channel types (like ```net.app.core.pm```), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [messaging documentation](messaging.md) for more information.
+
+#### ACL Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>any_user</code></td>
+        <td>boolean</td>
+        <td>Can any logged in App.net user read/write to this channel? If true, <code>public</code> will be false and <code>user_ids</code> will be empty.</td>
+    </tr>
+    <tr>
+        <td><code>immutable</code></td>
+        <td>boolean</td>
+        <td>Can this ACLs be changed? In general, we recommend creating immutable Channels so a user's messages can't "leak out" of a channel later.</td>
+    </tr>
+    <tr>
+        <td><code>public</code></td>
+        <td>boolean</td>
+        <td>Can anyone (including not logged in users), read this channel. This will always be false for the <code>writers</code> ACL. If true, <code>any_user</code> will be false and <code>user_ids</code> will be empty.</td>
+    </tr>
+    <tr>
+        <td><code>user_ids</code></td>
+        <td>list</td>
+        <td>A list of strings specifying the user ids who can read/write to this channel. If non-empty, <code>any_user</code> and <code>public</code> will be false.</td>
+    </tr>
+    <tr>
+        <td><code>you</code></td>
+        <td>boolean</td>
+        <td>Can the authorized user for the current token read/write to this channel?</td>
+    </tr>
+    <tr>
+        <td><code>any_user</code></td>
+        <td>boolean</td>
+        <td></td>
+    </tr>
+</table>
 
 ## Notes on data formats
 
