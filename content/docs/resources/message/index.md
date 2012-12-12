@@ -1,6 +1,6 @@
 # Message
 
-A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Channel documentation](/docs/resources/channel/).
+A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
 
 ~~~ js
 {
@@ -40,6 +40,11 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
         <td><code>id</code></td>
         <td>string</td>
         <td>Primary identifier for a message. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+    </tr>
+    <tr>
+        <td><code>channel_id</code></td>
+        <td>string</td>
+        <td>The id of the channel this message belongs to. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
     </tr>
     <tr>
         <td><code>user</code></td>
