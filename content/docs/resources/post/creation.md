@@ -5,7 +5,6 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 
 *Note: You cannot reply to a repost. Please reply to the parent Post.*
 
-
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
 ### Required Scopes
@@ -47,7 +46,8 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 > POST https://alpha-api.app.net/stream/0/posts
 >
 > DATA text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -89,7 +89,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "code": 200,
     }
 }
-```
+~~~
 
 ### JSON Example
 
@@ -98,7 +98,8 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 > Content-Type: application/json
 > 
 > DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geolocation", "value": {"latitude": 74.0064, "longitude": 40.7142}}]}'
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -149,7 +150,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
         "code": 200,
     }
 }
-```
+~~~
 
 ## Delete a Post
 
@@ -186,7 +187,8 @@ Delete a <a href="../objects/post.md">Post</a>. The current user must be the sam
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -233,4 +235,4 @@ Delete a <a href="../objects/post.md">Post</a>. The current user must be the sam
         "code": 200,
     }
 }
-```
+~~~

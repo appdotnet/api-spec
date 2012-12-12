@@ -30,7 +30,8 @@ Returns a specific <a href="../objects/post.md">Post</a>.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -77,7 +78,7 @@ Returns a specific <a href="../objects/post.md">Post</a>.
         "code": 200,
     }
 }
-```
+~~~
 
 ## Retrieve multiple Posts
 Returns multiple Posts requested by id. At most 200 posts can be requested.
@@ -111,7 +112,8 @@ Returns multiple Posts requested by id. At most 200 posts can be requested.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts?ids=1,2,3
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -131,4 +133,4 @@ Returns multiple Posts requested by id. At most 200 posts can be requested.
         "code": 200,
     }
 }
-```
+~~~

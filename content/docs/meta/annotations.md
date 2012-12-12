@@ -33,7 +33,7 @@ First here are some of the more technical details of annotations:
 
 In general, annotations are a list of objects that have a ```type``` and a ```value```.
 
-```js
+~~~ js
 [
     {
         "type": "com.example.awesome",
@@ -42,7 +42,7 @@ In general, annotations are a list of objects that have a ```type``` and a ```va
         }
     }
 ]
-```
+~~~
 
 <table>
     <tr>
@@ -64,7 +64,7 @@ In general, annotations are a list of objects that have a ```type``` and a ```va
 
 ##### Post Annotation format
 
-```js
+~~~ js
 {
     "annotations": [
         {
@@ -95,7 +95,7 @@ In general, annotations are a list of objects that have a ```type``` and a ```va
     "you_reposted": false,
     "you_starred": false
 }
-```
+~~~
 
 The ```post.annotations``` field will be a list of individual annotation objects.
 
@@ -103,8 +103,7 @@ The ```post.annotations``` field will be a list of individual annotation objects
 
 User annotations are meant to provide more information about the user. **They are not meant to be an arbitrary data store for apps**. For example, if a user has a homepage, a blog, or a handle on a different social network, that information belongs in the User annotation.
 
-
-```js
+~~~ js
 {
     "id": "1", // note this is a string
     "username": "mthurman",
@@ -129,10 +128,9 @@ User annotations are meant to provide more information about the user. **They ar
         }
     ]
 }
-```
+~~~
 
 The ```user.annotations``` field will be a list of individual annotation objects.
-
 
 #### Creating annotations
 
@@ -180,7 +178,6 @@ Developers are invited to create ad-hoc annotations for data not well represente
 * [Twitter Username](#twitter): net.app.core.directory.twitter
 * [Geolocation](#geolocation): net.app.core.geolocation
 
-
 ### Blog
 
 > net.app.core.directory.blog
@@ -189,14 +186,15 @@ A pointer to the user's blog.
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.directory.blog",
     "value": {
         "url": "http://myawesomeblog.com",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -222,14 +220,15 @@ The crosspost annotation is meant to specify the original or canonical source of
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.crosspost",
     "value": {
         "canonical_url": "https://twitter.com/AppDotNet/status/234705338849443840",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -259,7 +258,7 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
 
 ##### Photo
 
-```js
+~~~ js
 {
     "type": "net.app.core.oembed",
     "value": {
@@ -276,11 +275,11 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
         "embeddable_url": "http://www.flickr.com/photos/bees/2341623661/"
     }
 }
-```
+~~~
 
 ##### Video
 
-```js
+~~~ js
 {
     "type": "net.app.core.oembed",
     "value": {
@@ -304,13 +303,13 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
             </object>",
         "embeddable_url": "http://youtube.com/watch?v=M3r2XDceM6A"
     }
-}
 
-```
+}
+~~~
 
 ##### Rich
 
-```js
+~~~ js
 {
     "type": "net.app.core.oembed",
     "value": {
@@ -331,8 +330,8 @@ We highly recommend providing the ```embeddable_url``` attribute so other client
         "embeddable_url": "http://soundcloud.com/mrenti/merenti-la-karambaa"
     }
 }
+~~~
 
-```
 #### Fields
 
 **To correspond with the oEmbed spec, this annotation accepts keys that are not specified below.**
@@ -450,14 +449,15 @@ A pointer to the user's Facebook account.
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.directory.facebook",
     "value": {
         "id": "244611465578667",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -487,7 +487,8 @@ The geolocation annotation is meant to specify a geographic point on the Earth. 
 #### Examples
 
 Just the required parameters:
-```js
+
+~~~ js
 {
     "type": "net.app.core.geolocation",
     "value": {
@@ -495,10 +496,11 @@ Just the required parameters:
         "longitude": 40.7142
     }
 }
-```
+~~~
 
 With all optional parameters:
-```js
+
+~~~ js
 {
     "type": "net.app.core.geolocation",
     "value": {
@@ -509,7 +511,8 @@ With all optional parameters:
         "vertical_accuracy": 100,
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -559,14 +562,15 @@ A pointer to the user's homepage.
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.directory.homepage",
     "value": {
         "url": "http://thisisme.com",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -592,14 +596,15 @@ The language annotation allows a User to indicate what language this post was wr
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.language",
     "value": {
         "language": "en",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>
@@ -625,14 +630,15 @@ A pointer to the user's Twitter account.
 
 #### Example
 
-```js
+~~~ js
 {
     "type": "net.app.core.directory.twitter",
     "value": {
         "username": "appdotnet",
     }
 }
-```
+~~~
+
 #### Fields
 
 <table>

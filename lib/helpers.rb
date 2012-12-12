@@ -1,0 +1,2 @@
+include Nanoc::Helpers::Rendering
+

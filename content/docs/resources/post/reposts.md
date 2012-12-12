@@ -37,7 +37,8 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/1/repost
-```js
+
+~~~ js
 {
     "data": {
         "id": "2",
@@ -102,7 +103,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
         "code": 200,
     }
 }
-```
+~~~
 
 ## Unrepost a Post
 
@@ -137,7 +138,8 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1/repost
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -184,4 +186,4 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
         "code": 200,
     }
 }
-```
+~~~

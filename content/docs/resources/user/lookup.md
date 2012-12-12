@@ -31,7 +31,8 @@ Returns a specific <a href="../objects/user.md">User</a> object.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -88,7 +89,7 @@ Returns a specific <a href="../objects/user.md">User</a> object.
         "code": 200
     }
 }
-```
+~~~
 
 ## Retrieve multiple Users
 Returns multiple Users requested by id. At most 200 users can be requested.
@@ -122,7 +123,8 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users?ids=1,2,3
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -142,7 +144,7 @@ Returns multiple Users requested by id. At most 200 users can be requested.
         "code": 200,
     }
 }
-```
+~~~
 
 ## Search for Users
 
@@ -179,7 +181,7 @@ Search the App.net userbase.
 
 > GET https://alpha-api.app.net/stream/0/users/search?q=%23mondaynightdanceparty
 
-```js
+~~~ js
 {
   "data": [
     {
@@ -240,4 +242,4 @@ Search the App.net userbase.
     "code": 200
   }
 }
-```
+~~~

@@ -31,7 +31,8 @@ List all the Users who have reposted a given Post.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/reposters
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -91,7 +92,7 @@ List all the Users who have reposted a given Post.
         "code": 200
     }
 }
-```
+~~~
 
 ## List Users who have starred a Post
 
@@ -126,7 +127,8 @@ List all the Users who have starred a given Post.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/stars
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -186,4 +188,4 @@ List all the Users who have starred a given Post.
         "code": 200
     }
 }
-```
+~~~

@@ -14,7 +14,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 
 ## [Token](token)
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -37,7 +37,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Interacting with individual Users
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -112,7 +112,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Retrieving lists of Users
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -188,7 +188,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 ## [Posts](posts)
 
 ### Interacting with individual Posts
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -246,7 +246,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Retrieving lists of Posts
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -317,7 +317,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Interacting with individual Streams
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -346,7 +346,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Interacting with multiple Streams
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -372,7 +372,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Interacting with individual Filters
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -406,7 +406,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ### Interacting with multiple Filters
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -430,7 +430,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ## [Stream Markers](stream_markers)
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>

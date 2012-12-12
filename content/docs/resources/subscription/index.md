@@ -71,7 +71,7 @@ this information.
 When App.net sends you updates, we will post a JSON string of the following format. *Note: this is a list of updates that have
 occurred*.
 
-```js
+~~~ js
 {
     "data": [
         {
@@ -93,7 +93,7 @@ occurred*.
         "code": 200
     }
 }
-```
+~~~
 
 When we send your app updates, we will also include a authentication header so you can verify the update is coming from App.net and
 hasn't been tampered. We will set 
@@ -120,7 +120,8 @@ None
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/subscriptions
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -142,7 +143,7 @@ None
         "code": 200
     }
 }
-```
+~~~
 
 ## Create a Subscription
 
@@ -198,7 +199,8 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
 > POST https://alpha-api.app.net/stream/0/subscriptions
 >
 > DATA object=user&verify_token=user%3Apost&aspect=post&callback_url=https%3A%2F%2Fexample.com%2Fwebhooks%2Fapp_net
-```js
+
+~~~ js
 {
     "data": {
         "id": "1"
@@ -211,7 +213,7 @@ Create a new subscription. Returns either ```201 CREATED``` or an error status c
         "code": 200
     }
 }
-```
+~~~
 
 ## Delete a Subscription
 
@@ -248,7 +250,8 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/subscriptions/1
-```js
+
+~~~ js
 {
     "data": {
         "id": "1"
@@ -261,7 +264,7 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
         "code": 200
     }
 }
-```
+~~~
 
 ## Delete all Subscription
 
@@ -282,7 +285,8 @@ None
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/subscriptions
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -304,4 +308,4 @@ None
         "code": 200
     }
 }
-```
+~~~

@@ -35,7 +35,8 @@ Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thr
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/replies
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -79,4 +80,4 @@ Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thr
         "more": false
     }
 }
-```
+~~~

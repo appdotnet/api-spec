@@ -35,7 +35,8 @@ Returns the <a href="../objects/user.md">User</a> object of the user being follo
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/users/1/follow
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -92,7 +93,7 @@ Returns the <a href="../objects/user.md">User</a> object of the user being follo
         "code": 200
     }
 }
-```
+~~~
 
 ## List user ids a User is following
 
@@ -128,7 +129,8 @@ Returns an array of user ids the specified user is following.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/following/ids
-```js
+
+~~~ js
 {
     "data": [
         "2",
@@ -139,7 +141,7 @@ Returns an array of user ids the specified user is following.
         "code": 200,
     }
 }
-```
+~~~
 
 ## List user ids following a user
 
@@ -175,7 +177,8 @@ Returns an array of user ids for users following the specified user.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/followers/ids
-```js
+
+~~~ js
 {
     "data": [
         "2",
@@ -186,7 +189,7 @@ Returns an array of user ids for users following the specified user.
         "code": 200,
     }
 }
-```
+~~~
 
 ## List users a user is following
 
@@ -222,7 +225,8 @@ Returns an array of <a href="../objects/user.md">User</a> objects the specified 
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/following
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -285,7 +289,7 @@ Returns an array of <a href="../objects/user.md">User</a> objects the specified 
         "more": true
     }
 }
-```
+~~~
 
 ## List users following a user
 
@@ -321,7 +325,8 @@ Returns a list of <a href="../objects/user.md">User</a> objects for users follow
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/followers
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -384,7 +389,7 @@ Returns a list of <a href="../objects/user.md">User</a> objects for users follow
         "more": true
     }
 }
-```
+~~~
 
 ## Unfollow a User
 
@@ -425,7 +430,8 @@ Returns the <a href="../objects/user.md">User</a> object of the user being unfol
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/users/1/follow
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -482,4 +488,4 @@ Returns the <a href="../objects/user.md">User</a> object of the user being unfol
         "code": 200
     }
 }
-```
+~~~

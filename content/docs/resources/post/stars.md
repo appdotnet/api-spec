@@ -33,7 +33,8 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/1/star
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -80,7 +81,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
         "code": 200,
     }
 }
-```
+~~~
 
 ## Unstar a Post
 
@@ -115,7 +116,8 @@ Remove a Star from a Post.
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1/star
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -162,7 +164,7 @@ Remove a Star from a Post.
         "code": 200,
     }
 }
-```
+~~~
 
 ## Retrieve Posts starred by a User
 
@@ -200,7 +202,8 @@ save posts without rebroadcasting the Post to their followers.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/stars
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -253,4 +256,4 @@ save posts without rebroadcasting the Post to their followers.
         "more": true
     }
 }
-```
+~~~

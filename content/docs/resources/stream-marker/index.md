@@ -5,14 +5,16 @@ Stream markers allows a User's position in a stream of Posts to be synced betwee
 ### Example Stream Marker
 
 If a Stream Marker hasn't yet been set, you will receive the following format:
-```js
+
+~~~ js
 {
-    "name": "global",
+    "name": "global"
 }
-```
+~~~
 
 A marker that has been set will look like this:
-```js
+
+~~~ js
 {
     "id": "1234",
     "name": "global",
@@ -20,7 +22,7 @@ A marker that has been set will look like this:
     "updated_at": "2012-11-09T23:35:38Z",
     "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
 }
-```
+~~~
 
 ### Stream Marker fields
 
@@ -79,7 +81,8 @@ None.
 > Content-Type: application/json
 > 
 > DATA {"name": "global", "id": 2}
-```js
+
+~~~js
 {
     "data": {
         "id": "2",
@@ -92,4 +95,4 @@ None.
         "code": 200
     }
 }
-```
+~~~

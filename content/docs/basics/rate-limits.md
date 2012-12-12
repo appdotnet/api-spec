@@ -10,11 +10,9 @@ Any request, authorized or unauthorized, may be subject to multiple rate limits.
 
 The following sample shows a set of three headers which might be returned with a response to a call to the API.
 
-```
-X-RateLimit-Remaining: 4959
-X-RateLimit-Limit: 5000
-X-RateLimit-Reset: 3600
-```
+    X-RateLimit-Remaining: 4959
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Reset: 3600
 
 The first header, ```X-RateLimit-Remaining```, indicates the total number of requests remaining for this cycle (4959). ```X-RateLimit-Limit``` indicates the total capacity (5000). ```X-RateLimit-Reset``` gives the number of seconds until the remaining number of requests will be reset to the capacity; in this case, ```X-RateLimit-Remaining``` will be reset to 5000 requests in 3600 seconds, irrespective of how many additional requests are made between now and then.
 
@@ -24,10 +22,9 @@ Should your request exceed any applicable rate limits, we will return a status c
 
 ## Limits
 
-At present, these are the limit values we use.
+At present, these are the limit values we use:
 
 ### Authenticated Requests (per token)
-
 
 <table>
     <thead>
@@ -55,7 +52,6 @@ At present, these are the limit values we use.
 </table>
 
 ### Unauthenticated Requests (per IP address)
-
 
 <table>
     <thead>

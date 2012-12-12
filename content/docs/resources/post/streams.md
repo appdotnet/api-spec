@@ -35,7 +35,8 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/posts
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -88,7 +89,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
         "more": true
     }
 }
-```
+~~~
 
 ## Retrieve Posts mentioning a User
 
@@ -125,7 +126,8 @@ Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a speci
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/mentions
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -178,7 +180,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a speci
         "more": false
     }
 }
-```
+~~~
 
 ## Retrieve tagged Posts
 
@@ -196,7 +198,8 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific 
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/tag/newsocialnetwork
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -249,7 +252,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific 
         "more": false
     }
 }
-```
+~~~
 
 ## Retrieve the Global stream
 
@@ -267,7 +270,8 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/global
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -320,7 +324,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global
         "more": true
     }
 }
-```
+~~~
 
 ## Retrieve a User's personalized stream
 
@@ -338,7 +342,8 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the curren
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -391,7 +396,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the curren
         "more": true
     }
 }
-```
+~~~
 
 ## Retrieve a User's unified stream
 
@@ -409,7 +414,8 @@ Return the 20 most recent [Post](../objects/post.md)s from the current User's [p
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/unified
-```js
+
+~~~ js
 {
     "data": [
         ...
@@ -462,4 +468,4 @@ Return the 20 most recent [Post](../objects/post.md)s from the current User's [p
         "more": true
     }
 }
-```
+~~~
