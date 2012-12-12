@@ -4,3 +4,6 @@
 .DS_Store
 *#
 *emacs.desktop*
+output
+tmp
+crash.log
