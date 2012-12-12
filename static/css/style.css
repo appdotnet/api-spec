@@ -19,6 +19,7 @@ body, html {
 }
 
 .main-docs-inner {
+    margin-top: 20px;
     margin-left: 300px;
     margin-bottom: 100px;
     float: none;
