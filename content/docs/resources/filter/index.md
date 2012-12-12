@@ -2,7 +2,7 @@
 
 A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](stream.md) are currently the only way to use filters right now.
 
-```js
+~~~ js
 {
     "clauses": [
         {
@@ -16,7 +16,7 @@ A Filter restricts a stream of messages on the server side so your client only s
     "match_policy": "include_any",
     "name": "Posts about rollouts"
 }
-```
+~~~
 
 ### Filter fields
 
@@ -149,7 +149,7 @@ We use a slightly modified version of the [JSON Pointer](http://tools.ietf.org/h
 
 For instance, in the message:
 
-```js
+~~~ js
 {
     "data": [
         {
@@ -192,8 +192,7 @@ For instance, in the message:
         "min_id": "1",
         "more": false
     }
-}
-```
+~~~
 
 * ```/data/source/client_id``` = "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"
 * ```/data/entities/mentions/0/name``` = "mthurman"
@@ -205,7 +204,7 @@ We extend JSON pointer slightly to allow all the elements of a list to match. Fo
 
 ## Interacting with individual Filters
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -239,7 +238,7 @@ We extend JSON pointer slightly to allow all the elements of a list to match. Fo
 
 ## Interacting with multiple Filters
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -283,7 +282,8 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
 > Content-Type: application/json
 > 
 > DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
-```js
+
+~~~js
 {
     "data": {
         "clauses": [
@@ -302,7 +302,7 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
         "code": 200
     }
 }
-```
+~~~
 
 ## Retrieve a Filter
 
@@ -337,7 +337,8 @@ Returns a specific <a href="../objects/filter.md">Filter</a> object.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/filters/1
-```js
+
+~~~ js
 {
     "data": {
         "clauses": [
@@ -356,7 +357,7 @@ Returns a specific <a href="../objects/filter.md">Filter</a> object.
         "code": 200
     }
 }
-```
+~~~
 
 ## Get current user's Filters
 
@@ -374,7 +375,8 @@ None.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/filters
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -399,7 +401,7 @@ None.
         "more": false
     }
 }
-```
+~~~
 
 ## Update a Filter
 
@@ -438,7 +440,8 @@ Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filt
 > Content-Type: application/json
 > 
 > DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
-```js
+
+~~~js
 {
     "data": {
         "clauses": [
@@ -463,7 +466,7 @@ Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filt
         "code": 200
     }
 }
-```
+~~~
 
 ## Delete a Filter
 
@@ -500,7 +503,8 @@ Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to th
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/filters/1
-```js
+
+~~~ js
 {
     "data": {
         "clauses": [
@@ -519,7 +523,7 @@ Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to th
         "code": 200
     }
 }
-```
+~~~
 
 ## Delete all of the current user's Filters
 
@@ -539,7 +543,8 @@ None.
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/filters
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -564,4 +569,4 @@ None.
         "more": false
     }
 }
-```
+~~~

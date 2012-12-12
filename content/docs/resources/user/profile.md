@@ -91,8 +91,9 @@ None.
 >
 > Content-Type: application/json
 >
-> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": {"url": "http://mynewblog.com"}}]}
-```js
+> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": {"url": "http://mynewblog.com"}}]
+
+~~~js
 {
     "data": {
         "id": "1", // note this is a string
@@ -134,7 +135,7 @@ None.
         "code": 200
     }
 }
-```
+~~~
 
 ## Update a User's avatar image
 
@@ -177,7 +178,8 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 > Content-Type: multipart/form-data; boundary=----------------------------82481319dca6
 >
 > DATA [MIME encoded image]
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -231,7 +233,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
         "code": 200
     }
 }
-```
+~~~
 
 ## Update a User's cover image
 
@@ -274,7 +276,8 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 > Content-Type: multipart/form-data; boundary=----------------------------82481319dca6
 >
 > DATA [MIME encoded image]
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -328,4 +331,4 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
         "code": 200
     }
 }
-```
+~~~

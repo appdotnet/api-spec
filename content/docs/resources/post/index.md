@@ -1,7 +1,7 @@
 ## Post
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
 
-```js
+~~~ js
 {
     "id": "1", // note this is a string
     "user": {
@@ -58,7 +58,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
         ...users...
     ]
 }
-```
+~~~
 
 ### Post Fields
 
@@ -208,7 +208,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 # Posts
 
 ## Interacting with individual Posts
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -266,7 +266,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 
 ## Retrieving lists of Posts
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -337,7 +337,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 
 Requests for streams of Posts can be filtered by passing query string parameters along with the request.
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Name</th>

@@ -35,7 +35,8 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 ### Example
 
 > POST https://alpha-api.app.net/stream/0/users/1/mute
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -92,7 +93,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
         "code": 200
     }
 }
-```
+~~~
 
 ## List muted users
 
@@ -110,7 +111,8 @@ None.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/muted
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -170,7 +172,7 @@ None.
         "code": 200
     }
 }
-```
+~~~
 
 ## Unmute a User
 
@@ -211,7 +213,8 @@ Stop hiding all posts for a given user.
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/users/1/mute
-```js
+
+~~~ js
 {
     "data": {
         "id": "1", // note this is a string
@@ -268,4 +271,4 @@ Stop hiding all posts for a given user.
         "code": 200
     }
 }
-```
+~~~

@@ -1,6 +1,6 @@
 # Feeds
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -59,7 +59,7 @@ Retrieve a [feed](#feeds) for the User [@voidfiles](http://alpha.app.net/voidfil
 
 > GET https://alpha-api.app.net/feed/rss/users/@voidfiles/posts
 
-```xml
+~~~ xml
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
@@ -84,7 +84,7 @@ Retrieve a [feed](#feeds) for the User [@voidfiles](http://alpha.app.net/voidfil
         </item>
     </channel>
 </rss>
-```
+~~~
 
 ## Retrieve a feed for a hashtag
 
@@ -96,7 +96,7 @@ Retrieve a [feed](#feed) for the specified hashtag. This endpoint is similar to 
 ### Example
 > GET https://alpha-api.app.net/feed/rss/posts/tag/hashtag
 
-```xml
+~~~ xml
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
@@ -116,4 +116,4 @@ Retrieve a [feed](#feed) for the specified hashtag. This endpoint is similar to 
         </item>
     </channel>
 </rss>
-```
+~~~

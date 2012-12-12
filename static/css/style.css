@@ -1,3 +1,5 @@
+/* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
+
 body, html {
   height: 100%;
   width: 100%;
@@ -18,6 +20,7 @@ body, html {
 
 .main-docs-inner {
     margin-left: 300px;
+    margin-bottom: 100px;
     float: none;
     width: auto;
 }

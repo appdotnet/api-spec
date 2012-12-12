@@ -16,7 +16,7 @@ None.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/token
-```js
+~~~ js
 {
     "data": {
         "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
@@ -88,5 +88,4 @@ None.
     "meta": {
         "code": 200
     }
-}
-```
+~~~

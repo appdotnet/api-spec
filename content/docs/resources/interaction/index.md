@@ -115,7 +115,8 @@ None.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/interactions
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -161,4 +162,4 @@ None.
         "more": true
     }
 }
-```
+~~~

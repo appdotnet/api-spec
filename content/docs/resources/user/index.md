@@ -211,13 +211,13 @@ A user is the central object utilized by the App.net Stream API. They have usern
 ### Images
 Images are objects so that app developers can more easily pick the appropriated sized image for different contexts.
 
-```js
+~~~ js
 {
     "height": 512,
     "width": 512,
     "url": "https://example.com/image.jpg"
 }
-```
+~~~
 
 Images may be dynamically resized on the server by adding `w` and/or `h` parameters to the query string of the URL as desired. If
 one of the parameters is omitted, the omitted dimension will be scaled according to the aspect ratio of the original image. Images
@@ -231,7 +231,7 @@ A user's avatar and cover images can be [directly requested](../resources/users.
 
 ## Interacting with individual Users
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -306,7 +306,7 @@ A user's avatar and cover images can be [directly requested](../resources/users.
 
 ## Retrieving lists of Users
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>

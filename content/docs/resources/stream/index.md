@@ -2,7 +2,7 @@
 
 A customized view of the global stream that is streamed to the client instead of polling.
 
-```js
+~~~ js
 {
     "endpoint": "https://stream-channel.app.net...",
     "filter": {
@@ -25,7 +25,7 @@ A customized view of the global stream that is streamed to the client instead of
     "type": "long_poll",
     "key": "rollout_stream"
 }
-```
+~~~
 
 ### Stream Fields
 
@@ -77,7 +77,7 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Interacting with individual Streams ##
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -106,7 +106,7 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Interacting with multiple Streams
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th>Description</th>
@@ -193,7 +193,8 @@ A JSON object representing the stream to create. See <a href="../objects/stream.
 > Content-Type: application/json
 > 
 > DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1", "key": "rollout_stream"}
-```js
+
+~~~js
 {
     "data": {
         "endpoint": "https://stream-channel.app.net...",
@@ -221,7 +222,7 @@ A JSON object representing the stream to create. See <a href="../objects/stream.
         "code": 200
     }
 }
-```
+~~~
 
 ## Retrieve a Stream
 
@@ -256,7 +257,8 @@ Returns a specific <a href="../objects/stream.md">Stream</a> object.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/streams/1
-```js
+
+~~~ js
 {
     "data": {
         "endpoint": "https://stream-channel.app.net...",
@@ -283,7 +285,7 @@ Returns a specific <a href="../objects/stream.md">Stream</a> object.
         "code": 200
     }
 }
-```
+~~~
 
 ## Get current token's Streams
 
@@ -318,7 +320,8 @@ Return the <a href="../objects/stream.md">Streams</a> for the current token.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/streams?key=rollout_stream
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -352,7 +355,7 @@ Return the <a href="../objects/stream.md">Streams</a> for the current token.
         "more": false
     }
 }
-```
+~~~
 
 ## Delete a Stream
 
@@ -389,7 +392,8 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/streams/1
-```js
+
+~~~ js
 {
     "data": {
         "endpoint": "https://stream-channel.app.net...",
@@ -416,7 +420,7 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
         "code": 200
     }
 }
-```
+~~~
 
 ## Delete all of the current user's Streams
 
@@ -436,7 +440,8 @@ None.
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/streams
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -469,4 +474,4 @@ None.
         "more": false
     }
 }
-```
+~~~
