@@ -6,7 +6,7 @@
 
 ### Basic Use
 
-A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/appdotnet/api-spec/blob/master/migrations.md#current-migrations). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+A Stream is a real-time, ordered collection of objects. An object will always be formatted in a [response envelope](/appdotnet/api-spec/blob/master/migrations.md#current-migrations). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
 There are 3 different kinds of Streams, but they all follow the same pattern:
 
@@ -19,19 +19,19 @@ based Apps that need a single User's Stream. **It must be accessed with a User a
     * App stream: A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the
 streams of lots of users. **It must be accessed with an App access token**.
 
-Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of messages to send to a
+Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of objects to send to a
 client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that
 you can actually process.
 
 ### Filters
 
-Streams will give you lots of data, much of which your application may not want. A [Filter](/appdotnet/api-spec/blob/master/objects.md#filter) can be passed to the [stream creation endpoint](#create-a-stream) to control what messages are actually delivered to your App by our servers.
+Streams will give you lots of data, much of which your application may not want. A [Filter](/appdotnet/api-spec/blob/master/objects.md#filter) can be passed to the [stream creation endpoint](#create-a-stream) to control what objects are actually delivered to your App by our servers.
 
 ### Response Format
 
-A Stream is a long-lived HTTP connection that enables clients to receive messages in near real-time from App.net.
+A Stream is a long-lived HTTP connection that enables clients to receive objects in near real-time from App.net.
 
-When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any messages previously queued up for this stream.
+When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any objects previously queued up for this stream.
 
 Once connected to the stream endpoint, the response will be encoded using HTTP ```Transfer-Encoding: chunked```.
 

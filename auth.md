@@ -154,7 +154,8 @@ Here is the current list of scopes on App.net:
 * **email**: access this user's email address
 * **write_post**: create a new post as this user
 * **follow**: add or remove follows (or mutes) for this user
-* **messages**: send and receive private messages as this user
+* **public_messages**: send and receive public messages as this user
+* **messages**: send and receive public and private messages as this user
 * **update_profile**: update a user's name, images, and other profile information
 * **export**: bulk export all of this user's App.net data. This is intended only for backup services, not day-to-day App.net client use. Users will be shown an extra warning when this scope is requested due to the sensitivity of this data.
 
