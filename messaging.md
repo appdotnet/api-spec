@@ -22,17 +22,34 @@ If a user is authorized to read a Channel, they can also subscribe to a channel.
 
 Access to Messages in a given Channel is determined by the [ACL fields] on the Channel itself.
 
-## Getting started
+Channels can be public or private. For the purpose of access tokens, a Channel is considered public if it is readable by unauthenticated users (the `public` flag) or any authenticated ADN user (the `any_user` flag).
 
-TODO
-explain different scopes
-explain app tokens
-explain 403 vs 404
-channel annotations are mutable
-streaming
-explaining channel types
+Application access to messages is governed by two scopes: `messages` and `public_messages`. The `messages` scope grants a superset of the permissions granted by the `public_messages` scope — it is unnecessary to request both scopes for a given application. The difference between the two is that only public Channels are visible to applications authorized with the `public_messages` scope.
 
-## Channel types
+In addition, an App access token has read access to a Channel and its contents when:
+
+1. the Channel is public, or
+2. the Channel is private, and at least one user with read permission has authorized the application with the `messages` scope.
+
+## Subscriptions
+
+Users indicate their interest in a given channel by subscribing to it. When a channel is created, any user listed in the ACLs (including the owner) is automatically subscribed to it, in accordance with each user's subscription preferences.
+
+## Annotations
+
+Both Channel and Message objects allow for annotations; however, the details of each annotation implementation vary. Channel annotations act like User annotations — they are unique by type and mutable by the Channel's owner. Message annotations act like Post annotations — they are immutable.
+
+## Markers
+
+The unread state of each Channel is tracked by a stream marker like those used for Posts. We suggest you do not advance a channel stream marker in reverse. When requested with a specific user token, each Channel exposes whether it contains a newer Message than the current marker position for the purpose of displaying an 'unread' indicator.
+
+## Streaming
+
+Messages, channel updates and marker updates are pushed as objects over the streaming API. Channel permissions for the streaming API are related to the App access token as described above. Objects retrieved from the streaming API are not personalized to a given user.
+
+## Types
+
+Much like annotation types, channel types are freeform strings; we suggest you use a reversed-domain format for any custom channel types. Core channel types are prefixed with `net.app.core` and may have additional validation imposed by the App.net API. Right now, there's only one core channel type:
 
 * [Private Message](#private-message): net.app.core.pm
 
@@ -40,4 +57,8 @@ explaining channel types
 
 > net.app.core.pm
 
-This channel type is for private messages between 2 or more people. It enforces that there is at least one non-owner user_id in the ```writers``` ACL and that both ACLs are immutable.
+This channel type is for private messages between 2 or more people. As a core Channel type, it has some special restrictions designed to simplify adoption for developers. Arbitrary channel types are available for use which do not have these restrictions (and are able to maintain the same level of privacy.)
+
+Private message channels enforce that there is at least one non-owner user_id in the ```writers``` ACL and that both ACLs are immutable. Messages with the `machine_only` flag set are disallowed (though, of course, annotations are permitted when accompanied with text.)
+
+In addition, this channel type differs from others in that it is designed to provide a simple, combined API for channel creation, reuse and message sending. You can only create `net.app.core.pm` channels via the special endpoint for doing so.
