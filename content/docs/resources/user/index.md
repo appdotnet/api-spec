@@ -1,6 +1,6 @@
-## User
+# User
 
-A user is the central object utilized by the App.net Stream API. They have usernames, follow other users, and post content for their followers.
+A User is the central object of the App.net APIs. User objects have usernames, follow other users, and post content for their followers.
 
 ### Example User object
 
