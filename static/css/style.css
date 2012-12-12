@@ -31,6 +31,7 @@ body, html {
     position: fixed;
     height: 100%;
     overflow-x: scroll;
+    margin-top: 20px;
 }
 
 .line-numbers {
