@@ -1,0 +1,31 @@
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-inner {
+  height: 40px;
+}
+
+.main {
+  margin-top: 40px;
+}
+.main-docs-outer {
+    width: 100%;
+    margin-left: -300px;
+    float: right;
+}
+
+.main-docs-inner {
+    margin-left: 300px;
+    float: none;
+    width: auto;
+}
+
+.sidebar {
+    float: left;
+    width: 280px;
+    position: fixed;
+    height: 100%;
+    overflow-x: scroll;
+}

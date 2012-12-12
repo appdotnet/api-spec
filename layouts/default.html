@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+
+    <title><%= @item[:title] %> - App.net API Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/docs/">App.net API Documentation</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid max-height no-overflow main">
+
+        <div class="main-docs-outer">
+            <div class='main-docs-inner'>
+              <%= yield %>
+            </div>
+        </div>
+
+        <div class='sidebar'>
+            <ul class="nav nav-list">  
+
+                <li class="nav-header"><a href="/docs/">Getting Started</a></li>
+                <ul>
+                  <li><a href="/docs/basics/responses/">Responses</a></li>
+                  <li><a href="/docs/basics/migrations/">Migrations</a></li>
+                  <li><a href="/docs/basics/rate-limits/">Rate Limits</a></li>
+                  <li><a href="/docs/basics/data-formats/">Data Formats</a></li>
+                  <!--
+                  <li>Terms of Service</li>
+                  <li>Authentication</li>
+                  <li>Rate Limits</li>
+                  <li>Objects</li>
+                  <li>Resources</li>
+                  <li>Responses</li>
+                  <li>Versioning and Migrations</li>
+                  <li>Issue Tracker</li>
+                  -->
+                </ul>
+                
+                <li class="nav-header"><a href="/docs/authentication/">Authentication</a></li>
+                <ul>
+                  <li><a href="/docs/authentication/flows/web/">Web Flows</a></li>
+                  <li><a href="/docs/authentication/flows/password/">Password Flow</a></li>
+                  <li><a href="/docs/authentication/flows/app-access-token/">App Access Token Flow</a></li>
+                  <li><a href="/docs/authentication/identity-delegation/">Identity Delegation</a></li>
+                  <!-- Token -->
+                </ul>
+
+                <li class="nav-header"><a href="/docs/resources/">Resources</a></li>
+                <ul>
+                  <li><a href="/docs/resources/user/">User</a></li>
+                  <ul>
+                    <li><a href="/docs/resources/user/profile/">Profile</a></li>
+                    <li><a href="/docs/resources/user/following/">Following</a></li>
+                    <li><a href="/docs/resources/user/muting/">Muting</a></li>
+                    <li><a href="/docs/resources/user/post-interactions/">Post Interactions</a></li>
+                    <li><a href="/docs/resources/user/lookup/">Lookup</a></li>
+                  </ul>
+                  <li><a href="/docs/resources/post/">Post</a></li>
+                  <ul>
+                    <li><a href="/docs/resources/post/creation/">Creation</a></li>
+                    <li><a href="/docs/resources/post/streams/">Streams</a></li>
+                    <li><a href="/docs/resources/post/replies/">Replies</a></li>
+                    <li><a href="/docs/resources/post/reposts/">Reposts</a></li>
+                    <li><a href="/docs/resources/post/stars/">Stars</a></li>
+                    <li><a href="/docs/resources/post/lookup/">Lookup</a></li>
+                  </ul>
+                  <li><a href="/docs/resources/stream/">Stream</a></li>
+                  <li><a href="/docs/resources/filter/">Filter</a></li>
+                  <li><a href="/docs/resources/interaction/">Interaction</a></li>
+                  <li><a href="/docs/resources/stream-marker/">Stream Marker</a></li>
+                  <li><a href="/docs/resources/subscription/">Subscription</a></li>
+                </ul>
+
+                <li class="nav-header">Meta</li>
+                <ul>
+                  <li><a href="/docs/meta/annotations/">Annotations</a></li>
+                  <li><a href="/docs/meta/entities/">Entities</a></li>
+                </ul>
+
+                <li class="nav-header">Other</li>
+                <ul>
+                  <li><a href="/docs/other/feeds/">Feeds</a></li>
+                  <li><a href="/docs/other/web-intents/">Web Intents</a></li>
+                </ul>
+
+            </ul>
+        </div>
+    </div>
+
+  </body>
+</html>
