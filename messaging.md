@@ -12,11 +12,15 @@ Our messaging API is built around 2 central objects: [Messages](https://github.c
 
 When you create a Channel, you decide who can read and write to that channel. This flexibility lets you:
 
-* Create a private group chat between N App.net users
+* Create a private group chat between multiple App.net users
 * Create a moderated group that can be read by a set of users and written to by a different set of users
 * Create a chat room where App.net users can read and write messages while their in the room and leave whenever they want
 
 If a user is authorized to read a Channel, they can also subscribe to a channel. This allows you to keep track of channels an messages at a more granular level.
+
+## Authorization
+
+Access to Messages in a given Channel is determined by the [ACL fields] on the Channel itself.
 
 ## Getting started
 
@@ -25,6 +29,8 @@ explain different scopes
 explain app tokens
 explain 403 vs 404
 channel annotations are mutable
+streaming
+explaining channel types
 
 ## Channel types
 

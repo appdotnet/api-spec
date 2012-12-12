@@ -1305,7 +1305,7 @@ Access control lists (ACLs) specify who can read and who can write Messages in a
     <tr>
         <td><code>you</code></td>
         <td>boolean</td>
-        <td>Can the authorized user for the current token read/write to this channel?</td>
+        <td>Can the authorized user for the current token read/write to this channel? This field, unlike the others, respects the permission hierarchy. To test channel writeability, you need only examine this field.</td>
     </tr>
     <tr>
         <td><code>any_user</code></td>
