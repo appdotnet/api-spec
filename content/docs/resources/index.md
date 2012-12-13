@@ -16,7 +16,7 @@ Guiding principles are:
 ## Hostname
 Please use https://alpha-api.app.net/ to access the APIs.
 
-## [User](/docs/resources/user/)
+## User
 
 ### Interacting with individual Users
 
@@ -162,7 +162,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Post](/docs/resources/post/)
+## Post
 
 ### Interacting with individual Posts
 <table>
@@ -289,7 +289,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Channel](/docs/resources/channel/)
+## Channel
 
 <table>
     <thead>
@@ -352,7 +352,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Message](/docs/resources/message/)
+## Message
 
 <table>
     <thead>
@@ -391,7 +391,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Stream](/docs/resources/stream/)
+## Stream
 
 ### Interacting with individual Streams
 
@@ -453,7 +453,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Filter](/docs/resources/filter/)
+## Filter
 
 ### Interacting with individual Filters
 
@@ -521,7 +521,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Interaction](/docs/resources/interaction/)
+## Interaction
 
 <table>
     <thead>
@@ -542,7 +542,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Stream Marker](/docs/resources/stream-marker/)
+## Stream Marker
 
 <table>
     <thead>
@@ -563,7 +563,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
     </tbody>
 </table>
 
-## [Token](/docs/resources/token/)
+## Token
 <table>
     <thead>
         <tr>
