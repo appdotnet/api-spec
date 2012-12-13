@@ -63,7 +63,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
