@@ -10,8 +10,9 @@ body, html {
 }
 
 .main {
-  margin-top: 40px;
+  margin-top: 45px;
 }
+
 .main-docs-outer {
     width: 100%;
     margin-left: -300px;
@@ -19,7 +20,6 @@ body, html {
 }
 
 .main-docs-inner {
-    margin-top: 20px;
     margin-left: 300px;
     margin-bottom: 100px;
     float: none;
@@ -32,9 +32,17 @@ body, html {
     position: fixed;
     height: 100%;
     overflow-x: scroll;
-    margin-top: 20px;
+}
+
+.sidebar .nav {
+  padding-bottom: 80px;
 }
 
 .line-numbers {
     margin-right: 1.0em;
+}
+
+[id] {
+    padding-top: 40px;
+    margin-top: -40px;
 }
