@@ -146,7 +146,7 @@ None.
 
 Replace a User's avatar image with the uploaded file. The uploaded image Will be cropped to square and must be smaller than 1 MB. The optimal size for this image is 200×200 pixels. The content type for this request must be ```multipart/form-data```.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 
@@ -244,7 +244,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 Replace a User's cover image with the uploaded file. The uploaded image must be at least 960px wide and less than 4 MB in size. The content type for this request must be ```multipart/form-data```.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 

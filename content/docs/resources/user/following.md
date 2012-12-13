@@ -7,7 +7,7 @@
 
 Returns the <a href="../objects/user.md">User</a> object of the user being followed. 
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 
@@ -104,7 +104,7 @@ Returns the <a href="../objects/user.md">User</a> object of the user being follo
 
 Returns an array of user ids the specified user is following.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 
@@ -152,7 +152,7 @@ Returns an array of user ids the specified user is following.
 
 Returns an array of user ids for users following the specified user.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 
@@ -402,7 +402,7 @@ Returns the <a href="../objects/user.md">User</a> object of the user being unfol
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 

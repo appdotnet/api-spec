@@ -7,7 +7,7 @@
 
 Hide all posts for a User in all streams. *Note: if you still explicitly request a this User's stream or a Post from this user, it will not be hidden.*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 
@@ -104,7 +104,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 List the users muted by the current user. *Note: you can only request this list for the current user.*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/me/muted
@@ -185,7 +185,7 @@ Stop hiding all posts for a given user.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 

@@ -7,7 +7,7 @@
 
 Returns a specific <a href="../objects/user.md">User</a> object.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]
@@ -99,7 +99,7 @@ Returns a specific <a href="../objects/user.md">User</a> object.
 ## Retrieve multiple Users
 Returns multiple Users requested by id. At most 200 users can be requested.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users
@@ -155,7 +155,7 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 
 Search the App.net userbase.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 

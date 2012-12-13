@@ -7,7 +7,7 @@
 
 List all the Users who have reposted a given Post.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/reposters
@@ -103,7 +103,7 @@ List all the Users who have reposted a given Post.
 
 List all the Users who have starred a given Post.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/stars

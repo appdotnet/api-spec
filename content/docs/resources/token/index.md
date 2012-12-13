@@ -7,7 +7,7 @@
 
 Returns info about the current OAuth Token and current <a href="../objects/user.md">User</a> object.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/token

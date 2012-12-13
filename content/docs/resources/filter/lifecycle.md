@@ -9,7 +9,7 @@ Create a <a href="../objects/filter.md">Filter</a> for the current user.
 
 Send a JSON document that matches the  <a href="../objects/filter.md">filter schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters
@@ -51,7 +51,7 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
 
 Returns a specific <a href="../objects/filter.md">Filter</a> object.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters/[filter_id]
@@ -106,7 +106,7 @@ Returns a specific <a href="../objects/filter.md">Filter</a> object.
 
 Return the <a href="../objects/filter.md">Filters</a> for the current user.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters
@@ -150,7 +150,7 @@ None.
 
 Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [filter schema](../objects/filter.md) with an HTTP header of ```Content-Type: application/json```. The entire filter will be replaced with new value but id's ```id``` will remain the same. Please refer to the documentation on [how to create a filter](#create-a-filter) for more information.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters/[filter_id]
@@ -217,7 +217,7 @@ Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to th
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters/[filter_id]
@@ -274,7 +274,7 @@ Delete all <a href="../objects/filter.md">Filters</a> for the current user. It r
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/filters

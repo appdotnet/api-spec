@@ -7,7 +7,7 @@
 
 Returns a specific <a href="../objects/post.md">Post</a>.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]
@@ -89,7 +89,7 @@ Returns a specific <a href="../objects/post.md">Post</a>.
 ## Retrieve multiple Posts
 Returns multiple Posts requested by id. At most 200 posts can be requested.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts

@@ -9,7 +9,7 @@ Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thr
 
 **This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/replies

@@ -9,7 +9,7 @@ Create a <a href="../objects/stream.md">Stream</a> for the current token.
 
 Send a JSON document that matches the  <a href="../objects/stream.md">stream schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type``` and ```filter_id```. If you don't want to specify a filter, omit ```filter_id```.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams
@@ -60,7 +60,7 @@ A JSON object representing the stream to create. See <a href="../objects/stream.
 
 Returns a specific <a href="../objects/stream.md">Stream</a> object.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams/[streams_id]
@@ -123,7 +123,7 @@ Returns a specific <a href="../objects/stream.md">Stream</a> object.
 
 Return the <a href="../objects/stream.md">Streams</a> for the current token.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams
@@ -195,7 +195,7 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams/[stream_id]
@@ -260,7 +260,7 @@ Delete all <a href="../objects/stream.md">Streams</a> for the current token. It 
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/streams
