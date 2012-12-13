@@ -1,5 +1,8 @@
 # User
 
+* TOC
+{:toc}
+
 A User is the central object of the App.net APIs. User objects have usernames, follow other users, and post content for their followers.
 
 ## Example User object

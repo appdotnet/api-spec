@@ -1,5 +1,8 @@
 # Token
 
+* TOC
+{:toc}
+
 ## Retrieve current Token
 
 Returns info about the current OAuth Token and current <a href="../objects/user.md">User</a> object.

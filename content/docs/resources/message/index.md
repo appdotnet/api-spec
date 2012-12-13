@@ -1,5 +1,8 @@
 # Message
 
+* TOC
+{:toc}
+
 A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
 
 ~~~ js

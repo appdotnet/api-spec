@@ -1,4 +1,8 @@
 # Post
+
+* TOC
+{:toc}
+
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
 
 ~~~ js
