@@ -1,3 +1,7 @@
+---
+title: "Token"
+---
+
 # Token
 
 * TOC

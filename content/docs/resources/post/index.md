@@ -1,3 +1,7 @@
+---
+title: "Post"
+---
+
 # Post
 
 * TOC

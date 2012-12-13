@@ -1,3 +1,7 @@
+---
+title: "Messaging Overview"
+---
+
 # App.net Messaging
 
 The App.net Messaging API allows a User to create public, private, semi-private  messages between an arbitrary number of users. If you'd like to create public messages that your App.net followers see in their streams, you should [create a post](/docs/resources/post/lifecycle/#create-a-post) with the Stream API. If you need a more flexible messaging solution, the Messaging API is for you.

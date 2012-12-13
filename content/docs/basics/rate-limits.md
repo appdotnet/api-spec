@@ -1,3 +1,7 @@
+---
+title: "Rate Limits"
+---
+
 # Rate Limits
 
 Fundamental limits of server resources and network infrastructure make it necessary for us to limit the rate at which we handle requests. By enforcing request rate limits, we make it feasible to fairly and evenly distribute our capacity amongst our users and prevent apps from monopolizing these resources.

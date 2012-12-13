@@ -1,3 +1,7 @@
+---
+title: "Web Intents"
+---
+
 # Web Intents
 
 Web intents are an easy way to integrate with App.net; you don't even need to use Javascript. Intents in their most basic form are just carefully constructed URLs. By clicking on an intent link, a user will be taken to a page on App.net with a prompt to carry out an action, such as creating a post. If the user is not logged in to App.net, she/he will first authenticate before being presented with the action dialog.

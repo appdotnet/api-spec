@@ -1,3 +1,7 @@
+---
+title: "Stream"
+---
+
 # Stream
 
 * TOC

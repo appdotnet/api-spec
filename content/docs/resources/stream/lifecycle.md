@@ -1,3 +1,7 @@
+---
+title: "Stream Lifecycle"
+---
+
 # Stream Lifecycle
 
 * TOC

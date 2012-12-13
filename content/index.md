@@ -1,3 +1,7 @@
+---
+title: "Home"
+---
+
 # App.net API Spec
 
 This is a living, working document. The API is functional, but we're in the early implementation stages of what App.net will be, and we'd like your feedback, suggestions and ideas. Please help us make this into something much bigger than it currently is.

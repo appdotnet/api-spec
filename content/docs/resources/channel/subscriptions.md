@@ -1,3 +1,7 @@
+---
+title: "Channel Subscriptions"
+---
+
 # Channel Subscription
 
 * TOC

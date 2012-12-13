@@ -1,3 +1,7 @@
+---
+title: "Channel"
+---
+
 # Channel
 
 * TOC

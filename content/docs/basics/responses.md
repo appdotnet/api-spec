@@ -1,3 +1,7 @@
+---
+title: "Responses"
+---
+
 # Responses
 
 >All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.

@@ -1,3 +1,7 @@
+---
+title: "Channel Lifecycle"
+---
+
 # Channel Lifecycle
 
 * TOC

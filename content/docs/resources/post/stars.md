@@ -1,3 +1,7 @@
+---
+title: "Stars"
+---
+
 # Stars
 
 * TOC

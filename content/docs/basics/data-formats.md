@@ -1,3 +1,7 @@
+---
+title: "Data Formats"
+---
+
 # Notes on data formats
 
 ## Dates

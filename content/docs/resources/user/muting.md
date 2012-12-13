@@ -1,3 +1,7 @@
+---
+title: "User Muting"
+---
+
 # Muting
 
 * TOC
