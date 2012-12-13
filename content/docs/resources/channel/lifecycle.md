@@ -1,4 +1,4 @@
-# Channel Creation
+# Channel Lifecycle
 
 ## Create a Channel
 
