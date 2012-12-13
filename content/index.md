@@ -11,7 +11,7 @@ Please submit feedback to us — feel free to comment on commits, open issues, o
 
 #### Very Important Warning
 
-**If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the [Password Flow](/docs/authentication/password-flow/) section or it's possible your app will be rejected.**
+**If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the [Password Flow](/docs/authentication/flows/password/) section or it's possible your app will be rejected.**
 
 #### Wait, I wanted a syndication protocol that can do X, Y and Z!
 

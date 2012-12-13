@@ -23,11 +23,11 @@ It should go without saying, but for the sake of user privacy and security, plea
 
 If you want a **user token**, you must use one of these flows:
 
-* **[Web flow (server-side)](flows/web/#server-side-flow)** - use this if you're building a web application backed by a server. (The OAuth 2.0 internet-draft calls this the [Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).)
-* **[Web flow (client-side)](flows/web/#client-side-flow)** - use this if you're building an application without a central server, like a mobile app or a client-side Javascript app. (The OAuth 2.0 internet-draft calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
-* **[Password flow](flows/password/)** - use this if you're building a native application (or an application where it is difficult to use a web browser) and want to avoid implementing a web-based authentication flow. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security.
+* **[Web flow (server-side)](/docs/authentication/flows/web/#server-side-flow)** - use this if you're building a web application backed by a server. (The OAuth 2.0 internet-draft calls this the [Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).)
+* **[Web flow (client-side)](/docs/authentication/flows/web/#client-side-flow)** - use this if you're building an application without a central server, like a mobile app or a client-side Javascript app. (The OAuth 2.0 internet-draft calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
+* **[Password flow](/docs/authentication/flows/password/)** - use this if you're building a native application (or an application where it is difficult to use a web browser) and want to avoid implementing a web-based authentication flow. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security.
 
-If you're only interested in obtaining a **client token** (sometimes called an "App token"), you can use the **[app access token flow](flows/app_access_token)**. (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)
+If you're only interested in obtaining a **client token** (sometimes called an "App token"), you can use the **[app access token flow](/docs/authentication/flows/app_access_token)**. (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)
 
 We also intend to provide a SDK you can embed into your mobile applications to provide seamless authentication with App.net to your application's users.
 

@@ -139,15 +139,15 @@ The ```user.annotations``` field will be a list of individual annotation objects
 
 Annotations are currently live in the API.
 
-To create Post annotations you must give App.net a well-formed JSON encoded post that matches the [Post schema](objects/post.md). Please see the [Create Post](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#create-a-post) documentations for more information.
+To create Post annotations you must give App.net a well-formed JSON encoded post that matches the [Post schema](/docs/resources/post/). Please see the [Create a Post](/docs/resources/post/#create-a-post) documentations for more information.
 
-To add or update User annotations, you [Update a user profile](https://github.com/appdotnet/api-spec/blob/master/resources/users.md#update-a-user) and pass in the annotations you want to add or update. To delete an annotation, omit the ```value``` key for the annotation type you want to delete. For example, to delete a user's blog url, specify ```{"type": "net.app.core.directory.blog"}```.
+To add or update User annotations, you [Update a User's Profile](/docs/resources/user/profile/#update-a-user) and pass in the annotations you want to add or update. To delete an annotation, omit the ```value``` key for the annotation type you want to delete. For example, to delete a user's blog url, specify ```{"type": "net.app.core.directory.blog"}```.
 
 #### Displaying annotations
 
 Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts or users, you can include the parameter ```include_annotations=1``` to receive all annotations object (or just ```include_user_annotations=1``` or  ```include_post_annotations=1```). See [general Post parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) for more information.
+Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts or users, you can include the parameter ```include_annotations=1``` to receive all annotations object (or just ```include_user_annotations=1``` or  ```include_post_annotations=1```). See [general Post parameters](/docs/resources/post/#general-parameters) for more information.
 
 # Annotations formats
 

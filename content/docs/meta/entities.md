@@ -135,7 +135,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 ### Mentions in machine only posts
 
-[Machine only posts](post.md#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a [directed post](../resources/posts.md#general-parameters) to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
+[Machine only Posts](/docs/resources/post/#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a directed post to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
 
 ~~~ js
 {

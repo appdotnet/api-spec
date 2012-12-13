@@ -5,7 +5,7 @@
 
 ## Retrieve the replies to a Post
 
-Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
+Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
 
 **This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
 
@@ -35,7 +35,7 @@ Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thr
     </tbody>
 </table>
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 

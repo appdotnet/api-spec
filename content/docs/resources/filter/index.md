@@ -3,7 +3,7 @@
 * TOC
 {:toc}
 
-A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](stream.md) are currently the only way to use filters right now.
+A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](/docs/resources/stream/) are currently the only way to use filters right now.
 
 ~~~ js
 {
@@ -146,7 +146,7 @@ A Filter restricts a stream of messages on the server side so your client only s
 
 ## JSON Pointer
 
-We use a slightly modified version of the [JSON Pointer](http://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-04) standard to specify which part of a message we should filter against. According to the spec:
+We use a slightly modified version of the [JSON Pointer standard](http://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-04) to specify which part of a message we should filter against. According to the spec:
 
 > JSON Pointer defines a string syntax for identifying a specific value within a JSON document.
 

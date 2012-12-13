@@ -5,7 +5,7 @@
 
 ## Follow a User
 
-Returns the <a href="../objects/user.md">User</a> object of the user being followed. 
+Returns the <a href="/docs/resources/user/">User</a> object of the user being followed. 
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -198,9 +198,9 @@ Returns an array of user ids for users following the specified user.
 
 ## List users a user is following
 
-Returns an array of <a href="../objects/user.md">User</a> objects the specified user is following. Please note that the pagination is not based on user or post ids.
+Returns a list of <a href="/docs/resources/user/">User</a> objects the specified user is following. Please note that the pagination is not based on user or post ids.
 
-> This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= migration_warning ['response_envelope','follow_pagination'] %>
 
 ### URL
 
@@ -298,9 +298,9 @@ Returns an array of <a href="../objects/user.md">User</a> objects the specified 
 
 ## List users following a user
 
-Returns a list of <a href="../objects/user.md">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
+Returns a list of <a href="/docs/resources/user/">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
 
-> This endpoint is currently migrated by the ```response_envelope``` and ```follow_pagination``` migrations. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= migration_warning ['response_envelope','follow_pagination'] %>
 
 ### URL
 
@@ -398,9 +398,9 @@ Returns a list of <a href="../objects/user.md">User</a> objects for users follow
 
 ## Unfollow a User
 
-Returns the <a href="../objects/user.md">User</a> object of the user being unfollowed.
+Returns the <a href="/docs/resources/user/">User</a> object of the user being unfollowed.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens cannot be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 

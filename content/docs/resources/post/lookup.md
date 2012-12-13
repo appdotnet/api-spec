@@ -5,7 +5,7 @@
 
 ## Retrieve a Post
 
-Returns a specific <a href="../objects/post.md">Post</a>.
+Returns a specific [Post](/docs/resources/post/).
 
 <%= migration_warning ['response_envelope'] %>
 

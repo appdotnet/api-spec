@@ -5,7 +5,7 @@
 
 ## Retrieve a User's avatar image
 
-Retrieve a User's avatar image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](../objects/user.md#images) you pass to the endpoint.
+Retrieve a User's avatar image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/avatar
@@ -39,7 +39,7 @@ Retrieve a User's avatar image. This endpoint does not require authentication an
 
 ## Retrieve a User's cover image
 
-Retrieve a User's cover image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current cover image. It will include any [query string parameters](../objects/user.md#images) you pass to the endpoint.
+Retrieve a User's cover image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current cover image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/cover
@@ -73,7 +73,7 @@ Retrieve a User's cover image. This endpoint does not require authentication and
 
 ## Update a User
 
-Updates a specific <a href="../objects/user.md">User's</a> profile details. You can update a user by PUTing an object that matches the [user schema](../objects/user.md) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specific [custom links](../objects/entities.md#user-specified-entities) for a user description.
+Updates a specific user's profile details. You can update a user by PUTing an object that matches the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specific [custom links](/docs/meta/entities/#user-specified-entities) for a user description.
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 

@@ -116,7 +116,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
                 <tr>
                     <td><code>entities</code></td>
                     <td>object</td>
-                    <td>Entities included in biographical information. See information on <a href="entities.md">entities</a> for reference.</td>
+                    <td>Entities included in biographical information. See information on <a href="/docs/meta/entities/">entities</a> for reference.</td>
                 </tr>
             </table>
         </td>
@@ -203,7 +203,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     <tr>
         <td><code>annotations</code></td>
         <td>list</td>
-        <td>Metadata about the user. See the <a href="annotations.md">annotations documentation</a>.</td>
+        <td>Metadata about the user. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
     </tr>
 </table>
 
@@ -228,7 +228,7 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
 
-A user's avatar and cover images can be [directly requested](../resources/users.md#retrieve-a-users-avatar-image) without requesting the entire user object.
+A user's avatar and cover images can be [directly requested](/docs/resources/user/profile/#retrieve-a-users-avatar-image) without requesting the entire user object.
 
 ## Interacting with individual Users
 

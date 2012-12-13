@@ -193,7 +193,7 @@ Return the <a href="../objects/stream.md">Streams</a> for the current token.
 
 Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to the current User. It returns the deleted Stream on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -258,7 +258,7 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
 
 Delete all <a href="../objects/stream.md">Streams</a> for the current token. It returns the deleted Streams on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 

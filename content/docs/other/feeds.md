@@ -3,39 +3,14 @@
 * TOC
 {:toc}
 
-<table>
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Path</th>
-            <th>HTTP Method</th>
-            <th>Authentication Required?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="">Retrieve a feed for a hashtag</a></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><a href="">Retrieve a feed for a User</a></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-
 ## Basic Use
 
 Feeds describe our system for simple syndication of public posts on App.net. We currently support RSS as a syndication format. This means you should be able to use them anywhere you currently use RSS feeds.
 
 There are 2 different kinds of feeds, but they all follow the same pattern:
 
-* Users Post feed: A feed for a single User's public posts on App.net. This is a feed version of the [Retrieve Posts created by a User](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-created-by-a-user) endpoint.
-* Hashtag feed: A feed containing all public Posts that are tagged with a specific hashtag. This is a feed version of the [Retrieve tagged Posts](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-tagged-posts) endpoint.
+* Users Post feed: A feed for a single User's public posts on App.net. This is a feed version of the [Retrieve Posts created by a User](/docs/resources/post/streams/#retrieve-posts-created-by-a-user) endpoint.
+* Hashtag feed: A feed containing all public Posts that are tagged with a specific hashtag. This is a feed version of the [Retrieve tagged Posts](/docs/resources/post/streams/#retrieve-tagged-posts) endpoint.
 
 We intend to support more feed formats and richer support for filters in the near future.
 
@@ -51,7 +26,7 @@ All responses are returned as RSS. We are following the spec for RSS 2.0 as desc
 
 ## Retrieve a feed for a User
 
-Retrieve a [feed](#feeds) for the User [@voidfiles](http://alpha.app.net/voidfiles). This endpoint is similar to the '[Retrieve Posts created by a User](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-posts-created-by-a-user)' endpoint.
+Retrieve a feed for the User [@voidfiles](http://alpha.app.net/voidfiles). This endpoint is similar to the [Retrieve Posts created by a User](/docs/resources/post/streams/#retrieve-posts-created-by-a-user) endpoint.
 
 ### URL
 > https://alpha-api.app.net/feed/rss/users/@username/posts
@@ -89,7 +64,7 @@ Retrieve a [feed](#feeds) for the User [@voidfiles](http://alpha.app.net/voidfil
 
 ## Retrieve a feed for a hashtag
 
-Retrieve a [feed](#feed) for the specified hashtag. This endpoint is similar to the '[Retrieve tagged Posts](/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-tagged-posts)' endpoint.
+Retrieve a feed for the specified hashtag. This endpoint is similar to the [Retrieve tagged Posts](/docs/resources/post/streams/#retrieve-tagged-posts) endpoint.
 
 ### URL
 > https://alpha-api.app.net/feed/rss/posts/tag/hashtag

@@ -5,9 +5,9 @@
 
 ## Create a Filter
 
-Create a <a href="../objects/filter.md">Filter</a> for the current user.
+Create a [Filter](/docs/resources/filter/) for the current user.
 
-Send a JSON document that matches the  <a href="../objects/filter.md">filter schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
+Send a JSON document that matches the [Filter schema](/docs/resources/filter/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -16,7 +16,7 @@ Send a JSON document that matches the  <a href="../objects/filter.md">filter sch
 
 ### Data
 
-A JSON object representing the filter to create. See <a href="../objects/filter.md">the filter object</a> for more information. (Omit the <code>id</code> parameter).</td>
+A JSON object representing the [Filter](/docs/resources/filter/) to create.
 
 ### Example
 
@@ -49,7 +49,7 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
 
 ## Retrieve a Filter
 
-Returns a specific <a href="../objects/filter.md">Filter</a> object.
+Returns a specific [Filter](/docs/resources/filter/) object.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -104,7 +104,7 @@ Returns a specific <a href="../objects/filter.md">Filter</a> object.
 
 ## Get current user's Filters
 
-Return the <a href="../objects/filter.md">Filters</a> for the current user.
+Return the [Filter](/docs/resources/filter/) for the current user.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -148,7 +148,7 @@ None.
 
 ## Update a Filter
 
-Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [filter schema](../objects/filter.md) with an HTTP header of ```Content-Type: application/json```. The entire filter will be replaced with new value but id's ```id``` will remain the same. Please refer to the documentation on [how to create a filter](#create-a-filter) for more information.
+Updates a specific [Filter](/docs/resources/filter/) object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [Filter schema](/docs/resources/filter/) with an HTTP header of ```Content-Type: application/json```. The entire filter will be replaced with new value but it's ```id``` will remain the same. Please refer to the documentation on [how to create a Filter](#create-a-filter) for more information.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -213,9 +213,9 @@ Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filt
 
 ## Delete a Filter
 
-Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to the current User. It returns the deleted Filter on success.
+Delete a [Filter](/docs/resources/filter/). The Filter must belong to the current User. It returns the deleted Filter on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -270,9 +270,9 @@ Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to th
 
 ## Delete all of the current user's Filters
 
-Delete all <a href="../objects/filter.md">Filters</a> for the current user. It returns the deleted Filters on success.
+Delete all [Filters](/docs/resources/filter/) for the current user. It returns the deleted Filters on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 

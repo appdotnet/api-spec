@@ -129,11 +129,11 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Basic Use
 
-A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/appdotnet/api-spec/blob/master/migrations.md#current-migrations). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/docs/basics/responses/#response-envelopes). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
 There are 3 different kinds of Streams, but they all follow the same pattern:
 
-* Public stream: A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/appdotnet/api-spec/blob/master/auth.md#app-access-token-flow)**.
+* Public stream: A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**.
 
 * Coming soon:
     * User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
@@ -148,7 +148,7 @@ you can actually process.
 
 ## Filters
 
-Streams will give you lots of data, much of which your application may not want. A [Filter](../objects/filter.md) can be passed to the [stream creation endpoint](#create-a-stream) to control what messages are actually delivered to your App by our servers.
+Streams will give you lots of data, much of which your application may not want. A [Filter](/docs/resources/filter/) can be passed to the [stream creation endpoint](/docs/resources/stream/lifecycle/#create-a-stream) to control what messages are actually delivered to your App by our servers.
 
 ## Response Format
 

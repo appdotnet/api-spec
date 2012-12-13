@@ -5,7 +5,7 @@
 
 ## Retrieve Posts created by a User
 
-Get the most recent <a href="../objects/post.md">Post</a>s created by a specific <a href="../objects/user.md">User</a> in reverse post order.
+Get the most recent [Posts](/docs/resources/post/) created by a specific [User](/docs/resources/user/) in reverse post order.
 
 *Note: the User object is not returned for these Posts.*
 
@@ -35,7 +35,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
     </tbody>
 </table>
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -98,7 +98,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
 
 ## Retrieve Posts mentioning a User
 
-Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a specific <a href="../objects/user.md">User</a> in reverse post order.
+Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [User](/docs/resources/user/) in reverse post order.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -126,7 +126,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a speci
     </tbody>
 </table>
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -189,7 +189,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a speci
 
 ## Retrieve tagged Posts
 
-Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific hashtag.
+Return the 20 most recent [Posts](/docs/resources/post/) for a specific hashtag.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -198,7 +198,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific 
 
 ### Parameters
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -261,7 +261,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific 
 
 ## Retrieve the Global stream
 
-Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global stream.
+Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -270,7 +270,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global
 
 ### Parameters
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -333,7 +333,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global
 
 ## Retrieve a User's personalized stream
 
-Return the 20 most recent <a href="../objects/post.md">Post</a>s from the current User and the Users they follow.
+Return the 20 most recent [Posts](/docs/resources/post/) from the current User and the Users they follow.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -342,7 +342,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the curren
 
 ### Parameters
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 
@@ -405,7 +405,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the curren
 
 ## Retrieve a User's unified stream
 
-Return the 20 most recent [Post](../objects/post.md)s from the current User's [personalized stream](#retrieve-a-users-personalized-stream) and [mentions stream](#retrieve-posts-mentioning-a-user) merged into one stream.
+Return the 20 most recent [Posts](/docs/resources/post/) from the current user's [personalized stream](#retrieve-a-users-personalized-stream) and [mentions stream](#retrieve-posts-mentioning-a-user) merged into one stream.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -414,7 +414,7 @@ Return the 20 most recent [Post](../objects/post.md)s from the current User's [p
 
 ### Parameters
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 

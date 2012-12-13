@@ -112,12 +112,12 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
     <tr>
         <td><code>annotations</code></td>
         <td>list</td>
-        <td>Metadata about the entire message. See the <a href="/docs/meta/annotations/">annotations documentation</a>.</td>
+        <td>Metadata about the entire message. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
     </tr>
     <tr>
         <td><code>entities</code></td>
         <td>object</td>
-        <td>Rich text information for this message. See the <a href="/docs/meta/entities/">entities documentation</a>.</td>
+        <td>Rich text information for this message. See the <a href="/docs/meta/entities/">Entities</a> documentation.</td>
     </tr>
     <tr>
         <td><code>is_deleted</code></td>
@@ -133,7 +133,7 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
 
 ## Message Annotations
 
-Message annotations are immutable attributes that describe the entire message. Please see the [Annotations spec](/docs/meta/annotations/) for more information.
+Message annotations are immutable attributes that describe the entire message. Please see the [Annotations](/docs/meta/annotations/) documentation for more information.
 
 ## Machine only Messages
 

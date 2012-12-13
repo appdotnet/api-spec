@@ -5,7 +5,7 @@
 
 ## Retrieve the Messages in a Channel
 
-Retrieve a stream of the Messages in a channel. This endpoint responds to the [General Post Parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) also.
+Retrieve a stream of the Messages in a channel. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters).
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -83,11 +83,11 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to the [G
 
 ## Create a Message
 
-Create a <a href="/appdotnet/api-spec/blob/master/objects.md#message">Message</a> in the specified Channel.
+Create a [Message](/docs/resources/message/) in the specified Channel.
 
-Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/objects.md#message">message schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```annotations```, ```entities```, and ```machine_only```.
+Send a JSON document that matches the [Message schema](/docs/resources/message/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```annotations```, ```entities```, and ```machine_only```.
 
-If you would like to specify your own entities, please refer to the [user specified entites](/appdotnet/api-spec/blob/master/objects.md#user-specified-entities) documentation, otherwise we will parse out links, hashtags, and mentions from the ```text``` field.
+If you would like to specify your own entities, please refer to the [user specified entites](/docs/meta/entities/#user-specified-entities) documentation, otherwise we will parse out links, hashtags, and mentions from the ```text``` field.
 
 To create private group messages corresponding to the ```net.app.core.pm``` type, you can specify the special ```channel_id``` of ```auto```. With this parameter, the server will look for an extra field in the provided Message object called ```destinations``` which is a list of user_ids to send this message to. If a private message channel already exists between this group of users, that channel_id will be reused. Otherwise, a new channel will be created and the users specified in the ```destinations``` list will be able to write to that channel. Note that the ```destinations``` value may include user_ids in the form of @username or the integer id.
 
@@ -281,7 +281,7 @@ Delete a message. The current user must be the same user who created the Message
 
 *Note: you can always delete a message you created even if you are no longer able to view the rest of the Channel anymore.*
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 

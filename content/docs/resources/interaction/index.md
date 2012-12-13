@@ -77,7 +77,7 @@ Interactions are objects that represent users taking certain actions on App.net.
 
 ## List User interactions with me
 
-List all the [Interactions](/appdotnet/api-spec/blob/master/objects.md#interactions) other users have had with me. 
+List all the [Interactions](/docs/resources/interaction/) other users have had with me. 
 
 > Note: you can only request this list for the current user.
 

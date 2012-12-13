@@ -63,7 +63,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         <tr>
             <td><code>annotations</code></td>
             <td>list</td>
-            <td>Metadata about the channel. See the <a href="/docs/meta/annotations/">annotations documentation</a>.</td>
+            <td>Metadata about the channel. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
         </tr>
         <tr>
             <td><code>readers</code></td>
@@ -95,7 +95,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
 
 ## Channel Annotations
 
-Channel annotations are mutable attributes that describe the channel. Please see the [Annotations spec](/docs/meta/annotations/) for more information.
+Channel annotations are mutable attributes that describe the channel. Please see the [Annotations](/docs/meta/annotations/)  documentation for more information.
 
 ## ACL
 
@@ -120,7 +120,7 @@ Channel annotations are mutable attributes that describe the channel. Please see
 }
 ~~~
 
-Access control lists (ACLs) specify who can read and who can write Messages in a Channel. In our permissions model, writing implies reading. Note that ```any_user```, ```public```, and non-empty ```user_ids``` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has write access and will not be specified in the ```user_ids``` list. For some channel types (like ```net.app.core.pm```), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [messaging overview](/docs/basics/messaging/) for more information.
+Access control lists (ACLs) specify who can read and who can write Messages in a Channel. In our permissions model, writing implies reading. Note that ```any_user```, ```public```, and non-empty ```user_ids``` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has write access and will not be specified in the ```user_ids``` list. For some channel types (like ```net.app.core.pm```), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [Messaging overview](/docs/basics/messaging/) for more information.
 
 ### ACL Fields
 

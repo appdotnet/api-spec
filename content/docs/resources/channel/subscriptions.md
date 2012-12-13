@@ -7,7 +7,7 @@
 
 Retrieve an "inbox" of the channels the user is currently subscribed to. This stream is ordered like an inbox with the stream containing the most recent post first.
 
-This endpoint responds to [pagination parameters](/appdotnet/api-spec/blob/master/responses.md#pagination-metadata"). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
+This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -202,7 +202,7 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 Retrieve the users who are subscribed to a Channel.
 
-This endpoint responds to [pagination parameters](/appdotnet/api-spec/blob/master/responses.md#pagination-metadata"). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
+This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
 
 <%= migration_warning ['response_envelope'] %>
 

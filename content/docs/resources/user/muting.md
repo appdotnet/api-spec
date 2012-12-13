@@ -183,7 +183,7 @@ None.
 
 Stop hiding all posts for a given user.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 

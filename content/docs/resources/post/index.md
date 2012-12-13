@@ -80,7 +80,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>user</code></td>
         <td>object</td>
-        <td>This is an embedded version of the <a href='user.md'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user
+        <td>This is an embedded version of the <a href="/docs/resources/user/">User</a> object. <b>Note:</b> In certain cases (e.g., when a user
                 account has been deleted), this key may be omitted.</td>
     </tr>
     <tr>
@@ -155,12 +155,12 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>annotations</code></td>
         <td>list</td>
-        <td>Metadata about the entire post. See the <a href="annotations.md">annotations documentation</a>.</td>
+        <td>Metadata about the entire post. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
     </tr>
     <tr>
         <td><code>entities</code></td>
         <td>object</td>
-        <td>Rich text information for this post. See the <a href="entities.md">entities documentation</a>.</td>
+        <td>Rich text information for this post. See the <a href="/docs/meta/entities/">Entities</a> documentation.</td>
     </tr>
     <tr>
         <td><code>is_deleted</code></td>
@@ -204,7 +204,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 * ```deleted``` has been deprecated and replaced with ```is_deleted```. This key should not be used and will be removed from the Post object soon.
 
 ## Post Annotations
-Post annotations are immutable attributes that describe the entire post. Please see the [Annotations spec](annotations.md) for more information.
+Post annotations are immutable attributes that describe the entire post. Please see the [Annotations](/docs/meta/annotations/) documentation for more information.
 
 ## Machine only Posts
 Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense in Alpha's Global Feed?"
@@ -350,13 +350,13 @@ Requests for streams of Posts can be filtered by passing query string parameters
     </thead>
     <tbody>
         <tr>
-            <td><code>min_id</code> (<em><a href="#deprecating-min_id-and-max_id">Deprecating</a></em>)</td>
+            <td><code>min_id</code> (<em><a href="#deprecating-minid-and-maxid">Deprecating</a></em>)</td>
             <td>Optional</td>
             <td>string</td>
             <td>The minimum Post id to return (the response *will include* this post id if it is valid).</td>
         </tr>
         <tr>
-            <td><code>max_id</code> (<em><a href="#deprecating-min_id-and-max_id">Deprecating</a></em>)</td>
+            <td><code>max_id</code> (<em><a href="#deprecating-minid-and-maxid">Deprecating</a></em>)</td>
             <td>Optional</td>
             <td>string</td>
             <td>The maximum Post id to return (the response *will include* this post id if it is valid)</td>
@@ -365,13 +365,13 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>since_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and should come from the <code>max_id</code> parameter of a previous request's <a href="/appdotnet/api-spec/blob/master/responses.md#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
+            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and should come from the <code>max_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>before_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and should come from the <code>min_id</code> parameter of a previous request's <a href="/appdotnet/api-spec/blob/master/responses.md#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
+            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and should come from the <code>min_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>count</code></td>
@@ -401,37 +401,37 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>include_machine</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should <a href="../objects/post.md#machine-only-posts">machine only posts</a> be included? (Default: <code>False</code>)</td>
+            <td>Should <a href="#machine-only-posts">machine only Posts</a> be included? (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_annotations</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should the <a href="../objects/annotations.md">user and post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+            <td>Should the <a href="/docs/meta/annotations/">User and Post Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_post_annotations</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should the <a href="../objects/annotations.md">post annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+            <td>Should the <a href="/docs/meta/annotations/">Post Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_user_annotations</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should the <a href="../objects/annotations.md">user annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+            <td>Should the <a href="/docs/meta/annotations/">User Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_starred_by</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should a sample of Users who have starred a Post be returned with the Post objects? Please see the <a href="../objects/post.md">Post schema</a>. (Default: <code>False</code>)</td>
+            <td>Should a sample of Users who have starred a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_reposters</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="../objects/post.md">Post schema</a>. (Default: <code>False</code>)</td>
+            <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
         </tr>
         <tr>
             <td><code>include_user</code> (<em>Coming soon</em>)</td>

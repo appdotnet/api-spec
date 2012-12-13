@@ -5,7 +5,7 @@
 
 ## Retrieve current Token
 
-Returns info about the current OAuth Token and current <a href="../objects/user.md">User</a> object.
+Returns info about the current OAuth Token and current [User](/docs/resources/user/) object.
 
 <%= migration_warning ['response_envelope'] %>
 

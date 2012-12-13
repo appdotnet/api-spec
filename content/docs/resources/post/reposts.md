@@ -112,7 +112,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 ## Unrepost a Post
 
-Given the original ```post_id```, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](#delete-a-post)*.
+Given the original ```post_id```, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](/docs/resources/post/lifecycle/#delete-a-post)*.
 
 <%= migration_warning ['response_envelope'] %>
 

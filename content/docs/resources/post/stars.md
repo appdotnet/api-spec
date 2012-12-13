@@ -173,8 +173,7 @@ Remove a Star from a Post.
 
 ## Retrieve Posts starred by a User
 
-Get the most recent <a href="../objects/post.md">Post</a>s starred by a specific <a href="../objects/user.md">User</a> in reverse post order. Stars are a way for Users to
-save posts without rebroadcasting the Post to their followers.
+Get the most recent [Posts](/docs/resources/post/) starred by a specific [User](/docs/resources/user/) in reverse post order. Stars are a way for Users to save posts without rebroadcasting the Post to their followers.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -202,7 +201,7 @@ save posts without rebroadcasting the Post to their followers.
     </tbody>
 </table>
 
-*See [General Parameters](#general-parameters) for optional parameters you can use with this query.*
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 ### Example
 

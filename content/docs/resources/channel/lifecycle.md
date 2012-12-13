@@ -5,9 +5,9 @@
 
 ## Create a Channel
 
-Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#channel">Channel</a>.
+Create a new [Channel](/docs/resources/channel/).
 
-Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/objects.md#channel">channel schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. The ```type``` field controls how the ```readers``` and ```writers``` ACLs are validated.
+Send a JSON document that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. The ```type``` field controls how the ```readers``` and ```writers``` ACLs are validated.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -139,7 +139,7 @@ Retrieve a Channel.
 
 ## Update a Channel
 
-Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">Channel</a> object. You can update a channel by PUTing an object that matches the [channel schema](/appdotnet/api-spec/blob/master/objects.md#channel) with an HTTP header of ```Content-Type: application/json```. The only keys that can be updated are ```annotations```, ```readers```, and ```writers``` (and the ACLs can only be updated if ```immutable=false```). The ```you_can_edit``` property tells you if you are allowed to update a channel. Currently, only the Channel owner can edit a channel.
+Updates a specific [Channel](/docs/resources/channel/) object. You can update a channel by PUTing an object that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. The only keys that can be updated are ```annotations```, ```readers```, and ```writers``` (and the ACLs can only be updated if ```immutable=false```). The ```you_can_edit``` property tells you if you are allowed to update a channel. Currently, only the Channel owner can edit a channel.
 
 If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 

@@ -93,7 +93,7 @@ Intentionally not addressed in this document are the following:
             }
         }
 
-    The resource server replies with an implementation-dependent description of the current user, which must include the client_id the authorized client. In the case of App.net, this is the Token object of the authorizing client's access_token as returned by the [Retrieve current Token](../resources/token.md#retrieve-current-token) endpoint.
+    The resource server replies with an implementation-dependent description of the current user, which must include the client_id the authorized client. In the case of App.net, this is the Token object of the authorizing client's access_token as returned by the [Retrieve current Token](/docs/resources/token/#retrieve-current-token) endpoint.
 
     The delegate client may verify that the authorized client matches some external authentication scheme and/or list of authorized applications. If the delegate token is not valid for the delegate client's client_id, this call will return a `401 Unauthorized`.
 

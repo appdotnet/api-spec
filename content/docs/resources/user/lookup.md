@@ -5,7 +5,7 @@
 
 ## Retrieve a User
 
-Returns a specific <a href="../objects/user.md">User</a> object.
+Returns a specific <a href="/docs/resources/user/">User</a> object.
 
 <%= migration_warning ['response_envelope'] %>
 

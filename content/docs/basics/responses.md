@@ -1,14 +1,14 @@
 # Responses
 
->All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/appdotnet/api-spec/blob/master/migrations.md) for more information.
+>All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.
 
-All responses to requests to the App.net API endpoints described in [Resources](/appdotnet/api-spec/blob/master/resources/README.md#resources), whether successful or not, will be returned in the same type of envelope structure. This document will describe how that envelope works as well as how it can be used for convenient purposes, such as pagination.
+All responses to requests to the App.net API endpoints described in [Resources](/docs/resources/), whether successful or not, will be returned in the same type of envelope structure. This document will describe how that envelope works as well as how it can be used for convenient purposes, such as pagination.
 
 ## Response Envelopes
 
 The top-level response is an object containing two keys. The first key, ```data```, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no ```data``` key will be present.
 
-The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination data](#pagination-metadata) or [stream marker data](objects/stream_marker.md), when relevant.
+The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination data](#pagination-metadata) or [stream marker data](/docs/resources/stream-marker/), when relevant.
 
 ### Sample Response Envelope
 ~~~ js
@@ -84,12 +84,12 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
         </tr>
         <tr>
             <td><code>code-used</code></td>
-            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
+            <td><a href="/docs/authentication/flows/web/">access_token</a></td>
             <td>The passed OAuth <code>code</code> was already used to generate a token.</td>
         </tr>
         <tr>
             <td><code>redirect-uri-required</code></td>
-            <td><a href="/appdotnet/api-spec/blob/master/auth.md#server-side-flow-ruby-python-php-java-etc">access_token</a></td>
+            <td><a href="/docs/authentication/flows/web/">access_token</a></td>
             <td>The call to access_token must include <code>redirect_uri</code>.</td>
         </tr>
     </tbody>
