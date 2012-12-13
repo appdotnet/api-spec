@@ -1,4 +1,4 @@
-## Stream
+# Stream
 
 A customized view of the global stream that is streamed to the client instead of polling.
 
@@ -27,7 +27,7 @@ A customized view of the global stream that is streamed to the client instead of
 }
 ~~~
 
-### Stream Fields
+## Stream Fields
 
 <table>
     <thead>
@@ -71,11 +71,7 @@ A customized view of the global stream that is streamed to the client instead of
     </tbody>
 </table>
 
-# Streams
-
-**These features are still highly experimental. If you make use of them, please idle in our [developer chat room](https://www.hipchat.com/garqCaGOZ) so you can report bugs and we can communicate updates.**
-
-## Interacting with individual Streams ##
+## Interacting with individual Streams
 
 <table>
     <thead>
@@ -128,13 +124,13 @@ A customized view of the global stream that is streamed to the client instead of
     </tbody>
 </table>
 
-### Basic Use
+## Basic Use
 
 A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/appdotnet/api-spec/blob/master/migrations.md#current-migrations). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
 There are 3 different kinds of Streams, but they all follow the same pattern:
 
-* Public stream: A Stream containing all public activity. **It must be accessed with an [App access token](/appdotnet/api-spec/blob/master/auth.md#app-access-token-flow)**.
+* Public stream: A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/appdotnet/api-spec/blob/master/auth.md#app-access-token-flow)**.
 
 * Coming soon:
     * User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
@@ -147,11 +143,11 @@ Since memory and bandwidth is not unlimited, each Stream has associated limits. 
 client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that
 you can actually process.
 
-### Filters
+## Filters
 
 Streams will give you lots of data, much of which your application may not want. A [Filter](../objects/filter.md) can be passed to the [stream creation endpoint](#create-a-stream) to control what messages are actually delivered to your App by our servers.
 
-### Response Format
+## Response Format
 
 A Stream is a long-lived HTTP connection that enables clients to receive messages in near real-time from App.net.
 
@@ -165,11 +161,260 @@ The Stream contains frames separated by ```\r\n```. For example:
     HELLO\r\nWORLD!!!\r\n
 
 
-#### Control Message
+### Control Message
 
 A control message is a JSON object that gives the client important information about the current Stream. For instance, if the buffer
 is getting too full, the client will receive a control message with that warning. A control message will always have ```control```
 as a key in the object so it is easy to distinguish from a Post.
+
+## Sample stream objects
+
+A Stream can listen for the following object types:
+
+* [post](#post): Sent for new posts, replies, reposts, and post deletions
+* [star](#star): Sent when a user stars a post
+* [user_follow](#user-follow): Sent when a user begins following or unfollows another user
+* [stream_marker](#stream-marker): Sent when a stream marker is updated
+* [message](#message): Sent for new messages, replies, and message deletions
+* [channel](#channel): Sent when a channel is created or updated
+* [channel_subscription](#channel-subscription): Sent when a user subscribes or unsubscribes to a channel
+
+### post
+
+A new post is created.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347583834,
+        'type': 'post',
+        'id': '71611'
+    },
+    'data': {
+        ...post that was created...
+    }
+}
+~~~
+
+A post is deleted.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347607233,
+        'is_deleted': true,
+        'type': 'post',
+        'id': '71611'
+    },
+    'data': {
+        ...post that was deleted...
+    }
+}
+~~~
+
+### star
+
+A user stars a post.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347590751,
+        'type': 'star',
+        'id': '132'
+    },
+    'data': {
+        'post': {
+            ...post that was starred...
+        },
+        'user': {
+            ...user that starred this post...
+        }
+    }
+}
+~~~
+
+A user unstars a post.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347603621,
+        'is_deleted': true,
+        'type': 'star',
+        'id': '132'
+    },
+    'data': {
+        'post': {
+            ...post that was unstarred...
+        },
+        'user': {
+            ...user that unstarred the post...
+        }
+    }
+}
+~~~
+
+### user_follow
+
+A user follows another user.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347619758,
+        'type': 'user_follow',
+        'id': '486'
+    },
+    'data': {
+        'follows_user': {
+            ...user...
+        },
+        'user': {
+            ...user starts following follows_user...
+        }
+    }
+}
+~~~
+
+A user unfollows another user.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355347618071,
+        'is_deleted': true,
+        'type': 'user_follow',
+        'id': '190'
+    },
+    'data': {
+        'follows_user': {
+            ...who was unfollowed...
+        },
+        'user': {
+            ...user unfollowed follows_user...
+        }
+    }
+}
+~~~
+
+### stream_marker
+
+A stream marker is set. If the stream marker is not for a channel, then meta.channel_id will be omitted.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1355349119,
+        "user_id": "143",
+        "type": "stream_marker",
+        "id": "143:channel:39",
+        "channel_id": "39"
+    },
+    "data": {
+        "marker": {
+            ...marker object...
+        },
+        "user": {
+            ...user object...
+        }
+    }
+}
+~~~
+
+### message
+
+A message is created.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355348398679,
+        'type': 'message',
+        'id': '1'
+    },
+    'data': {
+        ...message object...
+    }
+}
+~~~
+
+A message is deleted.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355348398679,
+        'is_deleted': true,
+        'type': 'message',
+        'id': '1'
+    },
+    'data': {
+        ...message object...
+    }
+}
+~~~
+
+### channel
+
+A channel is created or updated.
+
+~~~ js
+{
+    'meta': {
+        'timestamp': 1355348399284,
+        'type': 'channel',
+        'id': '1'
+    },
+    'data': {
+        ...channel...
+    }
+}
+~~~
+
+### channel_subscription
+
+A user subscribes to a channel.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1355349183060,
+        "type": "channel_subscription",
+        "id": "92"
+    },
+    "data": {
+        "user": {
+            ...
+        },
+        "channel": {
+            ...
+        }
+    }
+}
+~~~
+
+A user unsubscribes to a channel.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1355349183060,
+        'is_deleted': true,
+        "type": "channel_subscription",
+        "id": "92"
+    },
+    "data": {
+        "user": {
+            ...
+        },
+        "channel": {
+            ...
+        }
+    }
+}
+~~~
+
 
 ## Create a Stream
 

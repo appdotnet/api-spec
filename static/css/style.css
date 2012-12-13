@@ -19,6 +19,7 @@ body, html {
 }
 
 .main-docs-inner {
+    margin-top: 20px;
     margin-left: 300px;
     margin-bottom: 100px;
     float: none;
@@ -31,4 +32,9 @@ body, html {
     position: fixed;
     height: 100%;
     overflow-x: scroll;
+    margin-top: 20px;
+}
+
+.line-numbers {
+    margin-right: 1.0em;
 }
