@@ -1,7 +1,7 @@
 ## Create a Post
 Create a new <a href="../objects/post.md">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="../objects/post.md">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only```, ```annotations``` and ```entities```. To create complex posts (including [machine only posts](../objects/post.md#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entites](../objects/entities.md#user-specified-entities) documentation.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="../objects/post.md">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only```, ```annotations``` and ```entities```. To create complex posts (including [machine only posts](../objects/post.md#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entities](../objects/entities.md#user-specified-entities) documentation.
 
 *Note: You cannot reply to a repost. Please reply to the parent Post.*
 

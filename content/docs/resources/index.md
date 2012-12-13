@@ -51,7 +51,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-user">Update a User</a></td>

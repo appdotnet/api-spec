@@ -87,7 +87,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
     <tr>
         <td><code>name</code></td>
         <td>string</td>
-        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length N characters.</td>
+        <td>User supplied descriptive name. May be a pseudonym. All Unicode characters allowed. Maximum length 50 characters.</td>
     </tr>
     <tr>
         <td><code>description</code></td>
@@ -103,7 +103,7 @@ A user is the central object utilized by the App.net Stream API. They have usern
                 <tr>
                     <td><code>text</code></td>
                     <td>string</td>
-                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length N characters.</td>
+                    <td>User supplied biographical information. All Unicode characters allowed. Maximum length 256 characters.</td>
                 </tr>
                 <tr>
                     <td><code>html</code></td>
@@ -245,7 +245,7 @@ A user's avatar and cover images can be [directly requested](../resources/users.
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#retrieve-a-user">Retrieve a User</a></td>
             <td>/stream/0/users/[user_id]</td>
             <td>GET</td>
-            <td>No</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td><a href="/appdotnet/api-spec/blob/master/resources/users.md#update-a-user">Update a User</a></td>

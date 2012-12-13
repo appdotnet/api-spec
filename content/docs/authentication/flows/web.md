@@ -8,7 +8,7 @@ This is the easiest way to get an access token—we recommend it to most users o
 
 1. Direct the user that you want to authenticate to this URL:
     
-        https://alpha.app.net/oauth/authenticate
+        https://account.app.net/oauth/authenticate
             ?client_id=[your client ID]
             &response_type=code
             &redirect_uri=[your redirect URI]
@@ -24,7 +24,7 @@ This is the easiest way to get an access token—we recommend it to most users o
 
     > If you included a query string in your redirect URI, the `code` parameter will be appended. Likewise, the scheme of your redirect URI will be respected, though we strongly recommend sending all traffic over HTTPS.
 
-1. On your server, your application should then make the following request: `POST https://alpha.app.net/oauth/access_token`
+1. On your server, your application should then make the following request: `POST https://account.app.net/oauth/access_token`
 
     with URL-encoded POST body:
 
@@ -46,7 +46,7 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 1. Direct the user that you want to authenticate to this URL:
     
-        https://alpha.app.net/oauth/authenticate
+        https://account.app.net/oauth/authenticate
             ?client_id=[your client ID]
             &response_type=token
             &redirect_uri=[your redirect URI]

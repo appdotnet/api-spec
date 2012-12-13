@@ -4,7 +4,7 @@ The App Access Token Flow is used to request a token that is tied to your applic
 
 To retrieve an app access token, your app must make the following request:
 
-    POST https://alpha.app.net/oauth/access_token
+    POST https://account.app.net/oauth/access_token
 
 with URL-encoded POST body:
 
