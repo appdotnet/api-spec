@@ -1,5 +1,8 @@
 # Post Streams
 
+* TOC
+{:toc}
+
 ## Retrieve Posts created by a User
 
 Get the most recent <a href="../objects/post.md">Post</a>s created by a specific <a href="../objects/user.md">User</a> in reverse post order.

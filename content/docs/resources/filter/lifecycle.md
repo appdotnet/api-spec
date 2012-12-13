@@ -1,5 +1,8 @@
 # Filter Lifecycle
 
+* TOC
+{:toc}
+
 ## Create a Filter
 
 Create a <a href="../objects/filter.md">Filter</a> for the current user.

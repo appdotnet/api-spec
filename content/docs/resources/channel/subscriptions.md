@@ -1,5 +1,8 @@
 # Channel Subscription
 
+* TOC
+{:toc}
+
 ## Get current user's subscribed channels
 
 Retrieve an "inbox" of the channels the user is currently subscribed to. This stream is ordered like an inbox with the stream containing the most recent post first.

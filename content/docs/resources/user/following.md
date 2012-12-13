@@ -1,5 +1,8 @@
 # Following
 
+* TOC
+{:toc}
+
 ## Follow a User
 
 Returns the <a href="../objects/user.md">User</a> object of the user being followed. 

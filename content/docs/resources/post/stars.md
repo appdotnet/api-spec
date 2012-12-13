@@ -1,5 +1,8 @@
 # Stars
 
+* TOC
+{:toc}
+
 ## Star a Post
 
 Save a given Post to the current User's stars. This is just a "save" action, not a sharing action. A User's stars are visible to others, but they are not automatically added to your followers' streams.

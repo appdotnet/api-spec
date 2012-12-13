@@ -1,5 +1,8 @@
 # Reposts
 
+* TOC
+{:toc}
+
 ## Repost a Post
 
 Share a Post (specified with post_id) with your followers. Reposts are intended solely as a routing mechanism; a repost's text, entities, and html are "inherited" from the original Post. If a user would like to quote, comment on, or alter a Post, reposts are not the solution. Reposts are meant to be pointers to another Post.

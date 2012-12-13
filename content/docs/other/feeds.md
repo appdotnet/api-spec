@@ -1,5 +1,8 @@
 # Feeds
 
+* TOC
+{:toc}
+
 <table>
     <thead>
         <tr>
@@ -25,9 +28,7 @@
     </tbody>
 </table>
 
-## General Information
-
-### Basic Use
+## Basic Use
 
 Feeds describe our system for simple syndication of public posts on App.net. We currently support RSS as a syndication format. This means you should be able to use them anywhere you currently use RSS feeds.
 
@@ -40,11 +41,11 @@ We intend to support more feed formats and richer support for filters in the nea
 
 *Note:* While the URLs are similar to other API URLs feeds, they are under a different root.
 
-### Filters
+## Filters
 
 Feeds do not currently support filters or general parameters like the JSON API.
 
-### Response Format
+## Response Format
 
 All responses are returned as RSS. We are following the spec for RSS 2.0 as described in the [RSS 2.0 specification](http://cyber.law.harvard.edu/rss/rss.html).
 

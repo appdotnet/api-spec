@@ -1,5 +1,8 @@
 # Annotations
 
+* TOC
+{:toc}
+
 Annotations are metadata that are attached to Users or to Posts when they are created. This allows developers and users to add extra information to the post without interfering with the text content of the Post. They also allow developers to attach machine readable information about a user to the user object. Annotations will enable developers to build complex posts and new systems on top of the current App.net infrastructure.
 
 We're really excited to be launching this feature and appreciate any feedback on the following document. Please [open a github issue](https://github.com/appdotnet/api-spec/issues) to contribute to this document.

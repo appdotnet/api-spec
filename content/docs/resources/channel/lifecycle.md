@@ -1,5 +1,8 @@
 # Channel Lifecycle
 
+* TOC
+{:toc}
+
 ## Create a Channel
 
 Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#channel">Channel</a>.

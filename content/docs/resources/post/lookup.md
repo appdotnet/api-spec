@@ -1,5 +1,8 @@
 # Lookup
 
+* TOC
+{:toc}
+
 ## Retrieve a Post
 
 Returns a specific <a href="../objects/post.md">Post</a>.

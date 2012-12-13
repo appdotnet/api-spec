@@ -1,5 +1,8 @@
 # Message Lifecycle
 
+* TOC
+{:toc}
+
 ## Retrieve the Messages in a Channel
 
 Retrieve a stream of the Messages in a channel. This endpoint responds to the [General Post Parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) also.

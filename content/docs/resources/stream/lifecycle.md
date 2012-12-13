@@ -1,5 +1,8 @@
 # Stream Lifecycle
 
+* TOC
+{:toc}
+
 ## Create a Stream
 
 Create a <a href="../objects/stream.md">Stream</a> for the current token.

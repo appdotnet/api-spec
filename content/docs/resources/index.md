@@ -1,4 +1,8 @@
 # Resources
+
+* TOC
+{:toc}
+
 The App.net API is a JSON API.
 
 Guiding principles are:

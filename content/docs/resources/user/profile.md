@@ -1,5 +1,8 @@
 # Profile
 
+* TOC
+{:toc}
+
 ## Retrieve a User's avatar image
 
 Retrieve a User's avatar image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](../objects/user.md#images) you pass to the endpoint.

@@ -1,5 +1,8 @@
 # Post Lifecycle
 
+* TOC
+{:toc}
+
 ## Create a Post
 
 Create a new <a href="../objects/post.md">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
