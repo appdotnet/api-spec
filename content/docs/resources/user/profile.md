@@ -77,7 +77,7 @@ Updates a specific <a href="../objects/user.md">User's</a> profile details. You 
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
-<%= render 'partials/migration' %>
+<%= migration_warning ['response_envelope'] %>
 
 ### Required Scopes
 
