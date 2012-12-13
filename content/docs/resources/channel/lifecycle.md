@@ -6,7 +6,7 @@ Create a new <a href="/appdotnet/api-spec/blob/master/objects.md#channel">Channe
 
 Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/objects.md#channel">channel schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. The ```type``` field controls how the ```readers``` and ```writers``` ACLs are validated.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -66,7 +66,7 @@ None.
 
 Retrieve a Channel.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -140,7 +140,7 @@ Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">C
 
 If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 

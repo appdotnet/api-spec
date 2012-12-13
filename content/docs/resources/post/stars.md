@@ -4,7 +4,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 *Note: A repost cannot be starred. Please star the parent Post.*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/star
@@ -87,7 +87,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 Remove a Star from a Post.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/star
@@ -171,7 +171,7 @@ Remove a Star from a Post.
 Get the most recent <a href="../objects/post.md">Post</a>s starred by a specific <a href="../objects/user.md">User</a> in reverse post order. Stars are a way for Users to
 save posts without rebroadcasting the Post to their followers.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/stars

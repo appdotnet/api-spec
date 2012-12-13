@@ -2,7 +2,7 @@
 
 Returns the <a href="../objects/user.md">User</a> object of the user being followed. 
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -99,7 +99,7 @@ Returns the <a href="../objects/user.md">User</a> object of the user being follo
 
 Returns an array of user ids the specified user is following.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 
@@ -147,7 +147,7 @@ Returns an array of user ids the specified user is following.
 
 Returns an array of user ids for users following the specified user.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 
@@ -397,7 +397,7 @@ Returns the <a href="../objects/user.md">User</a> object of the user being unfol
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 

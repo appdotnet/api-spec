@@ -2,7 +2,7 @@
 
 List all the Users who have reposted a given Post.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/reposters
@@ -98,7 +98,7 @@ List all the Users who have reposted a given Post.
 
 List all the Users who have starred a given Post.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/stars

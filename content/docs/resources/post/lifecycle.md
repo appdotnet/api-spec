@@ -8,7 +8,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 
 *Note: You cannot reply to a repost. Please reply to the parent Post.*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -161,7 +161,7 @@ Delete a <a href="../objects/post.md">Post</a>. The current user must be the sam
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]

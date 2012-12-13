@@ -4,7 +4,7 @@ Retrieve all the <a href="../objects/post.md">Post</a>s that are in the same thr
 
 **This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/replies

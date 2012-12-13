@@ -6,7 +6,7 @@ Retrieve an "inbox" of the channels the user is currently subscribed to. This st
 
 This endpoint responds to [pagination parameters](/appdotnet/api-spec/blob/master/responses.md#pagination-metadata"). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels
@@ -63,7 +63,7 @@ None.
 
 Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users-subscribed-channels).
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
@@ -131,7 +131,7 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 Unsubscribe from a Channel. This removes it from your [Channel stream](#get-current-users-subscribed-channels).
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
@@ -201,7 +201,7 @@ Retrieve the users who are subscribed to a Channel.
 
 This endpoint responds to [pagination parameters](/appdotnet/api-spec/blob/master/responses.md#pagination-metadata"). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers
@@ -300,7 +300,7 @@ This endpoint responds to [pagination parameters](/appdotnet/api-spec/blob/maste
 
 Retrieve all the user ids who are subscribed to a Channel.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers/ids

@@ -4,7 +4,7 @@
 
 Returns info about the current OAuth Token and current <a href="../objects/user.md">User</a> object.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/token
