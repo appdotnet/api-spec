@@ -35,7 +35,11 @@ In addition, an App access token has read access to a Channel and its contents w
 
 ## Subscriptions
 
-Users indicate their interest in a given channel by subscribing to it. When a channel is created, any user listed in the ACLs (including the owner) is automatically subscribed to it, in accordance with each user's subscription preferences.
+Users indicate their interest in a given channel by subscribing to it. When a channel is created, no one is subscribed to it.
+
+[Private message channels](/docs/resources/channel/#private-message) (type `net.app.core.pm`) auto-subscribe all participants to the channel in accordance with each user's [subscription preferences](https://account.app.net/settings/messaging-permissions/).
+
+To get this same behavior for non-pm channels, you include the key `auto_subscribe: true` when you create or update the Channel. This will auto-subscribe all the users on the ACLs (according to their preferences).
 
 ## Annotations
 
