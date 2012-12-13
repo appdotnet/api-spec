@@ -1,11 +1,14 @@
 # Message Lifecycle
 
-
 ## Retrieve the Messages in a Channel
 
 Retrieve a stream of the Messages in a channel. This endpoint responds to the [General Post Parameters](https://github.com/appdotnet/api-spec/blob/master/resources/posts.md#general-parameters) also.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://api.app.net/stream/0/channels/[channel_id]/messages
@@ -86,6 +89,10 @@ If you would like to specify your own entities, please refer to the [user specif
 To create private group messages corresponding to the ```net.app.core.pm``` type, you can specify the special ```channel_id``` of ```auto```. With this parameter, the server will look for an extra field in the provided Message object called ```destinations``` which is a list of user_ids to send this message to. If a private message channel already exists between this group of users, that channel_id will be reused. Otherwise, a new channel will be created and the users specified in the ```destinations``` list will be able to write to that channel. Note that the ```destinations``` value may include user_ids in the form of @username or the integer id.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/messages
@@ -196,6 +203,10 @@ Retrieve a message.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/messages/[message_id]
 
@@ -270,6 +281,10 @@ Delete a message. The current user must be the same user who created the Message
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/messages/[message_id]

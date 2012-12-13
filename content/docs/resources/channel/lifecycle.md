@@ -8,6 +8,10 @@ Send a JSON document that matches the  <a href="/appdotnet/api-spec/blob/master/
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
 
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
 ### URL
 > https://alpha-api.app.net/stream/0/channels
 
@@ -63,6 +67,10 @@ None.
 Retrieve a Channel.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]
@@ -133,6 +141,10 @@ Updates a specific <a href="/appdotnet/api-spec/blob/master/objects.md#filter">C
 If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]
