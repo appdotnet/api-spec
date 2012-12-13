@@ -2,7 +2,7 @@
 
 A User is the central object of the App.net APIs. User objects have usernames, follow other users, and post content for their followers.
 
-### Example User object
+## Example User object
 
 ~~~ js
 {
@@ -66,7 +66,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
 }
 ~~~
 
-### User fields
+## User fields
 
 <table>
     <tr>
@@ -204,11 +204,11 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     </tr>
 </table>
 
-#### Deprecations
+### Deprecations
 
 * ```is_following```, ```is_follower```, and ```is_muted``` have all been deprecated and replaced with ```follows_you```, ```you_follow```, and ```you_muted```. These keys should not be used and will be removed from the User object soon.
 
-### Images
+## Images
 Images are objects so that app developers can more easily pick the appropriated sized image for different contexts.
 
 ~~~ js
@@ -226,8 +226,6 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
 
 A user's avatar and cover images can be [directly requested](../resources/users.md#retrieve-a-users-avatar-image) without requesting the entire user object.
-
-# Users
 
 ## Interacting with individual Users
 

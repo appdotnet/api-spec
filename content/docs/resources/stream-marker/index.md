@@ -1,8 +1,8 @@
-## Stream Marker
+# Stream Marker
 
 Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, your stream is right where you left off. The current stream marker will be included in the [response envelope](../responses.md#response-envelopes) from any stream that returns Posts.
 
-### Example Stream Marker
+## Example Stream Marker
 
 If a Stream Marker hasn't yet been set, you will receive the following format:
 
@@ -24,7 +24,7 @@ A marker that has been set will look like this:
 }
 ~~~
 
-### Stream Marker fields
+## Stream Marker fields
 
 <table>
     <tr>

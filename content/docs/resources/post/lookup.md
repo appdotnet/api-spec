@@ -1,4 +1,7 @@
+# Lookup
+
 ## Retrieve a Post
+
 Returns a specific <a href="../objects/post.md">Post</a>.
 
 > This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
