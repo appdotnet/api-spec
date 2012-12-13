@@ -1,4 +1,7 @@
+# Lookup
+
 ## Retrieve a Post
+
 Returns a specific <a href="../objects/post.md">Post</a>.
 
 <%= render 'partials/migration' %>

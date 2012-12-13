@@ -1,3 +1,5 @@
+# Lookup
+
 ## Retrieve a User
 
 Returns a specific <a href="../objects/user.md">User</a> object.

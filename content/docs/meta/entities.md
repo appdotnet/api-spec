@@ -1,4 +1,4 @@
-## Entities
+# Entities
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
@@ -11,7 +11,7 @@ All of the following examples are about the following post:
 
 > @berg FIRST post on this new site #newsocialnetwork
 
-### Mentions
+## Mentions
 Bring another user's attention to your post. A mention starts with <code>@</code>.
 
 ~~~ js
@@ -51,7 +51,7 @@ Bring another user's attention to your post. A mention starts with <code>@</code
     </tr>
 </table>
 
-### Hashtags
+## Hashtags
 Tag a post about a specific subject. A hashtag starts with <code>#</code>.
 
 ~~~ js
@@ -85,7 +85,7 @@ Tag a post about a specific subject. A hashtag starts with <code>#</code>.
     </tr>
 </table>
 
-### Links
+## Links
 Link to another website.
 
 ~~~ js
@@ -125,11 +125,11 @@ Link to another website.
     </tr>
 </table>
 
-### User Specified Entities
+## User Specified Entities
 
 Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
 
-#### Mentions in machine only posts
+### Mentions in machine only posts
 
 [Machine only posts](post.md#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a [directed post](../resources/posts.md#general-parameters) to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
 
@@ -151,7 +151,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 }
 ~~~
 
-#### Links with custom anchor text
+### Links with custom anchor text
 
 If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net will not extract any links on the server.** Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
 
@@ -159,7 +159,7 @@ To prevent phishing, any link where the anchor text differs from the destination
 
 The ```text``` attribute of a link should be omitted as it will always be filled in from the post text.
 
-##### Example
+#### Example
 
 If you created the following post:
 

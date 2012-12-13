@@ -1,3 +1,5 @@
+# Muting
+
 ## Mute a User
 
 Hide all posts for a User in all streams. *Note: if you still explicitly request a this User's stream or a Post from this user, it will not be hidden.*
