@@ -1,6 +1,6 @@
 # Message
 
-A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Channel documentation](/docs/resources/channel/).
+A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
 
 ~~~ js
 {
@@ -40,6 +40,11 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
         <td><code>id</code></td>
         <td>string</td>
         <td>Primary identifier for a message. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+    </tr>
+    <tr>
+        <td><code>channel_id</code></td>
+        <td>string</td>
+        <td>The id of the channel this message belongs to. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
     </tr>
     <tr>
         <td><code>user</code></td>
@@ -164,7 +169,8 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to the [G
 ### Example
 
 > GET https://api.app.net/stream/0/channels/1/messages
-```js
+
+~~~ js
 {
     "data": [
         {
@@ -202,7 +208,7 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to the [G
         "more": true
     }
 }
-```
+~~~
 
 ## Create a Message
 
@@ -247,7 +253,8 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
 > Content-Type: application/json
 > 
 > DATA {"text": "Hello channel!"}
-```js
+
+~~~ js
 {
     "data": {
         "channel_id": "1",
@@ -276,7 +283,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
         "code": 200,
     }
 }
-```
+~~~
 
 ### Auto-channel example
 > POST https://alpha-api.app.net/stream/0/channels/auto/messages
@@ -284,7 +291,8 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
 > Content-Type: application/json
 > 
 > DATA {"text": "Hello brand new channel!", "destinations": ["@berg", 1]}
-```js
+
+~~~ js
 {
     "data": {
         "channel_id": "2",
@@ -313,7 +321,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
         "code": 200,
     }
 }
-```
+~~~
 
 ## Retrieve a Message
 
@@ -356,7 +364,8 @@ Retrieve a message.
 ### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/1/messages/103
-```js
+
+~~~ js
 {
     "data": {
         "channel_id": "1",
@@ -385,7 +394,7 @@ Retrieve a message.
         "code": 200,
     }
 }
-```
+~~~
 
 ## Delete a Message
 
@@ -430,7 +439,8 @@ Delete a message. The current user must be the same user who created the Message
 ### Example
 
 > DELETE https://alpha-api.app.net/stream/0/channels/1/messages/103
-```js
+
+~~~ js
 {
     "data": {
         "channel_id": "1",
@@ -459,4 +469,4 @@ Delete a message. The current user must be the same user who created the Message
         "code": 200,
     }
 }
-```
+~~~

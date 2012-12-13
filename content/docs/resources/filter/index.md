@@ -8,7 +8,7 @@ A Filter restricts a stream of messages on the server side so your client only s
         {
             "field": "/data/entities/hashtags/*/name",
             "object_type": "post",
-            "operator": "contains",
+            "operator": "matches",
             "value": "rollout"
         }
     ],
@@ -281,7 +281,7 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
 > 
 > Content-Type: application/json
 > 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
+> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
 
 ~~~js
 {
@@ -290,7 +290,7 @@ A JSON object representing the filter to create. See <a href="../objects/filter.
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -345,7 +345,7 @@ Returns a specific <a href="../objects/filter.md">Filter</a> object.
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -384,7 +384,7 @@ None.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -439,7 +439,7 @@ Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filt
 > 
 > Content-Type: application/json
 > 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "contains", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
+> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
 
 ~~~js
 {
@@ -448,13 +448,13 @@ Updates a specific <a href="../objects/filter.md">Filter</a> object. When a filt
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             },
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "bug"
             }
         ],
@@ -511,7 +511,7 @@ Delete a <a href="../objects/filter.md">Filter</a>. The Filter must belong to th
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -552,7 +552,7 @@ None.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],

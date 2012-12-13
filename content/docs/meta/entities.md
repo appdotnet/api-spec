@@ -3,7 +3,7 @@ Entities allow users and applications to provide rich text formatting for posts.
 
 Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
 
-Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entites](#user-specified-entities) documentation for more information.
+Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entities](#user-specified-entities) documentation for more information.
 
 Ranges specified by entities may be adjacent, but may not overlap.
 
@@ -125,7 +125,7 @@ Link to another website.
     </tr>
 </table>
 
-### User Specified Entites
+### User Specified Entities
 
 Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
 
@@ -153,7 +153,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 #### Links with custom anchor text
 
-If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. If you provide any links, **App.net will not extract any links on the server**. Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
+If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net will not extract any links on the server.** Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
 
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters will not count against the 256 character Post limit.
 

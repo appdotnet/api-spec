@@ -10,7 +10,7 @@ A customized view of the global stream that is streamed to the client instead of
             {
                 "field": "/data/entities/hashtags/*/name",
                 "object_type": "post",
-                "operator": "contains",
+                "operator": "matches",
                 "value": "rollout"
             }
         ],
@@ -448,7 +448,7 @@ A JSON object representing the stream to create. See <a href="../objects/stream.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -512,7 +512,7 @@ Returns a specific <a href="../objects/stream.md">Stream</a> object.
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -576,7 +576,7 @@ Return the <a href="../objects/stream.md">Streams</a> for the current token.
                     {
                         "field": "/data/entities/hashtags/*/name",
                         "object_type": "post",
-                        "operator": "contains",
+                        "operator": "matches",
                         "value": "rollout"
                     }
                 ],
@@ -647,7 +647,7 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
                 {
                     "field": "/data/entities/hashtags/*/name",
                     "object_type": "post",
-                    "operator": "contains",
+                    "operator": "matches",
                     "value": "rollout"
                 }
             ],
@@ -696,7 +696,7 @@ None.
                     {
                         "field": "/data/entities/hashtags/*/name",
                         "object_type": "post",
-                        "operator": "contains",
+                        "operator": "matches",
                         "value": "rollout"
                     }
                 ],

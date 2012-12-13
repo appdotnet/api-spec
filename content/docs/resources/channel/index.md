@@ -1,57 +1,136 @@
 # Channel
 
-A Channel is one of the central objects of the App.net Messaging API.
+A Channel is a user created stream of Messages. It controls access to the messages in the channel allowing for (among other things) public, private, and group messaging. For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
 
-The App.net Messaging API allows a User to create public, private, semi-private  messages between an arbitrary number of users. If you'd like to create public messages that your App.net followers see in their streams, you should [create a post](/docs/resources/post/creation/#create-a-post) with the Stream API. If you need a more flexible messaging solution, the Messaging API is for you.
+## Fields
 
-## Introduction to App.net Messaging
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td>string</td>
+            <td>Primary identifier for a channel. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>A string that looks like a reversed domain name to identify the intended purpose of this channel. <em>There is no authentication or authorization performed on this field. Just because you create annotations with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the channel ACLs will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
+        </tr>
+        <tr>
+            <td><code>owner</code></td>
+            <td>User object</td>
+            <td>This is an embedded version of the <a href='/docs/resources/user/'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user account has been deleted), this key may be omitted.</td>
+        </tr>
+        <tr>
+            <td><code>annotations</code></td>
+            <td>list</td>
+            <td>Metadata about the channel. See the <a href="/docs/meta/annotations/">annotations documentation</a>.</td>
+        </tr>
+        <tr>
+            <td><code>readers</code></td>
+            <td><a href="#acl">ACL object</a></td>
+            <td>The access control list that describes who can read this channel and its messages.</td>
+        </tr>
+        <tr>
+            <td><code>writers</code></td>
+            <td><a href="#acl">ACL object</a></td>
+            <td>The access control list that describes who can write messages to this channel.</td>
+        </tr>
+        <tr>
+            <td><code>you_subscribed</code></td>
+            <td>boolean</td>
+            <td>Are you currently subscribed to this channel. There are many channels you could have access to read and this indicates whether you are "following" this channel.</td>
+        </tr>
+        <tr>
+            <td><code>you_can_edit</code></td>
+            <td>boolean</td>
+            <td>Can you edit the channel.</td>
+        </tr>
+        <tr>
+            <td><code>has_unread</code></td>
+            <td>boolean</td>
+            <td>Are there unread messages in this channel (according to the stream marker you have saved for this channel)?</td>
+        </tr>
+    </tbody>
+</table>
 
-Our messaging API is built around 2 central objects: Channels and [Messages](/docs/resources/message/). If you're familiar with the App.net Stream API, here are some analogies:
+## Channel Annotations
 
-* Messages are like Posts
-* Channels are like streams of Posts
-* Stream markers work on Channels just like they work on streams of Posts
+Channel annotations are mutable attributes that describe the channel. Please see the [Annotations spec](/docs/meta/annotations/) for more information.
 
-When you create a Channel, you decide who can read and write to that channel. This flexibility lets you:
+## ACL
 
-* Create a private group chat between multiple App.net users
-* Create a moderated group that can be read by a set of users and written to by a different set of users
-* Create a chat room where App.net users can read and write messages while their in the room and leave whenever they want
+~~~ js
+"readers": {
+    "any_user": false,
+    "immutable": false,
+    "public": false,
+    "user_ids": [],
+    "you": true
+},
+"writers": {
+    "any_user": false,
+    "immutable": false,
+    "public": false,
+    "user_ids": [
+        "1",
+        "2",
+        "3"
+    ],
+    "you": true
+}
+~~~
 
-If a user is authorized to read a Channel, they can also subscribe to a channel. This allows you to keep track of channels an messages at a more granular level.
+Access control lists (ACLs) specify who can read and who can write Messages in a Channel. In our permissions model, writing implies reading. Note that ```any_user```, ```public```, and non-empty ```user_ids``` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has write access and will not be specified in the ```user_ids``` list. For some channel types (like ```net.app.core.pm```), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [messaging overview](/docs/basics/messaging/) for more information.
 
-## Authorization
+### ACL Fields
 
-Access to Messages in a given Channel is determined by the [ACL fields] on the Channel itself.
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>any_user</code></td>
+            <td>boolean</td>
+            <td>Can any logged in App.net user read/write to this channel? If true, <code>public</code> will be false and <code>user_ids</code> will be empty.</td>
+        </tr>
+        <tr>
+            <td><code>immutable</code></td>
+            <td>boolean</td>
+            <td>Can this ACLs be changed? In general, we recommend creating immutable Channels so a user's messages can't "leak out" of a channel later.</td>
+        </tr>
+        <tr>
+            <td><code>public</code></td>
+            <td>boolean</td>
+            <td>Can anyone (including not logged in users), read this channel. This will always be false for the <code>writers</code> ACL. If true, <code>any_user</code> will be false and <code>user_ids</code> will be empty.</td>
+        </tr>
+        <tr>
+            <td><code>user_ids</code></td>
+            <td>list</td>
+            <td>A list of strings specifying the user ids who can read/write to this channel. If non-empty, <code>any_user</code> and <code>public</code> will be false.</td>
+        </tr>
+        <tr>
+            <td><code>you</code></td>
+            <td>boolean</td>
+            <td>Can the authorized user for the current token read/write to this channel? This field, unlike the others, respects the permission hierarchy. To test channel writeability, you need only examine this field.</td>
+        </tr>
+    </tbody>
+</table>
 
-Channels can be public or private. For the purpose of access tokens, a Channel is considered public if it is readable by unauthenticated users (the `public` flag) or any authenticated ADN user (the `any_user` flag).
 
-Application access to messages is governed by two scopes: `messages` and `public_messages`. The `messages` scope grants a superset of the permissions granted by the `public_messages` scope — it is unnecessary to request both scopes for a given application. The difference between the two is that only public Channels are visible to applications authorized with the `public_messages` scope.
-
-In addition, an App access token has read access to a Channel and its contents when:
-
-1. the Channel is public, or
-2. the Channel is private, and at least one user with read permission has authorized the application with the `messages` scope.
-
-## Subscriptions
-
-Users indicate their interest in a given channel by subscribing to it. When a channel is created, any user listed in the ACLs (including the owner) is automatically subscribed to it, in accordance with each user's subscription preferences.
-
-## Annotations
-
-Both Channel and Message objects allow for annotations; however, the details of each annotation implementation vary. Channel annotations act like User annotations — they are unique by type and mutable by the Channel's owner. Message annotations act like Post annotations — they are immutable.
-
-## Markers
-
-The unread state of each Channel is tracked by a stream marker like those used for Posts. We suggest you do not advance a channel stream marker in reverse. When requested with a specific user token, each Channel exposes whether it contains a newer Message than the current marker position for the purpose of displaying an 'unread' indicator.
-
-## Streaming
-
-Messages, channel updates and marker updates are pushed as objects over the streaming API. Channel permissions for the streaming API are related to the App access token as described above. Objects retrieved from the streaming API are not personalized to a given user.
-
-## Types
-
-Much like annotation types, channel types are freeform strings; we suggest you use a reversed-domain format for any custom channel types. Core channel types are prefixed with `net.app.core` and may have additional validation imposed by the App.net API. Right now, there's only one core channel type:
+## Channel types
 
 * [Private Message](#private-message): net.app.core.pm
 
