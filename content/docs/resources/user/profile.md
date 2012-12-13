@@ -74,7 +74,7 @@ Updates a specific <a href="../objects/user.md">User's</a> profile details. You 
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -143,7 +143,7 @@ None.
 
 Replace a User's avatar image with the uploaded file. The uploaded image Will be cropped to square and must be smaller than 1 MB. The optimal size for this image is 200×200 pixels. The content type for this request must be ```multipart/form-data```.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
@@ -241,7 +241,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 Replace a User's cover image with the uploaded file. The uploaded image must be at least 960px wide and less than 4 MB in size. The content type for this request must be ```multipart/form-data```.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 

@@ -10,7 +10,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 - Reposts do not show up in the hashtags, mentions or global streams.
 - A repost of Post A will only show up in a User's stream if they have not seen Post A (or another repost of Post A) in a reasonable amount of time (currently 1 week).
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/repost
@@ -111,7 +111,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 Given the original ```post_id```, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](#delete-a-post)*.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/[post_id]/repost

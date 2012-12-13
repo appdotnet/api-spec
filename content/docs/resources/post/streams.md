@@ -6,7 +6,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
 
 *Note: the User object is not returned for these Posts.*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/posts
@@ -97,7 +97,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s created by a specific
 
 Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a specific <a href="../objects/user.md">User</a> in reverse post order.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/[user_id]/mentions
@@ -188,7 +188,7 @@ Get the most recent <a href="../objects/post.md">Post</a>s mentioning by a speci
 
 Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific hashtag.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/tag/[hashtag]
@@ -260,7 +260,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s for a specific 
 
 Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global stream.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/stream/global
@@ -332,7 +332,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the Global
 
 Return the 20 most recent <a href="../objects/post.md">Post</a>s from the current User and the Users they follow.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/stream
@@ -404,7 +404,7 @@ Return the 20 most recent <a href="../objects/post.md">Post</a>s from the curren
 
 Return the 20 most recent [Post](../objects/post.md)s from the current User's [personalized stream](#retrieve-a-users-personalized-stream) and [mentions stream](#retrieve-posts-mentioning-a-user) merged into one stream.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/posts/stream/unified

@@ -108,7 +108,7 @@ doesn't match, return a ```400 BAD REQUEST``` and ignore the update.
 
 List all the Subscriptions this app is currently subscribed to. **This resource must be accessed with an App access token**.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions
@@ -150,7 +150,7 @@ None
 Create a new subscription. Returns either ```201 CREATED``` or an error status code. Please read the [general subscription information](#general-information) to understand the entire subscription process.
 **This resource must be accessed with an App access token**.
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions
@@ -221,7 +221,7 @@ Delete a single subscription. Returns the deleted subscription. **This resource 
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions/[subscription_id]
@@ -273,7 +273,7 @@ Delete all subscriptions for the authorized App. Returns a list of the deleted s
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/subscriptions

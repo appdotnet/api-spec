@@ -101,7 +101,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 List the users muted by the current user. *Note: you can only request this list for the current user.*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### URL
 > https://alpha-api.app.net/stream/0/users/me/muted
@@ -182,7 +182,7 @@ Stop hiding all posts for a given user.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/appdotnet/api-spec/blob/master/auth.md#authenticated-api-requests).*
 
-> This endpoint is currently migrated by the ```response_envelope``` migration. Please refer to the [Migrations documentation](/appdotnet/api-spec/blob/master/migrations.md#current-migrations) for more info.
+<%= render 'partials/migration' %>
 
 ### Required Scopes
 
