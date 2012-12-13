@@ -13,7 +13,9 @@ The second key present, ```meta```, corresponds to an object containing addition
 ### Sample Response Envelope
 ~~~ js
 {
-    "data": ...,
+    "data": {
+        ...
+    },
     "meta": {
         "code": 200,
         "marker": {
@@ -26,6 +28,7 @@ The second key present, ```meta```, corresponds to an object containing addition
         "max_id": 65039,
         "min_id": 65039,
         "more": true
+    }
 }
 ~~~
 

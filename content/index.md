@@ -4,6 +4,11 @@ This is a living, working document. The API is functional, but we're in the earl
 
 Please submit feedback to us — feel free to comment on commits, open issues, open pull requests, etc.
 
+#### What's New
+
+* Introducing the Messaging API — check out the documentation for [Channels](/docs/resources/channel/) and [Messages](/docs/resources/message/) and the [App.net Messaging overview](/docs/basics/messaging/).
+* New look for documentation!
+
 #### Very Important Warning
 
 **If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the [Password Flow](/docs/authentication/password-flow/) section or it's possible your app will be rejected.**
