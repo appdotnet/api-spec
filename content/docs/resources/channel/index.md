@@ -1,6 +1,38 @@
 # Channel
 
+* TOC
+{:toc}
+
 A Channel is a user created stream of Messages. It controls access to the messages in the channel allowing for (among other things) public, private, and group messaging. For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
+
+~~~ js
+{
+    "has_unread": true,
+    "id": "1",
+    "owner": {
+        ...
+    },
+    "readers": {
+        "any_user": false,
+        "immutable": true,
+        "public": false,
+        "user_ids": [],
+        "you": true
+    },
+    "type": "net.app.core.pm",
+    "writers": {
+        "any_user": false,
+        "immutable": true,
+        "public": false,
+        "user_ids": [
+            "1",
+        ],
+        "you": true
+    },
+    "you_can_edit": false,
+    "you_subscribed": true
+}
+~~~
 
 ## Fields
 
