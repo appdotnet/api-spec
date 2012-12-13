@@ -74,59 +74,6 @@ A customized view of the global stream that is streamed to the client instead of
     </tbody>
 </table>
 
-## Interacting with individual Streams
-
-<table>
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Path</th>
-            <th>HTTP Method</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#create-a-stream">Create a Stream</a></td>
-            <td>/stream/0/streams</td>
-            <td>POST</td>
-        </tr>
-        <tr>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#retrieve-a-stream">Retrieve a Stream</a></td>
-            <td>/stream/0/streams/[streams_id]</td>
-            <td>GET</td>
-        </tr>
-        <tr>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-a-stream">Delete a Stream</a></td>
-            <td>/stream/0/streams/[streams_id]</td>
-            <td>DELETE</td>
-        </tr>
-    </tbody>
-</table>
-
-## Interacting with multiple Streams
-
-<table>
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Path</th>
-            <th>HTTP Method</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#get-current-tokens-streams">Retrieve all Streams for the current Token</a></td>
-            <td>/stream/0/streams</td>
-            <td>GET</td>
-        </tr>
-        <tr>
-            <td><a href="/appdotnet/api-spec/blob/master/resources/streams.md#delete-all-of-the-current-tokens-streams">Delete all Streams for the current Token</a></td>
-            <td>/stream/0/streams</td>
-            <td>DELETE</td>
-        </tr>
-    </tbody>
-</table>
-
 ## Basic Use
 
 A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/docs/basics/responses/#response-envelopes). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
