@@ -6,7 +6,7 @@ Please submit feedback to us — feel free to comment on commits, open issues, o
 
 #### What's New
 
-* Introducing the Messaging API — check out the documentation for [Channels](/docs/resources/channel/) and [Messages](/docs/resources/message/).
+* Introducing the Messaging API — check out the documentation for [Channels](/docs/resources/channel/) and [Messages](/docs/resources/message/) and the [App.net Messaging overview](/docs/basics/messaging/).
 * New look for documentation!
 
 #### Very Important Warning
