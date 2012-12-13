@@ -155,7 +155,7 @@ Access control lists (ACLs) specify who can read and who can write Messages in a
         <tr>
             <td><code>user_ids</code></td>
             <td>list</td>
-            <td>A list of strings specifying the user ids who can read/write to this channel. If non-empty, <code>any_user</code> and <code>public</code> will be false.</td>
+            <td>A list of strings specifying the user ids who can read/write to this channel. If non-empty, <code>any_user</code> and <code>public</code> will be false. This list can contain at most 200 user ids.</td>
         </tr>
         <tr>
             <td><code>you</code></td>
