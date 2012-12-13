@@ -93,7 +93,7 @@ Send a JSON document that matches the [Message schema](/docs/resources/message/)
 
 If you would like to specify your own entities, please refer to the [user specified entites](/docs/meta/entities/#user-specified-entities) documentation, otherwise we will parse out links, hashtags, and mentions from the ```text``` field.
 
-To create private group messages corresponding to the ```net.app.core.pm``` type, you can specify the special ```channel_id``` of ```auto```. With this parameter, the server will look for an extra field in the provided Message object called ```destinations``` which is a list of user_ids to send this message to. If a private message channel already exists between this group of users, that channel_id will be reused. Otherwise, a new channel will be created and the users specified in the ```destinations``` list will be able to write to that channel. Note that the ```destinations``` value may include user_ids in the form of @username or the integer id.
+To create private group messages corresponding to the ```net.app.core.pm``` type, you can specify the special ```channel_id``` of ```pm```. With this parameter, the server will look for an extra field in the provided Message object called ```destinations``` which is a list of user_ids to send this message to. If a private message channel already exists between this group of users, that channel_id will be reused. Otherwise, a new channel will be created and the users specified in the ```destinations``` list will be able to write to that channel. Note that the ```destinations``` value may include user_ids in the form of @username or the integer id.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -120,7 +120,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
             <td><code>channel_id</code></td>
             <td>Required</td>
             <td>int</td>
-            <td>The id of the Channel who's messages you want to see or <code>auto</code> to find or create a new private message channel.</td>
+            <td>The id of the Channel who's messages you want to see or <code>pm</code> to find or create a new private message channel.</td>
         </tr>
     </tbody>
 </table>
@@ -165,7 +165,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
 ~~~
 
 ### Auto-channel example
-> POST https://alpha-api.app.net/stream/0/channels/auto/messages
+> POST https://alpha-api.app.net/stream/0/channels/pm/messages
 >
 > Content-Type: application/json
 > 
