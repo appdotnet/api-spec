@@ -4,6 +4,9 @@ title: "Data Formats"
 
 # Notes on data formats
 
+* TOC
+{:toc}
+
 ## Dates
 
 Dates will be formatted as a **strict** subset of [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601). Dates are parseable by almost any ISO 8601 date parser or merely by parsing from position. All dates will be formatted as follows:

@@ -4,6 +4,9 @@ title: "Migrations"
 
 # Migrations
 
+* TOC
+{:toc}
+
 We reserve the right to make incremental changes to the API as we deem necessary. In order to make it possible to change the API but still support legacy applications, we will make use of migrations. Migrations are a per-app feature that developers may toggle for their own apps from the time that the old behavior is deprecated until the time that it has reached the end of its life (EOL). Once the EOL date is reached, the migration will be enabled for all apps with no legacy mode available.
 
 ## Accessing Migration Data

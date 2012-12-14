@@ -4,6 +4,9 @@ title: "Web Flows"
 
 # Web Flows
 
+* TOC
+{:toc}
+
 ## Server-side Flow
 
 This is the easiest way to get an access token—we recommend it to most users of the API. If you're writing an app on a server using a language like  Ruby, Python, PHP, Java, etc. you should use this flow.

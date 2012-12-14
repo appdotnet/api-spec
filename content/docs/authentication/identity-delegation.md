@@ -4,6 +4,9 @@ title: "Identity Delegation"
 
 # Identity Delegation
 
+* TOC
+{:toc}
+
 The purpose of this specification is to define a method by which one App.net app is able to verifiably prove to another application that it has access to a specific user's account without sharing any secret credentials.
 
 ## Definitions

@@ -4,6 +4,9 @@ title: "Password Flow"
 
 # Password Flow
 
+* TOC
+{:toc}
+
 This is referred to as the Resource Owner Password Credential flow in the OAuth 2.0 spec. However, in order to protect the integrity of `client_secret`s, we require the use of a separate token to be included with flows.
 
 This flow is useful for obtaining an access token authorized for specific scopes when pushing the user into a browser-based flow is impractical for technical or user-experience reasons.

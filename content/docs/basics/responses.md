@@ -4,6 +4,9 @@ title: "Responses"
 
 # Responses
 
+* TOC
+{:toc}
+
 >All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.
 
 All responses to requests to the App.net API endpoints described in [Resources](/docs/resources/), whether successful or not, will be returned in the same type of envelope structure. This document will describe how that envelope works as well as how it can be used for convenient purposes, such as pagination.
