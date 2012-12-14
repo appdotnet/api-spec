@@ -2,8 +2,6 @@
 title: "Home"
 ---
 
-Pull requests / comment on commits
-
 # App.net API Documentation
 
 App.net is a subscription-based, ad-free social network and API, a home for meaningful interactions and a platform developers can trust. We rely on our developers and our developers can rely on us for a robust, responsive and transparent platform. 
