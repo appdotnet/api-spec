@@ -7,84 +7,6 @@ title: "Message Lifecycle"
 * TOC
 {:toc}
 
-## Retrieve the Messages in a Channel
-
-Retrieve a stream of the Messages in a channel. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters).
-
-<%= migration_warning ['response_envelope'] %>
-
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://api.app.net/stream/0/channels/[channel_id]/messages
-
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel who's messages you want to see</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
-
-> GET https://api.app.net/stream/0/channels/1/messages
-
-~~~ js
-{
-    "data": [
-        {
-            "channel_id": "1",
-            "created_at": "2012-12-11T00:31:49Z",
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-            "id": "103",
-            "machine_only": false,
-            "num_replies": 0,
-            "source": {
-                "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-                "link": "https://app.net",
-                "name": "Test app"
-            },
-            "text": "Hello channel!",
-            "thread_id": "103",
-            "user": {
-                ...
-            }
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "marker": {
-            "name": "channel:1"
-        },
-        "max_id": 103,
-        "min_id": 95,
-        "more": true
-    }
-}
-~~~
-
 ## Create a Message
 
 Create a [Message](/docs/resources/message/) in the specified Channel.
@@ -354,6 +276,84 @@ Delete a message. The current user must be the same user who created the Message
     },
     "meta": {
         "code": 200,
+    }
+}
+~~~
+
+## Retrieve the Messages in a Channel
+
+Retrieve a stream of the Messages in a channel. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters).
+
+<%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
+### URL
+> https://api.app.net/stream/0/channels/[channel_id]/messages
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>channel_id</code></td>
+            <td>Required</td>
+            <td>int</td>
+            <td>The id of the Channel who's messages you want to see</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://api.app.net/stream/0/channels/1/messages
+
+~~~ js
+{
+    "data": [
+        {
+            "channel_id": "1",
+            "created_at": "2012-12-11T00:31:49Z",
+            "entities": {
+                "hashtags": [],
+                "links": [],
+                "mentions": []
+            },
+            "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
+            "id": "103",
+            "machine_only": false,
+            "num_replies": 0,
+            "source": {
+                "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
+                "link": "https://app.net",
+                "name": "Test app"
+            },
+            "text": "Hello channel!",
+            "thread_id": "103",
+            "user": {
+                ...
+            }
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "marker": {
+            "name": "channel:1"
+        },
+        "max_id": 103,
+        "min_id": 95,
+        "more": true
     }
 }
 ~~~
