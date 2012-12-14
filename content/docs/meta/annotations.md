@@ -7,9 +7,7 @@ title: "Annotations"
 * TOC
 {:toc}
 
-Annotations are metadata that are attached to Users or to Posts when they are created. This allows developers and users to add extra information to the post without interfering with the text content of the Post. They also allow developers to attach machine readable information about a user to the user object. Annotations will enable developers to build complex posts and new systems on top of the current App.net infrastructure.
-
-We're really excited to be launching this feature and appreciate any feedback on the following document. Please [open a github issue](https://github.com/appdotnet/api-spec/issues) to contribute to this document.
+Annotations are metadata that are attached to Users, Posts, Channels, or Messages. This allows developers and users to add extra information to App.net objects outside of the fields App.net has defined. Annotations help enable developers to create richer content and build new systems on top of the current App.net infrastructure.
 
 ## Concretely, what are annotations
 
@@ -35,6 +33,9 @@ First here are some of the more technical details of annotations:
 - Each User or Post is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
 - Post Annotations are immutable and can only be added to a Post at creation time.
 - User Annotations are mutable and can be updated at any time. Because they are mutable, each User can only have one annotation of each "type" (unlike Post annotations).
+- Each object (Channel, Message, Post, or User) is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Message and Post Annotations are immutable and can only be added at creation time.
+- Channel and User Annotations are mutable and can be updated at any time. Because they are mutable, each object can only have one annotation of each "type" (unlike Post annotations).
 
 #### Annotation format
 
@@ -141,17 +142,15 @@ The ```user.annotations``` field will be a list of individual annotation objects
 
 #### Creating annotations
 
-Annotations are currently live in the API.
+For Posts, Messages, and Channels, you can create annotations when you create the object. You must pass JSON objects that include annotations matching the above schema. Please see the documentation for creating [Posts](/docs/resources/post/lifecycle/#create-a-post), [Messages](/docs/resources/message/lifecycle/#create-a-message), and [Channels](/docs/resources/channel/lifecycle/#create-a-channel).
 
-To create Post annotations you must give App.net a well-formed JSON encoded post that matches the [Post schema](/docs/resources/post/). Please see the [Create a Post](/docs/resources/post/#create-a-post) documentations for more information.
-
-To add or update User annotations, you [Update a User's Profile](/docs/resources/user/profile/#update-a-user) and pass in the annotations you want to add or update. To delete an annotation, omit the ```value``` key for the annotation type you want to delete. For example, to delete a user's blog url, specify ```{"type": "net.app.core.directory.blog"}```.
+To add or update User or Channel annotations, you [Update a User's profile](/docs/resources/user/profile/#update-a-user) or [Update a Channel](/docs/resources/channel/lifecycle/#update-a-channel) and pass in the annotations you want to add or update. To delete an annotation, omit the ```value``` key for the annotation type you want to delete. For example, to delete a user's blog url, specify ```{"type": "net.app.core.directory.blog"}```.
 
 #### Displaying annotations
 
 Every client can choose if/how it chooses to display annotations. As stated above be very careful when consuming this data and **do not assume that it follows a specific schema.** Treat data in annotations as untrusted data. Program defensively: your app should not crash or otherwise throw an error if it receives a string where there is usually a dictionary, etc. App.net will coordinate with the community to define schemas for common annotation formats. They will live under the ```net.app.core.*``` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers may create annotations in either the ```net.app.[username]``` namespace or a reversed-domain namespace of their choosing.
 
-Since annotations can be up to 8192 bytes, they are not included with posts by default. When you make a request for posts or users, you can include the parameter ```include_annotations=1``` to receive all annotations object (or just ```include_user_annotations=1``` or  ```include_post_annotations=1```). See [general Post parameters](/docs/resources/post/#general-parameters) for more information.
+Since annotations can be up to 8192 bytes, they are never included by default. When making a request for Users, Posts, Channels or Messages, you can use the parameter `include_annotations=1` to receive all applicable annotations. When requesting Users or Posts you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations. When requesting Channels or Messages you can use `include_channel_annotations=1` or `include_message_annotations=1` to include just those annotations.
 
 # Annotations formats
 

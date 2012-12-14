@@ -68,7 +68,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>type</code></td>
             <td>string</td>
-            <td>A string specifying the type of stream this is. This can affect the transport method of the endpoint url as well as characteristics of the stream (how many messages it can process, how long lived it is, etc). Currently, the only option is <code>long_poll</code>.</td>
+            <td>A string specifying the type of stream this is. This can affect the transport method of the endpoint url as well as characteristics of the stream (how many objects it can process, how long lived it is, etc). Currently, the only option is <code>long_poll</code>.</td>
         </tr>
         <tr>
             <td><code>key</code></td>
@@ -80,37 +80,31 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Basic Use
 
-A Stream is a real-time, ordered collection of messages. A message will always be a [response envelope](/docs/basics/responses/#response-envelopes). If you are receiving a message about an object, the ```data``` key will contain that object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+A Stream is a real-time, ordered collection of objects. An object will always be formatted in a [response envelope](/docs/basics/responses/#response-envelopes). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
-There are 3 different kinds of Streams, but they all follow the same pattern:
+There will be three different kinds of Streams, but they all follow the same pattern:
 
-* Public stream: A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**.
+* Public stream (available now): A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**.
 
-* Coming soon:
-    * User stream: A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream]
-(/appdotnet/api-spec/blob/master/resources/posts.md#retrieve-a-users-personalized-stream) endpoint. It is very useful for client
-based Apps that need a single User's Stream. **It must be accessed with a User access token**.
-    * App stream: A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the
-streams of lots of users. **It must be accessed with an App access token**.
+* User stream (coming soon): A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream](/docs/resources/post/streams/#retrieve-a-users-personalized-stream) endpoint. It is very useful for client based Apps that need a single User's Stream. **It must be accessed with a User access token**.
 
-Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of messages to send to a
-client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that
-you can actually process.
+* App stream (coming soon): A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the streams of lots of users. **It must be accessed with an App access token**.
+
+Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of objects to send to a client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that you can actually process.
 
 ## Filters
 
-Streams will give you lots of data, much of which your application may not want. A [Filter](/docs/resources/filter/) can be passed to the [stream creation endpoint](/docs/resources/stream/lifecycle/#create-a-stream) to control what messages are actually delivered to your App by our servers.
+Streams will give you lots of data, much of which your application may not want. A [Filter](/docs/resources/filter/) can be passed to the [stream creation endpoint](/docs/resources/stream/lifecycle/#create-a-stream) to control what objects are actually delivered to your App by our servers.
 
 ## Response Format
 
-A Stream is a long-lived HTTP connection that enables clients to receive messages in near real-time from App.net.
+A Stream is a long-lived HTTP connection that enables clients to receive objects in near real-time from App.net.
 
-When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any messages previously queued up for this stream.
+When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any objects previously queued up for this stream.
 
 Once connected to the stream endpoint, the response will be encoded using HTTP ```Transfer-Encoding: chunked```.
 
 The Stream contains frames separated by ```\r\n```. For example:
-
 
     HELLO\r\nWORLD!!!\r\n
 
@@ -129,7 +123,7 @@ A Stream can listen for the following object types:
 * [star](#star): Sent when a user stars a post
 * [user_follow](#user-follow): Sent when a user begins following or unfollows another user
 * [stream_marker](#stream-marker): Sent when a stream marker is updated
-* [message](#message): Sent for new messages, replies, and message deletions
+* [message](#message): Sent for new objects, replies, and message deletions
 * [channel](#channel): Sent when a channel is created or updated
 * [channel_subscription](#channel-subscription): Sent when a user subscribes or unsubscribes to a channel
 

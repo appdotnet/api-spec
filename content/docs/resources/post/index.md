@@ -7,7 +7,7 @@ title: "Post"
 * TOC
 {:toc}
 
-A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed.
+A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed. Posts are closely tied to the follow graph. If you want to create data that isn't tied to the follow graph, you should look at [Messages](/docs/resources/message/).
 
 ~~~ js
 {
@@ -211,7 +211,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 Post annotations are immutable attributes that describe the entire post. Please see the [Annotations](/docs/meta/annotations/) documentation for more information.
 
 ## Machine only Posts
-Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense in Alpha's Global Feed?"
+Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense to a human?"
 
 ## General parameters
 
@@ -227,18 +227,6 @@ Requests for streams of Posts can be filtered by passing query string parameters
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><code>min_id</code> (<em><a href="#deprecating-minid-and-maxid">Deprecating</a></em>)</td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>The minimum Post id to return (the response *will include* this post id if it is valid).</td>
-        </tr>
-        <tr>
-            <td><code>max_id</code> (<em><a href="#deprecating-minid-and-maxid">Deprecating</a></em>)</td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>The maximum Post id to return (the response *will include* this post id if it is valid)</td>
-        </tr>
         <tr>
             <td><code>since_id</code></td>
             <td>Optional</td>
@@ -311,18 +299,8 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>integer (0 or 1)</td>
             <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
         </tr>
-        <tr>
-            <td><code>include_user</code> (<em>Coming soon</em>)</td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should the nested User object be included in the Post? (Default depends upon the endpoint)</td>
-        </tr>
     </tbody>
 </table>
-
-### Deprecating min_id and max_id
-
-After thinking through the pagination use cases more, we don't think ```min_id``` and ```max_id``` are the most useful parameters. We're planning on deprecating them in favor of ```since_id``` and ```before_id```. If you have a use case that would benefit from inclusive parameters (```min_id``` and ```max_id```), please [let us know](https://github.com/appdotnet/api-spec/issues).
 
 ## Sorting Posts
 

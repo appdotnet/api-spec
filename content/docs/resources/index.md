@@ -418,13 +418,13 @@ Please use https://alpha-api.app.net/ to access the APIs.
         <tr>
             <td><a href="/docs/resources/stream/lifecycle/#retrieve-a-stream">Retrieve a Stream</a></td>
             <td>GET</td>
-            <td>/stream/0/streams/[streams_id]</td>
+            <td>/stream/0/streams/[stream_id]</td>
             <td>App token</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/stream/lifecycle/#delete-a-stream">Delete a Stream</a></td>
             <td>DELETE</td>
-            <td>/stream/0/streams/[streams_id]</td>
+            <td>/stream/0/streams/[stream_id]</td>
             <td>App token</td>
         </tr>
     </tbody>
