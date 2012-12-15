@@ -291,7 +291,7 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to [pagin
 * ```public_messages``` or ```messages```
 
 ### URL
-> https://api.app.net/stream/0/channels/[channel_id]/messages
+> https://alpha-api.app.net/stream/0/channels/[channel_id]/messages
 
 ### Parameters
 
@@ -316,7 +316,7 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to [pagin
 
 ### Example
 
-> GET https://api.app.net/stream/0/channels/1/messages
+> GET https://alpha-api.app.net/stream/0/channels/1/messages
 
 ~~~ js
 {
