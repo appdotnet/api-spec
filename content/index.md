@@ -24,15 +24,11 @@ To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adna
 
 There are numerous ways for developers to get help utilizing the platform and to provide feedback. During typical San Francisco business hours there are App.net staff members available to answer questions in our [**developer chatroom**](http://www.hipchat.com/garqCaGOZ). For general inquiries about account/service related issues email [support@app.net](mailto://support@app.net). For developer inquiries about the API, our Terms of Service, letting us know about something you're working on, etc., email [developers@app.net](mailto://developers@app.net). In addition to the above you can report bugs and provide feedback on the API using the [**issue tracker**](https://github.com/appdotnet/api-spec/issues) or by using pull requests and commit comments on the [Github repo for the API](https://github.com/appdotnet/api-spec/) or the repo for these docs. You can also contact our Developer Advocate [@orian](http://alpha.app.net/orian).
 
-### How this documentation is organized
-
 ### Terms of Service
 
 All usage of the App.net API is governed by our [Developer Terms of Service]( https://account.app.net/legal/developer-terms/). We spent a great deal of time making this document readable, concise, and developer friendly. Please take the time to review it. 
 
-
 ### Registering your app
-
 
 Establishing a robust ecosystem of great apps is critical for our success. We're always looking for more ways to promote the work of our third party developers.
 
