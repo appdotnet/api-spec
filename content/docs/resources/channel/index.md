@@ -23,6 +23,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         "user_ids": [],
         "you": true
     },
+    "recent_message_id": "231",
     "type": "net.app.core.pm",
     "writers": {
         "any_user": false,
@@ -93,6 +94,11 @@ A Channel is a user created stream of Messages. It controls access to the messag
             <td><code>has_unread</code></td>
             <td>boolean</td>
             <td>Are there unread messages in this channel (according to the stream marker you have saved for this channel)?</td>
+        </tr>
+        <tr>
+            <td><code>recent_message_id</code></td>
+            <td>string</td>
+            <td>The ID of the most recent message in this channel. Includes deleted messages.</td>
         </tr>
     </tbody>
 </table>
