@@ -1,0 +1,184 @@
+---
+title: "Channel Lookup"
+---
+
+# Lookup
+
+* TOC
+{:toc}
+
+## Retrieve a Channel
+
+Returns a specific [Channel](/docs/resources/channel/).
+
+<%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
+### URL
+> https://alpha-api.app.net/stream/0/channels/[channel_id]
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>channel_id</code></td>
+            <td>Required</td>
+            <td>string</td>
+            <td>The channel id</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/channels/2
+
+~~~ js
+{
+    "data": {
+        "has_unread": false,
+        "id": "2",
+        "owner": {
+            // user object of channel owner
+        },
+        "readers": {
+            "any_user": false,
+            "immutable": true,
+            "public": false,
+            "user_ids": [],
+            "you": true
+        },
+        "recent_message_id": "480",
+        "type": "net.app.core.pm",
+        "writers": {
+            "any_user": false,
+            "immutable": true,
+            "public": false,
+            "user_ids": [
+                "1"
+            ],
+            "you": true
+        },
+        "you_can_edit": true,
+        "you_subscribed": true
+    },
+    "meta": {
+        "code": 200
+    }
+}
+~~~
+
+## Retrieve multiple Channels
+Returns multiple Channels requested by id. At most 200 channels can be requested. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
+
+<%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
+### URL
+
+> https://alpha-api.app.net/stream/0/channels
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ids</code></td>
+            <td>Required</td>
+            <td>string</td>
+            <td>A comma separated list of Channel ids to retrieve.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/channels?ids=1,2,6502
+
+~~~ js
+{
+    "data": [
+        {
+            "has_unread": false,
+            "id": "1",
+            "owner": {
+                // user object of channel owner
+            },
+            "readers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [],
+                "you": true
+            },
+            "recent_message_id": "3094",
+            "type": "net.app.core.pm",
+            "writers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [
+                    "8"
+                ],
+                "you": true
+            },
+            "you_can_edit": true,
+            "you_subscribed": true
+        },
+        {
+            "has_unread": false,
+            "id": "2",
+            "owner": {
+                // user object of channel owner
+            },
+            "readers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [],
+                "you": true
+            },
+            "recent_message_id": "480",
+            "type": "net.app.core.pm",
+            "writers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [
+                    "1"
+                ],
+                "you": true
+            },
+            "you_can_edit": true,
+            "you_subscribed": true
+        }
+        // Note that channel 6502 is not present as it doesn't exist.
+    ],
+    "meta": {
+        "code": 200
+    }
+}
+~~~

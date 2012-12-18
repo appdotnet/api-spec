@@ -318,9 +318,15 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>User token</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/channel/lifecycle/#retrieve-a-channel">Retrieve a Channel</a></td>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-a-channel">Retrieve a Channel</a></td>
             <td>GET</td>
             <td>/stream/0/channels/[channel_id]</td>
+            <td>Depends on Channel permissions</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-multiple-channels">Retrieve multiple Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels</td>
             <td>Depends on Channel permissions</td>
         </tr>
         <tr>
@@ -381,9 +387,15 @@ Please use https://alpha-api.app.net/ to access the APIs.
             <td>User token</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/message/lifecycle/#retrieve-a-message">Retrieve a Message</a></td>
+            <td><a href="/docs/resources/message/lookup/#retrieve-a-message">Retrieve a Message</a></td>
             <td>GET</td>
             <td>/stream/0/channels/[channel_id]/messages/[message_id]</td>
+            <td>Depends on Channel permissions</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/message/lookup/#retrieve-multiple-messages">Retrieve multiple Messages</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/messages</td>
             <td>Depends on Channel permissions</td>
         </tr>
         <tr>
