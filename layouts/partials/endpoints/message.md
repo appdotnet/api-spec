@@ -21,9 +21,15 @@
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/message/lifecycle/#retrieve-a-message">Retrieve a Message</a></td>
+            <td><a href="/docs/resources/message/lookup/#retrieve-a-message">Retrieve a Message</a></td>
             <td>GET</td>
             <td>/stream/0/channels/[channel_id]/messages/[message_id]</td>
+            <td>Varies</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/message/lookup/#retrieve-multiple-messages">Retrieve multiple Messages</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/messages</td>
             <td>Varies</td>
         </tr>
         <tr>

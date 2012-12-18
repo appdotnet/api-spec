@@ -21,9 +21,15 @@
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/channel/lifecycle/#retrieve-a-channel">Retrieve a Channel</a></td>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-a-channel">Retrieve a Channel</a></td>
             <td>GET</td>
             <td>/stream/0/channels/[channel_id]</td>
+            <td>Varies</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-multiple-channels">Retrieve multiple Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels</td>
             <td>Varies</td>
         </tr>
         <tr>
