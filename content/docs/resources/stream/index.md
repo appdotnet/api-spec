@@ -4,6 +4,8 @@ title: "Stream"
 
 # Stream
 
+<%= render 'partials/object-tab' %>
+
 * TOC
 {:toc}
 
@@ -362,3 +364,5 @@ A user unsubscribes to a channel.
     }
 }
 ~~~
+
+<%= render 'partials/endpoints-tab', :for => "stream" %>

@@ -4,6 +4,8 @@ title: "User"
 
 # User
 
+<%= render 'partials/object-tab' %>
+
 * TOC
 {:toc}
 
@@ -233,3 +235,5 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
 
 A user's avatar and cover images can be [directly requested](/docs/resources/user/profile/#retrieve-a-users-avatar-image) without requesting the entire user object.
+
+<%= render 'partials/endpoints-tab', :for => "user" %>

@@ -4,6 +4,8 @@ title: "Message"
 
 # Message
 
+<%= render 'partials/object-tab' %>
+
 * TOC
 {:toc}
 
@@ -142,3 +144,5 @@ Message annotations are immutable attributes that describe the entire message. P
 ## Machine only Messages
 
 Sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a Machine only Message by including ```annotations``` and not including ```text```. You can request Machine only Messages using the ```include_machine=1``` query string parameter.
+
+<%= render 'partials/endpoints-tab', :for => "message" %>

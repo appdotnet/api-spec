@@ -4,6 +4,8 @@ title: "Post"
 
 # Post
 
+<%= render 'partials/object-tab' %>
+
 * TOC
 {:toc}
 
@@ -305,3 +307,5 @@ Requests for streams of Posts can be filtered by passing query string parameters
 ## Sorting Posts
 
 Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria e.g. before_id and count.
+
+<%= render 'partials/endpoints-tab', :for => "post" %>

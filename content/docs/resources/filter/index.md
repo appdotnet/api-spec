@@ -4,6 +4,8 @@ title: "Filter"
 
 # Filter
 
+<%= render 'partials/object-tab' %>
+
 * TOC
 {:toc}
 
@@ -206,3 +208,5 @@ For instance, in the message:
 * ```/data/num_replies``` = 0
 
 We extend JSON pointer slightly to allow all the elements of a list to match. For example, to answer the question "Does this post contain the hashtag 'rollout'", you'd use a field selector like ```/data/entities/hashtags/*/name```. Following the JSON Pointer spec, if you'd like to encode a literal ```*``` you can use ```~2``` instead.
+
+<%= render 'partials/endpoints-tab', :for => "filter" %>
