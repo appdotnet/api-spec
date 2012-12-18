@@ -1,50 +1,5 @@
 /* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
 
-/*
-body, html {
-  height: 100%;
-  width: 100%;
-}
-
-.navbar-inner {
-  height: 40px;
-}
-
-.main {
-  margin-top: 60px;
-}
-
-.main-docs-outer {
-    width: 100%;
-    margin-left: -300px;
-    float: right;
-}
-
-.main-docs-inner {
-    margin-left: 300px;
-    margin-bottom: 100px;
-    float: none;
-    width: auto;
-}
-
-.sidebar {
-    float: left;
-    width: 280px;
-    position: fixed;
-    height: 100%;
-    overflow-x: scroll;
-}
-
-.sidebar .nav {
-  padding-bottom: 80px;
-}
-
 .line-numbers {
     margin-right: 1.0em;
 }
-
-[id] {
-    padding-top: 40px;
-    margin-top: -40px;
-}
-*/
