@@ -64,6 +64,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     "follows_you": false,
     "you_follow": true,
     "you_muted": false,
+    "you_can_subscribe": true,
     "annotations": [
         {
             "type": "net.app.core.directory.blog",
@@ -205,6 +206,11 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         <td><code>you_muted</code></td>
         <td>boolean</td>
         <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>you_can_subscribe</code></td>
+        <td>boolean</td>
+        <td>Does the user making the request have the ability to subscribe this user to channels? May be omitted if this is not an authenticated request.</td>
     </tr>
     <tr>
         <td><code>annotations</code></td>

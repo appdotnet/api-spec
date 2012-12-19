@@ -15,6 +15,10 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= migration_warning ['response_envelope'] %>
 
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
 ### URL
 > https://alpha-api.app.net/stream/0/channels
 
@@ -71,6 +75,10 @@ None.
 Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users-subscribed-channels).
 
 <%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
@@ -139,6 +147,10 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 Unsubscribe from a Channel. This removes it from your [Channel stream](#get-current-users-subscribed-channels).
 
 <%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
 
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
@@ -210,6 +222,10 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= migration_warning ['response_envelope'] %>
 
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers
 
@@ -229,7 +245,7 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
             <td><code>channel_id</code></td>
             <td>Required</td>
             <td>int</td>
-            <td>The id of the Channel to update</td>
+            <td>The id of the Channel to request</td>
         </tr>
     </tbody>
 </table>
@@ -309,6 +325,10 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 <%= migration_warning ['response_envelope'] %>
 
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
 ### URL
 > https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers/ids
 
@@ -343,6 +363,62 @@ Retrieve all the user ids who are subscribed to a Channel.
         "1",
         ...
     ],
+    "meta": {
+        "code": 200,
+    }
+}
+~~~
+
+## Retrieve user ids subscribed to multiple Channels
+
+Retrieve all the user ids who are subscribed to multiple Channels. Up to 200 channels may be requested at one time. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
+
+<%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
+### URL
+> https://alpha-api.app.net/stream/0/channels/subscribers/ids
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ids</code></td>
+            <td>Required</td>
+            <td>int</td>
+            <td>A comma separated list of Channel ids to retrieve.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/channels/subscribers/ids?ids=1,2,3,5
+
+~~~ js
+{
+    "data": {
+        "1": [
+            "5",
+            "10"
+        ],
+        "2": [
+            "5",
+            "20"
+        ] // channels 3 and 5 are omitted as if they are not visible or do not exist
+    },
     "meta": {
         "code": 200,
     }

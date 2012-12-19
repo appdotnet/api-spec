@@ -62,5 +62,11 @@
             <td>/stream/0/channels/[channel_id]/subscribers/ids</td>
             <td>Varies</td>
         </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/subscriptions/#retrieve-user-ids-subscribed-to-a-channel">Retrieve user ids subscribed to multiple Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/subscribers/ids</td>
+            <td>Varies</td>
+        </tr>
     </tbody>
 </table>
