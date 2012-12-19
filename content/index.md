@@ -51,8 +51,8 @@ Libraries, tools, code samples, blog posts and other resources to help you build
 
 #### Your hosts
 
-* [Bryan Berg](http://ber.gd) ([github.com/berg](http://github.com/berg), [@berg](https://alpha.app.net/berg), bryan@ber.gd)
-* [Orian Marx](http://orianmarx.com) ([github.com/orianmarx](http://github.com/orianmarx), [@orian](https://alpha.app.net/orian), orian@app.net)
-* Mark Thurman ([github.com/mthurman](http://github.com/mthurman), [@mthurman](https://alpha.app.net/mthurman), mthurman@gmail.com)
-* [Alex Kessinger](http://alexkessinger.net) ([github.com/voidfiles](http://github.com/voidfiles), [@voidfiles](https://alpha.app.net/voidfiles), voidfiles@gmail.com)
-* Brian Armstrong ([github.com/mxml-barmstrong](http://github.com/mxml-barmstrong), [@barmstrong](https://alpha.app.net/barmstrong))
+* [Bryan Berg](http://ber.gd) ([@berg](https://alpha.app.net/berg), [bryan@app.net](mailto:bryan@app.net))
+* [Orian Marx](http://orianmarx.com) ([@orian](https://alpha.app.net/orian), [orian@app.net](mailto:orian@app.net))
+* Mark Thurman ([@mthurman](https://alpha.app.net/mthurman), [mthurman@app.net](mthurman@app.net))
+* [Alex Kessinger](http://alexkessinger.net) ([@voidfiles](https://alpha.app.net/voidfiles), [alex@app.net](mailto:alex@app.net))
+* Brian Armstrong ([@barmstrong](https://alpha.app.net/barmstrong), [barmstrong@app.net](mailto:barmstrong@app.net))
