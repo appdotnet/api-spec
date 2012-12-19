@@ -1,6 +1,6 @@
 # developers.app.net
 
-This branch (new-docs) of the appdotnet/api-spec repo contains the source for developers.app.net and replaces the docs located on the master branch.
+This branch (new-docs) of the appdotnet/api-spec repo contains the source for [developers.app.net](http://developers.app.net/) and replaces the docs located on the master branch.
 
 This documentation can be compiled using [nanoc](http://nanoc.stoneship.org/). 
 
