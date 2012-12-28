@@ -188,4 +188,27 @@ Private message channels enforce that there is at least one non-owner user_id in
 
 In addition, this channel type differs from others in that it is designed to provide a simple, combined API for channel creation, reuse and message sending. You can only create `net.app.core.pm` channels via the special endpoint for doing so.
 
+## General Parameters
+
+Requests that return streams of channels accept the following query string parameters in addition to the [pagination parameters](/docs/resources/post/#general-parameters):
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th width="50">Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>channel_types</code></td>
+            <td>Optional</td>
+            <td>string</td>
+            <td>A comma separated list of the Channel types to include. For instance <code>channel_types=net.app.core.pm,net.myapp</code> will only return channels that are either "private message channels" or "channels created by myapp."</td>
+        </tr>
+    </tbody>
+</table>
+
 <%= render 'partials/endpoints-tab', :for => "channel" %>

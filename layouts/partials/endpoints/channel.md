@@ -33,6 +33,12 @@
             <td>Varies</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-my-channels">Retrieve my Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/me</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/channel/lifecycle/#update-a-channel">Update a Channel</a></td>
             <td>PUT</td>
             <td>/stream/0/channels/[channel_id]</td>

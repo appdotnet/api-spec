@@ -33,6 +33,12 @@
             <td>Varies</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/message/lookup/#retrieve-my-messages">Retrieve my Messages</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/messages/me</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/message/lifecycle/#delete-a-message">Delete a Message</a></td>
             <td>DELETE</td>
             <td>/stream/0/channels/[channel_id]/messages/[message_id]</td>

@@ -182,3 +182,65 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
     }
 }
 ~~~
+
+## Retrieve my Channels
+Returns a stream of all Channels the current user has created. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general channel parameters](/docs/resources/channel/#general-parameters).
+
+<%= migration_warning ['response_envelope'] %>
+
+### Required Scopes
+
+* ```public_messages``` or ```messages```
+
+### URL
+
+> https://alpha-api.app.net/stream/0/channels/me
+
+### Parameters
+
+None.
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/channels/me
+
+~~~ js
+{
+    "data": [
+        {
+            "has_unread": false,
+            "id": "2",
+            "owner": {
+                // user object of channel owner
+            },
+            "readers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [],
+                "you": true
+            },
+            "recent_message_id": "3094",
+            "type": "net.app.core.pm",
+            "writers": {
+                "any_user": false,
+                "immutable": true,
+                "public": false,
+                "user_ids": [
+                    "8"
+                ],
+                "you": true
+            },
+            "you_can_edit": true,
+            "you_subscribed": true
+        },
+        ...
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": 2,
+        "min_id": 1,
+        "more": false
+    }
+}
+~~~
