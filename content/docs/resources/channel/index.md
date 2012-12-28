@@ -206,7 +206,7 @@ Requests that return streams of channels accept the following query string param
             <td><code>channel_types</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>A comma separated list of the Channel types to include. For instance <code>channel_types=net.app.core.pm,net.myapp</code> will only return channels that are either "private message channels" or "channels created by myapp."</td>
+            <td>A comma separated list of the Channel types to include. For instance <code>channel_types=net.app.core.pm,net.myapp</code> will only return channels with a type of <code>net.app.core.pm</code> or <code>net.myapp</code>.</td>
         </tr>
     </tbody>
 </table>
