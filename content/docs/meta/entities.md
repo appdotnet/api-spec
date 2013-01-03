@@ -99,7 +99,7 @@ Link to another website.
 ~~~ js
 "links": [{
     "text": "this new site",
-    "url": "https://join.app.net"
+    "url": "https://join.app.net",
     "pos": 20,
     "len": 13,
     "amended_len": 28
