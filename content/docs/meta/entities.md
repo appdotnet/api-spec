@@ -101,7 +101,8 @@ Link to another website.
     "text": "this new site",
     "url": "https://join.app.net"
     "pos": 20,
-    "len": 13
+    "len": 13,
+    "amended_len": 28
 }]
 ~~~
 
@@ -130,6 +131,11 @@ Link to another website.
         <td><code>len</code></td>
         <td>integer</td>
         <td>The length of the substring in <code>text</code> that represents this link.</td>
+    </tr>
+    <tr>
+        <td><code>amended_len</code></td>
+        <td>integer</td>
+        <td>The length of the substring in <code>text</code> that represents this link including any <a href="#links-with-custom-anchor-text">phishing protection</a> that was inserted by App.net. This can be used to customize the display of the anti-phishing information we provide. If this link has no anti-phishing protection (because the domain of the <code>url</code> matches the <code>text</code>), then this field will be omitted.</td>
     </tr>
 </table>
 
@@ -163,7 +169,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net will not extract any links on the server.** Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention.
 
-To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters will not count against the 256 character Post limit.
+To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters added by App.net to the `text` field will not count against the 256 character Post limit. In this case, App.net will also add the [`amended_len`](#links) field that includes the length of the complete entity and added anti-phishing text. This will make it easier for apps to customize how the anti-phishing protection looks in their apps. **When rendering links in your app, you must show users an indication of where they will end up.**
 
 The ```text``` attribute of a link should be omitted as it will always be filled in from the post text.
 
@@ -196,7 +202,8 @@ App.net will store and return:
             {
                 "pos": 7,
                 "len": 12,
-                "url": "https://alpha.app.net"
+                "url": "https://alpha.app.net",
+                "amended_len": 28
             }
         ]
     },
