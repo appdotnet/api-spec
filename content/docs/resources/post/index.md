@@ -233,13 +233,13 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td><code>since_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and should come from the <code>max_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
+            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and must come from the <code>max_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a> or be one of the <a href="#special-pagination-ids">special pagination ids</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>before_id</code></td>
             <td>Optional</td>
             <td>string</td>
-            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and should come from the <code>min_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a>. The response <strong>will not include</strong> this id.</td>
+            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and must come from the <code>min_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a> or be one of the <a href="#special-pagination-ids">special pagination ids</a>. The response <strong>will not include</strong> this id.</td>
         </tr>
         <tr>
             <td><code>count</code></td>
@@ -300,6 +300,29 @@ Requests for streams of Posts can be filtered by passing query string parameters
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
+        </tr>
+    </tbody>
+</table>
+
+### Special pagination ids
+
+When requesting an endpoint that supports [stream markers](/docs/resources/stream-marker), you can pass special values to the `since_id` and `before_id` pagination parameters that make use of stream markers.
+
+<table>
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>marker</code></td>
+            <td>Use the user's current stream marker (if there is one) as the value.</td>
+        </tr>
+        <tr>
+            <td><code>marker_inclusive</code></td>
+            <td>Use the user's current stream marker (if there is one) as the value. Also include the "marked" post.</td>
         </tr>
     </tbody>
 </table>
