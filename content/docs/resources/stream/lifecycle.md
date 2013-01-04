@@ -9,9 +9,9 @@ title: "Stream Lifecycle"
 
 ## Create a Stream
 
-Create a <a href="../objects/stream.md">Stream</a> for the current token.
+Create a [Stream](/docs/resources/stream/) for the current token.
 
-Send a JSON document that matches the  <a href="../objects/stream.md">stream schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type``` and ```filter_id```. If you don't want to specify a filter, omit ```filter_id```.
+Send a JSON document that matches the [stream schema](/docs/resources/stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type``` and ```filter_id```. If you don't want to specify a filter, omit ```filter_id```.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -20,7 +20,7 @@ Send a JSON document that matches the  <a href="../objects/stream.md">stream sch
 
 ### Data
 
-A JSON object representing the stream to create. See <a href="../objects/stream.md">the stream object</a> for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).</td>
+A JSON object representing the stream to create. See [the stream object](/docs/resources/stream/) for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).
 
 ### Example
 
@@ -62,7 +62,7 @@ A JSON object representing the stream to create. See <a href="../objects/stream.
 
 ## Retrieve a Stream
 
-Returns a specific <a href="../objects/stream.md">Stream</a> object.
+Returns a specific [Stream](/docs/resources/stream/) object.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -125,7 +125,7 @@ Returns a specific <a href="../objects/stream.md">Stream</a> object.
 
 ## Get current token's Streams
 
-Return the <a href="../objects/stream.md">Streams</a> for the current token.
+Return the [Streams](/docs/resources/stream/) for the current token.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -195,7 +195,7 @@ Return the <a href="../objects/stream.md">Streams</a> for the current token.
 
 ## Delete a Stream
 
-Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to the current User. It returns the deleted Stream on success.
+Delete a [Stream](/docs/resources/stream/). The Stream must belong to the current User. It returns the deleted Stream on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
@@ -260,7 +260,7 @@ Delete a <a href="../objects/stream.md">Stream</a>. The Stream must belong to th
 
 ## Delete all of the current user's Streams
 
-Delete all <a href="../objects/stream.md">Streams</a> for the current token. It returns the deleted Streams on success.
+Delete all [Streams](/docs/resources/stream/) for the current token. It returns the deleted Streams on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
