@@ -74,7 +74,7 @@ Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as t
                     "pos": 0,
                     "len": 9
                 }],
-                "hashtags": [{],
+                "hashtags": [],
                 "links": []
             },
             "you_reposted": false,
