@@ -139,7 +139,6 @@ We currently define the following core annotations:
 
 We will be defining core annotations soon for the following types of data:
 
-* Media enclosures, e.g., photos, video, etc.
 * Long-form content
 * Attribution and source
 * Additional content license grants, where users can opt in to Creative Commons licensing, etc., if desired.
