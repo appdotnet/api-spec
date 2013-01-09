@@ -24,6 +24,7 @@ A marker that has been set will look like this:
 ~~~ js
 {
     "id": "1234",
+    "last_read_id": "2345",
     "name": "global",
     "percentage": 0,
     "updated_at": "2012-11-09T23:35:38Z",
@@ -43,6 +44,11 @@ A marker that has been set will look like this:
         <td><code>id</code></td>
         <td>string</td>
         <td>The Post id of the Post at the top of the stream when this Stream's position was last synced.</td>
+    </tr>
+    <tr>
+        <td><code>last_read_id</code></td>
+        <td>string</td>
+        <td>The largest `id` the App.net server has seen for this stream marker. This is useful when determining what posts a user has seen regardless of whether they've scrolled backward in time. This value always increases unless it's <a href="">explicitly set backwards</a>.</td>
     </tr>
     <tr>
         <td><code>name</code></td>
@@ -72,6 +78,8 @@ Update the User's current place in a Stream. To update a Stream Marker, you can 
 
 The purpose of a Stream Marker is _not_ to allow a user to scroll a stream on one device and see the scroll happen on another device in realtime. A stream marker should only be updated when a user has stopped scrolling (i.e. the stream's position hasn't changed in multiple seconds) or when the app is being closed. Please make sure your code understands our [rate limit headers](/docs/basics/rate-limits/#response-headers) so if the rate limits for this endpoint change in the future your app handles this gracefully.
 
+The `last_read_id` is updated if the provided `id` is larger than the current value of `last_read_id`. If you would like to explicitly set the `last_read_id` to a smaller value, you can pass the query string parameter `reset_read_id=1` when updating a stream marker.
+
 <%= migration_warning ['response_envelope'] %>
 
 ### URL
@@ -93,6 +101,7 @@ None.
 {
     "data": {
         "id": "2",
+        "last_read_id": "2",
         "name": "global",
         "percentage": 0,
         "updated_at": "2012-11-12T20:04:58Z",

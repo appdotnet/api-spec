@@ -95,7 +95,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         <tr>
             <td><code>has_unread</code></td>
             <td>boolean</td>
-            <td>Are there unread messages in this channel (according to the stream marker you have saved for this channel)?</td>
+            <td>Are there unread messages in this channel (according to the `last_read_id` of the stream marker you have saved for this channel)?</td>
         </tr>
         <tr>
             <td><code>recent_message_id</code></td>

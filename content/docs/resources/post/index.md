@@ -317,12 +317,20 @@ When requesting an endpoint that supports [stream markers](/docs/resources/strea
     </thead>
     <tbody>
         <tr>
+            <td><code>last_read</code></td>
+            <td>Use the `last_read_id` of the user's current stream marker (if there is one) as the value.</td>
+        </tr>
+        <tr>
+            <td><code>last_read_inclusive</code></td>
+            <td>Use the `last_read_id` of the user's current stream marker (if there is one) as the value. Also include the "last read" post.</td>
+        </tr>
+        <tr>
             <td><code>marker</code></td>
-            <td>Use the user's current stream marker (if there is one) as the value.</td>
+            <td>Use the `id` of the user's current stream marker (if there is one) as the value.</td>
         </tr>
         <tr>
             <td><code>marker_inclusive</code></td>
-            <td>Use the user's current stream marker (if there is one) as the value. Also include the "marked" post.</td>
+            <td>Use the `id` of the user's current stream marker (if there is one) as the value. Also include the "marked" post.</td>
         </tr>
     </tbody>
 </table>
