@@ -62,5 +62,11 @@ For JSONP requests we offer the ability to override the default migration behavi
             <td>Turns on pagination for user /stream/0/users/[user_id]/{followers,following} endpoints using the <a href="/docs/basics/responses/">response envelope</a> and <a href="/docs/resources/post/#general-parameters">since_id and before_id</a>.</td>
             <td>2012-11-26</td>
         </tr>
+        <tr>
+            <td><code>pagination_ids</code></td>
+            <td>Stringify min_id/max_id</td>
+            <td>Return min_id/max_id as strings. App.net IDs are always strings, but a bug on our part caused these IDs to be returned as ints. Unmigrated behavior is inconsistent.</td>
+            <td>2013-04-02</td>
+        </tr>
     </tbody>
 </table>
