@@ -18,7 +18,7 @@
             <td><a href="/docs/resources/token/#retrieve-authorized-user-ids-for-an-app">Retrieve authorized User IDs for an app</a></td>
             <td>GET</td>
             <td>/stream/0/token</td>
-            <td>Any</td>
+            <td>App</td>
         </tr>
     </tbody>
 </table>
