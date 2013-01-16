@@ -9,7 +9,7 @@ title: "User Profile"
 
 ## Update a User
 
-Updates a specific user's profile details. You can update a user by PUTing an object that matches the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specific [custom links](/docs/meta/entities/#user-specified-entities) for a user description.
+Updates a specific user's profile details. You can update a user by PUTing an object that matches the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specify [custom links](/docs/meta/entities/#user-specified-entities) for a user description. If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 

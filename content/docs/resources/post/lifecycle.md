@@ -13,6 +13,8 @@ Create a new <a href="/docs/resources/post/">Post</a> object. Mentions and hasht
 
 You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/docs/resources/post/">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only```, ```annotations``` and ```entities```. To create complex posts (including [machine only posts](/docs/resources/post/#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entities](/docs/meta/entities/#user-specified-entities) documentation.
 
+If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
+
 *Note: You cannot reply to a repost. Please reply to the parent Post.*
 
 <%= migration_warning ['response_envelope'] %>

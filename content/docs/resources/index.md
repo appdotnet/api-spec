@@ -52,6 +52,10 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 <%= render 'partials/endpoints/stream-marker' %>
 
+## Text Processor
+
+<%= render 'partials/endpoints/text-processor' %>
+
 ## Token
 
 <%= render 'partials/endpoints/token' %>
