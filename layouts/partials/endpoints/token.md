@@ -9,7 +9,13 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/token/#retrieve-current-token">Retrieve the current Token</a></td>
+            <td><a href="/docs/resources/token/#retrieve-current-token">Retrieve the current token</a></td>
+            <td>GET</td>
+            <td>/stream/0/token</td>
+            <td>Any</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/token/#retrieve-authorized-user-ids-for-an-app">Retrieve authorized User IDs for an app</a></td>
             <td>GET</td>
             <td>/stream/0/token</td>
             <td>Any</td>

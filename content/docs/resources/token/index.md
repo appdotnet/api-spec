@@ -7,9 +7,9 @@ title: "Token"
 * TOC
 {:toc}
 
-## Retrieve current Token
+## Retrieve current token
 
-Returns info about the current OAuth Token and current [User](/docs/resources/user/) object.
+Returns info about the current [OAuth access token](/docs/authentication/#access-tokens). If the token is a user token the response will include a [User](/docs/resources/user/) object.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -21,6 +21,29 @@ Returns info about the current OAuth Token and current [User](/docs/resources/us
 None.
 
 ### Example
+
+Requested with an app access token:
+
+> GET https://alpha-api.app.net/stream/0/token
+
+~~~ js
+{
+    "data": {
+        "app": {
+            "client_id": "LHYCvdgDuUXndfCfyqABAtezCJjjsVM2",
+            "link": "http://foo.example.com",
+            "name": "Test app"
+        },
+        "client_id": "LHYCvdgDuUXndfCfyqABAtezCJjjsVM2",
+        "scopes": []
+    },
+    "meta": {
+        "code": 200
+    }
+}
+~~~
+
+Requested with a user access token:
 
 > GET https://alpha-api.app.net/stream/0/token
 
@@ -95,6 +118,37 @@ None.
     },
     "meta": {
         "code": 200
+    }
+}
+~~~
+
+## Retrieve authorized User IDs for an app
+
+Returns a list of ids of Users that have authorized an app. Must be requested using an [app access token](/docs/authentication/#access-tokens). 
+
+<%= migration_warning ['response_envelope'] %>
+
+### URL
+
+> https://alpha-api.app.net/stream/0/apps/me/tokens/user_ids
+
+### Parameters
+
+None.
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/apps/me/tokens/user_ids
+
+~~~ js
+{
+    "data": [
+        "2",
+        "3",
+        ...
+    ],
+    "meta": {
+        "code": 200,
     }
 }
 ~~~
