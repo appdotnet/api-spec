@@ -11,27 +11,32 @@ As a developer working with App.net, you are required to follow some simple rule
 
 All requests to the API—authenticated or not—must be made over HTTPS. We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-31) for API authentication, but only certain portions of the specification. For instance, we only support the use of bearer tokens as access tokens. The specification is a little dense on the standards-speak, but we encourage you to take a look. We'll explain our specific use of OAuth 2 in this document.
 
-**Note** We changed the base domain that we use for the authentication flow from **alpha.app.net** to **account.app.net**. The old URLs will continue to work forever.
-
 ## Initial Developer Setup
 
 Once you have signed up as a developer, you will be able to create an app from the [App.net developer dashboard](https://account.app.net/developer/apps/). You will need to pre-register a **redirection URI**. This is where we will redirect users after they have successfully authorized your application.
 
 Once you have created an application, you will be assigned a **client ID** and **client secret**. You will use these in the authentication flow. The client ID may be publicly shared (e.g., included in a compiled binary or in the source code of a web page), but the client secret **must** be kept confidential.
 
-You authenticate to our API by use of an **access token**. There are two types of access tokens: client tokens and user tokens. **Client tokens** represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. Some resources are only accessible to client or user tokens.
-
 It should go without saying, but for the sake of user privacy and security, please ensure that your App.net account has a **strong password**.
+
+## Access Tokens
+
+You authenticate to our API by use of an **access token**. There are two types of access tokens: _app_ tokens and _user_ tokens. **App tokens** (referred to as "client tokens" in the [OAuth 2.0 internet-draft](http://tools.ietf.org/html/draft-ietf-oauth-v2-31)) represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. Some resources are only accessible to app or user tokens.
 
 ## How do I get an access token?
 
-If you want a **user token**, you must use one of these flows:
+{::options parse_block_html="true" /}
+<div class="alert alert-info alert-block">
+**Note:** We changed the base domain that we use for the authentication flow from **alpha.app.net** to **account.app.net**. The old URLs will continue to work forever.
+</div>
+
+**To obtain a user token**, you must use one of these flows:
 
 * **[Web flow (server-side)](/docs/authentication/flows/web/#server-side-flow)** - use this if you're building a web application backed by a server. (The OAuth 2.0 internet-draft calls this the [Authorization Code Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1).)
 * **[Web flow (client-side)](/docs/authentication/flows/web/#client-side-flow)** - use this if you're building an application without a central server, like a mobile app or a client-side Javascript app. (The OAuth 2.0 internet-draft calls this the [Implicit Grant Flow](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.2).)
 * **[Password flow](/docs/authentication/flows/password/)** - use this if you're building a native application (or an application where it is difficult to use a web browser) and want to avoid implementing a web-based authentication flow. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security.
 
-If you're only interested in obtaining a **client token** (sometimes called an "App token"), you can use the **[app access token flow](/docs/authentication/flows/app-access-token)**. (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)
+**To obtain an app token**, you must use the **[app access token flow](/docs/authentication/flows/app-access-token)**. (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)
 
 We also intend to provide a SDK you can embed into your mobile applications to provide seamless authentication with App.net to your application's users.
 
