@@ -18,6 +18,9 @@ A Channel is a user created stream of Messages. It controls access to the messag
     "owner": {
         ...
     },
+    "marker": {
+        ...
+    },
     "readers": {
         "any_user": false,
         "immutable": true,
@@ -26,6 +29,9 @@ A Channel is a user created stream of Messages. It controls access to the messag
         "you": true
     },
     "recent_message_id": "231",
+    "recent_message": {
+        ...
+    },
     "type": "net.app.core.pm",
     "writers": {
         "any_user": false,
@@ -98,9 +104,19 @@ A Channel is a user created stream of Messages. It controls access to the messag
             <td>Are there unread messages in this channel (according to the `last_read_id` of the stream marker you have saved for this channel)?</td>
         </tr>
         <tr>
+            <td><code>marker</code></td>
+            <td>Stream Marker object</td>
+            <td>The full stream marker object for this channel. Only sent if using a user access token and requested by the `include_marker=1` query string parameter.</td>
+        </tr>
+        <tr>
             <td><code>recent_message_id</code></td>
             <td>string</td>
             <td>The ID of the most recent message in this channel. Includes deleted messages.</td>
+        </tr>
+        <tr>
+            <td><code>recent_message</code></td>
+            <td>Message object</td>
+            <td>The most recent message in this channel. Includes deleted messages. Included in messages pushed via the streaming API, but must be requested with the `include_recent_message=1` query string parameter elsewhere.</td>
         </tr>
     </tbody>
 </table>
@@ -207,6 +223,18 @@ Requests that return streams of channels accept the following query string param
             <td>Optional</td>
             <td>string</td>
             <td>A comma separated list of the Channel types to include. For instance <code>channel_types=net.app.core.pm,net.myapp</code> will only return channels with a type of <code>net.app.core.pm</code> or <code>net.myapp</code>.</td>
+        </tr>
+        <tr>
+            <td><code>include_marker</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should the Stream Marker be included with each channel? Only available when requested with a user access token. (Default: <code>False</code>)</td>
+        </tr>
+        <tr>
+            <td><code>include_recent_message</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should the most recent Message be included with each channel? (Default: <code>False</code>)</td>
         </tr>
     </tbody>
 </table>
