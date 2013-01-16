@@ -205,12 +205,19 @@ Stop hiding all posts for a given user.
 
 ## List muted users
 
-List the users muted by the current user. *Note: you can only request this list for the current user.*
+Retrieve a list of muted users. If you have a [user token](/docs/authentication/#access-tokens) you can request muted users for the current user. If you have an [app token](/docs/authentication/#access-tokens) you can request muted users for any user that has authorized your app.
 
 <%= migration_warning ['response_envelope'] %>
 
 ### URL
+
+Request with a user token:
+
 > https://alpha-api.app.net/stream/0/users/me/muted
+
+Request with an app token:
+
+> https://alpha-api.app.net/stream/0/users/[user_id]/muted
 
 ### Parameters
 
