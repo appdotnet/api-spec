@@ -474,16 +474,6 @@ A user deauthorizes an application.
         "type": "token",
         "id": "12345",
         "user_id": "29"
-    },
-    "data": {
-        "scopes": ["basic", "follow", "stream"],
-        "app": {
-            "link": "http://app.net",
-            "name": "My test app",
-            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
-        },
-        "user": {...},
-        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
     }
 }
 ~~~
