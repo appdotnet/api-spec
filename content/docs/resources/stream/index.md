@@ -295,7 +295,7 @@ A user that has authorized your app unmutes another user.
 
 ### stream_marker
 
-A stream marker is set. If the stream marker is not for a channel, then meta.channel_id will be omitted.
+A stream marker is set. If the stream marker is not for a channel, then `meta.channel_id` and `meta.channel_type` will be omitted.
 
 ~~~ js
 {
@@ -304,7 +304,8 @@ A stream marker is set. If the stream marker is not for a channel, then meta.cha
         "user_id": "143",
         "type": "stream_marker",
         "id": "143:channel:39",
-        "channel_id": "39"
+        "channel_id": "39",
+        "channel_type": "net.app.core.pm"
     },
     "data": {
         "marker": {
