@@ -65,7 +65,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
@@ -124,10 +124,12 @@ A Stream can listen for the following object types:
 * [post](#post): Sent for new posts, replies, reposts, and post deletions
 * [star](#star): Sent when a user stars a post
 * [user_follow](#user-follow): Sent when a user begins following or unfollows another user
+* [mute](#mute): Sent when a user who has authorized your app mutes or unmutes another user
 * [stream_marker](#stream-marker): Sent when a stream marker is updated
 * [message](#message): Sent for new objects, replies, and message deletions
 * [channel](#channel): Sent when a channel is created or updated
 * [channel_subscription](#channel-subscription): Sent when a user subscribes or unsubscribes to a channel
+* [token](#token): Sent when a user authorizes, changes scopes for, or deauthorizes an app
 
 ### post
 
@@ -248,6 +250,49 @@ A user unfollows another user.
 }
 ~~~
 
+### mute
+
+A user that has authorized your app mutes another user.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358373991082,
+        "type": "mute",
+        "id": "143:144"
+    },
+    "data": {
+        "muted_user": {
+            ...user object...
+        },
+        "user": {
+            ...user object...
+        }
+    }
+}
+~~~
+
+A user that has authorized your app unmutes another user.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358373991082,
+        "is_deleted": true,
+        "type": "mute",
+        "id": "143:144"
+    },
+    "data": {
+        "muted_user": {
+            ...user object...
+        },
+        "user": {
+            ...user object...
+        }
+    }
+}
+~~~
+
 ### stream_marker
 
 A stream marker is set. If the stream marker is not for a channel, then meta.channel_id will be omitted.
@@ -361,6 +406,78 @@ A user unsubscribes to a channel.
         "channel": {
             ...
         }
+    }
+}
+~~~
+
+### token
+
+A user authorizes an application.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358365986869,
+        "type": "token",
+        "id": "12345",
+        "user_id": "29"
+    },
+    "data": {
+        "scopes": ["update_profile", "basic"],
+        "app": {
+            "link": "http://app.net",
+            "name": "My test app",
+            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+        },
+        "user": {...},
+        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+    }
+}
+~~~
+
+A user changes scopes for an application.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358365986869,
+        "type": "token",
+        "id": "12345",
+        "user_id": "29"
+    },
+    "data": {
+        "scopes": ["basic", "follow", "stream"],
+        "app": {
+            "link": "http://app.net",
+            "name": "My test app",
+            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+        },
+        "user": {...},
+        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+    }
+}
+~~~
+
+A user deauthorizes an application.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358365986869,
+        "is_deleted": true,
+        "type": "token",
+        "id": "12345",
+        "user_id": "29"
+    },
+    "data": {
+        "scopes": ["basic", "follow", "stream"],
+        "app": {
+            "link": "http://app.net",
+            "name": "My test app",
+            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+        },
+        "user": {...},
+        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
     }
 }
 ~~~
