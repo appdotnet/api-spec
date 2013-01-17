@@ -152,3 +152,58 @@ None.
     }
 }
 ~~~
+
+## Retrieve authorized User tokens for an app
+
+Returns a list of User tokens corresponding to an app token. Must be requested using an [app access token](/docs/authentication/#access-tokens). 
+
+<%= migration_warning ['response_envelope'] %>
+
+### URL
+> https://alpha-api.app.net/stream/0/apps/me/tokens
+
+### Parameters
+
+*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
+
+### Example
+> GET https://alpha-api.app.net/stream/0/apps/me/tokens
+
+~~~ js
+{
+    "data": [
+        {
+            "app": {
+                "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+                "link": "https://example.com",
+                "name": "app"
+            },
+            "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+            "scopes": [
+                "basic"
+            ],
+            "user": {...}
+        },
+        {
+            "app": {
+                "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+                "link": "https://example.com",
+                "name": "app"
+            },
+            "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+            "scopes": [
+                "update_profile",
+                "messages",
+                "basic"
+            ],
+            "user": {...}
+        }
+    ],
+    "meta": {
+        "code": 200,
+        "max_id": "10723",
+        "min_id": "10697",
+        "more": false
+    }
+}
+~~~
