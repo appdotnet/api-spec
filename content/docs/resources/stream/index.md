@@ -325,6 +325,11 @@ A message is created.
 {
     'meta': {
         'timestamp': 1355348398679,
+        'channel_type' : 'net.app.core.pm',
+        'subscribed_user_ids': [
+            '1',
+            '2'
+        ],
         'type': 'message',
         'id': '1'
     },
@@ -340,6 +345,7 @@ A message is deleted.
 {
     'meta': {
         'timestamp': 1355348398679,
+        'channel_type' : 'net.app.core.pm',
         'is_deleted': true,
         'type': 'message',
         'id': '1'
