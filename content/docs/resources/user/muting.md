@@ -203,7 +203,7 @@ Stop hiding all posts for a given user.
 }
 ~~~
 
-## List muted users
+## List muted Users
 
 Retrieve a list of muted users. If you have a [user token](/docs/authentication/#access-tokens) you can request muted users for the current user. If you have an [app token](/docs/authentication/#access-tokens) you can request muted users for any user that has authorized your app.
 
@@ -289,3 +289,52 @@ None.
 }
 ~~~
 
+
+## Retrieve muted User IDs for multiple Users
+
+Returns a list of muted User ids for each User id requested. At most 200 User ids can be requested.
+
+<%= migration_warning ['response_envelope'] %>
+
+### URL
+> https://alpha-api.app.net/stream/0/users/muted/ids
+
+### Parameters
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ids</code></td>
+            <td>Required</td>
+            <td>string</td>
+            <td>A comma separated list of User ids to retrieve muted User ids for</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/users/muted/ids?ids=1,2
+
+~~~ js
+{
+    "data": {
+        "1": [
+            "3",
+            "29"
+        ],
+        "2": []
+    },
+    "meta": {
+        "code": 200
+    }
+}
+~~~
