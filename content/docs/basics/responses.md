@@ -59,6 +59,16 @@ For more information on JSONP, see the Wikipedia page for [JSONP](http://en.wiki
 
 We support CORS for authenticated cross-domain API requests direct from browsers. Support for CORS may vary by browser. When using CORS, you are still responsible for obtaining, storing and supplying a valid access token with each request, if access to authenticated endpoints is required. For more information on CORS, see the Wikipedia page for [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
 
+## Pretty-printed JSON
+
+We return a minified form of JSON by default, but support pretty-printing of JSON for debugging and enhanced readability. Note that pretty-printed JSON contains a trailing line break, so you may wish to make sure your JSON decoder handles this properly.
+
+To request pretty-printing, send the following HTTP header with your request:
+
+    X-ADN-Pretty-JSON: 1
+
+*Note: Sending any value is sufficient. Omit the header entirely if you wish to receive minified JSON.*
+
 ## Error Conditions
 
 If the request was unsuccessful for some reason, no ```data``` key will be returned -- the response object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` and ```error_id``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
