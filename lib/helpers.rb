@@ -17,3 +17,6 @@ def migration_warning(migrations = [])
     end
 end
 
+def endpoint(method, path, token, scope = "")
+    render '/partials/endpoint', :method => method, :path => '/stream/0/'+path, :token => token, :scope => scope
+end

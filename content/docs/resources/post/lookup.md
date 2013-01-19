@@ -13,8 +13,7 @@ Returns a specific [Post](/docs/resources/post/).
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]
+<%= endpoint "GET", "posts/[post_id]", "None" %>
 
 ### Parameters
 
@@ -95,8 +94,7 @@ Returns multiple Posts requested by id. At most 200 posts can be requested.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts
+<%= endpoint "GET", "posts", "Any" %>
 
 ### Parameters
 

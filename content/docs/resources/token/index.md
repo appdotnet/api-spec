@@ -13,8 +13,7 @@ Returns info about the current [OAuth access token](/docs/authentication/#access
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/token
+<%= endpoint "GET", "token", "Any" %>
 
 ### Parameters
 
@@ -128,9 +127,7 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/apps/me/tokens/user_ids
+<%= endpoint "GET", "apps/me/tokens/user_ids", "App" %>
 
 ### Parameters
 
@@ -159,8 +156,7 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/apps/me/tokens
+<%= endpoint "GET", "apps/me/tokens", "App" %>
 
 ### Parameters
 

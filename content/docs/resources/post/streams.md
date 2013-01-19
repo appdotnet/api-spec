@@ -13,8 +13,7 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/stream/global
+<%= endpoint "GET", "posts/stream/global", "None" %>
 
 ### Parameters
 
@@ -87,8 +86,7 @@ Get the most recent [Posts](/docs/resources/post/) created by a specific [User](
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/posts
+<%= endpoint "GET", "users/[user_id]/posts", "None" %>
 
 ### Parameters
 
@@ -178,8 +176,7 @@ Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [Use
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/mentions
+<%= endpoint "GET", "users/[user_id]/mentions", "Any" %>
 
 ### Parameters
 
@@ -269,8 +266,7 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current User a
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/stream
+<%= endpoint "GET", "posts/stream", "User", "stream" %>
 
 ### Parameters
 
@@ -341,8 +337,7 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/stream/unified
+<%= endpoint "GET", "posts/stream/unified", "User", "stream" %>
 
 ### Parameters
 
@@ -406,14 +401,14 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
     }
 }
 ~~~
+
 ## Retrieve tagged Posts
 
 Return the 20 most recent [Posts](/docs/resources/post/) for a specific hashtag.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/tag/[hashtag]
+<%= endpoint "GET", "posts/tag/[hashtag]", "None" %>
 
 ### Parameters
 

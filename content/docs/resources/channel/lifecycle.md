@@ -15,12 +15,7 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels
+<%= endpoint "POST", "channels", "User", "public_messages</code> or <code>messages"%>
 
 ### Data
 
@@ -77,12 +72,7 @@ If you want to add or update a Channel's annotations, you may include the option
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]
+<%= endpoint "PUT", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 
 ### Data
 

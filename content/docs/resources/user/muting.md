@@ -13,12 +13,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```follow```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/mute
+<%= endpoint "POST", "users/[user_id]/mute", "User", "follow" %>
 
 ### Data
 
@@ -112,12 +107,7 @@ Stop hiding all posts for a given user.
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```follow```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/mute
+<%= endpoint "DELETE", "users/[user_id]/mute", "User", "follow" %>
 
 ### Parameters
 
@@ -205,19 +195,11 @@ Stop hiding all posts for a given user.
 
 ## List muted Users
 
-Retrieve a list of muted users. If you have a [user token](/docs/authentication/#access-tokens) you can request muted users for the current user. If you have an [app token](/docs/authentication/#access-tokens) you can request muted users for any user that has authorized your app.
+Retrieve a list of muted users. If you have a [user token](/docs/authentication/#access-tokens) you can request muted users for the current user by using `me` as the requested user id. If you have an [app token](/docs/authentication/#access-tokens) you can request muted users for any user that has authorized your app.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-
-Request with a user token:
-
-> https://alpha-api.app.net/stream/0/users/me/muted
-
-Request with an app token:
-
-> https://alpha-api.app.net/stream/0/users/[user_id]/muted
+<%= endpoint "GET", "users/[user_id]/muted", "Any" %>
 
 ### Parameters
 
@@ -296,8 +278,7 @@ Returns a list of muted User ids for each User id requested. At most 200 User id
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users/muted/ids
+<%= endpoint "GET", "users/muted/ids", "App" %>
 
 ### Parameters
 

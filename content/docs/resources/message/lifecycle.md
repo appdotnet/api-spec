@@ -21,12 +21,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/messages
+<%= endpoint "POST", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 
 ### Data
 
@@ -136,12 +131,7 @@ Delete a message. The current user must be the same user who created the Message
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/messages/[message_id]
+<%= endpoint "DELETE", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
 
 ### Data
 
@@ -211,12 +201,7 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to [pagin
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/messages
+<%= endpoint "GET", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 
 ### Parameters
 

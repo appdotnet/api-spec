@@ -13,8 +13,7 @@ List all the Users who have reposted a given Post.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/reposters
+<%= endpoint "GET", "posts/[post_id]/reposters", "Any" %>
 
 ### Parameters
 
@@ -109,8 +108,7 @@ List all the Users who have starred a given Post.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/stars
+<%= endpoint "GET", "posts/[post_id]/stars", "Any" %>
 
 ### Parameters
 

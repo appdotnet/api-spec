@@ -15,8 +15,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/star
+<%= endpoint "POST", "posts/[post_id]/star", "User", "write_post" %>
 
 ### Data
 
@@ -98,8 +97,7 @@ Remove a Star from a Post.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/star
+<%= endpoint "DELETE", "posts/[post_id]/star", "User", "write_post" %>
 
 ### Data
 
@@ -181,8 +179,7 @@ Get the most recent [Posts](/docs/resources/post/) starred by a specific [User](
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/stars
+<%= endpoint "GET", "users/[user_id]/stars", "None" %>
 
 ### Parameters
 

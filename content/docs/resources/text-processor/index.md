@@ -13,8 +13,7 @@ When a request is made to [create a Post](/docs/resources/post/lifecycle/#create
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/text/process
+<%= endpoint "POST", "text/process", "Any" %>
 
 ### Data
 

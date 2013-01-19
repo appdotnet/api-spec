@@ -82,8 +82,7 @@ The `last_read_id` is updated if the provided `id` is larger than the current va
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/marker
+<%= endpoint "POST", "posts/marker", "User" %>
 
 ### Data
 
@@ -97,7 +96,7 @@ None.
 > 
 > DATA {"name": "global", "id": 2}
 
-~~~js
+~~~ js
 {
     "data": {
         "id": "2",

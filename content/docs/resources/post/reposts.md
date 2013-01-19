@@ -19,8 +19,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/repost
+<%= endpoint "POST", "posts/[post_id]/repost", "User", "write_post" %>
 
 ### Data
 
@@ -120,8 +119,7 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/repost
+<%= endpoint "DELETE", "posts/[post_id]/repost", "User", "write_post" %>
 
 ### Data
 

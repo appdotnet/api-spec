@@ -15,8 +15,7 @@ Send a JSON document that matches the [stream schema](/docs/resources/stream/) w
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/streams
+<%= endpoint "POST", "streams", "App" %>
 
 ### Data
 
@@ -66,8 +65,7 @@ Returns a specific [Stream](/docs/resources/stream/) object.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/streams/[streams_id]
+<%= endpoint "GET", "streams/[streams_id]", "App" %>
 
 ### Parameters
 
@@ -129,8 +127,7 @@ Return the [Streams](/docs/resources/stream/) for the current token.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/streams
+<%= endpoint "GET", "streams", "App" %>
 
 ### Parameters
 
@@ -201,8 +198,7 @@ Delete a [Stream](/docs/resources/stream/). The Stream must belong to the curren
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/streams/[stream_id]
+<%= endpoint "DELETE", "streams/[stream_id]", "App" %>
 
 ### Data
 
@@ -266,8 +262,7 @@ Delete all [Streams](/docs/resources/stream/) for the current token. It returns 
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/streams
+<%= endpoint "DELETE", "streams", "App" %>
 
 ### Data
 

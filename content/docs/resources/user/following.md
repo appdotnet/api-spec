@@ -13,12 +13,7 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being fo
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```follow```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/follow
+<%= endpoint "POST", "users/[user_id]/follow", "User", "follow" %>
 
 ### Parameters
 
@@ -112,12 +107,7 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being un
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```follow```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/follow
+<%= endpoint "DELETE", "users/[user_id]/follow", "User", "follow" %>
 
 ### Parameters
 
@@ -209,9 +199,7 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects the specified
 
 <%= migration_warning ['response_envelope','follow_pagination'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/users/[user_id]/following
+<%= endpoint "GET", "users/[user_id]/following", "Any" %>
 
 ### Parameters
 
@@ -309,9 +297,7 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects for users fol
 
 <%= migration_warning ['response_envelope','follow_pagination'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/users/[user_id]/followers
+<%= endpoint "GET", "users/[user_id]/followers", "Any" %>
 
 ### Parameters
 
@@ -409,9 +395,7 @@ Returns an array of user ids the specified user is following.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/users/[user_id]/following/ids
+<%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
 
 ### Parameters
 
@@ -457,9 +441,7 @@ Returns an array of user ids for users following the specified user.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/users/[user_id]/followers/ids
+<%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
 
 ### Parameters
 

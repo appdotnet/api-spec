@@ -15,8 +15,7 @@ Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as t
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]/replies
+<%= endpoint "GET", "posts/[post_id]/replies", "Any" %>
 
 ### Parameters
 

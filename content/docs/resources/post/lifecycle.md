@@ -19,12 +19,7 @@ If you want to test how your text will be processed you can use the [text proces
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```write_post```
-
-### URL
-> https://alpha-api.app.net/stream/0/posts
+<%= endpoint "POST", "posts", "User", "write_post" %>
 
 ### Data
 
@@ -172,8 +167,7 @@ Delete a <a href="/docs/resources/post/">Post</a>. The current user must be the 
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/posts/[post_id]
+<%= endpoint "DELETE", "posts", "User", "write_post" %>
 
 ### Data
 

@@ -15,12 +15,7 @@ Returns a specific [Message](/docs/resources/message/).
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/messages/[message_id]
+<%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
 
 ### Parameters
 
@@ -89,13 +84,7 @@ Returns multiple Messages requested by id. At most 200 messages can be requested
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-
-> https://alpha-api.app.net/stream/0/channels/messages
+<%= endpoint "GET", "channels/messages", "User", "public_messages</code> or <code>messages" %>
 
 ### Parameters
 
@@ -162,12 +151,7 @@ Retrieve a stream of the Messages the current user has created. This endpoint re
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/messages/me
+<%= endpoint "GET", "channels/messages/me", "User", "public_messages</code> or <code>messages" %>
 
 ### Parameters
 

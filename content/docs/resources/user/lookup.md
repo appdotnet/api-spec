@@ -13,8 +13,7 @@ Returns a specific <a href="/docs/resources/user/">User</a> object.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]
+<%= endpoint "GET", "users/[user_id]", "None" %>
 
 ### Parameters
 
@@ -105,8 +104,7 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/users
+<%= endpoint "GET", "users", "Any" %>
 
 ### Parameters
 
@@ -161,9 +159,7 @@ Search the App.net userbase.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-
-> https://alpha-api.app.net/stream/0/users/search
+<%= endpoint "GET", "users/search", "Any" %>
 
 ### Parameters
 

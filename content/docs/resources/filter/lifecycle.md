@@ -15,8 +15,7 @@ Send a JSON document that matches the [Filter schema](/docs/resources/filter/) w
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters
+<%= endpoint "POST", "filters", "User" %>
 
 ### Data
 
@@ -57,8 +56,7 @@ Returns a specific [Filter](/docs/resources/filter/) object.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters/[filter_id]
+<%= endpoint "GET", "filters/[filter_id]", "User" %>
 
 ### Parameters
 
@@ -112,8 +110,7 @@ Return the [Filter](/docs/resources/filter/) for the current user.
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters
+<%= endpoint "GET", "filters", "User" %>
 
 ### Parameters
 
@@ -156,8 +153,7 @@ Updates a specific [Filter](/docs/resources/filter/) object. When a filter is up
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters/[filter_id]
+<%= endpoint "PUT", "filters/[filter_id]", "User" %>
 
 ### Parameters
 
@@ -223,8 +219,7 @@ Delete a [Filter](/docs/resources/filter/). The Filter must belong to the curren
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters/[filter_id]
+<%= endpoint "DELETE", "filters/[filter_id]", "User" %>
 
 ### Data
 
@@ -280,8 +275,7 @@ Delete all [Filters](/docs/resources/filter/) for the current user. It returns t
 
 <%= migration_warning ['response_envelope'] %>
 
-### URL
-> https://alpha-api.app.net/stream/0/filters
+<%= endpoint "DELETE", "filters", "User" %>
 
 ### Data
 

@@ -15,12 +15,7 @@ If you want to add or update a User's annotations, you may include the optional 
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```update_profile```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/me
+<%= endpoint "PUT", "users/me", "User", "update_profile" %>
 
 ### Data
 
@@ -80,10 +75,9 @@ None.
 
 ## Retrieve a User's avatar image
 
-Retrieve a User's avatar image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
+Retrieve a User's avatar image. This endpoint does not require authentication, is not rate limited, and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/avatar
+<%= endpoint "GET", "users/[user_id]/avatar", "None" %>
 
 ### Parameters
 
@@ -118,12 +112,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```update_profile```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/me/avatar
+<%= endpoint "POST", "users/me/avatar", "User", "update_profile" %>
 
 ### Data
 
@@ -212,10 +201,9 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 ## Retrieve a User's cover image
 
-Retrieve a User's cover image. This endpoint does not require authentication and will return an HTTP 302 redirect to the user's current cover image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
+Retrieve a User's cover image. This endpoint does not require authentication, is not rate limited, and will return an HTTP 302 redirect to the user's current cover image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
 
-### URL
-> https://alpha-api.app.net/stream/0/users/[user_id]/cover
+<%= endpoint "GET", "users/[user_id]/cover", "None" %>
 
 ### Parameters
 
@@ -250,12 +238,7 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```update_profile```
-
-### URL
-> https://alpha-api.app.net/stream/0/users/me/cover
+<%= endpoint "POST", "users/me/cover", "User", "update_profile" %>
 
 ### Data
 

@@ -15,12 +15,7 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels
+<%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -76,12 +71,7 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
+<%= endpoint "POST", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
 ### Data
 
@@ -148,12 +138,7 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
+<%= endpoint "DELETE", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
 ### Data
 
@@ -222,12 +207,7 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers
+<%= endpoint "GET", "channels/[channel_id]/subscribers", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -325,12 +305,7 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribers/ids
+<%= endpoint "GET", "channels/[channel_id]/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -375,12 +350,7 @@ Retrieve all the user ids who are subscribed to multiple Channels. Up to 200 cha
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/subscribers/ids
+<%= endpoint "GET", "channels/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 

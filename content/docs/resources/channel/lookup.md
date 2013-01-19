@@ -13,12 +13,7 @@ Returns a specific [Channel](/docs/resources/channel/).
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-> https://alpha-api.app.net/stream/0/channels/[channel_id]
+<%= endpoint "GET", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -85,13 +80,7 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-
-> https://alpha-api.app.net/stream/0/channels
+<%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -188,13 +177,7 @@ Returns a stream of all Channels the current user has created. This endpoint res
 
 <%= migration_warning ['response_envelope'] %>
 
-### Required Scopes
-
-* ```public_messages``` or ```messages```
-
-### URL
-
-> https://alpha-api.app.net/stream/0/channels/me
+<%= endpoint "GET", "channels/me", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 

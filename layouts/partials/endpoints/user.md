@@ -84,25 +84,25 @@
             <td><a href="/docs/resources/user/following/#list-users-a-user-is-following">Retrieve Users a User is following</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/following</td>
-            <td>User</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user/following/#list-users-following-a-user">Retrieve Users following a User</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/followers</td>
-            <td>User</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user/following/#list-user-ids-a-user-is-following">Retrieve IDs of Users a User is following</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/following/ids</td>
-            <td>User</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user/following/#list-user-ids-following-a-user">Retrieve IDs of Users following a User</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/followers/ids</td>
-            <td>User</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user/muting/#list-muted-users">Retrieve muted Users</a></td>
