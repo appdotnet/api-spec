@@ -63,7 +63,7 @@ When a request is made to [create a Post](/docs/resources/post/lifecycle/#create
             ],
             "mentions": [
                 {
-                    "id": 3,
+                    "id": "3",
                     "len": 10,
                     "name": "voidfiles",
                     "pos": 22
