@@ -74,12 +74,14 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
         "avatar_image": {
             "height": 512,
             "width": 512,
-            "url": "https://example.com/avatar_image.jpg"
+            "url": "https://example.com/avatar_image.jpg",
+            "is_default": false
         },
         "cover_image": {
             "height": 118,
             "width": 320,
-            "url": "https://example.com/cover_image.jpg"
+            "url": "https://example.com/cover_image.jpg",
+            "is_default": false
         },
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
@@ -168,12 +170,14 @@ Stop hiding all posts for a given user.
         "avatar_image": {
             "height": 512,
             "width": 512,
-            "url": "https://example.com/avatar_image.jpg"
+            "url": "https://example.com/avatar_image.jpg",
+            "is_default": false
         },
         "cover_image": {
             "height": 118,
             "width": 320,
-            "url": "https://example.com/cover_image.jpg"
+            "url": "https://example.com/cover_image.jpg",
+            "is_default": false
         },
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
@@ -244,12 +248,14 @@ None.
             "avatar_image": {
                 "height": 512,
                 "width": 512,
-                "url": "https://example.com/avatar_image.jpg"
+                "url": "https://example.com/avatar_image.jpg",
+                "is_default": false
             },
             "cover_image": {
                 "height": 118,
                 "width": 320,
-                "url": "https://example.com/cover_image.jpg"
+                "url": "https://example.com/cover_image.jpg",
+                "is_default": false
             },
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",

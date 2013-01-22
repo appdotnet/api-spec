@@ -74,12 +74,14 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being fo
         "avatar_image": {
             "height": 512,
             "width": 512,
-            "url": "https://example.com/avatar_image.jpg"
+            "url": "https://example.com/avatar_image.jpg",
+            "is_default": false
         },
         "cover_image": {
             "height": 118,
             "width": 320,
-            "url": "https://example.com/cover_image.jpg"
+            "url": "https://example.com/cover_image.jpg",
+            "is_default": false
         },
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
@@ -168,12 +170,14 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being un
         "avatar_image": {
             "height": 512,
             "width": 512,
-            "url": "https://example.com/avatar_image.jpg"
+            "url": "https://example.com/avatar_image.jpg",
+            "is_default": false
         },
         "cover_image": {
             "height": 118,
             "width": 320,
-            "url": "https://example.com/cover_image.jpg"
+            "url": "https://example.com/cover_image.jpg",
+            "is_default": false
         },
         "type": "human",
         "created_at": "2012-07-16T17:23:34Z",
@@ -261,12 +265,14 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects the specified
             "avatar_image": {
                 "height": 512,
                 "width": 512,
-                "url": "https://example.com/avatar_image.jpg"
+                "url": "https://example.com/avatar_image.jpg",
+                "is_default": false
             },
             "cover_image": {
                 "height": 118,
                 "width": 320,
-                "url": "https://example.com/cover_image.jpg"
+                "url": "https://example.com/cover_image.jpg",
+                "is_default": false
             },
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
@@ -359,12 +365,14 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects for users fol
             "avatar_image": {
                 "height": 512,
                 "width": 512,
-                "url": "https://example.com/avatar_image.jpg"
+                "url": "https://example.com/avatar_image.jpg",
+                "is_default": false
             },
             "cover_image": {
                 "height": 118,
                 "width": 320,
-                "url": "https://example.com/cover_image.jpg"
+                "url": "https://example.com/cover_image.jpg",
+                "is_default": false
             },
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",
