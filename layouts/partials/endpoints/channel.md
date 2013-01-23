@@ -35,7 +35,7 @@
         <tr>
             <td><a href="/docs/resources/channel/lookup/#retrieve-my-channels">Retrieve my Channels</a></td>
             <td>GET</td>
-            <td>/stream/0/channels/me</td>
+            <td>/stream/0/users/me/channels</td>
             <td>User</td>
         </tr>
         <tr>

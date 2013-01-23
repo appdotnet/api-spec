@@ -151,7 +151,7 @@ Retrieve a stream of the Messages the current user has created. This endpoint re
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels/messages/me", "User", "public_messages</code> or <code>messages" %>
+<%= endpoint "GET", "users/me/messages", "User", "public_messages</code> or <code>messages" %>
 
 ### Parameters
 
@@ -159,7 +159,7 @@ None.
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/messages/me
+> GET https://alpha-api.app.net/stream/0/users/me/messages
 
 ~~~ js
 {

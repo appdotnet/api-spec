@@ -125,6 +125,11 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
                     <td>string</td>
                     <td>Link provided by the API consumer that created this post.</td>
                 </tr>
+                <tr>
+                    <td><code>client_id</code></td>
+                    <td>string</td>
+                    <td>The public client_id of the API consumer that created this post.</td>
+                </tr>
             </table>
         </td>
     </tr>

@@ -66,7 +66,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         <tr>
             <td><code>type</code></td>
             <td>string</td>
-            <td>A string that looks like a reversed domain name to identify the intended purpose of this channel. <em>There is no authentication or authorization performed on this field. Just because you create annotations with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the channel ACLs will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
+            <td>A string that looks like a reversed domain name to identify the intended purpose of this channel. <em>There is no authentication or authorization performed on this field. Just because you create channels with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the channel ACLs will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
         </tr>
         <tr>
             <td><code>owner</code></td>

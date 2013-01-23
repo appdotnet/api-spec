@@ -177,7 +177,7 @@ Returns a stream of all Channels the current user has created. This endpoint res
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels/me", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "users/me/channels", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
@@ -185,7 +185,7 @@ None.
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/me
+> GET https://alpha-api.app.net/stream/0/users/me/channels
 
 ~~~ js
 {

@@ -114,20 +114,23 @@ You are free to choose if and how you render annotations. **Be very careful when
 
 ### Namespaces
 
-App.net will coordinate with the community to define schemas for common annotation formats. They will live under the `net.app.core.*` namespace. This is the only restricted annotation namespace. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers should create annotations in either the `net.app.[username]` namespace or a reversed-domain namespace of their choosing.
+App.net will coordinate with the community to define schemas for common annotation formats. They will live under the `net.app.core.*` namespace. This is the only restricted annotation namespace for the `type` field. Any annotation in this namespace must be validated by the API against a [published schema](#core-annotations). Outside of this namespace, developers should create annotations in either the `net.app.[username]` namespace or a reversed-domain namespace of their choosing.
+
+In the `value` of any annotation (including non-core annotations), we treat any key that starts with `+net.app.core.*` as a [special replacement value](#annotation-replacement-values). They will be validated against a schema just like the core annotations.
 
 ## Documenting annotations
 
 To foster collaboration and adoption, we've set up a github repository for documenting annotations. To discuss annotations, please use the associate issue tracker. For more information on submitting / updating documentation please review the README. 
 
-### Core annotations 
+### Core annotations
 
-Annotations that are considered particularly useful and/or well defined may be promoted to "core". As opposed to general annotations, core annotations are validated server-side to match their documented schemas.  
+Annotations that are considered particularly useful and/or well defined may be promoted to "core". As opposed to general annotations, core annotations are validated server-side to match their documented schemas.
 
 We currently define the following core annotations:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
+| [Attachments](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) | net.app.core.attachments | A pointer to App.net files that are attached to the object being annotated. |
 | [Crosspost](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.crosspost.md) | net.app.core.crosspost | Specifies the original or canonical source of a Post on App.net from somewhere else on the web. |
 | [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
 | [Geolocation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.geolocation.md) | net.app.core.geolocation | Specifies a geographic point on the Earth. |
@@ -144,3 +147,41 @@ We will be defining core annotations soon for the following types of data:
 * Additional content license grants, where users can opt in to Creative Commons licensing, etc., if desired.
 
 Developers are encouraged to create annotations for data not well represented here. If possible, care should be taken not to overlap with existing annotations. Annotations designed to address edge-cases in well-known annotations should include both the well-known annotation and only the augmented parts in the enhancing annotation.
+
+### Annotation replacement values
+
+When App.net processes annotation values, and value with a key that starts with `+net.app.core.*` will be rewritten based on the core schemas defined below. For example, when attaching a File to a Post, you might send App.net the following annotation:
+
+~~~js
+{
+    "type": "com.example.my_own_annotation",
+    "value": {
+        "+net.app.core.file": {
+            "format": "url",
+            "file_token": "12345abcdef"
+        },
+        "foo": "bar"
+    }
+}
+~~~
+
+As explained in the [schema for the `net.app.core.file` value](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file.md), this annotation will be rewritten when the Post is requested from the API:
+
+~~~js
+{
+    "type": "com.example.my_own_annotation",
+    "value": {
+        "file_id": "1",
+        "file_token": "12345abcdef"
+        "foo": "bar"
+        "url": "http://example.com/link_to_file"
+    }
+}
+~~~
+
+We currently define the follow replacement values in annotations:
+
+| Name | Key | Description |
+| ---- | --- | ----------- |
+| [File](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file.md) | +net.app.core.file | Add information about an App.net file to this annotation |
+| [File List](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net files to this annotation |

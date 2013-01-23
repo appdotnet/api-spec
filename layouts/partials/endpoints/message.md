@@ -35,7 +35,7 @@
         <tr>
             <td><a href="/docs/resources/message/lookup/#retrieve-my-messages">Retrieve my Messages</a></td>
             <td>GET</td>
-            <td>/stream/0/channels/messages/me</td>
+            <td>/stream/0/users/me/messages</td>
             <td>User</td>
         </tr>
         <tr>
