@@ -29,6 +29,9 @@ None.
 {
     "data": [
         {
+            "counts": {
+                "messages": 42
+            },
             "has_unread": true,
             "id": "1",
             "owner": {
@@ -101,6 +104,9 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "1",
         "owner": {
@@ -168,6 +174,9 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "1",
         "owner": {
@@ -269,12 +278,14 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
             "avatar_image": {
                 "height": 512,
                 "width": 512,
-                "url": "https://example.com/avatar_image.jpg"
+                "url": "https://example.com/avatar_image.jpg",
+                "is_default": false
             },
             "cover_image": {
                 "height": 118,
                 "width": 320,
-                "url": "https://example.com/cover_image.jpg"
+                "url": "https://example.com/cover_image.jpg",
+                "is_default": false
             },
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",

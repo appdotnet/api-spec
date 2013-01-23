@@ -43,6 +43,9 @@ Returns a specific [Channel](/docs/resources/channel/).
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "2",
         "owner": {
@@ -111,6 +114,9 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 {
     "data": [
         {
+            "counts": {
+                "messages": 42
+            },        
             "has_unread": false,
             "id": "1",
             "owner": {
@@ -138,6 +144,9 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
             "you_subscribed": true
         },
         {
+            "counts": {
+                "messages": 42
+            },
             "has_unread": false,
             "id": "2",
             "owner": {
@@ -191,6 +200,9 @@ None.
 {
     "data": [
         {
+            "counts": {
+                "messages": 42
+            },
             "has_unread": false,
             "id": "2",
             "owner": {

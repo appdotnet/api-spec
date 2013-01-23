@@ -32,6 +32,9 @@ None.
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },    
         "has_unread": false,
         "id": "36",
         "owner": {
@@ -106,6 +109,9 @@ If you want to add or update a Channel's annotations, you may include the option
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "1",
         "owner": {

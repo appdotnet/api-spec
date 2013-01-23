@@ -95,12 +95,14 @@ Requested with a user access token:
             "avatar_image": {
                 "height": 512,
                 "width": 512,
-                "url": "https://example.com/avatar_image.jpg"
+                "url": "https://example.com/avatar_image.jpg",
+                "is_default": false
             },
             "cover_image": {
                 "height": 118,
                 "width": 320,
-                "url": "https://example.com/cover_image.jpg"
+                "url": "https://example.com/cover_image.jpg",
+                "is_default": false
             },
             "type": "human",
             "created_at": "2012-07-16T17:23:34Z",

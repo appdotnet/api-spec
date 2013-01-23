@@ -13,6 +13,9 @@ A Channel is a user created stream of Messages. It controls access to the messag
 
 ~~~ js
 {
+    "counts": {
+        "messages": 42
+    },
     "has_unread": true,
     "id": "1",
     "owner": {
@@ -58,6 +61,25 @@ A Channel is a user created stream of Messages. It controls access to the messag
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td><code>counts</code></td>
+            <td>object</td>
+            <td>
+                <br>
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>messages</code></td>
+                        <td>integer</td>
+                        <td>The number of messages in the channel.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
         <tr>
             <td><code>id</code></td>
             <td>string</td>

@@ -46,12 +46,14 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     "avatar_image": {
         "height": 512,
         "width": 512,
-        "url": "https://example.com/avatar_image.jpg"
+        "url": "https://example.com/avatar_image.jpg",
+        "is_default": false
     },
     "cover_image": {
-        "height": 118,
         "width": 320,
-        "url": "https://example.com/cover_image.jpg"
+        "height": 118,
+        "url": "https://example.com/cover_image.jpg",
+        "is_default": false
     },
     "type": "human",
     "created_at": "2012-07-16T17:23:34Z",
@@ -230,7 +232,8 @@ Images are objects so that app developers can more easily pick the appropriated 
 {
     "height": 512,
     "width": 512,
-    "url": "https://example.com/image.jpg"
+    "url": "https://example.com/image.jpg",
+    "is_default": true
 }
 ~~~
 
