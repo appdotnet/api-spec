@@ -21,6 +21,12 @@
             <td>App</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/stream/lifecycle/#update-a-stream">Update a Stream</a></td>
+            <td>PUT</td>
+            <td>/stream/0/streams/[stream_id]</td>
+            <td>App</td>
+        </tr>        
+        <tr>
             <td><a href="/docs/resources/stream/lifecycle/#delete-a-stream">Delete a Stream</a></td>
             <td>DELETE</td>
             <td>/stream/0/streams/[stream_id]</td>
