@@ -219,6 +219,45 @@ Update a [Stream](/docs/resources/stream/). You can update a Stream by PUTing a 
     </tbody>
 </table>
 
+### Example
+
+> PUT https://alpha-api.app.net/stream/0/streams/1
+> 
+> Content-Type: application/json
+> 
+> DATA {"object_types": ["post","star"], "type": "long_poll", "id": "1", "filter_id": "1", "key": "rollout_stream"}
+
+~~~js
+{
+    "data": {
+        "endpoint": "https://stream-channel.app.net...",
+        "filter": {
+            "clauses": [
+                {
+                    "field": "/data/entities/hashtags/*/name",
+                    "object_type": "post",
+                    "operator": "matches",
+                    "value": "rollout"
+                }
+            ],
+            "id": "1",
+            "match_policy": "include_any",
+            "name": "Posts about rollouts"
+        },
+        "id": "1",
+        "object_types": [
+            "post",
+            "star"
+        ],
+        "type": "long_poll",
+        "key": "rollout_stream"
+    },
+    "meta": {
+        "code": 200
+    }
+}
+~~~
+
 ## Delete a Stream
 
 Delete a [Stream](/docs/resources/stream/). The Stream must belong to the current User. It returns the deleted Stream on success.
