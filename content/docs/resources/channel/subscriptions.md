@@ -29,6 +29,9 @@ None.
 {
     "data": [
         {
+            "counts": {
+                "messages": 42
+            },
             "has_unread": true,
             "id": "1",
             "owner": {
@@ -101,6 +104,9 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "1",
         "owner": {
@@ -168,6 +174,9 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 ~~~ js
 {
     "data": {
+        "counts": {
+            "messages": 42
+        },
         "has_unread": false,
         "id": "1",
         "owner": {
