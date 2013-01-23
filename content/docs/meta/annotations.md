@@ -165,15 +165,15 @@ When App.net processes annotation values, and value with a key that starts with 
 }
 ~~~
 
-As explained in the [schema for the `net.app.core.file` value](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file.md), this annotation will be rewritten when the Post is requested from the API:
+As explained in the [schema for the `net.app.core.file` value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md), this annotation will be rewritten when the Post is requested from the API:
 
 ~~~js
 {
     "type": "com.example.my_own_annotation",
     "value": {
         "file_id": "1",
-        "file_token": "12345abcdef"
-        "foo": "bar"
+        "file_token": "12345abcdef",
+        "foo": "bar",
         "url": "http://example.com/link_to_file"
     }
 }
@@ -183,5 +183,5 @@ We currently define the follow replacement values in annotations:
 
 | Name | Key | Description |
 | ---- | --- | ----------- |
-| [File](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file.md) | +net.app.core.file | Add information about an App.net file to this annotation |
-| [File List](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net files to this annotation |
+| [File](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) | +net.app.core.file | Add information about an App.net file to this annotation |
+| [File List](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net files to this annotation |
