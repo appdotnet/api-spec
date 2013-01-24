@@ -230,7 +230,7 @@ The current valid formats:
 * `oembed`: This includes any oembed data we can generate for this file. This could be empty.
 * `url`: The includes just a url pointing to this file's contents.
 
-Please see the [File replacement annotation value](https://github.com/appdotnet/object-metadata/blob/master/replacement-annotations/+net.app.core.file.md) for more details and examples.
+Please see the [File replacement annotation value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) for more details and examples.
 
 <%= render 'partials/endpoints-tab', :for => "file" %>
 
