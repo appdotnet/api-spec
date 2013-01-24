@@ -75,7 +75,7 @@ A Filter restricts a stream of messages on the server side so your client only s
         <tr>
             <td><code>object_type</code></td>
             <td>string</td>
-            <td>What type of object does this filter operate on? Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>. </td>
+            <td>What type of object does this filter operate on? Must be one of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>. </td>
         </tr>
         <tr>
             <td><code>operator</code></td>
