@@ -32,7 +32,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>complete</code></td>
             <td>boolean</td>
-            <td>Is this file considered complete? A file is complete once it's file contents are set for the first time.</td>
+            <td>Is this file considered complete? A file is complete once its contents are set.</td>
         </tr>
         <tr>
             <td><code>derived_files</code></td>
@@ -111,7 +111,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>type</code></td>
             <td>string</td>
-            <td>A string that looks like a reversed domain name to identify the intended purpose of this file. <em>There is no authentication or authorization performed on this field. Just because you create files with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the channel ACLs will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
+            <td>A string that looks like a reversed domain name to identify the intended purpose of this file. <em>There is no authentication or authorization performed on this field. Just because you create files with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the file contents will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
         </tr>
         <tr>
             <td><code>url</code></td>
@@ -152,7 +152,25 @@ The current valid derived files are:
 
 ## File Authorization
 
-TODO
+The `files` scope is the primary scope associated with the management of the File API. However, the API is designed such that file uploads are allowed by any scope which potentially allows for the creation or manipulation of annotations. So if your application is designed to create posts on App.net and you wish to add the ability to attach photos to those posts, you do not need to add any new permissions to do so.
+
+An application with the `files` scope can perform all available actions on a user's files. In addition, limited use of the File API is granted to applications with the `post`, `messages`, `public_messages` and `update_profile` scopes.
+
+File tokens are included with file objects as `file_token` and are specified in conjunction with /stream/0/files endpoints by passing a `file_token` query string parameter (regardless of the HTTP method used).
+
+Limited use of the File API is permitted through file tokens. Two types of file tokens exist: **write** tokens and **read-only** tokens. Write file tokens are included in File objects:
+
+* upon creation
+* if a file the user owns is retrieved from a file endpoint AND one of the following is true:
+    * the requesting application has the `files` scope and no query string parameters have been passed in
+    * a writeable file_token query string parameter is passed in
+
+Read file tokens are returned:
+
+* with annotations referencing files
+* in File objects if a read token was used to grant access to the file
+
+Write tokens are NEVER returned in annotations. The streaming API does not include file tokens of any kind. File tokens are never a substitute for access tokens. File tokens are portable across applications, but not portable between users (nor portable between authenticated and unauthenticated calls.) Read tokens refer internally to a specific permission-granting object, e.g., a post with an oEmbed annotation, and are only valid as long as that object still exists, the current request would have permission to see that object, and that references the requested file.
 
 ## General Parameters
 
@@ -220,7 +238,7 @@ Then, when your post is returned through the API, App.net will replace that anno
 
 In addition to these replacement annotation values that allow you to embed a file in any (core or 3rd party) annotation, we've also defined an [attachments core annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) as a generic way to attach multiple arbitrary files to a resource.
 
-**Please ensure that you only upload your `file_token` to a replacement annotation. If they are not processed by App.net they will leak out and no longer be secret.**
+**Please ensure that you only upload your `file_token` to a replacement annotation. If they are not processed by App.net, they will leak out and no longer be secret.**
 
 When either the `+net.app.core.file` or `+net.app.core.file_list` values are used, each file must be specified as an object with a `file token` and a `format`. Each object is transformed into another object containing `file_id`, a new `file_token`, and any additional data as specified by the `format` key. If a file is not found or you don't have permission to access it, the `file_id` value returned may not exist (or may not be an integer).
 
