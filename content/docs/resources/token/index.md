@@ -63,6 +63,10 @@ Requested with a user access token:
             "follow",
             "email"
         ],
+        "storage": {
+            "available": 8960893,
+            "used": 1039107
+        },
         "user": {
             "id": "1", // note this is a string
             "username": "mthurman",
@@ -180,6 +184,7 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
             "scopes": [
                 "basic"
             ],
+            "storage": { ... },
             "user": {...}
         },
         {
@@ -194,6 +199,7 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
                 "messages",
                 "basic"
             ],
+            "storage": { ... },
             "user": {...}
         }
     ],
