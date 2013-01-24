@@ -87,7 +87,7 @@ If you want to add or update a File's annotations, you may include the optional 
 
 ## Delete a File
 
-Delete a file. The current user must be the same user who created the File. It returns the deleted File on success.
+Delete a file. The current user must be the same user who created the File. It returns the deleted File on success. *Since a File could be referenced by multiple resources we recommend that you don't automatically delete files when you delete Posts. Deleting a file should be a more explicit action taken by the user.*
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 

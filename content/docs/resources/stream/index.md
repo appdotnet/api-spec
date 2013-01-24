@@ -65,7 +65,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
@@ -130,6 +130,7 @@ A Stream can listen for the following object types:
 * [channel](#channel): Sent when a channel is created or updated
 * [channel_subscription](#channel-subscription): Sent when a user subscribes or unsubscribes to a channel
 * [token](#token): Sent when a user authorizes, changes scopes for, or deauthorizes an app
+* [file](#file): Sent when a user creates a file, updates a file, or deletes a file
 
 ### post
 
@@ -252,6 +253,8 @@ A user unfollows another user.
 
 ### mute
 
+*You only see objects in this category for users who have authorized your app.*
+
 A user that has authorized your app mutes another user.
 
 ~~~ js
@@ -295,6 +298,8 @@ A user that has authorized your app unmutes another user.
 
 ### stream_marker
 
+*You only see objects in this category for users who have authorized your app with the `stream`, `messages` or `public_messages` scopes. You will only see stream markers that your users have authorized you to see.*
+
 A stream marker is set. If the stream marker is not for a channel, then `meta.channel_id` and `meta.channel_type` will be omitted.
 
 ~~~ js
@@ -319,6 +324,8 @@ A stream marker is set. If the stream marker is not for a channel, then `meta.ch
 ~~~
 
 ### message
+
+*You only see objects in this category for users who have authorized your app with the `messages` or `public_messages` scopes. You will only see messages that your users have authorized you to see.*
 
 A message is created.
 
@@ -358,6 +365,8 @@ A message is deleted.
 ~~~
 
 ### channel
+
+*You only see objects in this category for users who have authorized your app with the `messages` or `public_messages` scopes. You will only see channels that your users have authorized you to see.*
 
 A channel is created or updated.
 
@@ -478,5 +487,94 @@ A user deauthorizes an application.
     }
 }
 ~~~
+
+### file ###
+
+*You only see messages in this category for users who have authorized your app with the `files` scope.*
+
+A file is created.
+
+~~~js
+{
+    "meta": {
+        "timestamp": 1358986634896,
+        "type": "file",
+        "id": "85"
+    },
+    "data": {
+        "kind": "other",
+        "name": "my_dog",
+        "id": "85",
+        "source": {
+            ...
+        },
+        "user": {
+            ...
+        },
+        "type": "com.example.test",
+        "annotations": [],
+        "complete": false
+    }
+}
+~~~
+
+A file is uploaded to (or updated).
+
+~~~js
+{
+    "meta": {
+        "timestamp": 1358986636754,
+        "type": "file",
+        "id": "85"
+    },
+    "data": {
+        "kind": "other",
+        "sha1": "ef0ccae4d36d4083b53e121a6cf9cc9d7aca1234",
+        "name": "my_dog",
+        "source": {
+            ...
+        },
+        "url": "https://example.com/image.png",
+        "derived_files": {
+            "image_thumb_200s": {
+                "url": "https://example.com/image_thumb.png",
+                "sha1": "be91cb06d69df13bb103a359ce70cf9fba3e1234",
+                "url_expires": "2018-01-01T00:00:00Z",
+                "mime_type": "image/png",
+                "size": 33803
+            },
+            "image_thumb_960r": {
+                "url": "https://example.com/image_large_thumb.png",
+                "sha1": "57004b55119002f551be5b9f2d5439dd4adf1234",
+                "url_expires": "2018-01-01T00:00:00Z",
+                "mime_type": "image/png",
+                "size": 140173
+            }
+        },
+        "id": "85",
+        "total_size": 346369,
+        "user": {
+            ...
+        },
+        "complete": true,
+        "size": 172393,
+        "type": "com.example.test",
+        "annotations": [],
+        "mime_type": "image/png",
+        "url_expires": "2018-01-01T00:00:00Z"
+    }
+}
+~~~
+
+A file is deleted.
+
+{
+    "meta": {
+        "timestamp": 1358986636754,
+        "type": "file",
+        "id": "85",
+        "is_deleted": true,
+    },
+}
 
 <%= render 'partials/endpoints-tab', :for => "stream" %>
