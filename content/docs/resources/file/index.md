@@ -193,6 +193,7 @@ An App.net file can be attached to any resource that allows annotations. You can
         "type": "net.app.core.oembed",
         "value": {
             "+net.app.core.file": {
+                "file_id": "1",
                 "file_token": ...the file token you received when you uploaded your file to App.net...,
                 "format": "oembed"
             }

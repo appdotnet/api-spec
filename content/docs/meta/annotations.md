@@ -157,6 +157,7 @@ When App.net processes annotation values, and value with a key that starts with 
     "type": "com.example.my_own_annotation",
     "value": {
         "+net.app.core.file": {
+            "file_id": "1",
             "format": "url",
             "file_token": "12345abcdef"
         },
