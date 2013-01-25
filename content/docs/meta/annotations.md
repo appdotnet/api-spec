@@ -175,7 +175,8 @@ As explained in the [schema for the `net.app.core.file` value](https://github.co
         "file_id": "1",
         "file_token": "12345abcdef",
         "foo": "bar",
-        "url": "http://example.com/link_to_file"
+        "url": "http://example.com/link_to_file",
+        "url_expires": "2013-01-25T03:00:00Z"
     }
 }
 ~~~
