@@ -116,7 +116,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>url</code></td>
             <td>string</td>
-            <td>The full URL to this file. It may return a 404 if a file has been deleted.</td>
+            <td>The full URL to this file. It may return a 404 if a file has been deleted or if the url has expired.</td>
         </tr>
         <tr>
             <td><code>url_expires</code></td>
@@ -141,7 +141,7 @@ When a file is uploaded, App.net may choose to create other files based on the o
     "sha1": "be91cb06d69df13bb103a359ce70cf9fba31234a",
     "size": 33803,
     "url": "https://example.com/thumbnail_200s",
-    "url_expires": "2018-01-01T00:00:00Z",
+    "url_expires": "2013-01-25T03:00:00Z",
 }
 ~~~
 
@@ -229,6 +229,7 @@ Then, when your post is returned through the API, App.net will replace that anno
         "value": {
             "file_token": ...a new file token that represents the file when attached to this post...,
             "file_id": "1",
+            "url_expires": "2018-01-01T00:00:00Z",
             "type": "photo",
             "version": "1.0",
             ...remaining OEmbed data...

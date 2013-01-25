@@ -539,14 +539,14 @@ A file is uploaded to (or updated).
             "image_thumb_200s": {
                 "url": "https://example.com/image_thumb.png",
                 "sha1": "be91cb06d69df13bb103a359ce70cf9fba3e1234",
-                "url_expires": "2018-01-01T00:00:00Z",
+                "url_expires": "2013-01-25T03:00:00Z",
                 "mime_type": "image/png",
                 "size": 33803
             },
             "image_thumb_960r": {
                 "url": "https://example.com/image_large_thumb.png",
                 "sha1": "57004b55119002f551be5b9f2d5439dd4adf1234",
-                "url_expires": "2018-01-01T00:00:00Z",
+                "url_expires": "2013-01-25T03:00:00Z",
                 "mime_type": "image/png",
                 "size": 140173
             }
@@ -561,7 +561,7 @@ A file is uploaded to (or updated).
         "type": "com.example.test",
         "annotations": [],
         "mime_type": "image/png",
-        "url_expires": "2018-01-01T00:00:00Z"
+        "url_expires": "2013-01-25T03:00:00Z"
     }
 }
 ~~~

@@ -48,14 +48,14 @@ module Resources
               "sha1" => "be91cb06d69df13bb103a359ce70cf9fba31234a",
               "size" => 33803,
               "url" => "https://example.com/thumbnail_200s.png",
-              "url_expires" => "2018-01-01T00:00:00Z",
+              "url_expires" => "2013-01-25T03:00:00Z",
           },
           "image_thumb_960r" => {
               "mime_type" => "image/png",
               "size" => 140173,
               "sha1" => "57004b55119002f551be5b9f2d5439dd4ad1234a",
               "url" => "https://example.com/thumbnail_960r.png",
-              "url_expires" => "2018-01-01T00:00:00Z",
+              "url_expires" => "22013-01-25T03:00:00Z",
           },
       },
       "file_token" => "auCj3h64JZrhQ9aJdmwre3KP-QL9UtWHYvt5tj_64rUJWemoIV2W8eTJv9NMaGpBFk-BbU_aWA26Q40w4jFhiPBpnIQ_lciLwfh6o8YIAQGEQziksUMxZo7gOHJ_-niw3l3MZCh7QRWzqNGpiVaUEptfKO0fETrZ8bJjDa61234a",
@@ -73,7 +73,7 @@ module Resources
       "total_size" => 346369,
       "type" => "com.example.test",
       "url" => "https://example.com/original_file",
-      "url_expires" => "2018-01-01T00:00:00Z",
+      "url_expires" => "2013-01-25T03:00:00Z",
       "user" => "...user object...",  # TODO render this as a user placholder somehow
   }.freeze
 end

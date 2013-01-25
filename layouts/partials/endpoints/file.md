@@ -45,12 +45,6 @@
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/content/#retrieve-file-content">Retrieve File content</a></td>
-            <td>GET</td>
-            <td>/stream/0/files/[file_id]/content</td>
-            <td>User</td>
-        </tr>
-        <tr>
             <td><a href="/docs/resources/file/content/#set-file-content">Set File content</a></td>
             <td>PUT</td>
             <td>/stream/0/files/[file_id]/content</td>
