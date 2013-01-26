@@ -82,7 +82,7 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Basic Use
 
-A Stream is a real-time, ordered collection of objects. An object will always be formatted in a [response envelope](/docs/basics/responses/#response-envelopes). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+A Stream is a real-time, ordered collection of objects. An object will always be formatted in a [response envelope](/docs/basics/responses/#response-envelope). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
 There will be three different kinds of Streams, but they all follow the same pattern:
 

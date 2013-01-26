@@ -245,4 +245,33 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
 A user's avatar and cover images can be [directly requested](/docs/resources/user/profile/#retrieve-a-users-avatar-image) without requesting the entire user object.
 
+## General parameters
+
+Requests that return streams of Users respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th width="50">Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>include_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_user_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">User annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+    </tbody>
+</table>
+
 <%= render 'partials/endpoints-tab', :for => "user" %>

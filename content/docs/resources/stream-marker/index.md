@@ -7,7 +7,7 @@ title: "Stream Marker"
 * TOC
 {:toc}
 
-Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, your stream is right where you left off. The current stream marker will be included in the [response envelope](/docs/basics/responses/#response-envelopes) from any stream that returns Posts.
+Stream markers allows a User's position in a stream of Posts to be synced between multiple App.net clients. Then when you go from the browser to your phone, your stream is right where you left off. The current stream marker will be included in the [response envelope](/docs/basics/responses/#response-envelope) from any stream that returns Posts.
 
 ## Example Stream Marker
 

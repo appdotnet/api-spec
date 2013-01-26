@@ -48,33 +48,32 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
     <tr>
         <td><code>id</code></td>
         <td>string</td>
-        <td>Primary identifier for a message. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+        <td>Primary identifier for a Message. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
     </tr>
     <tr>
         <td><code>channel_id</code></td>
         <td>string</td>
-        <td>The id of the channel this message belongs to. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+        <td>The id of the <a href="/docs/resources/channel/">Channel</a> this Message belongs to. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
     </tr>
     <tr>
         <td><code>user</code></td>
         <td>object</td>
-        <td>This is an embedded version of the <a href='/docs/resources/user/'>User</a> object. <b>Note:</b> In certain cases (e.g., when a user
-                account has been deleted), this key may be omitted.</td>
+        <td>This is an embedded version of the <a href='/docs/resources/user/'>User</a> object. <em>In certain cases (e.g., when a user account has been deleted), this key may be omitted.</em></td>
     </tr>
     <tr>
         <td><code>created_at</code></td>
         <td>string</td>
-        <td>The time at which the message was create in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
+        <td>The time at which the Message was create in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
     </tr>
     <tr>
         <td><code>text</code></td>
         <td>string</td>
-        <td>User supplied text of the message.</td>
+        <td>User supplied text of the Message.</td>
     </tr>
     <tr>
         <td><code>html</code></td>
         <td>string</td>
-        <td>Server-generated annotated HTML rendering of message text.</td>
+        <td>Server-generated annotated HTML rendering of Message text.</td>
     </tr>
     <tr>
         <td><code>source</code></td>
@@ -90,12 +89,12 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
                 <tr>
                     <td><code>name</code></td>
                     <td>string</td>
-                    <td>Description of the API consumer that created this message.</td>
+                    <td>Description of the API consumer that created this Message.</td>
                 </tr>
                 <tr>
                     <td><code>link</code></td>
                     <td>string</td>
-                    <td>Link provided by the API consumer that created this message.</td>
+                    <td>Link provided by the API consumer that created this Message.</td>
                 </tr>
             </table>
         </td>
@@ -103,22 +102,22 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
     <tr>
         <td><code>reply_to</code></td>
         <td>string</td>
-        <td>The id of the message this message is replying to (or <code>null</code> if not a reply).</td>
+        <td>The id of the Message this Message is replying to (or <code>null</code> if not a reply).</td>
     </tr>
     <tr>
         <td><code>thread_id</code></td>
         <td>string</td>
-        <td>The id of the post at the root of the thread that this message is a part of. If <code>thread_id==id</code> than this property does not guarantee that the thread has > 1 message. Please see <code>num_replies</code>.</td>
+        <td>The id of the post at the root of the thread that this Message is a part of. If <code>thread_id==id</code> then this property does not guarantee that the thread has > 1 Message. Please see <code>num_replies</code>.</td>
     </tr>
     <tr>
         <td><code>num_replies</code></td>
         <td>integer</td>
-        <td>The number of messages created in reply to this message.</td>
+        <td>The number of messages created in reply to this Message.</td>
     </tr>
     <tr>
         <td><code>annotations</code></td>
         <td>list</td>
-        <td>Metadata about the entire message. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
+        <td>Metadata about the entire Message. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
     </tr>
     <tr>
         <td><code>entities</code></td>
@@ -128,12 +127,12 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
     <tr>
         <td><code>is_deleted</code></td>
         <td>boolean</td>
-        <td>Has this message been deleted? For non-deleted posts, this key may be omitted instead of being <code>false</code>. If a message has been deleted, the <code>text</code>, <code>html</code>, and <code>entities</code> properties will be empty and may be omitted.</td>
+        <td>Has this message been deleted? For non-deleted Messages, this key may be omitted instead of being <code>false</code>. If a Message has been deleted, the <code>text</code>, <code>html</code>, and <code>entities</code> properties will be empty and may be omitted.</td>
     </tr>
     <tr>
         <td><code>machine_only</code></td>
         <td>boolean</td>
-        <td>Is this Message meant for humans or other apps? See <a href="#machine-only-messages">Machine only Messages</a> for more information.</td>
+        <td>Is this Message meant for humans or other apps? See <a href="#machine-only-messages">machine only Messages</a> for more information.</td>
     </tr>
 </table>
 
@@ -143,6 +142,59 @@ Message annotations are immutable attributes that describe the entire message. P
 
 ## Machine only Messages
 
-Sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a Machine only Message by including ```annotations``` and not including ```text```. You can request Machine only Messages using the ```include_machine=1``` query string parameter.
+Sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a machine only Message by including `annotations` and not including `text`. You can request machine only Messages using the `include_machine=1` query string parameter.
+
+## General Parameters
+
+Requests that return streams of Messages respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th width="50">Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>include_muted</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should Messages from muted Users be included? Defaults to false except when you specifically request a Message from a muted User.</td>
+        </tr>
+        <tr>
+            <td><code>include_deleted</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should deleted Messages be included? Defaults to true.</td>
+        </tr>
+        <tr>
+            <td><code>include_machine</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="#machine-only-messages">machine only Messages</a> be included? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_message_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">Message annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_user_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">User annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+    </tbody>
+</table>
 
 <%= render 'partials/endpoints-tab', :for => "message" %>

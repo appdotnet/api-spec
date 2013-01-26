@@ -222,7 +222,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 
 ## General parameters
 
-Requests for streams of Posts can be filtered by passing query string parameters along with the request.
+Requests for streams of Posts respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
 
 <table>
     <thead>
@@ -235,113 +235,64 @@ Requests for streams of Posts can be filtered by passing query string parameters
     </thead>
     <tbody>
         <tr>
-            <td><code>since_id</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>Include posts with ids greater than this id. This value is not guaranteed to be a Post id and must come from the <code>max_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a> or be one of the <a href="#special-pagination-ids">special pagination ids</a>. The response <strong>will not include</strong> this id.</td>
-        </tr>
-        <tr>
-            <td><code>before_id</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>Include posts with ids smaller than this id. This value is not guaranteed to be a Post id and must come from the <code>min_id</code> parameter of a previous request's <a href="/docs/basics/responses/#pagination-metadata">pagination metadata</a> or be one of the <a href="#special-pagination-ids">special pagination ids</a>. The response <strong>will not include</strong> this id.</td>
-        </tr>
-        <tr>
-            <td><code>count</code></td>
-            <td>Optional</td>
-            <td>integer</td>
-            <td>The number of Posts to return, up to a maximum of 200. Sorry, negative counts are temporarily disabled.</td>
-        </tr>
-        <tr>
             <td><code>include_muted</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should posts from muted users be included? Defaults to false except when you specifically request a Post from a muted user or when you specifically request a muted user's stream.</td>
+            <td>Should Posts from muted users be included? Defaults to false except when you specifically request a Post from a muted user or when you specifically request a muted user's stream.</td>
         </tr>
         <tr>
             <td><code>include_deleted</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should deleted posts be included? Defaults to true.</td>
+            <td>Should deleted Posts be included? Defaults to true.</td>
         </tr>
         <tr>
             <td><code>include_directed_posts</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should posts directed at people I don't follow be included? A directed post is a post that starts with 1 or more @mentions. A machine only post with mentions is also considered a directed post. Defaults to false for "My Stream" and true everywhere else.</td>
+            <td>Should Posts directed at people I don't follow be included? A directed Post is a Post that starts with 1 or more @mentions. A machine only Post with mentions is also considered a directed Post. Defaults to false for "My Stream" and true everywhere else.</td>
         </tr>
         <tr>
             <td><code>include_machine</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should <a href="#machine-only-posts">machine only Posts</a> be included? (Default: <code>False</code>)</td>
-        </tr>
-        <tr>
-            <td><code>include_annotations</code></td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should the <a href="/docs/meta/annotations/">User and Post Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
-        </tr>
-        <tr>
-            <td><code>include_post_annotations</code></td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should the <a href="/docs/meta/annotations/">Post Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
-        </tr>
-        <tr>
-            <td><code>include_user_annotations</code></td>
-            <td>Optional</td>
-            <td>integer (0 or 1)</td>
-            <td>Should the <a href="/docs/meta/annotations/">User Annotations</a> be included in the Post? (Default: <code>False</code>)</td>
+            <td>Should <a href="#machine-only-posts">machine only Posts</a> be included? Defaults to false.</td>
         </tr>
         <tr>
             <td><code>include_starred_by</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should a sample of Users who have starred a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
+            <td>Should a sample of Users who have starred a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. Defaults to false.</td>
         </tr>
         <tr>
             <td><code>include_reposters</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. (Default: <code>False</code>)</td>
-        </tr>
-    </tbody>
-</table>
-
-### Special pagination ids
-
-When requesting an endpoint that supports [stream markers](/docs/resources/stream-marker), you can pass special values to the `since_id` and `before_id` pagination parameters that make use of stream markers.
-
-<table>
-    <thead>
-        <tr>
-            <th>Value</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>last_read</code></td>
-            <td>Use the `last_read_id` of the user's current stream marker (if there is one) as the value.</td>
+            <td>Should a sample of Users who have reposted a Post be returned with the Post objects? Please see the <a href="/docs/resources/post/">Post schema</a>. Defaults to false.</td>
         </tr>
         <tr>
-            <td><code>last_read_inclusive</code></td>
-            <td>Use the `last_read_id` of the user's current stream marker (if there is one) as the value. Also include the "last read" post.</td>
+            <td><code>include_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">annotations</a> be included in the response objects? Defaults to false.</td>
         </tr>
         <tr>
-            <td><code>marker</code></td>
-            <td>Use the `id` of the user's current stream marker (if there is one) as the value.</td>
+            <td><code>include_post_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">Post annotations</a> be included in the response objects? Defaults to false.</td>
         </tr>
         <tr>
-            <td><code>marker_inclusive</code></td>
-            <td>Use the `id` of the user's current stream marker (if there is one) as the value. Also include the "marked" post.</td>
+            <td><code>include_user_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">User annotations</a> be included in the response objects? Defaults to false.</td>
         </tr>
     </tbody>
 </table>
 
 ## Sorting Posts
 
-Post id is the ordering field for multiple posts (not ```created_at```). ```created_at``` is meant to be displayed to users, not to sort posts. This also makes pagination with ```since_id``` and ```before_id``` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria e.g. before_id and count.
+Post `id` is the ordering field for multiple posts, not `created_at`. `created_at` is meant to be displayed to users, not to sort Posts. This also makes pagination with `since_id` and `before_id` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria (e.g. `before_id` and `count`).
 
 <%= render 'partials/endpoints-tab', :for => "post" %>

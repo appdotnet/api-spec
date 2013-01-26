@@ -27,32 +27,32 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>annotations</code></td>
             <td>list</td>
-            <td>Metadata about the file. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
+            <td>Metadata about the File. See the <a href="/docs/meta/annotations/">Annotations</a> documentation.</td>
         </tr>
         <tr>
             <td><code>complete</code></td>
             <td>boolean</td>
-            <td>Is this file considered complete? A file is complete once its contents are set.</td>
+            <td>Is this File considered complete? A File is complete once its contents are set.</td>
         </tr>
         <tr>
             <td><code>derived_files</code></td>
             <td>object</td>
-            <td>An object containing any other files that were created using this file as input. Please see the section on <a href="#derived_files">derived files</a> for more information.</td>
+            <td>An object containing any other Files that were created using this File as input. Please see the section on <a href="#derived_files">derived Files</a> for more information.</td>
         </tr>
         <tr>
             <td><code>file_token</code></td>
             <td>string</td>
-            <td>A token that can be used to access or modify a file. Please see the section on <a href="#file_authorization">file authorization</a> for more information.</td>
+            <td>A token that can be used to access or modify a File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>id</code></td>
             <td>string</td>
-            <td>Primary identifier for a file. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
+            <td>Primary identifier for a File. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
         </tr>
         <tr>
             <td><code>kind</code></td>
             <td>string</td>
-            <td>In broad terms, what kind of file is this? It can be user specified or it will be automatically guessed based on the file's <code>mime_type</code>. Must be one of: <code>image</code>, or <code>other</code>.</td>
+            <td>In broad terms, what kind of File is this? It can be user specified or it will be automatically guessed based on the File's <code>mime_type</code>. Must be one of: <code>image</code>, or <code>other</code>.</td>
         </tr>
         <tr>
             <td><code>mime_type</code></td>
@@ -62,12 +62,12 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>name</code></td>
             <td>string</td>
-            <td>The user provided name of the file.</td>
+            <td>The user provided name of the File.</td>
         </tr>
         <tr>
             <td><code>sha1</code></td>
             <td>string</td>
-            <td>A <a href="http://en.wikipedia.org/wiki/SHA-1">SHA1</a> hash of the file contents.</td>
+            <td>A <a href="http://en.wikipedia.org/wiki/SHA-1">SHA1</a> hash of the File contents.</td>
         </tr>
         <tr>
             <td><code>size</code></td>
@@ -88,17 +88,17 @@ A file uploaded by a User and hosted by App.net.
                     <tr>
                         <td><code>name</code></td>
                         <td>string</td>
-                        <td>Description of the API consumer that created this file.</td>
+                        <td>Description of the API consumer that created this File.</td>
                     </tr>
                     <tr>
                         <td><code>link</code></td>
                         <td>string</td>
-                        <td>Link provided by the API consumer that created this file.</td>
+                        <td>Link provided by the API consumer that created this File.</td>
                     </tr>
                     <tr>
                         <td><code>client_id</code></td>
                         <td>string</td>
-                        <td>The public client_id of the API consumer that created this file.</td>
+                        <td>The public client_id of the API consumer that created this File.</td>
                     </tr>
                 </table>
             </td>
@@ -106,27 +106,27 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>total_size</code></td>
             <td>int</td>
-            <td>The total number of bytes of the file's contents including all derived files.</td>
+            <td>The total number of bytes of the File's contents including all derived Files.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
             <td>string</td>
-            <td>A string that looks like a reversed domain name to identify the intended purpose of this file. <em>There is no authentication or authorization performed on this field. Just because you create files with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the file contents will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
+            <td>A string that looks like a reversed domain name to identify the intended purpose of this File. <em>There is no authentication or authorization performed on this field. Just because you create Files with the type <code>com.example.awesome</code> does not imply you are the only one that is using that namespace or that the File contents will match the format you expect</em>. <code>net.app.core</code> is a reserved namespace.</td>
         </tr>
         <tr>
             <td><code>url</code></td>
             <td>string</td>
-            <td>The full URL to this file. It may return a 404 if a file has been deleted or if the url has expired.</td>
+            <td>The full URL to this File. It may return a 404 if the File has been deleted or if the URL has expired.</td>
         </tr>
         <tr>
             <td><code>url_expires</code></td>
             <td>string</td>
-            <td>A <a href="/docs/basics/data-formats/#dates">date and time</a> indicating when the provided <code>url</code> will no longer be valid. If the expiration has passed, please refetch the file or underlying object to get a new url to use.</td>
+            <td>A <a href="/docs/basics/data-formats/#dates">date and time</a> indicating when the provided <code>url</code> will no longer be valid. If the expiration has passed, please refetch the File or underlying object to get a new URL to use.</td>
         </tr>
         <tr>
             <td><code>user</code></td>
             <td>object</td>
-            <td>The User who created this file.</td>
+            <td>The <a href="/docs/resources/user/">User</a> who created this file.</td>
         </tr>
     </tbody>
 </table>
@@ -174,7 +174,7 @@ Write tokens are NEVER returned in annotations. The streaming API does not inclu
 
 ## General Parameters
 
-Requests that return streams of files accept the following query string parameters in addition to the [pagination parameters](/docs/resources/post/#general-parameters):
+Requests that return streams of Files respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
 
 <table>
     <thead>
@@ -197,6 +197,24 @@ Requests that return streams of files accept the following query string paramete
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should incomplete files be included in the result? (Default: <code>True</code>)</td>
+        </tr>
+        <tr>
+            <td><code>include_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_file_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">File annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_user_annotations</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/meta/annotations/">User annotations</a> be included in the response objects? Defaults to false.</td>
         </tr>
     </tbody>
 </table>

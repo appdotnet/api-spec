@@ -7,15 +7,18 @@ title: "Responses"
 * TOC
 {:toc}
 
->All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.
+All responses to requests to the App.net API endpoints listed under [Resources](/docs/resources/), whether successful or not, will be returned in the same type of envelope structure. This document describes how that envelope works and what it may contain.
 
-All responses to requests to the App.net API endpoints described in [Resources](/docs/resources/), whether successful or not, will be returned in the same type of envelope structure. This document will describe how that envelope works as well as how it can be used for convenient purposes, such as pagination.
+{::options parse_block_html="true" /}
+<div class="alert alert-info alert-block">
+All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.
+</div>
 
-## Response Envelopes
+## Response Envelope
 
 The top-level response is an object containing two keys. The first key, ```data```, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no ```data``` key will be present.
 
-The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination data](#pagination-metadata) or [stream marker data](/docs/resources/stream-marker/), when relevant.
+The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination metadata](/docs/basics/pagination/#response-metadata) and/or a [stream marker](/docs/resources/stream-marker/) when relevant.
 
 ### Sample Response Envelope
 ~~~ js
@@ -108,35 +111,6 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
             <td><code>redirect-uri-required</code></td>
             <td><a href="/docs/authentication/flows/web/">access_token</a></td>
             <td>The call to access_token must include <code>redirect_uri</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-## Pagination Metadata
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>max_id</code></td>
-            <td>string</td>
-            <td>The greatest ID returned in the data set. Inclusive. This should be considered an opaque identifier that may be passed as <code>since_id</code> in the next call in order to retrieve the next set of objects.</td>
-        </tr>
-        <tr>
-            <td><code>min_id</code></td>
-            <td>string</td>
-            <td>The least ID returned in the data set. Inclusive. This should be considered an opaque identifier that may be passed as <code>before_id</code.</td>
-        </tr>
-        <tr>
-            <td><code>more</code></td>
-            <td>boolean</td>
-            <td>If <code>more</code> is <code>true</code>, there are more matches available for the given query than would fit within <code>count</code> objects. If <code>more</code> is <code>false</code>, there are no more matches available.</td>
         </tr>
     </tbody>
 </table>
