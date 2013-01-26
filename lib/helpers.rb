@@ -20,3 +20,7 @@ end
 def endpoint(method, path, token, scope = "")
     render '/partials/endpoint', :method => method, :path => '/stream/0/'+path, :token => token, :scope => scope
 end
+
+def file_token_reminder()
+  "<div class=\"alert alert-info\">Please see the <a href=\"/docs/resources/file/#file-authorization\">File Authorization</a> documentation for more information on User and File tokens.</div>"
+end

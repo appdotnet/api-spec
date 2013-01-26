@@ -27,7 +27,7 @@
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lookup/#delete-a-file">Delete a File</a></td>
+            <td><a href="/docs/resources/file/lifecycle/#delete-a-file">Delete a File</a></td>
             <td>DELETE</td>
             <td>/stream/0/files/[file_id]</td>
             <td>User</td>

@@ -15,6 +15,8 @@ Set the content for an incomplete File. The content type for this request must b
 
 <%= endpoint "PUT", "files/[file_id]/content", "User" %>
 
+<%= file_token_reminder %>
+
 ### Data
 
 <table>

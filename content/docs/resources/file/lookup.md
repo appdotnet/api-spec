@@ -15,6 +15,8 @@ Returns a specific [File](/docs/resources/file/).
 
 <%= endpoint "GET", "files/[file_id]", "Varies"%>
 
+<%= file_token_reminder %>
+
 ### Parameters
 
 <table>
@@ -48,6 +50,8 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "files", "User", "files"%>
+
+<%= file_token_reminder %>
 
 ### Parameters
 

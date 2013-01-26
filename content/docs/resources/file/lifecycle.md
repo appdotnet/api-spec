@@ -19,6 +19,8 @@ You can also create a complete File object with one request by including the fil
 
 <%= endpoint "POST", "files", "User" %>
 
+<%= file_token_reminder %>
+
 ### Data
 
 None.
@@ -53,6 +55,8 @@ If you want to add or update a File's annotations, you may include the optional 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "files/[file_id]", "User"%>
+
+<%= file_token_reminder %>
 
 ### Data
 
@@ -94,6 +98,8 @@ Delete a file. The current user must be the same user who created the File. It r
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "files/[file_id]", "User" %>
+
+<%= file_token_reminder %>
 
 ### Data
 
