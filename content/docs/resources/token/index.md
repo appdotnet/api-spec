@@ -64,8 +64,8 @@ Requested with a user access token:
             "email"
         ],
         "storage": {
-            "available": 8960893,
-            "used": 1039107
+            "available": 8787479688,
+            "used": 1212520312
         },
         "user": {
             "id": "1", // note this is a string
