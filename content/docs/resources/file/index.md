@@ -271,4 +271,3 @@ The current valid formats:
 Please see the [File replacement annotation value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) for more details and examples.
 
 <%= render 'partials/endpoints-tab', :for => "file" %>
-

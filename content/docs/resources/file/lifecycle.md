@@ -15,6 +15,8 @@ An App.net File object can be created without setting the file content. This is 
 
 You can also create a complete File object with one request by including the file content with the File metadata. To create a complete file object, send a POST with an HTTP header of `Content-Type: multipart/form-data`. Our API expects one part of the request body to contain a `Content-Disposition` header with a value for `filename` and `name="content"`. The data from this part will be used as the file's content. If there is a part with `name="metadata"` and `Content-Type: application/json` then we will parse that JSON as the file's metadata. Otherwise, we will construct the metadata from the `form-data` sent in the request body.
 
+When creating a complete file, this endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file.
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "files", "User" %>

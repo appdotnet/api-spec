@@ -11,6 +11,8 @@ title: "File Content"
 
 Set the content for an incomplete File. The content type for this request must be ```multipart/form-data```.
 
+This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file.
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "files/[file_id]/content", "User" %>
