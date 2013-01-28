@@ -16,6 +16,7 @@ To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adna
 
 {::options parse_block_html="true" /}
 <div class="alert alert-success alert-block">
+* (1/28/2013) **Introducing the File API** — check out the documentation for [Files](/docs/resources/file/).
 * (12/13/2012) **Introducing the Messaging API** — check out the documentation for [Channels](/docs/resources/channel/) and [Messages](/docs/resources/message/) and the [App.net Messaging overview](/docs/basics/messaging/).
 * (12/13/2012) **Documentation has a new look and organization!**
 </div>
