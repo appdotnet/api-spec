@@ -55,7 +55,7 @@ module Resources
               "size" => 140173,
               "sha1" => "57004b55119002f551be5b9f2d5439dd4ad1234a",
               "url" => "https://example.com/thumbnail_960r.png",
-              "url_expires" => "22013-01-25T03:00:00Z",
+              "url_expires" => "2013-01-25T03:00:00Z",
           },
       },
       "file_token" => "auCj3h64JZrhQ9aJdmwre3KP-QL9UtWHYvt5tj_64rUJWemoIV2W8eTJv9NMaGpBFk-BbU_aWA26Q40w4jFhiPBpnIQ_lciLwfh6o8YIAQGEQziksUMxZo7gOHJ_-niw3l3MZCh7QRWzqNGpiVaUEptfKO0fETrZ8bJjDa61234a",
