@@ -139,6 +139,8 @@ We currently define the following core annotations:
 | [Facebook ID](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.facebook.md) | net.app.core.directory.facebook | A pointer to a user's Facebook account. |
 | [Homepage](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.homepage.md) | net.app.core.directory.homepage | A pointer to a user's homepage. |
 | [Twitter Username](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.twitter.md) | net.app.core.directory.twitter | A pointer to a user's Twitter account. |
+| [Channel Invite](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.channel.invite.md) | net.app.core.channel.invite | A pointer to a Channel. |
+| [Fallback URL](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.fallback_url.md) | net.app.core.fallback_url | A pointer to a destination that can properly display the associated content. |
 
 We will be defining core annotations soon for the following types of data:
 
