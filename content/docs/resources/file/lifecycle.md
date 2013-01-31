@@ -29,22 +29,36 @@ None.
 
 ### Example
 
-> POST https://alpha-api.app.net/stream/0/files
->
-> Content-Type: multipart/form-data; boundary=82481319dca6
->
-> DATA
-> 
-> --82481319dca6
-> Content-Disposition: file; name="content"; filename="filename.png"
-> Content-Type: image/png
-> 
-> ...contents of file...
-> --82481319dca6
-> Content-Disposition: file; name="metadata"; filename="metadata.json"
-> Content-Type: application/json
-> 
-> {"type": "com.example.test"}
+~~~
+POST https://alpha-api.app.net/stream/0/files
+
+Content-Type: multipart/form-data; boundary=82481319dca6
+
+REQUEST BODY:
+--82481319dca6
+Content-Disposition: form-data; name="content"; filename="filename.png"
+Content-Type: image/png
+
+...contents of file...
+--82481319dca6
+Content-Disposition: form-data; name="metadata"; filename="metadata.json"
+Content-Type: application/json
+
+{"type": "com.example.test"}
+~~~
+
+The metadata can also be submitted as normal post data in which case that part of the request body will look like:
+
+~~~
+--82481319dca6
+Content-Disposition: form-data; name="type"
+
+com.mthurman.sample_code
+~~~
+
+Here is some [sample File upload code written in Python](https://gist.github.com/4659409). You can also use the following curl command to upload a file:
+
+> curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -F 'type=com.example.test' -F content=@filename.png -X POST
 
 <%= response(:file) %>
 
