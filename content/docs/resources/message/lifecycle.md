@@ -17,13 +17,15 @@ If you would like to specify your own entities, please refer to the [user specif
 
 If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
 
-To create private group messages corresponding to the ```net.app.core.pm``` type, you can specify the special ```channel_id``` of ```pm```. With this parameter, the server will look for an extra field in the provided Message object called ```destinations``` which is a list of user_ids to send this message to. If a private message channel already exists between this group of users, that channel_id will be reused. Otherwise, a new channel will be created and the users specified in the ```destinations``` list will be able to write to that channel. Note that the ```destinations``` value may include user_ids in the form of @username or the integer id.
+#### Creating Private Messages for use with net.app.core.pm Channels
+
+To create private group messages for use in `net.app.core.pm` channels, you can specify the special `channel_id` of `pm`. With this parameter, the server will look for an extra field in the provided message object called `destinations` which is a list of user ids to send this message to. If a private message channel already exists between this group of users, its `channel_id` will be reused. Otherwise, a new channel will be created and the users specified in the `destinations` list will be auto-subscribed (according to their [subscription preferences](https://account.app.net/settings/messaging-permissions/)) and able to write to that channel. Note that the `destinations` value may include user ids in the form of "@username" or integer id.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 
-### Data
+### Parameters
 
 <table>
     <thead>
@@ -39,12 +41,12 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
             <td><code>channel_id</code></td>
             <td>Required</td>
             <td>int</td>
-            <td>The id of the Channel who's messages you want to see or <code>pm</code> to find or create a new private message channel.</td>
+            <td>The <code>id</code> of the <a href="/docs/resources/channel/">Channel</a> in which to create the Message. Alternatively, you can specify <code>pm</code> to auto-create/reuse a <code>net.app.core.pm</code> <a href="/docs/resources/channel/#private-message">private message channel</a>.</td>
         </tr>
     </tbody>
 </table>
 
-### Example
+### Generic Channel Example
 
 > POST https://alpha-api.app.net/stream/0/channels/1/messages
 >
@@ -83,7 +85,7 @@ To create private group messages corresponding to the ```net.app.core.pm``` type
 }
 ~~~
 
-### Auto-channel example
+### PM Channel Example
 > POST https://alpha-api.app.net/stream/0/channels/pm/messages
 >
 > Content-Type: application/json

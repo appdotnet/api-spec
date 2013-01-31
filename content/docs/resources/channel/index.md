@@ -143,10 +143,6 @@ A Channel is a user created stream of Messages. It controls access to the messag
     </tbody>
 </table>
 
-## Channel Annotations
-
-Channel annotations are mutable attributes that describe the Channel. Please see the [Annotations](/docs/meta/annotations/) documentation for more information.
-
 ## ACL
 
 ~~~ js
@@ -211,19 +207,29 @@ Access control lists (ACLs) specify who can read and who can write <a href="/doc
     </tbody>
 </table>
 
-## Channel types
+## Channel Annotations
 
-* [Private Message](#private-message): net.app.core.pm
+Channel annotations are mutable attributes that describe the Channel. When creating new Channels, developers should consider supplying a [fallback url annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.fallback_url.md).
 
-### Private Message
+For more information on Annotations in general, see the [Annotations](/docs/meta/annotations/) documentation page.
 
-> net.app.core.pm
+## Channel Types
 
-This Channel type is for private messages between 2 or more people. As a core Channel type, it has some special restrictions designed to simplify adoption for developers. Arbitrary Channel types are available for use which do not have these restrictions (and are able to maintain the same level of privacy.)
+A Channel's `type` can be used to identify the behavior of a Channel. Channel types are specified by the application creating the Channel and should have corresponding entries in the [channel-types directory](https://github.com/appdotnet/object-metadata/tree/master/channel-types) describing their behavior.    
 
-Private message Channels enforce that there is at least one non-owner user_id in the `writers` ACL and that both ACLs are immutable. Messages with the `machine_only` flag set are disallowed (though, of course, annotations are permitted when accompanied with text.)
+There is currently one core Channel type:
 
-In addition, this Channel type differs from others in that it is designed to provide a simple, combined API for Channel creation, reuse and Message sending. You can only create `net.app.core.pm` Channels via the special endpoint for doing so.
+#### Private Message
+
+> [net.app.core.pm](https://github.com/appdotnet/object-metadata/blob/master/channel-types/net.app.core.pm.md)
+
+This Channel type is for private messages between 2 or more people. As a core Channel type, it has some special restrictions designed to simplify adoption for developers:
+
+- Private message Channels enforce that there is at least one non-owner user_id in the `writers` ACL and that both ACLs are immutable. 
+- Messages with the `machine_only` flag set are disallowed (though, of course, annotations are permitted when accompanied with text.)
+- This Channel type differs from others in that it is designed to provide a simple, combined API for Channel creation, reuse and Message sending. You can only create `net.app.core.pm` Channels via the [create private message Channel endpoint].
+
+You can create arbitrary Channel types which do not have these restrictions (but are able to maintain the same level of privacy.)
 
 ## General Parameters
 

@@ -11,7 +11,11 @@ title: "Channel Lifecycle"
 
 Create a new [Channel](/docs/resources/channel/).
 
-Send a JSON document that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. The ```type``` field controls how the ```readers``` and ```writers``` ACLs are validated.
+Send a JSON document that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. 
+
+#### Creating a PM Channel
+
+[PM Channels](/docs/resources/channel/#private-message) (channels of type `net.app.core.pm`) cannot be directly created. Instead they are created for you as necessary when sending a [Message](/docs/resources/message/) using `pm` as a `channel_id`. For more information, see the [Create a Message](/docs/resources/message/lifecycle/#create-a-message) endpoint.
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -27,7 +31,7 @@ None.
 >
 > Content-Type: application/json
 > 
-> DATA {"type": "net.app.core.pm", "writers": {"user_ids": ["@berg", 1]}}
+> DATA {"type": "com.example.channel", "writers": {"user_ids": ["@berg", 1]}}
 
 ~~~ js
 {
@@ -47,7 +51,7 @@ None.
             "user_ids": [],
             "you": true
         },
-        "type": "net.app.core.pm",
+        "type": "com.example.channel",
         "writers": {
             "any_user": false,
             "immutable": true,
@@ -124,7 +128,7 @@ If you want to add or update a Channel's annotations, you may include the option
             "user_ids": [],
             "you": true
         },
-        "type": "com.example",
+        "type": "com.example.channel",
         "writers": {
             "any_user": false,
             "immutable": false,
