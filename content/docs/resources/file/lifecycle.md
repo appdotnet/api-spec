@@ -53,7 +53,7 @@ The metadata can also be submitted as normal post data in which case that part o
 --82481319dca6
 Content-Disposition: form-data; name="type"
 
-com.mthurman.sample_code
+com.example.test
 ~~~
 
 Here is some [sample File upload code written in Python](https://gist.github.com/4659409). You can also use the following curl command to upload a file:
