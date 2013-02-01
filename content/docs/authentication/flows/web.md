@@ -27,6 +27,8 @@ This is the easiest way to get an access token—we recommend it to most users o
 
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
 
+    > We do not show the permissions dialog if the user has already authorized your application for all scopes in your request, and will instead immediately redirect them. If you wish to force the display of the permissions dialog, use the `https://account.app.net/oauth/authorize` endpoint instead.
+
 1. If the user decides to authorize your application, they will be redirected to: `https://[your registered redirect URI]/?code=CODE`
 
     > If you included a query string in your redirect URI, the `code` parameter will be appended. Likewise, the scheme of your redirect URI will be respected, though we strongly recommend sending all traffic over HTTPS.
@@ -64,6 +66,8 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
     > To comply with Apple's App Store Guidelines, you can add the query string parameter `adnview=appstore` to hide all signup links on the authentication pages.
 
     We'll request that the user log in to App.net and show them a permissions dialog allowing them to choose whether to authorize your application.
+
+    > We do not show the permissions dialog if the user has already authorized your application for all scopes in your request, and will instead immediately redirect them. If you wish to force the display of the permissions dialog, use the `https://account.app.net/oauth/authorize` endpoint instead.
 
 1. If the user decides to authorize your application, they will be redirected to: `https://[your registered redirect URI]/#access_token=[user access token]`
 
