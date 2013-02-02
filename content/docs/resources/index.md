@@ -59,3 +59,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 ## Token
 
 <%= render 'partials/endpoints/token' %>
+
+## Place
+
+<%= render 'partials/endpoints/place' %>
