@@ -9,7 +9,7 @@ title: "File Content"
 
 ## Set File content
 
-Set the content for an incomplete File. The content type for this request must be ```multipart/form-data```.
+Set the content for an incomplete File. The content type for this request must be the content type of the file you are uploading.
 
 This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file.
 
@@ -44,8 +44,8 @@ This endpoint could return a `507 Insufficient Storage` error if the user doesn'
 
 > PUT https://alpha-api.app.net/stream/0/files/1/content
 >
-> Content-Type: multipart/form-data; boundary=----------------------------82481319dca6
+> Content-Type: image/jpeg
 >
-> DATA [MIME encoded image]
+> DATA [raw file, not base64 encoded]
 >
 > 204 No Content
