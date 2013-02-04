@@ -139,6 +139,37 @@ Link to another website.
     </tr>
 </table>
 
+### URI Templates
+
+Links can contain [URI templates](http://tools.ietf.org/html/rfc6570) that the server will process. This allows you to create a link to the object you are creating. For instance, Alpha uses this feature when you attach a photo to a post. Alpha adds a url to the end of the text that contains:
+
+> photos.app.net/{post_id}/1
+
+and the server replaces `{post_id}` with the id of the Post once it has been saved. By default, this processing happens on all links (both custom links and links extracted by the API). If you would like a link to not be processed, you can create the link as a [custom link](#links-with-custom-anchor-text) and include `"process_template": False` in the JSON for the link.
+
+#### Replacement variables
+
+Currently, the only variables for URI templates that we define are ones that could not be known when the link is being constructed. Additionally, if you specify a variable that is not listed below, we will pass that through instead of replacing it with nothing.
+
+<table>
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>message_id</td>
+            <td>The id of the Message that this link is a part of.</td>
+        </tr>
+        <tr>
+            <td>post_id</td>
+            <td>The id of the Post that this link is a part of.</td>
+        </tr>
+    </tbody>
+</table>
+
 ## User Specified Entities
 
 Entities are automatically extracted from the post text but there are 2 cases where users and apps can set the entities on a post.
@@ -172,6 +203,8 @@ If you'd like to provide a link without including the entire URL in your post te
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters added by App.net to the `text` field will not count against the 256 character Post limit. In this case, App.net will also add the [`amended_len`](#links) field that includes the length of the complete entity and added anti-phishing text. This will make it easier for apps to customize how the anti-phishing protection looks in their apps. **When rendering links in your app, you must show users an indication of where they will end up.**
 
 The ```text``` attribute of a link should be omitted as it will always be filled in from the post text.
+
+The `url` value can contain [URI templates](#uri-templates) which the server will process.
 
 #### Example
 

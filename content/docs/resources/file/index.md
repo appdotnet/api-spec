@@ -265,7 +265,7 @@ When either the `+net.app.core.file` or `+net.app.core.file_list` values are use
 The current valid formats:
 
 * `metadata`: This includes the entire File resource except for the `annotations`, `source`, and `user` fields.
-* `oembed`: This includes any oembed data we can generate for this file. This could be empty.
+* `oembed`: This includes any oembed data we can generate for this file. This could be empty. This format can only be used with the `net.app.core.oembed` annotation.
 * `url`: The includes just a url pointing to this file's contents.
 
 Please see the [File replacement annotation value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) for more details and examples.
