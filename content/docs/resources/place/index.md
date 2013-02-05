@@ -194,7 +194,6 @@ When using this endpoint, it is a requirement that _all_ requests originate from
             "categories": [
                 {
                     "labels": [
-                        "Factual Places",
                         "Sports and Recreation",
                         "Racquet Sports",
                         "Tennis"
