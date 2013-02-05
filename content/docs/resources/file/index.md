@@ -187,6 +187,8 @@ Read file tokens are returned:
 
 Write tokens are NEVER returned in annotations. The streaming API does not include file tokens of any kind. File tokens are never a substitute for access tokens. Write file tokens are portable across applications, but not portable between users (nor portable between authenticated and unauthenticated calls.) Read tokens refer internally to a specific permission-granting object, e.g., a post with an oEmbed annotation, and are only valid as long as that object still exists, the current request would have permission to see that object, and that references the requested file. Read tokens are portable between applications, users and authenticated/unauthenticated calls.
 
+In general, file content is made available to other users by referencing it in annotations on other App.net objects, e.g., posts and messages. However, it is also possible to explicitly mark a file as public, which will allow to to be referenced publicly without being attached to another object. You can do this by setting the `public` value to True on a file at creation time (or after the fact.) Upon doing this, the file will be populated with a `permanent_url` field which will contain a link to the file's content. This link will remain active until the file is no longer set to public.
+
 ## General Parameters
 
 Requests that return streams of Files respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
