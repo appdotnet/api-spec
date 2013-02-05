@@ -43,7 +43,126 @@ The Place data for the aforementioned Caltrain station looks like this
 }
 ~~~
 
-Most of the fields are self-explanatory, but do note that US natives will likely refer to `locality` as "City" and `region` as "State". `is_open` refers to whether the establishment is still "in business" and/or open to the public and does not refer to business hours or whether it may be serving customers at any particular moment. Finally, the `id` in `categories` refers to a specific "leaf node" in the hierarchy — in this case, "Rail Stations." In the future, Places may eventually sit at multiple categorical "leaf nodes" and as a result, we provide lists of category objects (though for now, no Place will be associated with more than one category ID).
+## Place Fields
+
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>factual_id</code></td>
+        <td>string</td>
+        <td>Primary identifier for a place. Uses factual.com's Place UUID</td>
+    </tr>
+    <tr>
+        <td><code>name</code></td>
+        <td>string</td>
+        <td>Human-friendly name</td>
+    </tr>
+    <tr>
+        <td><code>address</code></td>
+        <td>string</td>
+        <td>Street address</td>
+    </tr>
+    <tr>
+        <td><code>address_extended</code></td>
+        <td>string</td>
+        <td>Apartment or Suite number in street address</td>
+    </tr>
+    <tr>
+        <td><code>locality</code></td>
+        <td>string</td>
+        <td>City or town</td>
+    </tr>
+    <tr>
+        <td><code>region</code></td>
+        <td>string</td>
+        <td>State, region, province etc.</td>
+    </tr>
+    <tr>
+        <td><code>admin_region</code></td>
+        <td>string</td>
+        <td>Additional sub-division e.g. Wales.</td>
+    </tr>
+    <tr>
+        <td><code>post_town</code></td>
+        <td>string</td>
+        <td>Town used in postal addressing</td>
+    </tr>
+    <tr>
+        <td><code>po_box</code></td>
+        <td>string</td>
+        <td>PO Box</td>
+    </tr>
+    <tr>
+        <td><code>postcode</code></td>
+        <td>string</td>
+        <td>Postcode/zipcode</td>
+    </tr>
+    <tr>
+        <td><code>country_code</code></td>
+        <td>string</td>
+        <td>ISO 3166-1 alpha-2 country code.</td>
+    </tr>
+    <tr>
+        <td><code>latitude</code></td>
+        <td>decimal</td>
+        <td>Latitude in decimal degrees.</td>
+    </tr>
+    <tr>
+        <td><code>longitude</code></td>
+        <td>decimal</td>
+        <td>Longitude in decimal degrees.</td>
+    </tr>
+    <tr>
+        <td><code>is_open</code></td>
+        <td>bool</td>
+        <td>refers to whether the establishment is still "in business" and/or open to the public and does not refer to business hours or whether it may be serving customers at any particular moment</td>
+    </tr>
+    <tr>
+        <td><code>telephone</code></td>
+        <td>string</td>
+        <td>Telephone number in local formatting.</td>
+    </tr>
+    <tr>
+        <td><code>fax</code></td>
+        <td>string</td>
+        <td>Fax number in local formatting.</td>
+    </tr>
+    <tr>
+        <td><code>website</code></td>
+        <td>string</td>
+        <td>Official URL of establishment</td>
+    </tr>
+    <tr>
+        <td><code>categories</code></td>
+        <td>list of objects</td>
+        <td>
+            <br>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>labels</code></td>
+                    <td>list</td>
+                    <td>Human-friendly descriptive labels for this category. Ordered from general to specific.</td>
+                </tr>
+                <tr>
+                    <td><code>d</code></td>
+                    <td>string</td>
+                    <td>Category ID. Corresponds to most specific category label.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+In the future, Places may eventually sit at multiple categorical "leaf nodes" and as a result, we provide lists of category objects (though for now, no Place will be associated with more than one category ID).
 
 ## Retrieve a Place
 
