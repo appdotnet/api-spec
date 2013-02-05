@@ -17,7 +17,7 @@ The Place data for the aforementioned Caltrain station looks like this
 
 ~~~ js
 {
-    "factual_id":"19931850-dc2f-012e-561d-003048cad9da",
+    "factual_id": "19931850-dc2f-012e-561d-003048cad9da",
     "name": "Caltrain",
     "longitude": -122.395012,
     "latitude": 37.776905,
@@ -49,6 +49,10 @@ Most of the fields are self-explanatory, but do note that US natives will likely
 ## Retrieve a Place
 
 Returns info about a Place object with a given `factual_id`.
+
+### Deduplication effects
+
+Because it is possible for duplicate entries to exist for the same Place, Factual provides a method to deduplicate one Place object by "replacing" it with another. As a result, you may notice sometimes that when requesting a Place with one `factual_id` you will get back an entry with a different `factual_id`. When we return a different Place than the one you requested, we are claiming, to the best of our knowledge, that it is equivalent to the one requested.
 
 <%= migration_warning ['response_envelope'] %>
 
