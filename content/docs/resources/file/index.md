@@ -42,7 +42,12 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>file_token</code></td>
             <td>string</td>
-            <td>A token that can be used to access or modify a File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+            <td>[Optional.] A token that can be used to modify a File. Only present upon creation time, if a write file token was specified when fetching this file or if you have the files scope. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+        </tr>
+        <tr>
+            <td><code>file_token_read</code></td>
+            <td>string</td>
+            <td>[Optional.] A token that can be used to access a File. Only present when a file is marked public or if a read token was specified when fetching this File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>id</code></td>
@@ -63,6 +68,16 @@ A file uploaded by a User and hosted by App.net.
             <td><code>name</code></td>
             <td>string</td>
             <td>The user provided name of the File.</td>
+        </tr>
+        <tr>
+            <td><code>permanent_url</code></td>
+            <td>string</td>
+            <td>Permanent URL for a file if file is marked public. This will often be a HTTP redirect to the file's content. This URL will not need any authentication to retrieve.</td>
+        </tr>
+        <tr>
+            <td><code>public</code></td>
+            <td>string</td>
+            <td>Whether or not the file has been explicitly marked public. Files can also be made public by attaching them to other public objects; this flag is not meant to indicate whether there is some public reference to a file.</td>
         </tr>
         <tr>
             <td><code>sha1</code></td>
@@ -170,7 +185,9 @@ Read file tokens are returned:
 * with annotations referencing files
 * in File objects if a read token was used to grant access to the file
 
-Write tokens are NEVER returned in annotations. The streaming API does not include file tokens of any kind. File tokens are never a substitute for access tokens. File tokens are portable across applications, but not portable between users (nor portable between authenticated and unauthenticated calls.) Read tokens refer internally to a specific permission-granting object, e.g., a post with an oEmbed annotation, and are only valid as long as that object still exists, the current request would have permission to see that object, and that references the requested file.
+Write tokens are NEVER returned in annotations. The streaming API does not include file tokens of any kind. File tokens are never a substitute for access tokens. Write file tokens are portable across applications, but not portable between users (nor portable between authenticated and unauthenticated calls.) Read tokens refer internally to a specific permission-granting object, e.g., a post with an oEmbed annotation, and are only valid as long as that object still exists, the current request would have permission to see that object, and that references the requested file. Read tokens are portable between applications, users and authenticated/unauthenticated calls.
+
+In general, file content is made available to other users by referencing it in annotations on other App.net objects, e.g., posts and messages. However, it is also possible to explicitly mark a file as public, which will allow to to be referenced publicly without being attached to another object. You can do this by setting the `public` value to True on a file at creation time (or after the fact.) Upon doing this, the file will be populated with a `permanent_url` field which will contain a link to the file's content. This link will remain active until the file is no longer set to public.
 
 ## General Parameters
 
@@ -197,6 +214,12 @@ Requests that return streams of Files respond to [pagination parameters](/docs/b
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should incomplete files be included in the result? (Default: <code>True</code>)</td>
+        </tr>
+        <tr>
+            <td><code>include_private</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should private files be included in the result? (Default: <code>True</code>)</td>
         </tr>
         <tr>
             <td><code>include_annotations</code></td>
@@ -230,7 +253,7 @@ An App.net file can be attached to any resource that allows annotations. You can
         "value": {
             "+net.app.core.file": {
                 "file_id": "1",
-                "file_token": ...the file token you received when you uploaded your file to App.net...,
+                "file_token": "the write file_token you received when you uploaded your file to App.net...",
                 "format": "oembed"
             }
         }
@@ -245,9 +268,10 @@ Then, when your post is returned through the API, App.net will replace that anno
     {
         "type": "net.app.core.oembed",
         "value": {
-            "file_token": ...a new file token that represents the file when attached to this post...,
+            "file_token_read": "...a new read file_token that represents the file when attached to this post...",
             "file_id": "1",
-            "url_expires": "2018-01-01T00:00:00Z",
+            "url_immediate": "<a short-lived URL to the file content>",
+            "url_immediate_expires": "2018-01-01T00:00:00Z",
             "type": "photo",
             "version": "1.0",
             ...remaining OEmbed data...
@@ -258,14 +282,14 @@ Then, when your post is returned through the API, App.net will replace that anno
 
 In addition to these replacement annotation values that allow you to embed a file in any (core or 3rd party) annotation, we've also defined an [attachments core annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) as a generic way to attach multiple arbitrary files to a resource.
 
-**Please ensure that you only upload your `file_token` to a replacement annotation. If they are not processed by App.net, they will leak out and no longer be secret.**
+**Please ensure that you only include your write `file_token` with a replacement annotation. If they are not processed by App.net, they will leak out and no longer be secret.**
 
-When either the `+net.app.core.file` or `+net.app.core.file_list` values are used, each file must be specified as an object with a `file token` and a `format`. Each object is transformed into another object containing `file_id`, a new `file_token`, and any additional data as specified by the `format` key. If a file is not found or you don't have permission to access it, the `file_id` value returned may not exist (or may not be an integer).
+When either the `+net.app.core.file` or `+net.app.core.file_list` values are used, each file must be specified as an object with a `file token` and a `format`. Each object is transformed into another object containing `file_id`, a `file_token_read`, and any additional data as specified by the `format` key. If a file is not found or you don't have permission to access it, the `file_id` value returned may not exist (or may not be an integer).
 
 The current valid formats:
 
 * `metadata`: This includes the entire File resource except for the `annotations`, `source`, and `user` fields.
-* `oembed`: This includes any oembed data we can generate for this file. This could be empty.
+* `oembed`: This includes any oembed data we can generate for this file. This could be empty. This format can only be used with the `net.app.core.oembed` annotation.
 * `url`: The includes just a url pointing to this file's contents.
 
 Please see the [File replacement annotation value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) for more details and examples.
