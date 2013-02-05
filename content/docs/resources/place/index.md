@@ -34,7 +34,6 @@ The Place data for the aforementioned Caltrain station looks like this
         {
             "id":"429",
             "labels": [
-                "Factual Places",
                 "Transportation",
                 "Transport Hubs",
                 "Rail Stations"
@@ -85,7 +84,6 @@ None.
         "categories": [
             {
                 "labels": [
-                    "Factual Places",
                     "Transportation",
                     "Transport Hubs",
                     "Rail Stations"
@@ -219,7 +217,6 @@ When using this endpoint, it is a requirement that _all_ requests originate from
             "categories": [
                 {
                     "labels": [
-                        "Factual Places",
                         "Landmarks",
                         "Parks"
                     ],
@@ -258,7 +255,6 @@ When using this endpoint, it is a requirement that _all_ requests originate from
             "categories": [
                 {
                     "labels": [
-                        "Factual Places",
                         "Social",
                         "Food and Dining",
                         "Restaurants"
