@@ -236,24 +236,24 @@ When using this endpoint, it is a requirement that _all_ requests originate from
 ~~~
 
 ### Example (search string, radius and count)
-> GET https://alpha-api.app.net/stream/0/places/search?latitude=37.7616&longitude=-122.4237&q=bake&count=1&radius=30
+> GET https://alpha-api.app.net/stream/0/places/search?latitude=37.78592&longitude=-122.400751&q=bi-rite&count=1&radius=5000
 
 ~~~ js
 {
     "data": [
         {
-            "website": "http://www.tartinebakery.com",
-            "distance": 20.0772088903,
-            "name": "Tartine Bakery",
+            "website": "http://www.biritecreamery.com",
+            "distance": 2771.26823449,
+            "name": "Bi-Rite Creamery",
             "locality": "San Francisco",
             "region": "CA",
-            "telephone": "(415) 487-2600",
-            "longitude": -122.423891,
+            "telephone": "(415) 626-5600",
+            "longitude": -122.409012,
             "is_open": true,
             "postcode": "94110",
-            "factual_id": "a89c8813-d6a0-4e50-b2fe-85aa1dcbcd10",
-            "address": "600 Guerrero St",
-            "latitude": 37.761501,
+            "factual_id": "96304850-ea37-012e-3020-00259004449e",
+            "address": "3692 18th St",
+            "latitude": 37.761868,
             "country_code": "us",
             "categories": [
                 {
