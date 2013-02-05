@@ -153,7 +153,7 @@ The Place data for the aforementioned Caltrain station looks like this
                     <td>Human-friendly descriptive labels for this category. Ordered from general to specific.</td>
                 </tr>
                 <tr>
-                    <td><code>d</code></td>
+                    <td><code>id</code></td>
                     <td>string</td>
                     <td>Category ID. Corresponds to most specific category label.</td>
                 </tr>
