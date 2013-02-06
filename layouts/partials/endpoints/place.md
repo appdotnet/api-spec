@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/place/#retrieve-a-place">Retrieve a Place by factual.com UUID</a></td>
+            <td><a href="/docs/resources/place/#retrieve-a-place">Retrieve a Place</a></td>
             <td>GET</td>
             <td>/stream/0/places/[factual_id]</td>
             <td>Any</td>

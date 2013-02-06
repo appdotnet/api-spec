@@ -130,17 +130,18 @@ We currently define the following core annotations:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [Attachments](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) | net.app.core.attachments | A pointer to App.net files that are attached to the object being annotated. |
+| [Attachments](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) | net.app.core.attachments | A pointer to App.net [Files](/docs/resources/file/) that are attached to the object being annotated. |
+| [Channel Invite](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.channel.invite.md) | net.app.core.channel.invite | A pointer to a [Channel](/docs/resources/channel/). |
+| [Checkin](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.checkin.md) | net.app.core.checkin | Indicates a user has "checked in" to a [Place](/docs/resources/place/). |
 | [Crosspost](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.crosspost.md) | net.app.core.crosspost | Specifies the original or canonical source of a Post on App.net from somewhere else on the web. |
-| [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
-| [Geolocation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.geolocation.md) | net.app.core.geolocation | Specifies a geographic point on the Earth. |
-| [Language](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.language.md) | net.app.core.language | Specifies a language. |
 | [Blog URL](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.blog.md) | net.app.core.directory.blog | A pointer to a user's blog. |
 | [Facebook ID](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.facebook.md) | net.app.core.directory.facebook | A pointer to a user's Facebook account. |
 | [Homepage](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.homepage.md) | net.app.core.directory.homepage | A pointer to a user's homepage. |
 | [Twitter Username](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.twitter.md) | net.app.core.directory.twitter | A pointer to a user's Twitter account. |
-| [Channel Invite](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.channel.invite.md) | net.app.core.channel.invite | A pointer to a Channel. |
 | [Fallback URL](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.fallback_url.md) | net.app.core.fallback_url | A pointer to a destination that can properly display the associated content. |
+| [Geolocation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.geolocation.md) | net.app.core.geolocation | Specifies a geographic point on the Earth. |
+| [Language](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.language.md) | net.app.core.language | Specifies a language. |
+| [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
 
 We will be defining core annotations soon for the following types of data:
 
@@ -152,7 +153,7 @@ Developers are encouraged to create annotations for data not well represented he
 
 ### Annotation replacement values
 
-When App.net processes annotation values, and value with a key that starts with `+net.app.core.*` will be rewritten based on the core schemas defined below. For example, when attaching a File to a Post, you might send App.net the following annotation:
+When App.net processes annotation values, any value with a key that starts with `+net.app.core.*` will be rewritten based on the core schemas defined below. For example, when attaching a File to a Post, you might send App.net the following annotation:
 
 ~~~js
 {
@@ -187,5 +188,6 @@ We currently define the follow replacement values in annotations:
 
 | Name | Key | Description |
 | ---- | --- | ----------- |
-| [File](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) | +net.app.core.file | Add information about an App.net file to this annotation |
-| [File List](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net files to this annotation |
+| [File](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md) | +net.app.core.file | Add information about an App.net [File](/docs/resources/file/) to an annotation. |
+| [File List](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net [Files](/docs/resources/file/) to an annotation. |
+| [Place](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.place.md) | +net.app.core.place | Add information about a [Place](/docs/resources/place/) to an annotation. |

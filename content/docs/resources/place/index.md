@@ -7,13 +7,7 @@ title: "Place"
 * TOC
 {:toc}
 
-Place objects represent physical locations which can be given a name and associated with a latitude and longitude somewhere on Earth. For example, the Caltrain station in San Francisco, CA at 700 4th St., which has a location of latitude 37.776905, longitude -122.395012, can be considered a Place. By assigning an ID to this Place, we can refer to it in the [`+net.app.core.place` value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.place.md) and thus provide extra context to annotations. One use for this is in the [Checkin](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.checkin.md) annotation, which gives users a way to say "I was here when I posted this", though developers are encouraged to collect Place data whenever they like.
-
-In order to provide accurate and thorough Place data, we use a database from factual.com. As such, all of our Places use the same UUIDs as those retrieved from factual.com.
-
-## Example Place
-
-The Place data for the aforementioned Caltrain station looks like this
+Place objects represent physical locations which can be given a name and associated with a latitude and longitude somewhere on Earth. For example, the Caltrain station in San Francisco, CA at 700 4th St., which has a location of latitude 37.776905, longitude -122.395012, can be considered a Place. In order to provide accurate and thorough Place data, we use a database from [factual.com](http://factual.com/). As such, all of our Places use the same UUIDs as those retrieved from factual.com.
 
 ~~~ js
 {
@@ -54,27 +48,27 @@ The Place data for the aforementioned Caltrain station looks like this
     <tr>
         <td><code>factual_id</code></td>
         <td>string</td>
-        <td>Primary identifier for a place. Uses factual.com's Place UUID</td>
+        <td>Primary identifier for a place. Uses factual.com's Place UUID.</td>
     </tr>
     <tr>
         <td><code>name</code></td>
         <td>string</td>
-        <td>Human-friendly name</td>
+        <td>Human-friendly name.</td>
     </tr>
     <tr>
         <td><code>address</code></td>
         <td>string</td>
-        <td>Street address</td>
+        <td>Street address.</td>
     </tr>
     <tr>
         <td><code>address_extended</code></td>
         <td>string</td>
-        <td>Apartment or Suite number in street address</td>
+        <td>Apartment or Suite number in street address.</td>
     </tr>
     <tr>
         <td><code>locality</code></td>
         <td>string</td>
-        <td>City or town</td>
+        <td>City or town.</td>
     </tr>
     <tr>
         <td><code>region</code></td>
@@ -84,27 +78,27 @@ The Place data for the aforementioned Caltrain station looks like this
     <tr>
         <td><code>admin_region</code></td>
         <td>string</td>
-        <td>Additional sub-division e.g. Wales.</td>
+        <td>Additional sub-division (e.g. Wales).</td>
     </tr>
     <tr>
         <td><code>post_town</code></td>
         <td>string</td>
-        <td>Town used in postal addressing</td>
+        <td>Town used in postal addressing.</td>
     </tr>
     <tr>
         <td><code>po_box</code></td>
         <td>string</td>
-        <td>PO Box</td>
+        <td>PO Box.</td>
     </tr>
     <tr>
         <td><code>postcode</code></td>
         <td>string</td>
-        <td>Postcode/zipcode</td>
+        <td>Postcode / zipcode.</td>
     </tr>
     <tr>
         <td><code>country_code</code></td>
         <td>string</td>
-        <td>ISO 3166-1 alpha-2 country code.</td>
+        <td>A two-letter country code in <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</td>
     </tr>
     <tr>
         <td><code>latitude</code></td>
@@ -118,8 +112,8 @@ The Place data for the aforementioned Caltrain station looks like this
     </tr>
     <tr>
         <td><code>is_open</code></td>
-        <td>bool</td>
-        <td>refers to whether the establishment is still "in business" and/or open to the public and does not refer to business hours or whether it may be serving customers at any particular moment</td>
+        <td>boolean</td>
+        <td>Whether the establishment is still "in business" and/or open to the public and does not refer to business hours or whether it may be serving customers at any particular moment in time.</td>
     </tr>
     <tr>
         <td><code>telephone</code></td>
@@ -134,7 +128,7 @@ The Place data for the aforementioned Caltrain station looks like this
     <tr>
         <td><code>website</code></td>
         <td>string</td>
-        <td>Official URL of establishment</td>
+        <td>Official URL of the establishment.</td>
     </tr>
     <tr>
         <td><code>categories</code></td>
@@ -163,6 +157,12 @@ The Place data for the aforementioned Caltrain station looks like this
 </table>
 
 In the future, Places may eventually sit at multiple categorical "leaf nodes" and as a result, we provide lists of category objects (though for now, no Place will be associated with more than one category ID).
+
+## Attaching Places to other resources
+
+Places can be attached to any resource that allows annotations. You can insert Place data into any annotation using the [`+net.app.core.place` replacement value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.place.md) and providing a `factual_id`. For more information, see the [annotation replacement values](/docs/meta/annotations/#annotation-replacement-values) documentation.
+
+We provide a [Checkin annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.checkin.md) as a [core annotation](/docs/meta/annotations/#core-annotations) for the common use case of using Place data to give users a way to say "I was here when I posted this", though developers are free to use Place data in other contexts.
 
 ## Retrieve a Place
 
@@ -225,9 +225,10 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 
 <%= migration_warning ['response_envelope'] %>
 
-### Important Usage Note
-
-When using this endpoint, it is a requirement that _all_ requests originate from user actions. As an example, acceptable use cases include when a user presses a button to search for local Places or when a user types a character to specify part of a Place name. Unacceptable use cases include automated access (e.g. "bots", "scrapers"), periodic scans and attempts to create comprehensive local caches or copies of the Place data. We will be monitoring search usage and will take necessary actions to terminate unacceptable use.
+{::options parse_block_html="true" /}
+<div class="alert alert-error alert-block">
+**When using this endpoint, it is a requirement that _all_ requests originate from user actions.** As an example, acceptable use cases include when a user presses a button to search for local Places or when a user types a character to specify part of a Place name. Unacceptable use cases include automated access (e.g. "bots", "scrapers"), periodic scans and attempts to create comprehensive local caches or copies of the Place data. **We will be monitoring search usage and will take necessary actions to terminate unacceptable use.**
+</div>
 
 <%= endpoint "GET", "places/search", "User" %>
 
