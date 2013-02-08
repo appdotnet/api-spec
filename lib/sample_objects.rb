@@ -72,7 +72,7 @@ module Resources
       },
       "total_size" => 346369,
       "type" => "com.example.test",
-      "url" => "https://example.com/original_file",
+      "url" => "https://...",
       "url_expires" => "2013-01-25T03:00:00Z",
       "user" => "...user object...",  # TODO render this as a user placholder somehow
   }.freeze

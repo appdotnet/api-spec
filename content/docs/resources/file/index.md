@@ -42,12 +42,12 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>file_token</code></td>
             <td>string</td>
-            <td>[Optional.] A token that can be used to modify a File. Only present upon creation time, if a write file token was specified when fetching this file or if you have the files scope. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+            <td>[Optional] A token that can be used to modify a File. Only present upon creation time, if a write file token was specified when fetching this file or if you have the files scope. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>file_token_read</code></td>
             <td>string</td>
-            <td>[Optional.] A token that can be used to access a File. Only present when a file is marked public or if a read token was specified when fetching this File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+            <td>[Optional] A token that can be used to access a File. Only present when <code>public</code> is <code>true</code> or if a read token was specified when fetching this File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>id</code></td>
@@ -70,13 +70,8 @@ A file uploaded by a User and hosted by App.net.
             <td>The user provided name of the File.</td>
         </tr>
         <tr>
-            <td><code>permanent_url</code></td>
-            <td>string</td>
-            <td>Permanent URL for a file if file is marked public. This will often be a HTTP redirect to the file's content. This URL will not need any authentication to retrieve.</td>
-        </tr>
-        <tr>
             <td><code>public</code></td>
-            <td>string</td>
+            <td>boolean</td>
             <td>Whether or not the file has been explicitly marked public. Files can also be made public by attaching them to other public objects; this flag is not meant to indicate whether there is some public reference to a file.</td>
         </tr>
         <tr>
@@ -108,7 +103,7 @@ A file uploaded by a User and hosted by App.net.
                     <tr>
                         <td><code>link</code></td>
                         <td>string</td>
-                        <td>Link provided by the API consumer that created this File.</td>
+                        <td> Link provided by the API consumer that created this File.</td>
                     </tr>
                     <tr>
                         <td><code>client_id</code></td>
@@ -137,6 +132,11 @@ A file uploaded by a User and hosted by App.net.
             <td><code>url_expires</code></td>
             <td>string</td>
             <td>A <a href="/docs/basics/data-formats/#dates">date and time</a> indicating when the provided <code>url</code> will no longer be valid. If the expiration has passed, please refetch the File or underlying object to get a new URL to use.</td>
+        </tr>
+        <tr>
+            <td><code>url_permanent</code></td>
+            <td>string</td>
+            <td>[Optional] Permanent URL for a file if file. Only present when <code>public</code> is <code>true</code>. This will often be a HTTP redirect to the file's content. This URL will not need any authentication to retrieve.</td>
         </tr>
         <tr>
             <td><code>user</code></td>
@@ -187,7 +187,7 @@ Read file tokens are returned:
 
 Write tokens are NEVER returned in annotations. The streaming API does not include file tokens of any kind. File tokens are never a substitute for access tokens. Write file tokens are portable across applications, but not portable between users (nor portable between authenticated and unauthenticated calls.) Read tokens refer internally to a specific permission-granting object, e.g., a post with an oEmbed annotation, and are only valid as long as that object still exists, the current request would have permission to see that object, and that references the requested file. Read tokens are portable between applications, users and authenticated/unauthenticated calls.
 
-In general, file content is made available to other users by referencing it in annotations on other App.net objects, e.g., posts and messages. However, it is also possible to explicitly mark a file as public, which will allow to to be referenced publicly without being attached to another object. You can do this by setting the `public` value to True on a file at creation time (or after the fact.) Upon doing this, the file will be populated with a `permanent_url` field which will contain a link to the file's content. This link will remain active until the file is no longer set to public.
+In general, file content is made available to other users by referencing it in annotations on other App.net objects, e.g., posts and messages. However, it is also possible to explicitly mark a file as public, which will allow to to be referenced publicly without being attached to another object. You can do this by setting the `public` value to `true` on a file at creation time (or after the fact). Upon doing this, the file will be populated with a `url_permanent` field which will contain a link to the file's content. This link will remain active until the file is no longer set to public.
 
 ## General Parameters
 
