@@ -42,6 +42,7 @@ module Resources
 
   FILE = {
       "complete" => true,
+      "created_at" => "2013-01-28T18:31:18Z",
       "derived_files" => {
           "image_thumb_200s" => {
               "mime_type" => "image/png",
