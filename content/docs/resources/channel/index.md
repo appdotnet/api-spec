@@ -258,6 +258,12 @@ Requests that return streams of Channels respond to [pagination parameters](/doc
             <td>Should the <a href="/docs/resources/stream-marker/">Stream Marker</a> be included with each Channel? Only available when requested with a user access token. Defaults to false.</td>
         </tr>
         <tr>
+            <td><code>include_read</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should Channels with no unread <a href="/docs/resources/message/">Messages</a> be returned? Defaults to true.</td>
+        </tr>
+        <tr>
             <td><code>include_recent_message</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
