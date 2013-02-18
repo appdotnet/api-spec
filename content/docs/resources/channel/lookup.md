@@ -239,3 +239,31 @@ None.
     }
 }
 ~~~
+
+
+## Retrieve number of unread PM Channels
+Returns the current number of `net.app.core.pm` Channels where `has_unread: true` for the current user.
+
+<%= migration_warning ['response_envelope'] %>
+
+<%= endpoint "GET", "users/me/channels/pm/num_unread", "User", "messages"%>
+
+### Parameters
+
+None.
+
+### Example
+
+> GET https://alpha-api.app.net/stream/0/users/me/channels/pm/num_unread
+
+~~~ js
+{
+    "data": 5,
+    "meta": {
+        "code": 200,
+        "max_id": 2,
+        "min_id": 1,
+        "more": false
+    }
+}
+~~~

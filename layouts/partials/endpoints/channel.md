@@ -39,6 +39,12 @@
             <td>User</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-number-of-unread-pm-channels">Retrieve number of unread PM Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/users/me/channels/pm/num_unread</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/channel/lifecycle/#update-a-channel">Update a Channel</a></td>
             <td>PUT</td>
             <td>/stream/0/channels/[channel_id]</td>
