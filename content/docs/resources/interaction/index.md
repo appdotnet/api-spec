@@ -71,7 +71,7 @@ Interactions are objects that represent users taking certain actions on App.net.
         <tr>
             <td><code>event_date</code></td>
             <td>string</td>
-            <td>The time of the most recent interaction occurred at <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
+            <td>The time of the most recent interaction occurred at in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
         </tr>
         <tr>
             <td><code>objects</code></td>
