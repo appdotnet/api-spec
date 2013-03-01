@@ -27,7 +27,7 @@ A JSON object representing the stream to create. See [the stream object](/docs/r
 > 
 > Content-Type: application/json
 > 
-> DATA {"object_types": ["post"], "type": "long_poll", "id": "1", "filter_id": "1", "key": "rollout_stream"}
+> DATA {"object_types": ["post"], "type": "long_poll", "filter_id": "1", "key": "rollout_stream"}
 
 ~~~js
 {
