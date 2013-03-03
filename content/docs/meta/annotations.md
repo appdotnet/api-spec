@@ -7,7 +7,7 @@ title: "Annotations"
 * TOC
 {:toc}
 
-Annotations are metadata that can be attached to Users, Posts, Channels, or Messages. This allows developers and users to add extra information to App.net objects outside of the fields App.net has already defined.
+Annotations are metadata that can be attached to Users, Posts, Channels, Messages, or Files. This allows developers and users to add extra information to App.net objects outside of the fields App.net has already defined.
 
 ## What's so great about annotations?
 
@@ -52,7 +52,7 @@ In general, annotations are a list of objects that have a ```type``` and a ```va
 
 ### Annotations in App.net objects
 
-All objects that support annotations (User, Post, Channel, Message) have an `annotations` field which will contain a list of individual annotation objects if they are present.
+All objects that support annotations (User, Post, Channel, Message, File) have an `annotations` field which will contain a list of individual annotation objects if they are present.
 
 #### Example: annotations field in a Post
 
@@ -91,7 +91,7 @@ All objects that support annotations (User, Post, Channel, Message) have an `ann
 
 ### Limits
 
-- Each object (User, Post, Channel, Message) is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Each object (User, Post, Channel, Message, File) is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
 - Post and Message annotations are immutable and can only be added at creation time.
 - A Post or Message can have multiple annotations of the same "type". 
 - User and Channel annotations are mutable and can be updated at any time.
@@ -100,13 +100,13 @@ All objects that support annotations (User, Post, Channel, Message) have an `ann
 
 ### Creating, Updating and Deleting
 
-For Posts, Messages, and Channels, you can create annotations when you create the object. You must pass JSON objects that include annotations matching the above schema. Please see the documentation for [creating Posts](/docs/resources/post/lifecycle/#create-a-post), [Messages](/docs/resources/message/lifecycle/#create-a-message), and [Channels](/docs/resources/channel/lifecycle/#create-a-channel).
+For Posts, Messages, Channels, and Files, you can create annotations when you create the object. You must pass JSON objects that include annotations matching the above schema. Please see the documentation for [creating Posts](/docs/resources/post/lifecycle/#create-a-post), [Messages](/docs/resources/message/lifecycle/#create-a-message), [Channels](/docs/resources/channel/lifecycle/#create-a-channel), or [Files](/docs/resources/file/lifecycle/#create-a-file).
 
-To add or update User or Channel annotations, you [update a User's profile](/docs/resources/user/profile/#update-a-user) or [update a Channel](/docs/resources/channel/lifecycle/#update-a-channel) and pass in the annotations you want to add or update. To delete an annotation, omit the `value` key for the annotation type you want to delete. For example, to delete a user's blog url, specify `{"type": "net.app.core.directory.blog"}`.
+To add or update User or Channel annotations, you [update a User's profile](/docs/resources/user/profile/#update-a-user), [update a Channel](/docs/resources/channel/lifecycle/#update-a-channel), or [update a File](/docs/resources/file/lifecycle/#update-a-file) and pass in the annotations you want to add or update. To delete an annotation, omit the `value` key for the annotation type you want to delete. For example, to delete a user's blog url, specify `{"type": "net.app.core.directory.blog"}`.
 
 ### Retrieving 
 
-Since annotations can be up to 8192 bytes, they are never included by default. When making a request for Users, Posts, Channels or Messages, you can use the parameter `include_annotations=1` to receive all applicable annotations. When requesting Users or Posts you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations. When requesting Channels or Messages you can use `include_channel_annotations=1` or `include_message_annotations=1` to include just those annotations.
+Since annotations can be up to 8192 bytes, they are never included by default. When making a request for Users, Posts, Channels, Messages, or Files, you can use the parameter `include_annotations=1` to receive all applicable annotations. When requesting Users or Posts you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations. When requesting Channels or Messages you can use `include_channel_annotations=1` or `include_message_annotations=1` to include just those annotations. When requesting Files you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations.
 
 ### Displaying
 
