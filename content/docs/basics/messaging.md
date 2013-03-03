@@ -19,7 +19,7 @@ When you create a Channel, you decide who can read and write to that channel. Th
 
 * Create a private group chat between multiple App.net users
 * Create a moderated group that can be read by a set of users and written to by a different set of users
-* Create a chat room where App.net users can read and write messages while their in the room and leave whenever they want
+* Create a chat room where App.net users can read and write messages while they're in the room and leave whenever they want
 
 If a user is authorized to read a Channel, they can also subscribe to a channel. This allows you to keep track of channels an messages at a more granular level.
 
