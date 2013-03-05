@@ -42,7 +42,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>derived_files</code></td>
             <td>object</td>
-            <td>An object containing any other Files that were created using this File as input. Please see the section on <a href="#derived_files">derived Files</a> for more information.</td>
+            <td>An object containing any other Files that were created using this File as input. Please see the section on <a href="#derived-files">derived Files</a> for more information.</td>
         </tr>
         <tr>
             <td><code>file_token</code></td>
