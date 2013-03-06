@@ -42,17 +42,17 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>derived_files</code></td>
             <td>object</td>
-            <td>An object containing any other Files that were created using this File as input. Please see the section on <a href="#derived_files">derived Files</a> for more information.</td>
+            <td>An object containing any other Files that were created using this File as input. Please see the section on <a href="#derived-files">Derived Files</a> for more information.</td>
         </tr>
         <tr>
             <td><code>file_token</code></td>
             <td>string</td>
-            <td>[Optional] A token that can be used to modify a File. Only present upon creation time, if a write file token was specified when fetching this file or if you have the files scope. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+            <td>[Optional] A token that can be used to modify a File. Only present upon creation time, if a write file token was specified when fetching this file or if you have the files scope. Please see the section on <a href="#file-authorization">File Authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>file_token_read</code></td>
             <td>string</td>
-            <td>[Optional] A token that can be used to access a File. Only present when <code>public</code> is <code>true</code> or if a read token was specified when fetching this File. Please see the section on <a href="#file_authorization">File authorization</a> for more information.</td>
+            <td>[Optional] A token that can be used to access a File. Only present when <code>public</code> is <code>true</code> or if a read token was specified when fetching this File. Please see the section on <a href="#file-authorization">File Authorization</a> for more information.</td>
         </tr>
         <tr>
             <td><code>id</code></td>
