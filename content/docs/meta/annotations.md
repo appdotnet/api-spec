@@ -106,7 +106,7 @@ To add or update User or Channel annotations, you [update a User's profile](/doc
 
 ### Retrieving 
 
-Since annotations can be up to 8192 bytes, they are never included by default. When making a request for Users, Posts, Channels, Messages, or Files, you can use the parameter `include_annotations=1` to receive all applicable annotations. When requesting Users or Posts you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations. When requesting Channels or Messages you can use `include_channel_annotations=1` or `include_message_annotations=1` to include just those annotations. When requesting Files you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations.
+Since annotations can be up to 8192 bytes, they are never included by default. When making a request for Users, Posts, Channels, Messages, or Files, you can use the parameter `include_annotations=1` to receive all applicable annotations. When requesting Users or Posts you can use `include_user_annotations=1` or `include_post_annotations=1` to include just those annotations. When requesting Channels or Messages you can use `include_channel_annotations=1` or `include_message_annotations=1` to include just those annotations. When requesting Files you can use `include_file_annotations=1` or `include_user_annotations=1` to include just those annotations.
 
 ### Displaying
 
