@@ -18,6 +18,7 @@ This flow is useful for obtaining an access token authorized for specific scopes
 **Your application must be specifically approved to use this flow.** To obtain authorization, please email password-auth@app.net from your user account's email address and include your application's `client_id`, your username, and an explanation of your situation.
 
 **You may require app-specific passwords with the `require_app_specific_password=1` URL parameter.** Two-Factor Auth users must use app-specific passwords irrespective of this parameter. We strongly encourage the use of app-specific passwords to all users as they significantly increase account security.
+
 ## Additional rules
 
 > Some of these rules might limit what you can do with your app. Please do not attempt to circumvent them, or we will disable your application token. That may sound harsh, but it is of utmost importance that we protect the integrity of the service and the security of user accounts.
