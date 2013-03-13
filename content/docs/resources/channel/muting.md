@@ -68,7 +68,7 @@ None.
 
 ## Mute a Channel
 
-Mute a Channel. A user cannot be [auto-subscribed](/docs/basics/messaging/#subscriptions) to muted channels. Thus a user will probably not see any new messages to a muted channel. If a user doesn't want to see a channel until there is a new message, they should [unsubscribe from the channel](/docs/resources/channel/subscriptions/#unsubscribe-from-a-channel) instead of muting it. If you mute a channel, you will automatically be unsubscribed from it.
+Mute a Channel. If a user doesn't want to see a channel until there is a new message, they should [unsubscribe from the channel](/docs/resources/channel/subscriptions/#unsubscribe-from-a-channel) instead of muting it. If a user mutes a channel, they will automatically be unsubscribed from it and cannot be [auto-subscribed](/docs/basics/messaging/#subscriptions) to it.
 
 <%= migration_warning ['response_envelope'] %>
 
