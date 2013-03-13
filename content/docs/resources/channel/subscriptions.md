@@ -70,7 +70,7 @@ None.
 
 ## Subscribe to a Channel
 
-Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users-subscribed-channels).
+Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users-subscribed-channels). If a user has [muted this Channel](/docs/resources/channel/muting/#mute-a-channel), this call will automatically unmute the Channel.
 
 <%= migration_warning ['response_envelope'] %>
 
