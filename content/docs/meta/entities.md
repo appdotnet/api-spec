@@ -9,11 +9,11 @@ title: "Entities"
 
 Entities allow users and applications to provide rich text formatting for posts. They provide common formatting for mentions and hashtags but they also allow links to be embedded with anchor text which gives more context. Each entity type is a list with 0 or more entities of the same type.
 
-Entities are designed to be very simple to render — they should relatively easily translate into [`NSAttributedString`](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html) objects and the like.
-
 Usually entities are extracted from the Post text by App.net's servers. We allow users to specify some entities at Post creation time. Please refer to the [user specified entities](#user-specified-entities) documentation for more information.
 
 Ranges specified by entities may be adjacent, but may not overlap.
+
+<div class="alert alert-info"><b>Note:</b> <code>pos</code> and <code>len</code> fields are given as UTF-32 code points. Many string implementations (in particular, Cocoa's NSString class and Javascript's strings) use UTF-16 or UCS-2 encoding internally, and thus the indices given will not map directly to UTF-16 code points if encoded with surrogate pairs, e.g., emoji characters.</div>
 
 All of the following examples are about the following post:
 

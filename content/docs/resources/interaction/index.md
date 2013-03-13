@@ -16,6 +16,7 @@ Interactions are objects that represent users taking certain actions on App.net.
 ~~~ js
 {
     "action": "repost",
+    "event_date": "2012-07-16T17:23:34Z",
     "objects": [
         {
             // ... post 1 ...
@@ -37,6 +38,7 @@ Interactions are objects that represent users taking certain actions on App.net.
 ~~~ js
 {
     "action": "follow",
+    "event_date": "2012-07-16T17:23:34Z",
     "objects": [
         {
             // ... @dalton's user object ...
@@ -65,6 +67,11 @@ Interactions are objects that represent users taking certain actions on App.net.
             <td><code>action</code></td>
             <td>string</td>
             <td>What <code>users</code> did. Currently one of <code>follow</code>, <code>reply</code>, <code>repost</code>, or <code>star</code></td>
+        </tr>
+        <tr>
+            <td><code>event_date</code></td>
+            <td>string</td>
+            <td>The time of the most recent interaction occurred at in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601</a> format.</td>
         </tr>
         <tr>
             <td><code>objects</code></td>
@@ -105,6 +112,7 @@ None.
     "data": [
         {
             "action": "repost",
+            "event_date": "2012-07-16T17:23:34Z",
             "objects": [
                 {
                     "id": "1",
@@ -124,6 +132,7 @@ None.
         },
         {
             "action": "follow",
+            "event_date": "2012-07-16T17:23:34Z",
             "objects": [
                 {
                     "id": "1",

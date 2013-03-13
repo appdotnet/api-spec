@@ -44,6 +44,8 @@ Users indicate their interest in a given channel by subscribing to it. When a ch
 
 To get this same behavior for non-pm channels, you include the key `auto_subscribe: true` when you create or update the Channel. This will auto-subscribe all the users on the ACLs (according to their preferences).
 
+If a user has [muted a channel](/docs/resources/channel/muting/#mute-a-channel) they will never be auto-subscribed to it.
+
 ## Annotations
 
 Both Channel and Message objects allow for annotations; however, the details of each annotation implementation vary. Channel annotations act like User annotations — they are unique by type and mutable by the Channel's owner. Message annotations act like Post annotations — they are immutable.

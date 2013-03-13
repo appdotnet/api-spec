@@ -1,5 +1,5 @@
 ---
-title: "Data Formats"
+title: "Pagination"
 ---
 
 # Pagination
@@ -7,7 +7,30 @@ title: "Data Formats"
 * TOC
 {:toc}
 
-Most App.net API endpoints that return lists of objects are paginated. Understanding how paginated data is requested and returned is key to retrieving data efficiently from the API. 
+Most App.net API endpoints that return lists of objects are paginated. Understanding how paginated data is requested and returned is key to retrieving data efficiently from the API.
+
+## Overview
+
+App.net always returns items from newest to oldest. You paginate through results by passing `before_id` and `since_id` to the API which restricts the range of content App.net will return. By adjusting these parameters, you can consistently fill in the data you're missing from the App.net API.
+
+By default, when you request data App.net will return the most recent items that are older than `before_id`. If instead you'd like the least recent items that are newer than `since_id`, you can specify `count` as a negative value. As an example, if a stream contains:
+
+> 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+
+requesting it with `before_id=9&since_id=2&count=2` returns
+
+> 8, 7
+
+requesting it with `before_id=9&since_id=2&count=-2` returns
+
+> 4, 3
+
+In summary:
+
+* `before_id` and `since_id` define the range App.net will return results from. If provided, they should be filled in from a previous request's `min_id` or `max_id`.
+* `count` tells App.net how many items you want. It defaults to 20 and cannot be more than 200.
+* If `count` is negative, App.net returns results starting from the `since_id`. **Remember, items are always returned from newest to oldest even in this case.**
+
 
 ## Parameters
 
@@ -39,7 +62,7 @@ Requests for paginated streams can be filtered by passing the following query st
             <td><code>count</code></td>
             <td>Optional</td>
             <td>integer</td>
-            <td>The number of objects to return, up to a maximum of 200.</td>
+            <td>The number of objects to return, up to a maximum of 200. If this value is negative, items will be returned starting at <code>since_id</code>. Please see the <a href="#overview">pagination overview</a> for more information.</td>
         </tr>
     </tbody>
 </table>

@@ -42,6 +42,7 @@ module Resources
 
   FILE = {
       "complete" => true,
+      "created_at" => "2013-01-28T18:31:18Z",
       "derived_files" => {
           "image_thumb_200s" => {
               "mime_type" => "image/png",
@@ -72,7 +73,7 @@ module Resources
       },
       "total_size" => 346369,
       "type" => "com.example.test",
-      "url" => "https://example.com/original_file",
+      "url" => "https://...",
       "url_expires" => "2013-01-25T03:00:00Z",
       "user" => "...user object...",  # TODO render this as a user placholder somehow
   }.freeze
