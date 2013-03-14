@@ -38,7 +38,7 @@ Once approved, it's pretty straightforward:
 
 1. From your client, make a request to the token endpoint:
 
-        POST https://alpha.app.net/oauth/access_token
+        POST https://account.app.net/oauth/access_token
 
     with URL-encoded POST body:
 

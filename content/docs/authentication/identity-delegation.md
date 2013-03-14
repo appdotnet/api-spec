@@ -32,7 +32,7 @@ Intentionally not addressed in this document are the following:
 1. The authorized client makes an authenticated POST request to the resource server OAuth token endpoint:
 
         POST /oauth/access_token HTTP/1.1
-        Host: alpha.app.net
+        Host: account.app.net
         Authorization: Bearer [access_token]
         Content-Length: 59
         Content-Type: application/x-www-form-urlencoded
@@ -43,7 +43,7 @@ Intentionally not addressed in this document are the following:
 
         {"delegate_token": "[delegate token]"}
 
-    > For App.net, the OAuth token endpoint is: `https://alpha.app.net/oauth/access_token`
+    > For App.net, the OAuth token endpoint is: `https://account.app.net/oauth/access_token`
 
 1. The authorized client makes a request to the delegate client with two additional headers, `Identity-Delegate-Token` and `Identity-Delegate-Endpoint`:
 
