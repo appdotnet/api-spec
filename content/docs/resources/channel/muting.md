@@ -15,7 +15,7 @@ This endpoint is not paginated and does not respond to the [general channel para
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels/muted", "User", "public_messages</code> or <code>messages"%>
 
 ### Parameters
 
