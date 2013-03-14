@@ -80,5 +80,23 @@
             <td>/stream/0/channels/subscribers/ids</td>
             <td>Varies</td>
         </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/muting/#mute-a-channel">Mute a Channel</a></td>
+            <td>POST</td>
+            <td>/stream/0/channels/[channel_id]/mute</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/muting/#unmute-a-channel">Unmute a Channel</a></td>
+            <td>DELETE</td>
+            <td>/stream/0/channels/[channel_id]/unmute</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/muting/#get-current-users-muted-channels">Get current user's muted Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/users/me/channels/muted</td>
+            <td>User</td>
+        </tr>
     </tbody>
 </table>

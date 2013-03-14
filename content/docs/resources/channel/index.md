@@ -46,6 +46,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         "you": true
     },
     "you_can_edit": false,
+    "you_muted": false,
     "you_subscribed": true
 }
 ~~~
@@ -109,6 +110,11 @@ A Channel is a user created stream of Messages. It controls access to the messag
             <td><code>writers</code></td>
             <td><a href="#acl">ACL object</a></td>
             <td>The access control list that describes who can write <a href="/docs/resources/message/">Messages</a> to this Channel.</td>
+        </tr>
+        <tr>
+            <td><code>you_muted</code></td>
+            <td>boolean</td>
+            <td>Have you muted this Channel? A user cannot be <a href="/docs/basics/messaging/#subscriptions">auto-subscribed</a> to muted channels.</td>
         </tr>
         <tr>
             <td><code>you_subscribed</code></td>
