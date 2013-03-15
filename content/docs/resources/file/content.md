@@ -40,21 +40,11 @@ This endpoint will return a 302 Redirect to a temporary URL for the content of t
     </tbody>
 </table>
 
-### Example
-
-> PUT https://alpha-api.app.net/stream/0/files/1/content
->
-> Content-Type: image/jpeg
->
-> DATA [raw file, not base64 encoded]
->
-> 204 No Content
-
 ## Set File content
 
 Set the content for an incomplete File. The content type for this request must be the content type of the file you are uploading.
 
-This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file.
+This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file. For more information, see [file storage limits](/docs/resources/file/#limits).
 
 <%= migration_warning ['response_envelope'] %>
 

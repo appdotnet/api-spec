@@ -194,6 +194,10 @@ Write tokens are NEVER returned in annotations. The streaming API does not inclu
 
 In general, file content is made available to other users by referencing it in annotations on other App.net objects, e.g., posts and messages. However, it is also possible to explicitly mark a file as public, which will allow to to be referenced publicly without being attached to another object. You can do this by setting the `public` value to `true` on a file at creation time (or after the fact). Upon doing this, the file will be populated with a `url_permanent` field which will contain a link to the file's content. This link will remain active until the file is no longer set to public.
 
+## Limits
+
+Paid tier accounts receive 10GB total storage, with a 100MB maximum individual file size. Free tier accounts receive 500MB total storage, with a 10MB maximum individual file size. Individual accounts may have earned additional file storage through the invitation system (see this [blog post](http://blog.app.net/2013/02/25/introducing-a-free-tier/)). To determine the used and available space for an individual user, inspect the `storage` field of their [user token](/docs/resources/token/#retrieve-current-token).
+
 ## General Parameters
 
 Requests that return streams of Files respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
