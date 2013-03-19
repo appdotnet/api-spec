@@ -69,6 +69,18 @@
             <td>User</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/user/blocking/#block-a-user">Block a User</a></td>
+            <td>POST</td>
+            <td>/stream/0/users/[user_id]/block</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/user/blocking/#unblock-a-user">Unblock a User</a></td>
+            <td>DELETE</td>
+            <td>/stream/0/users/[user_id]/block</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/user/lookup/#retrieve-multiple-users">Retrieve multiple Users</a></td>
             <td>GET</td>
             <td>/stream/0/users</td>
@@ -108,12 +120,24 @@
             <td><a href="/docs/resources/user/muting/#list-muted-users">Retrieve muted Users</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/muted</td>
-            <td>User</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user/muting/#retrieve-muted-user-ids-for-multiple-users">Retrieve muted User IDs for multiple Users</a></td>
             <td>GET</td>
             <td>/stream/0/users/muted/ids</td>
+            <td>App</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/user/blocking/#list-blocked-users">Retrieve blocked Users</a></td>
+            <td>GET</td>
+            <td>/stream/0/users/[user_id]/blocked</td>
+            <td>Any</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/user/blocking/#retrieve-blocked-user-ids-for-multiple-users">Retrieve blocked User IDs for multiple Users</a></td>
+            <td>GET</td>
+            <td>/stream/0/users/blocked/ids</td>
             <td>App</td>
         </tr>
         <tr>
