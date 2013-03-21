@@ -21,11 +21,7 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 
 <%= endpoint "POST", "channels", "User", "public_messages</code> or <code>messages"%>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/channels
 >
@@ -81,28 +77,11 @@ If you want to add or update a Channel's annotations, you may include the option
 
 <%= endpoint "PUT", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel to update."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to update</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/channels/1
 >

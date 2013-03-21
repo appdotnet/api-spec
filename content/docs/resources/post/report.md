@@ -17,28 +17,11 @@ Report a post as spam. This will mute the author of the post and send a report t
 
 <%= endpoint "POST", "posts/[post_id]/report", "User" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to report."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/1/report
 

@@ -15,28 +15,11 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 <%= endpoint "POST", "users/[user_id]/mute", "User", "follow" %>
 
-### Data
+<%= url_params [
+  ["user_id","The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/users/1/mute
 
@@ -111,28 +94,11 @@ Stop hiding all posts for a given user.
 
 <%= endpoint "DELETE", "users/[user_id]/mute", "User", "follow" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the User to unmute. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/users/1/mute
 
@@ -199,17 +165,17 @@ Stop hiding all posts for a given user.
 
 ## List muted Users
 
-Retrieve a list of muted users. If you have a [user token](/docs/authentication/#access-tokens) you can request muted users for the current user by using `me` as the requested user id. If you have an [app token](/docs/authentication/#access-tokens) you can request muted users for any user that has authorized your app.
+Retrieve a list of muted users. 
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/muted", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id",'The id of the user to retrieve a list of muted users for. If requested with a <a href="/docs/authentication/#access-tokens">user token</a> you can request muted users for the current user by using <code>me</code> as the user id. If requested with an <a href="/docs/authentication/#access-tokens">app token</a> you can request muted users for any user that has authorized your app.']
+]%>
 
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/muted
 
@@ -277,7 +243,6 @@ None.
 }
 ~~~
 
-
 ## Retrieve muted User IDs for multiple Users
 
 Returns a list of muted User ids for each User id requested. At most 200 User ids can be requested.
@@ -286,28 +251,11 @@ Returns a list of muted User ids for each User id requested. At most 200 User id
 
 <%= endpoint "GET", "users/muted/ids", "App" %>
 
-### Parameters
+<%= query_params [
+  ["ids","A comma separated list of User ids to retrieve muted User ids for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of User ids to retrieve muted User ids for</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/muted/ids?ids=1,2
 

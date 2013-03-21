@@ -56,11 +56,7 @@ Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic 
 
 <%= endpoint "GET", "posts/stream/explore", "None" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/explore
 
@@ -89,28 +85,11 @@ Retrieve the Posts in an Explore Stream.
 
 <%= endpoint "GET", "posts/stream/explore/[slug]", "None" %>
 
-### Parameters
+<%= url_params [
+    ["slug", "The slug of the Explore Stream to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>slug</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The <code>slug</code> for this Explore Stream.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/explore/photos
 

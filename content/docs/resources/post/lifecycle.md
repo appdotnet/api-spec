@@ -21,34 +21,12 @@ If you want to test how your text will be processed you can use the [text proces
 
 <%= endpoint "POST", "posts", "User", "write_post" %>
 
-### Data
+<%= post_params [
+    ["text", "The raw text of the post."],
+    ["reply_to", "(Optional) The id of the Post that this new Post is replying to."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>text</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The raw text of the post</td>
-        </tr>
-        <tr>
-            <td><code>reply_to</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>The id of the post that this new post is replying to</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/posts
 >
@@ -98,7 +76,9 @@ If you want to test how your text will be processed you can use the [text proces
 }
 ~~~
 
-### JSON Example
+<br>
+
+#### Example (JSON Data)
 
 > POST https://alpha-api.app.net/stream/0/posts?include_post_annotations=1
 > 
@@ -167,30 +147,13 @@ Delete a <a href="/docs/resources/post/">Post</a>. The current user must be the 
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "DELETE", "posts", "User", "write_post" %>
+<%= endpoint "DELETE", "posts/[post_id]", "User", "write_post" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to delete."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1
 

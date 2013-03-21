@@ -84,11 +84,7 @@ The `last_read_id` is updated if the provided `id` is larger than the current va
 
 <%= endpoint "POST", "posts/marker", "User" %>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/marker
 >

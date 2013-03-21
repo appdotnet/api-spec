@@ -15,28 +15,11 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being fo
 
 <%= endpoint "POST", "users/[user_id]/follow", "User", "follow" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id to be followed. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id to be followed. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/users/1/follow
 
@@ -111,28 +94,11 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being un
 
 <%= endpoint "DELETE", "users/[user_id]/follow", "User", "follow" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id to stop following. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id to stop following. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/users/1/follow
 
@@ -205,28 +171,11 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects the specified
 
 <%= endpoint "GET", "users/[user_id]/following", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/following
 
@@ -305,28 +254,11 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects for users fol
 
 <%= endpoint "GET", "users/[user_id]/followers", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/followers
 
@@ -405,28 +337,11 @@ Returns an array of user ids the specified user is following.
 
 <%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/following/ids
 
@@ -451,28 +366,11 @@ Returns an array of user ids for users following the specified user.
 
 <%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/followers/ids
 

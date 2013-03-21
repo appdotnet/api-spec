@@ -17,34 +17,18 @@ Returns a specific [File](/docs/resources/file/).
 
 <%= file_token_reminder %>
 
-### Parameters
+<%= url_params [
+    ["file_id", "The id of the File to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>file_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The file id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/files/1
 
 <%= response(:file) %>
 
 ## Retrieve multiple Files
+
 Returns multiple Files requested by id. At most 200 files can be requested. Files which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= migration_warning ['response_envelope'] %>
@@ -53,28 +37,11 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 
 <%= file_token_reminder %>
 
-### Parameters
+<%= query_params [
+    ["ids", "A comma separated list of File ids to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of File ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/files?ids=1,2,6502
 
@@ -86,17 +53,14 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 } %>
 
 ## Retrieve my Files
+
 Returns a stream of all Files the current user has created. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general file parameters](/docs/resources/file/#general-parameters).
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/me/files", "User", "files"%>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/files
 

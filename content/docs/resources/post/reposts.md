@@ -21,28 +21,11 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 <%= endpoint "POST", "posts/[post_id]/repost", "User", "write_post" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to repost."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/1/repost
 
@@ -121,28 +104,11 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
 
 <%= endpoint "DELETE", "posts/[post_id]/repost", "User", "write_post" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to unrepost."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1/repost
 

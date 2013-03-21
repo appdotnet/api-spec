@@ -99,11 +99,7 @@ List all the [Interactions](/docs/resources/interaction/) other users have had w
 
 <%= endpoint "GET", "users/me/interactions", "User" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/interactions
 

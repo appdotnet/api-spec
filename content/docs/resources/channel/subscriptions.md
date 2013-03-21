@@ -17,11 +17,7 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels
 
@@ -76,30 +72,13 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 <%= endpoint "POST", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel to subscribe to."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to update</td>
-        </tr>
-    </tbody>
-</table>
+#### Example
 
-### Example
-
-> POST https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
+> POST https://alpha-api.app.net/stream/0/channels/1/subscribe
 
 ~~~ js
 {
@@ -146,30 +125,13 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 <%= endpoint "DELETE", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel to unsubscribe from."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to update</td>
-        </tr>
-    </tbody>
-</table>
+#### Example
 
-### Example
-
-> DELETE https://alpha-api.app.net/stream/0/channels/[channel_id]/subscribe
+> DELETE https://alpha-api.app.net/stream/0/channels/1/subscribe
 
 ~~~ js
 {
@@ -218,28 +180,11 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 <%= endpoint "GET", "channels/[channel_id]/subscribers", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
+<%= url_params [
+    ["channel_id", "The id of the Channel to retrieve subscribers for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to request</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/1/subscribers
 
@@ -318,28 +263,11 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 <%= endpoint "GET", "channels/[channel_id]/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
+<%= url_params [
+    ["channel_id", "The id of the Channel to retrieve subscriber ids for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to update</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/1/subscribers
 
@@ -357,34 +285,17 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 ## Retrieve user ids subscribed to multiple Channels
 
-Retrieve all the user ids who are subscribed to multiple Channels. Up to 200 channels may be requested at one time. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
+For each requested Channel, retrieve the ids of all Users who are subscribed to that Channel. Up to 200 Channels may be requested at one time. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
+<%= query_params [
+    ["ids", "A comma separated list of Channel ids to retrieve subscriber ids for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>A comma separated list of Channel ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/subscribers/ids?ids=1,2,3,5
 

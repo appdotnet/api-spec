@@ -15,28 +15,11 @@ List all the Users who have reposted a given Post.
 
 <%= endpoint "GET", "posts/[post_id]/reposters", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["post_id","The id of the target Post."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/reposters
 
@@ -112,28 +95,11 @@ List all the Users who have starred a given Post.
 
 <%= endpoint "GET", "posts/[post_id]/stars", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["post_id","The id of the target post."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/stars
 

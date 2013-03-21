@@ -17,11 +17,11 @@ Send a JSON document that matches the [Filter schema](/docs/resources/filter/) w
 
 <%= endpoint "POST", "filters", "User" %>
 
-### Data
+#### Data
 
 A JSON object representing the [Filter](/docs/resources/filter/) to create.
 
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/filters
 > 
@@ -58,28 +58,11 @@ Returns a specific [Filter](/docs/resources/filter/) object.
 
 <%= endpoint "GET", "filters/[filter_id]", "User" %>
 
-### Parameters
+<%= url_params [
+    ["filter_id", "The id of the Filter to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>filter_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The filter id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/filters/1
 
@@ -112,11 +95,7 @@ Return the [Filter](/docs/resources/filter/) for the current user.
 
 <%= endpoint "GET", "filters", "User" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/filters
 
@@ -155,28 +134,11 @@ Updates a specific [Filter](/docs/resources/filter/) object. When a filter is up
 
 <%= endpoint "PUT", "filters/[filter_id]", "User" %>
 
-### Parameters
+<%= url_params [
+    ["filter_id", "The id of the Filter to update."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>filter_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The filter id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/filters/1
 > 
@@ -221,28 +183,11 @@ Delete a [Filter](/docs/resources/filter/). The Filter must belong to the curren
 
 <%= endpoint "DELETE", "filters/[filter_id]", "User" %>
 
-### Data
+<%= url_params [
+    ["filter_id", "The id of the Filter to delete."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>filter_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The filter id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/filters/1
 
@@ -277,11 +222,7 @@ Delete all [Filters](/docs/resources/filter/) for the current user. It returns t
 
 <%= endpoint "DELETE", "filters", "User" %>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/filters
 

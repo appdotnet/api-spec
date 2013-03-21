@@ -15,28 +15,11 @@ Returns a specific [Channel](/docs/resources/channel/).
 
 <%= endpoint "GET", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
+<%= url_params [
+    ["channel_id", "The id of the Channel to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The channel id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/2
 
@@ -85,28 +68,11 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 
 <%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
+<%= query_params [
+    ["ids", "A comma separated list of ids of Channels to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of Channel ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels?ids=1,2,6502
 
@@ -188,11 +154,7 @@ Returns a stream of all Channels the current user has created. This endpoint res
 
 <%= endpoint "GET", "users/me/channels", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/channels
 
@@ -240,7 +202,6 @@ None.
 }
 ~~~
 
-
 ## Retrieve number of unread PM Channels
 Returns the current number of `net.app.core.pm` Channels where `has_unread: true` for the current user.
 
@@ -248,11 +209,7 @@ Returns the current number of `net.app.core.pm` Channels where `has_unread: true
 
 <%= endpoint "GET", "users/me/channels/pm/num_unread", "User", "messages"%>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/channels/pm/num_unread
 
