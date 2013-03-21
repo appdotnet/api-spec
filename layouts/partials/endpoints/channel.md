@@ -89,7 +89,7 @@
         <tr>
             <td><a href="/docs/resources/channel/muting/#unmute-a-channel">Unmute a Channel</a></td>
             <td>DELETE</td>
-            <td>/stream/0/channels/[channel_id]/unmute</td>
+            <td>/stream/0/channels/[channel_id]/mute</td>
             <td>User</td>
         </tr>
         <tr>
