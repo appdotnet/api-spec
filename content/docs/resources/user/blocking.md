@@ -17,28 +17,11 @@ In most cases, [muting a user](/docs/resources/user/muting/#mute-a-user) is prob
 
 <%= endpoint "POST", "users/[user_id]/block", "User", "follow" %>
 
-### Data
+<%= url_params [
+  ["user_id","The id of the User to block. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the User to block. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/users/1/block
 
@@ -114,28 +97,11 @@ Allow a blocked user to interact with my content.
 
 <%= endpoint "DELETE", "users/[user_id]/block", "User", "follow" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The id of the User to block. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the User to unblock. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/users/1/block
 
@@ -203,17 +169,17 @@ Allow a blocked user to interact with my content.
 
 ## List blocked Users
 
-Retrieve a list of blocked users. If you have a [user token](/docs/authentication/#access-tokens) you can request blocked users for the current user by using `me` as the requested user id. If you have an [app token](/docs/authentication/#access-tokens) you can request blocked users for any user that has authorized your app.
+Retrieve a list of blocked users.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/blocked", "Any" %>
 
-### Parameters
+<%= url_params [
+  ["user_id",'The id of the user to retrieve a list of muted users for. If requested with a <a href="/docs/authentication/#access-tokens">user token</a> you can request blocked users for the current user by using <code>me</code> as the user id. If requested with an <a href="/docs/authentication/#access-tokens">app token</a> you can request blocked users for any user that has authorized your app.']
+]%>
 
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/blocked
 
@@ -291,28 +257,11 @@ Returns a list of blocked User ids for each User id requested. At most 200 User 
 
 <%= endpoint "GET", "users/blocked/ids", "App" %>
 
-### Parameters
+<%= query_params [
+  ["ids","A comma separated list of User ids to retrieve blocked User ids for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of User ids to retrieve blocked User ids for</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/blocked/ids?ids=1,2
 

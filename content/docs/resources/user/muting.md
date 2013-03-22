@@ -165,7 +165,7 @@ Stop hiding all posts for a given user.
 
 ## List muted Users
 
-Retrieve a list of muted users. 
+Retrieve a list of muted users.
 
 <%= migration_warning ['response_envelope'] %>
 
