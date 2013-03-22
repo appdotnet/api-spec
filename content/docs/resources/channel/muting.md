@@ -17,11 +17,7 @@ This endpoint is not paginated and does not respond to the [general channel para
 
 <%= endpoint "GET", "users/me/channels/muted", "User", "public_messages</code> or <code>messages"%>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/channels/muted
 
@@ -74,28 +70,11 @@ Mute a Channel. If a user doesn't want to see a channel until there is a new mes
 
 <%= endpoint "POST", "channels/[channel_id]/mute", "User", "public_messages</code> or <code>messages"%>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel to mute."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to mute</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/channels/1/mute
 
@@ -139,34 +118,17 @@ Mute a Channel. If a user doesn't want to see a channel until there is a new mes
 
 ## Unmute a Channel
 
-Unmute from a Channel. This allows you to be resubscribed to the channel (but it does not happen automatically).
+Unmute a Channel. This allows you to be resubscribed to the channel (but it does not happen automatically).
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "channels/[channel_id]/mute", "User", "public_messages</code> or <code>messages"%>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel to unmute."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel to unmute</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/channels/1/mute
 

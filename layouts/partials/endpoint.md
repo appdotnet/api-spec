@@ -1,11 +1,11 @@
-### Endpoint
+#### Endpoint
 
 <table style="width: auto">
     <thead>
         <tr>
-            <th width="70">Method</th>
-            <th width="250">Path</th>
-            <th width="70">Token</th>
+            <th width="">Method</th>
+            <th width="">URL</th>
+            <th width="">Token</th>
             <% if scope != '' %>
                 <th>Scope</th>
             <% end %>

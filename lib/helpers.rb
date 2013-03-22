@@ -18,7 +18,24 @@ def migration_warning(migrations = [])
 end
 
 def endpoint(method, path, token, scope = "")
-    render '/partials/endpoint', :method => method, :path => '/stream/0/'+path, :token => token, :scope => scope
+    path = path.gsub('[','<b>{').gsub(']','}</b>')
+    render '/partials/endpoint', :method => method, :path => 'https://alpha-api.app.net/stream/0/'+path, :token => token, :scope => scope
+end
+
+def url_params(params = [])
+    render '/partials/parameters', :header => "URL Parameters", :params => params
+end
+
+def query_params(params = [])
+    render '/partials/parameters', :header => "Query String Parameters", :params => params
+end
+
+def query_params_typed(params = [])
+    render "/partials/parameters-typed", :header => "Query String Parameters", :params => params
+end
+
+def post_params(params = [])
+    render "/partials/parameters", :header => "POST Body Data", :params =>params
 end
 
 def file_token_reminder()

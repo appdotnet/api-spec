@@ -15,28 +15,11 @@ When a request is made to [create a Post](/docs/resources/post/lifecycle/#create
 
 <%= endpoint "POST", "text/process", "Any" %>
 
-### Data
+<%= post_params [
+    ["text", "The raw text to process."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>text</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The raw text to process</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/text/process
 >

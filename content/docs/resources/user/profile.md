@@ -17,11 +17,7 @@ If you want to add or update a User's annotations, you may include the optional 
 
 <%= endpoint "PUT", "users/me", "User", "update_profile" %>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
 >
@@ -81,28 +77,11 @@ Retrieve a User's avatar image. This endpoint does not require authentication, i
 
 <%= endpoint "GET", "users/[user_id]/avatar", "None" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/avatar
 >
@@ -209,28 +188,11 @@ Retrieve a User's cover image. This endpoint does not require authentication, is
 
 <%= endpoint "GET", "users/[user_id]/cover", "None" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/cover
 >

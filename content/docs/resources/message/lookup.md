@@ -17,34 +17,12 @@ Returns a specific [Message](/docs/resources/message/).
 
 <%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
 
-### Parameters
+<%= url_params [
+    ["channel_id", "The id of the Channel containing the Message."],
+    ["message_id", "The id of the Message to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The channel id</td>
-        </tr>
-        <tr>
-            <td><code>message_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The message id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/2/messages/480
 
@@ -80,34 +58,18 @@ Returns a specific [Message](/docs/resources/message/).
 ~~~
 
 ## Retrieve multiple Messages
+
 Returns multiple Messages requested by id. At most 200 messages can be requested. Messages may be requested from more than one channel at a time. Messages which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/messages", "User", "public_messages</code> or <code>messages" %>
 
-### Parameters
+<%= query_params [
+    ["ids", "A comma separated list of ids of the Messages to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of Message ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/messages?ids=480,481
 
@@ -153,11 +115,7 @@ Retrieve a stream of the Messages the current user has created. This endpoint re
 
 <%= endpoint "GET", "users/me/messages", "User", "public_messages</code> or <code>messages" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/messages
 

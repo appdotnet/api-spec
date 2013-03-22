@@ -11,36 +11,19 @@ title: "Post Replies"
 
 Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
 
-**This endpoint would be more accurately named ```stream/0/posts/[post_id]/thread``` and may be renamed in a later API version.**
+**This endpoint would be more accurately named ```stream/0/posts/{post_id}/thread``` and may be renamed in a later API version.**
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/[post_id]/replies", "Any" %>
 
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
+<%= url_params [
+    ["post_id","The id of a Post in the thread to retrieve."]
+]%>
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1/replies
 

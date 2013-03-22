@@ -15,11 +15,7 @@ Returns info about the current [OAuth access token](/docs/authentication/#access
 
 <%= endpoint "GET", "token", "Any" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example (App Token)
 
 Requested with an app access token:
 
@@ -41,6 +37,10 @@ Requested with an app access token:
     }
 }
 ~~~
+
+<br>
+
+#### Example (User Token)
 
 Requested with a user access token:
 
@@ -135,11 +135,7 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
 
 <%= endpoint "GET", "apps/me/tokens/user_ids", "App" %>
 
-### Parameters
-
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/apps/me/tokens/user_ids
 
@@ -164,11 +160,9 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
 
 <%= endpoint "GET", "apps/me/tokens", "App" %>
 
-### Parameters
-
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 > GET https://alpha-api.app.net/stream/0/apps/me/tokens
 
 ~~~ js

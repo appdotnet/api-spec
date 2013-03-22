@@ -19,26 +19,9 @@ This endpoint will return a 302 Redirect to a temporary URL for the content of t
 
 <%= file_token_reminder %>
 
-### Data
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>file_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The file id.</td>
-        </tr>
-    </tbody>
-</table>
+<%= url_params [
+    ["file_id", "The id of the File to retrieve content for."]
+]%>
 
 ## Set File content
 
@@ -52,28 +35,11 @@ This endpoint could return a `507 Insufficient Storage` error if the user doesn'
 
 <%= file_token_reminder %>
 
-### Data
+<%= url_params [
+    ["file_id", "The id of the File to set content for."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>file_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The file id.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/files/1/content
 >

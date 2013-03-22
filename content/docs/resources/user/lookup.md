@@ -15,28 +15,11 @@ Returns a specific <a href="/docs/resources/user/">User</a> object.
 
 <%= endpoint "GET", "users/[user_id]", "None" %>
 
-### Parameters
+<%= url_params [
+  ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1
 
@@ -108,28 +91,11 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 
 <%= endpoint "GET", "users", "Any" %>
 
-### Parameters
+<%= query_params [
+  ["ids","A comma separated list of User ids to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of User ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users?ids=1,2,3
 
@@ -163,28 +129,11 @@ Search the App.net userbase.
 
 <%= endpoint "GET", "users/search", "Any" %>
 
-### Parameters
+<%= query_params [
+  ["q","The search query. Supports @username or #tag searches as well as normal search terms. Searches username, display name, bio information. <b>Does not search posts.</b>"]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>q</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The search query. Supports @username or #tag searches as well as normal search terms. Searches username, display name, bio information. <b>Does not search posts.</b></td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/search?q=%23mondaynightdanceparty
 

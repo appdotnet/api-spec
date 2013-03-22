@@ -25,28 +25,11 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
 
 <%= endpoint "POST", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 
-### Parameters
+<%= url_params [
+    ["channel_id", 'The id of the <a href="/docs/resources/channel/">Channel</a> in which to create the Message. Alternatively, you can specify <code>pm</code> to auto-create/reuse a <code>net.app.core.pm</code> <a href="/docs/resources/channel/#private-message">private message channel</a>.']
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The <code>id</code> of the <a href="/docs/resources/channel/">Channel</a> in which to create the Message. Alternatively, you can specify <code>pm</code> to auto-create/reuse a <code>net.app.core.pm</code> <a href="/docs/resources/channel/#private-message">private message channel</a>.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Generic Channel Example
+#### Generic Channel Example
 
 > POST https://alpha-api.app.net/stream/0/channels/1/messages
 >
@@ -85,7 +68,7 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
 }
 ~~~
 
-### PM Channel Example
+#### PM Channel Example
 > POST https://alpha-api.app.net/stream/0/channels/pm/messages
 >
 > Content-Type: application/json
@@ -135,34 +118,12 @@ Delete a message. The current user must be the same user who created the Message
 
 <%= endpoint "DELETE", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
 
-### Data
+<%= url_params [
+    ["channel_id", "The id of the Channel this Message belongs to."],
+    ["message_id", "The id of the Message to delete."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel this message belongs to</td>
-        </tr>
-        <tr>
-            <td><code>message_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Message you'd like to delete</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/channels/1/messages/103
 
@@ -205,28 +166,11 @@ Retrieve a stream of the Messages in a channel. This endpoint responds to [pagin
 
 <%= endpoint "GET", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 
-### Parameters
+<%= url_params [
+    ["channel_id", "The id of the Channel to retrieve Messages from."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>channel_id</code></td>
-            <td>Required</td>
-            <td>int</td>
-            <td>The id of the Channel who's messages you want to see</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/channels/1/messages
 

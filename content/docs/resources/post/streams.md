@@ -15,11 +15,11 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
 <%= endpoint "GET", "posts/stream/global", "None" %>
 
-### Parameters
+#### Parameters
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/global
 
@@ -88,30 +88,13 @@ Get the most recent [Posts](/docs/resources/post/) created by a specific [User](
 
 <%= endpoint "GET", "users/[user_id]/posts", "None" %>
 
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
+<%= url_params [
+    ["user_id", "The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/posts
 
@@ -178,30 +161,13 @@ Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [Use
 
 <%= endpoint "GET", "users/[user_id]/mentions", "Any" %>
 
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
+<%= url_params [
+    ["user_id", "The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/2/mentions
 
@@ -268,11 +234,11 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current User a
 
 <%= endpoint "GET", "posts/stream", "User", "stream" %>
 
-### Parameters
+#### Parameters
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream
 
@@ -339,11 +305,11 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
 
 <%= endpoint "GET", "posts/stream/unified", "User", "stream" %>
 
-### Parameters
+#### Parameters
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/stream/unified
 
@@ -410,11 +376,11 @@ Return the 20 most recent [Posts](/docs/resources/post/) for a specific hashtag.
 
 <%= endpoint "GET", "posts/tag/[hashtag]", "None" %>
 
-### Parameters
+#### Parameters
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/tag/newsocialnetwork
 

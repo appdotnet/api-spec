@@ -170,17 +170,17 @@ Returns info about a Place object with a given `factual_id`.
 
 ### Deduplication effects
 
-Because it is possible for duplicate entries to exist for the same Place, Factual provides a method to deduplicate one Place object by "replacing" it with another. As a result, you may notice sometimes that when requesting a Place with one `factual_id` you will get back an entry with a different `factual_id`. When we return a different Place than the one you requested, we are claiming, to the best of our knowledge, that it is equivalent to the one requested.
+Because it is possible for duplicate entries to exist for the same Place, Factual provides a method to deduplicate one Place object by "replacing" it with another. As a result, you may notice sometimes that when requesting a Place with one `factual_id` you will get back an entry with a different `factual_id`. When we return a different Place than the one you requested we are claiming, to the best of our knowledge, that it is equivalent to the one requested.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "places/[factual_id]", "Any" %>
 
-### Parameters
+<%= url_params [
+    ["factual_id", "The Factual id of the Place to retrieve."]
+]%>
 
-None.
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/places/19931850-dc2f-012e-561d-003048cad9da
 
@@ -232,70 +232,27 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 
 <%= endpoint "GET", "places/search", "User" %>
 
-### Parameters
+<%= query_params_typed [
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>latitude</code></td>
-            <td>Required</td>
-            <td>decimal</td>
-            <td>Latitude of search location. Combined with longitude to create central point of search results.</td>
-        </tr>
-        <tr>
-            <td><code>longitude</code></td>
-            <td>Required</td>
-            <td>decimal</td>
-            <td>Longitude of search location. Combined with latitude to create central point of search results.</td>
-        </tr>
-        <tr>
-            <td><code>q</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>The name-based search query. Can be a partial string — for example, 'cre' will find any local 'creameries' and 'ice cream' locations.</td>
-        </tr>
-        <tr>
-            <td><code>radius</code></td>
-            <td>Optional</td>
-            <td>decimal</td>
-            <td>Approximate radius (in meters) of bounding circle on results. For example, supplying <code>radius=100</code> will limit all locations to be within 100 meters. Defaults to 100, ranges between 0.001 and 50,000.</td>
-        </tr>
-        <tr>
-            <td><code>count</code></td>
-            <td>Optional</td>
-            <td>int</td>
-            <td>Number of results to return. Defaults to 20, ranges between 1 and 100.</td>
-        </tr>
-        <tr>
-            <td><code>altitude</code></td>
-            <td>Optional</td>
-            <td>decimal</td>
-            <td>Altitude of search location (in meters). Not presently used to generate search results but may be later.</td>
-        </tr>
-        <tr>
-            <td><code>horizontal_accuracy</code></td>
-            <td>Optional</td>
-            <td>decimal</td>
-            <td>Accuracy of <code>latitude</code>/<code>longitude</code> parameters (in meters). Not presently used to generate search results but may be later.</td>
-        </tr>
-        <tr>
-            <td><code>vertical_accuracy</code></td>
-            <td>Optional</td>
-            <td>decimal</td>
-            <td>Accuracy of <code>altitude</code> parameter (in meters). Not presently used to generate search results but may be later.</td>
-        </tr>
-    </tbody>
-</table>
+    ["latitude", "decimal", "Latitude of search location. Combined with longitude to create central point of search results."],
 
-### Example (no search string)
+    ["longitude", "decimal", "Longitude of search location. Combined with latitude to create central point of search results."],
+
+    ["q", "string", "(Optional) The name-based search query. Can be a partial string — for example, 'cre' will find any local 'creameries' and 'ice cream' locations."],
+
+    ["radius", "decimal", "(Optional) Approximate radius (in meters) of bounding circle on results. For example, supplying <code>radius=100</code> will limit all locations to be within 100 meters. Defaults to 100, ranges between 0.001 and 50,000."],
+
+    ["count", "int", "(Optional) Number of results to return. Defaults to 20, ranges between 1 and 100."],
+
+    ["altitude", "decimal", "(Optional) Altitude of search location (in meters). <em>Not presently used to generate search results but may be later.</em>"],
+
+    ["horizontal_accuracy", "decimal", "(Optional) Accuracy of <code>latitude</code>/<code>longitude</code> parameters (in meters). <em>Not presently used to generate search results but may be later.</em>"],
+
+    ["vertical_accuracy", "decimal", "(Optional) Accuracy of <code>altitude</code> parameter (in meters). <em>Not presently used to generate search results but may be later.</em>"]
+
+]%>
+
+#### Example (no search string)
 > GET https://alpha-api.app.net/stream/0/places/search?latitude=37.761334&longitude=-122.426276
 
 ~~~ js
@@ -351,7 +308,9 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 }
 ~~~
 
-### Example (search string, radius and count)
+<br>
+
+#### Example (search string, radius and count)
 > GET https://alpha-api.app.net/stream/0/places/search?latitude=37.78592&longitude=-122.400751&q=bi-rite&count=1&radius=5000
 
 ~~~ js

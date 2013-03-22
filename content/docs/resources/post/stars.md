@@ -17,28 +17,11 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 <%= endpoint "POST", "posts/[post_id]/star", "User", "write_post" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to star."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/posts/1/star
 
@@ -99,28 +82,11 @@ Remove a Star from a Post.
 
 <%= endpoint "DELETE", "posts/[post_id]/star", "User", "write_post" %>
 
-### Data
+<%= url_params [
+    ["post_id", "The id of the Post to unstar."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/posts/1/star
 
@@ -181,30 +147,13 @@ Get the most recent [Posts](/docs/resources/post/) starred by a specific [User](
 
 <%= endpoint "GET", "users/[user_id]/stars", "None" %>
 
-### Parameters
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>user_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>.</td>
-        </tr>
-    </tbody>
-</table>
+<%= url_params [
+    ["user_id", "The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
+]%>
 
 *See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/users/1/stars
 

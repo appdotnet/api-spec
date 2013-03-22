@@ -15,28 +15,11 @@ Returns a specific [Post](/docs/resources/post/).
 
 <%= endpoint "GET", "posts/[post_id]", "None" %>
 
-### Parameters
+<%= url_params [
+    ["post_id","The id of the Post to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>post_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The post id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts/1
 
@@ -90,34 +73,18 @@ Returns a specific [Post](/docs/resources/post/).
 ~~~
 
 ## Retrieve multiple Posts
+
 Returns multiple Posts requested by id. At most 200 posts can be requested.
 
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts", "Any" %>
 
-### Parameters
+<%= query_params [
+    ["ids","A comma separated list of ids of Posts to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>ids</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>A comma separated list of Post ids to retrieve.</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/posts?ids=1,2,3
 

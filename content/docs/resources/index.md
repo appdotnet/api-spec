@@ -36,6 +36,10 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 <%= render 'partials/endpoints/message' %>
 
+## File
+
+<%= render 'partials/endpoints/filter' %>
+
 ## Stream
 
 <%= render 'partials/endpoints/stream' %>
@@ -63,3 +67,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 ## Place
 
 <%= render 'partials/endpoints/place' %>
+
+## Explore Stream
+
+<%= render 'partials/endpoints/explore-stream' %>

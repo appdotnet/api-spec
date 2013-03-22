@@ -17,11 +17,11 @@ Send a JSON document that matches the [stream schema](/docs/resources/stream/) w
 
 <%= endpoint "POST", "streams", "App" %>
 
-### Data
+#### POST Data
 
 A JSON object representing the stream to create. See [the stream object](/docs/resources/stream/) for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).
 
-### Example
+#### Example
 
 > POST https://alpha-api.app.net/stream/0/streams
 > 
@@ -67,28 +67,11 @@ Returns a specific [Stream](/docs/resources/stream/) object.
 
 <%= endpoint "GET", "streams/[stream_id]", "App" %>
 
-### Parameters
+<%= url_params [
+    ["stream_id", "The id of the Stream to retrieve."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>stream_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The stream id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/streams/1
 
@@ -129,28 +112,11 @@ Return the [Streams](/docs/resources/stream/) for the current token.
 
 <%= endpoint "GET", "streams", "App" %>
 
-### Parameters
+<%= query_params [
+    ["key", "(Optional) Only retrieve the stream that matches the given key."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>key</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>Only retrieve the stream that matches the given key</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > GET https://alpha-api.app.net/stream/0/streams?key=rollout_stream
 
@@ -198,28 +164,11 @@ Update a [Stream](/docs/resources/stream/). You can update a Stream by PUTing a 
 
 <%= endpoint "PUT", "streams/[stream_id]", "App" %>
 
-### Parameters
+<%= url_params [
+    ["stream_id", "The id of the Stream to update."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>stream_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The stream id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/streams/1
 > 
@@ -268,28 +217,11 @@ Delete a [Stream](/docs/resources/stream/). The Stream must belong to the curren
 
 <%= endpoint "DELETE", "streams/[stream_id]", "App" %>
 
-### Data
+<%= url_params [
+    ["stream_id", "The id of the Stream to delete."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>stream_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The stream id</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/streams/1
 
@@ -332,11 +264,7 @@ Delete all [Streams](/docs/resources/stream/) for the current token. It returns 
 
 <%= endpoint "DELETE", "streams", "App" %>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/streams
 

@@ -23,11 +23,7 @@ When creating a complete file, this endpoint could return a `507 Insufficient St
 
 <%= file_token_reminder %>
 
-### Data
-
-None.
-
-### Example
+#### Example
 
 ~~~
 POST https://alpha-api.app.net/stream/0/files
@@ -72,28 +68,11 @@ Updates a specific [File](/docs/resources/file/) object. You can update a file b
 
 <%= file_token_reminder %>
 
-### Data
+<%= url_params [
+    ["file_id", "The id of the File to update."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>file_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the File to update</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > PUT https://alpha-api.app.net/stream/0/files/1
 >
@@ -115,28 +94,11 @@ Delete a file. The current user must be the same user who created the File. It r
 
 <%= file_token_reminder %>
 
-### Data
+<%= url_params [
+    ["file_id", "The id of the File to delete."]
+]%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Required?</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>file_id</code></td>
-            <td>Required</td>
-            <td>string</td>
-            <td>The id of the File you'd like to delete</td>
-        </tr>
-    </tbody>
-</table>
-
-### Example
+#### Example
 
 > DELETE https://alpha-api.app.net/stream/0/files/1
 
