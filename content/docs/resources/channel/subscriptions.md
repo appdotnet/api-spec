@@ -11,7 +11,7 @@ title: "Channel Subscriptions"
 
 Retrieve an "inbox" of the channels the user is currently subscribed to. This stream is ordered like an inbox with the stream containing the most recent post first.
 
-This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general channel parameters](/docs/resources/channel/#general-parameters). Remember that the ```min_id```/```max_id``` for pagination do not have to correspond to the ids in the response's ```data``` list.
+This endpoint responds to [pagination parameters](/docs/basics/pagination/) and the [general channel parameters](/docs/resources/channel/#general-parameters). Remember that the ```min_id```/```max_id``` for pagination do not have to correspond to the ids in the response's ```data``` list.
 
 <%= migration_warning ['response_envelope'] %>
 
