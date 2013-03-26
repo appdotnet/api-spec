@@ -64,6 +64,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         "stars": 76
     },
     "follows_you": false,
+    "you_blocked": false,
     "you_follow": true,
     "you_muted": false,
     "you_can_subscribe": true,
@@ -200,6 +201,11 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         <td>Does this user follow the user making the request? May be omitted if this is not an authenticated request.</td>
     </tr>
     <tr>
+        <td><code>you_blocked</code></td>
+        <td>boolean</td>
+        <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
         <td><code>you_follow</code></td>
         <td>boolean</td>
         <td>Does the user making the request follow this user? May be omitted if this is not an authenticated request.</td>
@@ -207,7 +213,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     <tr>
         <td><code>you_muted</code></td>
         <td>boolean</td>
-        <td>Has the user making the request blocked this user? May be omitted if this is not an authenticated request.</td>
+        <td>Has the user making the request muted this user? May be omitted if this is not an authenticated request.</td>
     </tr>
     <tr>
         <td><code>you_can_subscribe</code></td>

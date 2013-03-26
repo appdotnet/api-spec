@@ -1,27 +1,29 @@
 ---
-title: "User Muting"
+title: "User Blocking"
 ---
 
-# Muting
+# Blocking
 
 * TOC
 {:toc}
 
-## Mute a User
+## Block a User
 
-Hide all posts for a User in all streams. *Note: if you still explicitly request a this User's stream or a Post from this user, it will not be hidden.*
+Block a user from seeing your App.net content. This means the user will not be able to see, star, reply to, or repost your content. This user will also effectively be muted for you. This will automatically unfollow both users from each other. A user may be able to  tell if they've been blocked by a user. For instance if @mthurman blocks @berg and @berg logs out of alpha.app.net, he could see @mthurman's profile.
+
+In most cases, [muting a user](/docs/resources/user/muting/#mute-a-user) is probably sufficient since that hides all of a user's content from you. If a user is aggressively reposting or starring your content, blocking them will prevent them from interacting with your content at all.
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "POST", "users/[user_id]/mute", "User", "follow" %>
+<%= endpoint "POST", "users/[user_id]/block", "User", "follow" %>
 
 <%= url_params [
-  ["user_id","The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>."]
+  ["user_id","The id of the User to block. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/users/1/mute
+> POST https://alpha-api.app.net/stream/0/users/1/block
 
 ~~~ js
 {
@@ -75,8 +77,9 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
             "stars": 76
         },
         "follows_you": false,
-        "you_follow": true,
-        "you_muted": true,
+        "you_blocked": true,
+        "you_follow": false,
+        "you_muted": false
     },
     "meta": {
         "code": 200
@@ -84,23 +87,23 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 }
 ~~~
 
-## Unmute a User
+## Unblock a User
 
-Stop hiding all posts for a given user.
+Allow a blocked user to interact with my content.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "DELETE", "users/[user_id]/mute", "User", "follow" %>
+<%= endpoint "DELETE", "users/[user_id]/block", "User", "follow" %>
 
 <%= url_params [
-  ["user_id","The id of the User to mute. You can also specify <code>@username</code> as a <code>user_id</code>."]
+  ["user_id","The id of the User to block. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/users/1/mute
+> DELETE https://alpha-api.app.net/stream/0/users/1/block
 
 ~~~ js
 {
@@ -154,7 +157,8 @@ Stop hiding all posts for a given user.
             "stars": 76
         },
         "follows_you": false,
-        "you_follow": true,
+        "you_blocked": false,
+        "you_follow": false,
         "you_muted": false,
     },
     "meta": {
@@ -163,21 +167,21 @@ Stop hiding all posts for a given user.
 }
 ~~~
 
-## List muted Users
+## List blocked Users
 
-Retrieve a list of muted users.
+Retrieve a list of blocked users.
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "users/[user_id]/muted", "Any" %>
+<%= endpoint "GET", "users/[user_id]/blocked", "Any" %>
 
 <%= url_params [
-  ["user_id",'The id of the user to retrieve a list of muted users for. If requested with a <a href="/docs/authentication/#access-tokens">user token</a> you can request muted users for the current user by using <code>me</code> as the user id. If requested with an <a href="/docs/authentication/#access-tokens">app token</a> you can request muted users for any user that has authorized your app.']
+  ["user_id",'The id of the user to retrieve a list of muted users for. If requested with a <a href="/docs/authentication/#access-tokens">user token</a> you can request blocked users for the current user by using <code>me</code> as the user id. If requested with an <a href="/docs/authentication/#access-tokens">app token</a> you can request blocked users for any user that has authorized your app.']
 ]%>
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/muted
+> GET https://alpha-api.app.net/stream/0/users/me/blocked
 
 ~~~ js
 {
@@ -232,8 +236,9 @@ Retrieve a list of muted users.
                 "stars": 76
             },
             "follows_you": false,
-            "you_follow": true,
-            "you_muted": true,
+            "you_blocked": true,
+            "you_follow": false,
+            "you_muted": false,
         },
         ...
     ],
@@ -243,21 +248,22 @@ Retrieve a list of muted users.
 }
 ~~~
 
-## Retrieve muted User IDs for multiple Users
 
-Returns a list of muted User ids for each User id requested. At most 200 User ids can be requested.
+## Retrieve blocked User IDs for multiple Users
+
+Returns a list of blocked User ids for each User id requested. At most 200 User ids can be requested.
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "users/muted/ids", "App" %>
+<%= endpoint "GET", "users/blocked/ids", "App" %>
 
 <%= query_params [
-  ["ids","A comma separated list of User ids to retrieve muted User ids for."]
+  ["ids","A comma separated list of User ids to retrieve blocked User ids for."]
 ]%>
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/muted/ids?ids=1,2
+> GET https://alpha-api.app.net/stream/0/users/blocked/ids?ids=1,2
 
 ~~~ js
 {
