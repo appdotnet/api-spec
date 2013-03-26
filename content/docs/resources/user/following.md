@@ -358,13 +358,13 @@ Returns an array of user ids the specified user is following.
 }
 ~~~
 
-## List user ids following a user
+## List user ids of a User's followers
 
 Returns an array of user ids for users following the specified user.
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
+<%= endpoint "GET", "users/[user_id]/followers/ids", "Any" %>
 
 <%= url_params [
   ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
