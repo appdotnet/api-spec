@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><%= method %></td>
+            <td><span class="label label-<%= method %>"><%= method %></span></td>
             <td><%= path %></td>
             <td><%= token %></td>
             <% if scope != '' %>

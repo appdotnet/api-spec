@@ -1,9 +1,21 @@
 /* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
 
-.line-numbers {
-    margin-right: 1.0em;
-}
-
 .content {
 	padding-bottom: 100px;
+}
+
+.label-GET {
+  background-color: #3a87ad;
+}
+
+.label-POST {
+  background-color: #468847;
+}
+
+.label-PUT {
+  background-color: #f89406;
+}
+
+.label-DELETE {
+  background-color: #b94a48;
 }
