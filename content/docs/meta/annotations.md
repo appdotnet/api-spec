@@ -120,7 +120,7 @@ In the `value` of any annotation (including non-core annotations), we treat any 
 
 ## Documenting annotations
 
-To foster collaboration and adoption, we've set up a github repository for documenting annotations. To discuss annotations, please use the associate issue tracker. For more information on submitting / updating documentation please review the README. 
+To foster collaboration and adoption, we've set up a [github repository](https://github.com/appdotnet/object-metadata) for documenting annotations. To discuss annotations, please use the associate [issue tracker](https://github.com/appdotnet/object-metadata/issues). For more information on submitting / updating documentation please review the [README](https://github.com/appdotnet/object-metadata). 
 
 ### Core annotations
 
