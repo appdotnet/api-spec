@@ -494,7 +494,7 @@ A user deauthorizes an application.
 
 A file is created.
 
-~~~js
+~~~ js
 {
     "meta": {
         "timestamp": 1358986634896,
@@ -520,7 +520,7 @@ A file is created.
 
 A file is uploaded to (or updated).
 
-~~~js
+~~~ js
 {
     "meta": {
         "timestamp": 1358986636754,
@@ -568,6 +568,7 @@ A file is uploaded to (or updated).
 
 A file is deleted.
 
+~~~ js
 {
     "meta": {
         "timestamp": 1358986636754,
@@ -576,5 +577,6 @@ A file is deleted.
         "is_deleted": true,
     },
 }
+~~~
 
 <%= render 'partials/endpoints-tab', :for => "stream" %>
