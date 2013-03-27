@@ -13,6 +13,8 @@ Create a [Stream](/docs/resources/stream/) for the current token.
 
 Send a JSON document that matches the [stream schema](/docs/resources/stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
 
+You can create up to 5 streams per App token.
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "streams", "App" %>

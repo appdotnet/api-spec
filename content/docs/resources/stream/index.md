@@ -86,7 +86,7 @@ A Stream is a real-time, ordered collection of objects. An object will always be
 
 There will be three different kinds of Streams, but they all follow the same pattern:
 
-* Public stream (available now): A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**.
+* Public stream (available now): A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**. You can create up to 5 public streams per App token.
 
 * User stream (coming soon): A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream](/docs/resources/post/streams/#retrieve-a-users-personalized-stream) endpoint. It is very useful for client based Apps that need a single User's Stream. **It must be accessed with a User access token**.
 
