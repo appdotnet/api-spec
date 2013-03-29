@@ -56,15 +56,14 @@ Scopes are how an application specifies what kind of data it wants from a User. 
 
 When using an OAuth token, App.net will include an extra HTTP headers so the app knows what scopes that token has authorized. For example:
 
-> X-OAuth-Scopes: email,follow
+> X-OAuth-Scopes: follow,write_post
 
-means that the current token has permission to see the user's email and to follow new users.
+means that the current token has permission to follow new users and to create posts for this user.
 
 Here is the current list of scopes on App.net:
 
 * **basic**: see basic information about this user
 * **stream**: read this user's stream
-* **email**: access this user's email address
 * **write_post**: create a new post as this user
 * **follow**: add or remove follows (or mutes) for this user
 * **public_messages**: send and receive public messages as this user

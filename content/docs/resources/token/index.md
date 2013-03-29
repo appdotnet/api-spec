@@ -60,9 +60,12 @@ Requested with a user access token:
             "messages",
             "export",
             "write_post",
-            "follow",
-            "email"
+            "follow"
         ],
+        "limits": {
+            "following": 40,
+            "max_file_size": 10000000
+        },
         "storage": {
             "available": 8787479688,
             "used": 1212520312
@@ -175,6 +178,7 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
                 "name": "app"
             },
             "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+            "limits": { ... },
             "scopes": [
                 "basic"
             ],
@@ -188,6 +192,7 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
                 "name": "app"
             },
             "client_id": "tHkLXfGusVxJ3NtyMYdyvQ9Rh4ZbeL5n",
+            "limits": { ... },
             "scopes": [
                 "update_profile",
                 "messages",

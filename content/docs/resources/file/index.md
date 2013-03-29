@@ -60,6 +60,31 @@ A file uploaded by a User and hosted by App.net.
             <td>Primary identifier for a File. This will be an integer, but it is always expressed as a string to avoid limitations with the way JavaScript integers are expressed.</td>
         </tr>
         <tr>
+            <td><code>image_info</code></td>
+            <td>object</td>
+            <td>
+                If this File is an image that App.net can process, then the following information will be included:
+                <br>
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td>integer</td>
+                        <td>The height of the image.</td>
+                    </tr>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td>integer</td>
+                        <td>The width of the image.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
             <td><code>kind</code></td>
             <td>string</td>
             <td>In broad terms, what kind of File is this? It can be user specified or it will be automatically guessed based on the File's <code>mime_type</code>. Must be one of: <code>image</code>, or <code>other</code>.</td>
