@@ -17,6 +17,8 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 - Reposts do not show up in the hashtags, mentions or global streams.
 - A repost of Post A will only show up in a User's stream if they have not seen Post A (or another repost of Post A) in a reasonable amount of time (currently 1 week).
 
+<%= general_params_note_for "post" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "posts/[post_id]/repost", "User", "write_post" %>
@@ -99,6 +101,8 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 ## Unrepost a Post
 
 Given the original ```post_id```, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](/docs/resources/post/lifecycle/#delete-a-post)*.
+
+<%= general_params_note_for "post" %>
 
 <%= migration_warning ['response_envelope'] %>
 

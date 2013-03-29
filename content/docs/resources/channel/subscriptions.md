@@ -11,7 +11,9 @@ title: "Channel Subscriptions"
 
 Retrieve an "inbox" of the channels the user is currently subscribed to. This stream is ordered like an inbox with the stream containing the most recent post first.
 
-This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general channel parameters](/docs/resources/channel/#general-parameters). Remember that the ```min_id```/```max_id``` for pagination do not have to correspond to the ids in the response's ```data``` list.
+<%= general_params_note_for "channel" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -68,6 +70,8 @@ This endpoint responds to [pagination parameters](/docs/resources/post/#general-
 
 Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users-subscribed-channels). If a user has [muted this Channel](/docs/resources/channel/muting/#mute-a-channel), this call will automatically unmute the Channel.
 
+<%= general_params_note_for "channel" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
@@ -120,6 +124,8 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 ## Unsubscribe from a Channel
 
 Unsubscribe from a Channel. This removes it from your [Channel stream](#get-current-users-subscribed-channels).
+
+<%= general_params_note_for "channel" %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -174,7 +180,9 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 Retrieve the users who are subscribed to a Channel.
 
-This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters). Remember that the ```min_id```/```max_id``` do not have to correspond to the ids in the ```data``` list.
+<%= general_params_note_for "channel" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 

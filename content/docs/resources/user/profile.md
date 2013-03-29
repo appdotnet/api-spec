@@ -13,6 +13,8 @@ Updates a specific user's profile details. You can update a user by PUTing an ob
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "users/me", "User", "update_profile" %>
@@ -90,6 +92,7 @@ Retrieve a User's avatar image. This endpoint does not require authentication, i
 ## Update a User's avatar image
 
 Replace a User's avatar image with the uploaded file. The uploaded image Will be cropped to square and must be smaller than 1 MB. The optimal size for this image is 200×200 pixels. The content type for this request must be ```multipart/form-data```.
+
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -201,6 +204,8 @@ Retrieve a User's cover image. This endpoint does not require authentication, is
 ## Update a User's cover image
 
 Replace a User's cover image with the uploaded file. The uploaded image must be at least 960px wide and less than 4 MB in size. The content type for this request must be ```multipart/form-data```.
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 

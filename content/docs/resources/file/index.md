@@ -200,7 +200,7 @@ Paid tier accounts receive 10GB total storage, with a 100MB maximum individual f
 
 ## General Parameters
 
-Requests that return streams of Files respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+Where noted, File endpoints respond to the following query string parameters:
 
 <table>
     <thead>
@@ -250,6 +250,8 @@ Requests that return streams of Files respond to [pagination parameters](/docs/b
         </tr>
     </tbody>
 </table>
+
+Where noted, endpoints that return a stream of Files additionally respond to [pagination parameters](/docs/basics/pagination).
 
 ## Attaching Files to other resources
 

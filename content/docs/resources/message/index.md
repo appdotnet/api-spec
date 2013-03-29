@@ -146,7 +146,7 @@ Sometimes a Message is not meant for human consumption but it may be readable by
 
 ## General Parameters
 
-Requests that return streams of Messages respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+Where noted, Message endpoints respond to the following query string parameters:
 
 <table>
     <thead>
@@ -196,5 +196,7 @@ Requests that return streams of Messages respond to [pagination parameters](/doc
         </tr>
     </tbody>
 </table>
+
+Where noted, endpoints that return a stream of Messages additionally respond to [pagination parameters](/docs/basics/pagination).
 
 <%= render 'partials/endpoints-tab', :for => "message" %>

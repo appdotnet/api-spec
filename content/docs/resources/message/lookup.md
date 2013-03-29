@@ -13,6 +13,8 @@ Returns a specific [Message](/docs/resources/message/).
 
 *Note: you can always retrieve a message you created even if you are no longer able to view the rest of the Channel anymore.*
 
+<%= general_params_note_for "message" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
@@ -60,6 +62,8 @@ Returns a specific [Message](/docs/resources/message/).
 ## Retrieve multiple Messages
 
 Returns multiple Messages requested by id. At most 200 messages can be requested. Messages may be requested from more than one channel at a time. Messages which do not exist or which the requesting user does not have authorization to view will not be returned.
+
+<%= general_params_note_for "message" %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -109,7 +113,11 @@ Returns multiple Messages requested by id. At most 200 messages can be requested
 
 ## Retrieve my Messages
 
-Retrieve a stream of the Messages the current user has created. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters).
+Retrieve a stream of the Messages the current user has created.
+
+<%= general_params_note_for "message" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 

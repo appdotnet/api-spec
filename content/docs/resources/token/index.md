@@ -156,11 +156,11 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
 
 Returns a list of User tokens corresponding to an app token. Must be requested using an [app access token](/docs/authentication/#access-tokens). 
 
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "apps/me/tokens", "App" %>
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 > GET https://alpha-api.app.net/stream/0/apps/me/tokens

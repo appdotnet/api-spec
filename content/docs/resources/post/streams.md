@@ -11,13 +11,13 @@ title: "Post Streams"
 
 Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/stream/global", "None" %>
-
-#### Parameters
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 
@@ -82,7 +82,9 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
 Get the most recent [Posts](/docs/resources/post/) created by a specific [User](/docs/resources/user/) in reverse post order.
 
-*Note: the User object is not returned for these Posts.*
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -91,8 +93,6 @@ Get the most recent [Posts](/docs/resources/post/) created by a specific [User](
 <%= url_params [
     ["user_id", "The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 
@@ -157,6 +157,10 @@ Get the most recent [Posts](/docs/resources/post/) created by a specific [User](
 
 Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [User](/docs/resources/user/) in reverse post order.
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/mentions", "Any" %>
@@ -164,8 +168,6 @@ Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [Use
 <%= url_params [
     ["user_id", "The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 
@@ -230,13 +232,13 @@ Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [Use
 
 Return the 20 most recent [Posts](/docs/resources/post/) from the current User and the Users they follow.
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/stream", "User", "stream" %>
-
-#### Parameters
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 
@@ -301,13 +303,13 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current User a
 
 Return the 20 most recent [Posts](/docs/resources/post/) from the current user's [personalized stream](#retrieve-a-users-personalized-stream) and [mentions stream](#retrieve-posts-mentioning-a-user) merged into one stream.
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/stream/unified", "User", "stream" %>
-
-#### Parameters
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 
@@ -372,13 +374,13 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
 
 Return the 20 most recent [Posts](/docs/resources/post/) for a specific hashtag.
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/tag/[hashtag]", "None" %>
-
-#### Parameters
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 

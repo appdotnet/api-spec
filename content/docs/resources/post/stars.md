@@ -13,6 +13,8 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 *Note: A repost cannot be starred. Please star the parent Post.*
 
+<%= general_params_note_for "post" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "posts/[post_id]/star", "User", "write_post" %>
@@ -78,6 +80,8 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 Remove a Star from a Post.
 
+<%= general_params_note_for "post" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "posts/[post_id]/star", "User", "write_post" %>
@@ -142,6 +146,10 @@ Remove a Star from a Post.
 ## Retrieve Posts starred by a User
 
 Get the most recent [Posts](/docs/resources/post/) starred by a specific [User](/docs/resources/user/) in reverse post order. Stars are a way for Users to save posts without rebroadcasting the Post to their followers.
+
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 

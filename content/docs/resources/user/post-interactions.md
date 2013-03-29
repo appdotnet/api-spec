@@ -11,6 +11,8 @@ title: "User Post Interactions"
 
 List all the Users who have reposted a given Post.
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/[post_id]/reposters", "Any" %>
@@ -90,6 +92,8 @@ List all the Users who have reposted a given Post.
 ## List Users who have starred a Post
 
 List all the Users who have starred a given Post.
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 

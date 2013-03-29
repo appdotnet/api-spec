@@ -39,5 +39,13 @@ def post_params(params = [])
 end
 
 def file_token_reminder()
-  "<div class=\"alert alert-info\">Please see the <a href=\"/docs/resources/file/#file-authorization\">File Authorization</a> documentation for more information on User and File tokens.</div>"
+    "<div class=\"alert alert-info\">Please see the <a href=\"/docs/resources/file/#file-authorization\">File Authorization</a> documentation for more information on User and File tokens.</div>"
+end
+
+def pagination_note()
+    '<em>Responses from this endpoint are <a href="/docs/basics/pagination">paginated</a>.</em>'
+end
+
+def general_params_note_for(type)
+    '<em>This endpoint responds to <a href="/docs/resources/'+type+'/#general-parameters">general '+type.capitalize+' parameters</a>.</em>'    
 end

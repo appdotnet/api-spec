@@ -118,10 +118,7 @@ Return the [Filter](/docs/resources/filter/) for the current user.
         ...
     ],
     "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
+        "code": 200
     }
 }
 ~~~
@@ -245,10 +242,7 @@ Delete all [Filters](/docs/resources/filter/) for the current user. It returns t
         ...
     ],
     "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
+        "code": 200
     }
 }
 ~~~

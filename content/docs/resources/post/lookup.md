@@ -11,6 +11,8 @@ title: "Post Lookup"
 
 Returns a specific [Post](/docs/resources/post/).
 
+<%= general_params_note_for "post" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/[post_id]", "None" %>
@@ -75,6 +77,8 @@ Returns a specific [Post](/docs/resources/post/).
 ## Retrieve multiple Posts
 
 Returns multiple Posts requested by id. At most 200 posts can be requested.
+
+<%= general_params_note_for "post" %>
 
 <%= migration_warning ['response_envelope'] %>
 

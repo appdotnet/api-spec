@@ -11,6 +11,8 @@ title: "Channel Lookup"
 
 Returns a specific [Channel](/docs/resources/channel/).
 
+<%= general_params_note_for "channel" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
@@ -63,6 +65,8 @@ Returns a specific [Channel](/docs/resources/channel/).
 
 ## Retrieve multiple Channels
 Returns multiple Channels requested by id. At most 200 channels can be requested. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
+
+<%= general_params_note_for "channel" %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -148,7 +152,11 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 ~~~
 
 ## Retrieve my Channels
-Returns a stream of all Channels the current user has created. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general channel parameters](/docs/resources/channel/#general-parameters).
+Returns a stream of all Channels the current user has created. 
+
+<%= general_params_note_for "channel" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -217,10 +225,7 @@ Returns the current number of `net.app.core.pm` Channels where `has_unread: true
 {
     "data": 5,
     "meta": {
-        "code": 200,
-        "max_id": 2,
-        "min_id": 1,
-        "more": false
+        "code": 200
     }
 }
 ~~~

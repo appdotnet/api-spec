@@ -239,7 +239,7 @@ You can create arbitrary Channel types which do not have these restrictions (but
 
 ## General Parameters
 
-Requests that return streams of Channels respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+Where noted, Channel endpoints respond to the following query string parameters:
 
 <table>
     <thead>
@@ -295,5 +295,7 @@ Requests that return streams of Channels respond to [pagination parameters](/doc
         </tr>
     </tbody>
 </table>
+
+Where noted, endpoints that return a stream of Channels additionally respond to [pagination parameters](/docs/basics/pagination).
 
 <%= render 'partials/endpoints-tab', :for => "channel" %>

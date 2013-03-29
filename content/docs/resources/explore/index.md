@@ -81,6 +81,8 @@ Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic 
 
 Retrieve the Posts in an Explore Stream.
 
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/stream/explore/[slug]", "None" %>

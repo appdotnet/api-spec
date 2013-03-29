@@ -13,6 +13,10 @@ Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as t
 
 **This endpoint would be more accurately named ```stream/0/posts/{post_id}/thread``` and may be renamed in a later API version.**
 
+<%= general_params_note_for "post" %>
+
+<%= pagination_note %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/[post_id]/replies", "Any" %>
@@ -20,8 +24,6 @@ Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as t
 <%= url_params [
     ["post_id","The id of a Post in the thread to retrieve."]
 ]%>
-
-*See [General Parameters](/docs/resources/post/#general-parameters) for optional parameters you can use with this query.*
 
 #### Example
 

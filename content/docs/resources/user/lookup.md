@@ -11,6 +11,8 @@ title: "User Lookup"
 
 Returns a specific <a href="/docs/resources/user/">User</a> object.
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]", "None" %>
@@ -87,6 +89,8 @@ Returns a specific <a href="/docs/resources/user/">User</a> object.
 ## Retrieve multiple Users
 Returns multiple Users requested by id. At most 200 users can be requested.
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users", "Any" %>
@@ -124,6 +128,8 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 ## Search for Users
 
 Search the App.net userbase.
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 

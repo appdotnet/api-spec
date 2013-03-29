@@ -11,6 +11,8 @@ title: "User Following"
 
 Returns the <a href="/docs/resources/user/">User</a> object of the user being followed. 
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "users/[user_id]/follow", "User", "follow" %>
@@ -87,6 +89,8 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being fo
 ## Unfollow a User
 
 Returns the <a href="/docs/resources/user/">User</a> object of the user being unfollowed.
+
+<%= general_params_note_for "user" %>
 
 *Remember, access tokens cannot be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
@@ -165,7 +169,11 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being un
 
 ## List users a user is following
 
-Returns a list of <a href="/docs/resources/user/">User</a> objects the specified user is following. Please note that the pagination is not based on user or post ids.
+Returns a list of <a href="/docs/resources/user/">User</a> objects the specified user is following.
+
+<%= general_params_note_for "user" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope','follow_pagination'] %>
 
@@ -249,6 +257,10 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects the specified
 ## List users following a user
 
 Returns a list of <a href="/docs/resources/user/">User</a> objects for users following the specified user. Please note that the pagination is not based on user or post ids.
+
+<%= general_params_note_for "user" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope','follow_pagination'] %>
 

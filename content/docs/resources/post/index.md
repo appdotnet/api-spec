@@ -222,7 +222,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 
 ## General parameters
 
-Requests for streams of Posts respond to [pagination parameters](/docs/basics/pagination). Additionally they accept the following query string parameters:
+Where noted, Post endpoints respond to the following query string parameters:
 
 <table>
     <thead>
@@ -290,6 +290,8 @@ Requests for streams of Posts respond to [pagination parameters](/docs/basics/pa
         </tr>
     </tbody>
 </table>
+
+Where noted, endpoints that return a stream of Posts additionally respond to [pagination parameters](/docs/basics/pagination).
 
 ## Sorting Posts
 

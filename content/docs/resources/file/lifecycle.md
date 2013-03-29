@@ -17,6 +17,8 @@ You can also create a complete File object with one request by including the fil
 
 When creating a complete file, this endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file. For more information, see [file storage limits](/docs/resources/file/#limits).
 
+<%= general_params_note_for "file" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "files", "User" %>
@@ -62,6 +64,8 @@ Here is some [sample File upload code written in Python](https://gist.github.com
 
 Updates a specific [File](/docs/resources/file/) object. You can update a file by PUTing an object that matches the [File schema](/docs/resources/file/) with an HTTP header of `Content-Type: application/json`. The only keys that can be updated are `annotations`, `name` and `public`. Only the File owner can update a File.
 
+<%= general_params_note_for "file" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "files/[file_id]", "User"%>
@@ -87,6 +91,8 @@ Updates a specific [File](/docs/resources/file/) object. You can update a file b
 Delete a file. The current user must be the same user who created the File. It returns the deleted File on success. *Since a File could be referenced by multiple resources we recommend that you don't automatically delete files when you delete Posts. Deleting a file should be a more explicit action taken by the user.*
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
+
+<%= general_params_note_for "file" %>
 
 <%= migration_warning ['response_envelope'] %>
 

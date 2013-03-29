@@ -13,6 +13,8 @@ Block a user from seeing your App.net content. This means the user will not be a
 
 In most cases, [muting a user](/docs/resources/user/muting/#mute-a-user) is probably sufficient since that hides all of a user's content from you. If a user is aggressively reposting or starring your content, blocking them will prevent them from interacting with your content at all.
 
+<%= general_params_note_for "user" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "users/[user_id]/block", "User", "follow" %>
@@ -90,6 +92,8 @@ In most cases, [muting a user](/docs/resources/user/muting/#mute-a-user) is prob
 ## Unblock a User
 
 Allow a blocked user to interact with my content.
+
+<%= general_params_note_for "user" %>
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
@@ -170,6 +174,8 @@ Allow a blocked user to interact with my content.
 ## List blocked Users
 
 Retrieve a list of blocked users.
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 

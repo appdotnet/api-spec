@@ -13,6 +13,8 @@ Report a post as spam. This will mute the author of the post and send a report t
 
 > If you are testing this endpoint, please send an email to [support@app.net](mailto:support@app.net) letting us know the account you are about to report. 
 
+<%= general_params_note_for "post" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "posts/[post_id]/report", "User" %>

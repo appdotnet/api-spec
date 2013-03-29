@@ -9,7 +9,9 @@ title: "User Muting"
 
 ## Mute a User
 
-Hide all posts for a User in all streams. *Note: if you still explicitly request a this User's stream or a Post from this user, it will not be hidden.*
+Hide all posts for a User in all streams. *Note: if you still explicitly request this User's stream or a Post from this User, it will not be hidden.*
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -87,6 +89,8 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 ## Unmute a User
 
 Stop hiding all posts for a given user.
+
+<%= general_params_note_for "user" %>
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
@@ -166,6 +170,8 @@ Stop hiding all posts for a given user.
 ## List muted Users
 
 Retrieve a list of muted users.
+
+<%= general_params_note_for "user" %>
 
 <%= migration_warning ['response_envelope'] %>
 

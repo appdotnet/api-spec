@@ -11,6 +11,8 @@ title: "File Lookup"
 
 Returns a specific [File](/docs/resources/file/).
 
+<%= general_params_note_for "file" %>
+
 <%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "files/[file_id]", "Varies"%>
@@ -30,6 +32,8 @@ Returns a specific [File](/docs/resources/file/).
 ## Retrieve multiple Files
 
 Returns multiple Files requested by id. At most 200 files can be requested. Files which do not exist or which the requesting user does not have authorization to view will not be returned.
+
+<%= general_params_note_for "file" %>
 
 <%= migration_warning ['response_envelope'] %>
 
@@ -54,7 +58,11 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 
 ## Retrieve my Files
 
-Returns a stream of all Files the current user has created. This endpoint responds to [pagination parameters](/docs/resources/post/#general-parameters) and the [general file parameters](/docs/resources/file/#general-parameters).
+Returns a stream of all Files the current user has created.
+
+<%= general_params_note_for "file" %>
+
+<%= pagination_note %>
 
 <%= migration_warning ['response_envelope'] %>
 
