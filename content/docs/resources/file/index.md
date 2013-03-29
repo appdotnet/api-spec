@@ -97,7 +97,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>name</code></td>
             <td>string</td>
-            <td>The user provided name of the File.</td>
+            <td>The user provided name of the File. All Unicode characters allowed. Maximum length 255 characters.</td>
         </tr>
         <tr>
             <td><code>public</code></td>

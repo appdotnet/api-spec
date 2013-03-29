@@ -97,7 +97,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
     <tr>
         <td><code>text</code></td>
         <td>string</td>
-        <td>User supplied text of the post.</td>
+        <td>User supplied text of the post. All Unicode characters allowed. Maximum length 256 characters.</td>
     </tr>
     <tr>
         <td><code>html</code></td>
