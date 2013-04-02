@@ -34,34 +34,26 @@ In summary:
 
 ## Parameters
 
-Requests for paginated streams can be filtered by passing the following query string parameters along with the request:
+Requests for paginated streams can optionally be filtered by passing the following query string parameters along with the request:
 
 <table>
     <thead>
         <tr>
             <th>Name</th>
-            <th>Required?</th>
-            <th width="50">Type</th>
             <th>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>since_id</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>Return objects following the <code>max_id</code> provided in the <a href="#response-metadata">response metadata</a> of a previous query or one of the <a href="#special-pagination-ids">special pagination ids</a> for streams with <a href="/docs/resources/stream-marker">Stream Markers</a>.</td>
+            <td>Return objects following the <code>max_id</code> provided in the <a href="#response-metadata">response metadata</a> of a previous query or following one of the <a href="#special-pagination-ids">special pagination ids</a> for streams with <a href="/docs/resources/stream-marker">Stream Markers</a>.</td>
         </tr>
         <tr>
             <td><code>before_id</code></td>
-            <td>Optional</td>
-            <td>string</td>
-            <td>Return objects preceding the <code>min_id</code> provided in the <a href="#response-metadata">response metadata</a> of a previous query or one of the <a href="#special-pagination-ids">special pagination ids</a> for streams with <a href="/docs/resources/stream-marker">Stream Markers</a>.</td>
+            <td>Return objects preceding the <code>min_id</code> provided in the <a href="#response-metadata">response metadata</a> of a previous query or preceding one of the <a href="#special-pagination-ids">special pagination ids</a> for streams with <a href="/docs/resources/stream-marker">Stream Markers</a>.</td>
         </tr>
         <tr>
             <td><code>count</code></td>
-            <td>Optional</td>
-            <td>integer</td>
             <td>The number of objects to return, up to a maximum of 200. If this value is negative, items will be returned starting at <code>since_id</code>. Please see the <a href="#overview">pagination overview</a> for more information.</td>
         </tr>
     </tbody>
