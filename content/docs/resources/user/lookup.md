@@ -136,7 +136,8 @@ Search the App.net userbase.
 <%= endpoint "GET", "users/search", "Any" %>
 
 <%= query_params [
-  ["q","The search query. Supports @username or #tag searches as well as normal search terms. Searches username, display name, bio information. <b>Does not search posts.</b>"]
+  ["q","The search query. Supports @username or #tag searches as well as normal search terms. Searches username, display name, bio information. <b>Does not search posts.</b>"],
+  ["count","(Optional) The number of Users to return, up to a maximum of 200. Defaults to 20 if not specified."]
 ]%>
 
 #### Example
