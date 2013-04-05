@@ -38,7 +38,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 ## File
 
-<%= render 'partials/endpoints/filter' %>
+<%= render 'partials/endpoints/file' %>
 
 ## Stream
 
