@@ -24,7 +24,7 @@ To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adna
 
 ### Getting help and providing feedback
 
-There are numerous ways for developers to get help utilizing the platform and to provide feedback. During typical San Francisco business hours there are App.net staff members available to answer questions in our [HipChat](http://www.hipchat.com/garqCaGOZ). Developers (along with App.net staff) are often chatting in the [Developer Channel](http://patter-app.net/room.html?channel=1383). For general inquiries about account/service related issues email [support@app.net](mailto:support@app.net). For developer inquiries about the API, our Terms of Service, letting us know about something you're working on, etc., email [developers@app.net](mailto:developers@app.net). In addition to the above you can report bugs and provide feedback on the API using the [issue tracker](https://github.com/appdotnet/api-spec/issues) or by using pull requests and commit comments on the [Github repo for the API](https://github.com/appdotnet/api-spec/) or the repo for these docs. You can also contact our Developer Advocate [@orian](http://alpha.app.net/orian).
+There are numerous ways for developers to get help utilizing the platform and to provide feedback. During typical San Francisco business hours there are App.net staff members available to answer questions in our [HipChat](http://www.hipchat.com/garqCaGOZ). Developers (along with App.net staff) are often chatting in the [Developer Channel](http://patter-app.net/room.html?channel=1383). For general inquiries about account/service related issues email [support@app.net](mailto:support@app.net). For developer inquiries about the API, our Terms of Service, letting us know about something you're working on, etc., email [developers@app.net](mailto:developers@app.net). In addition to the above you can report bugs and provide feedback on the API using the [issue tracker](https://github.com/appdotnet/api-spec/issues) or by using pull requests and commit comments on the [Github repo for the API](https://github.com/appdotnet/api-spec/) or the repo for these docs.
 
 ### Terms of Service
 
@@ -54,7 +54,6 @@ Libraries, tools, code samples, blog posts and other resources to help you build
 #### Your hosts
 
 * [Bryan Berg](http://ber.gd) ([@berg](https://alpha.app.net/berg), [bryan@app.net](mailto:bryan@app.net))
-* [Orian Marx](http://orianmarx.com) ([@orian](https://alpha.app.net/orian), [orian@app.net](mailto:orian@app.net))
 * Mark Thurman ([@mthurman](https://alpha.app.net/mthurman), [mthurman@app.net](mthurman@app.net))
 * [Alex Kessinger](http://alexkessinger.net) ([@voidfiles](https://alpha.app.net/voidfiles), [alex@app.net](mailto:alex@app.net))
 * Brian Armstrong ([@barmstrong](https://alpha.app.net/barmstrong), [barmstrong@app.net](mailto:barmstrong@app.net))
