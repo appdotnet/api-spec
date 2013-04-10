@@ -31,7 +31,7 @@ Bring another user's attention to your post. A mention starts with <code>@</code
 }]
 ~~~
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>

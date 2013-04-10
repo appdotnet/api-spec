@@ -37,7 +37,7 @@ For JSONP requests we offer the ability to override the default migration behavi
 
 ## Current Migrations
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Key</th>

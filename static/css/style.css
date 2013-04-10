@@ -19,3 +19,55 @@
 .label-DELETE {
   background-color: #b94a48;
 }
+
+ul.nav-list ul.nav-list ul.nav-list li a {
+    padding-left: 50px;
+}
+
+.nav.header {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.subnav-container {
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+}
+
+ul.nav-list {
+    padding: 0 0 5px 0;
+}
+
+ul.nav-list li a {
+    font-size: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+html.breakpoint-phone .nav.header, html.breakpoint-tablet .nav.header {
+    min-width: 100%;
+    margin-bottom: 0;
+}
+
+ html.breakpoint-tablet .sidebar {
+    margin: 0 5%;
+ }
+
+html.breakpoint-tablet ul.nav-list ul.nav-list {
+    border-right: 0;
+}
+
+html.breakpoint-phone .subnav-container .breadcrumb .ordering {
+    position: static;
+    width: auto;
+    top: 0;
+}
+
+html.breakpoint-phone .container {
+    padding: 0 5px;
+}
+
+html.breakpoint-tablet .nav-list {
+    margin-right: 0;
+    width: auto;
+}

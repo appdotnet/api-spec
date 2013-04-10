@@ -11,7 +11,7 @@ text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'h
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
 # relative to the site directory.
-output_dir: output
+output_dir: output_sandbox
 
 # A list of index filenames, i.e. names of files that will be served by a web
 # server when a directory is requested. Usually, index files are named
@@ -85,5 +85,5 @@ watcher:
   notify_on_compilation_success: true
   notify_on_compilation_failure: true
 
-local_hostname: "localhost"
-lanai_hostname: "sandbox.app.net"
+local_hostname: "developers.mxmlabs.com"
+lanai_hostname: "account.sandbox.app.net"

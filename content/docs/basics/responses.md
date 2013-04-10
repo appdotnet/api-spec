@@ -78,7 +78,7 @@ If the request was unsuccessful for some reason, no ```data``` key will be retur
 
 #### Error Slugs
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Slug</th>

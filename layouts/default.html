@@ -5,32 +5,44 @@
 
     <title><%= @item[:title] %> - App.net API Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-responsive.css" media="screen">
+    <script type="text/javascript" src='https://account.alexvm.dev.mxmlabs.com/exports/base/?hostname=<%= @config[:local_hostname] %>'></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
     <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
 
   </head>
   <body>
-
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a class="brand" href="/">App.net API Documentation</a>
-          <a class="btn btn-link pull-right" href="https://github.com/appdotnet/api-spec/">View on Github</a>
+    <div id='replace-header'>
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="/">App.net API Documentation</a>
+            <a class="btn btn-link pull-right" href="https://github.com/appdotnet/api-spec/">View on Github</a>
+          </div>
         </div>
       </div>
     </div>
+    <div class="yui3-u-1 subnav-container">
+      <ul class="breadcrumb container">
+        <li><a class="brand" href="/">App.net API Documentation</a></li>
+        <li class="pull-right ordering">
+          <a href="https://github.com/appdotnet/api-spec/">View on Github</a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      ADN.write_markup('replace-header');
+    </script>
 
     <div class="container">
-      <div class="row">
-        <div class="span3">
+      <div class="yui3-g">
+        <div class="yui3-u-1-4 m-yui3-u-1">
           <div class='sidebar'>
             <ul class="nav nav-list">
 
               <li class="nav-header">Getting Started</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="/">Introduction</a></li>
                 <li><a href="/docs/basics/responses/">Responses</a></li>
                 <li><a href="/docs/basics/migrations/">Migrations</a></li>
@@ -41,7 +53,7 @@
               </ul>
 
               <li class="nav-header">External Resources</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="https://account.app.net/developer/apps/">My Apps</a></li>
                 <li><a href="http://patter-app.net/room.html?channel=1383">Developer Channel</a></li>
                 <li><a href="https://github.com/appdotnet/api-spec/wiki/Developer-Resources">Libraries & Source Code</a></li>
@@ -49,7 +61,7 @@
               </ul>
 
               <li class="nav-header">Authentication</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="/docs/authentication/">Overview</a></li>
                 <li><a href="/docs/authentication/flows/web/">Web Flows</a></li>
                 <li><a href="/docs/authentication/flows/password/">Password Flow</a></li>
@@ -58,10 +70,10 @@
               </ul>
 
               <li class="nav-header">Resources</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="/docs/resources/">All Endpoints</a></li>
                 <li><a href="/docs/resources/user/">User</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/user/lookup/">Lookup</a></li>
                   <li><a href="/docs/resources/user/profile/">Profile</a></li>
                   <li><a href="/docs/resources/user/following/">Following</a></li>
@@ -70,7 +82,7 @@
                   <li><a href="/docs/resources/user/post-interactions/">Post Interactions</a></li>
                 </ul>
                 <li><a href="/docs/resources/post/">Post</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/post/lookup/">Lookup</a></li>
                   <li><a href="/docs/resources/post/lifecycle/">Lifecycle</a></li>
                   <li><a href="/docs/resources/post/streams/">Streams</a></li>
@@ -80,29 +92,29 @@
                   <li><a href="/docs/resources/post/report/">Report</a></li>
                 </ul>
                 <li><a href="/docs/resources/channel/">Channel</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/channel/lookup/">Lookup</a></li>
                   <li><a href="/docs/resources/channel/lifecycle/">Lifecycle</a></li>
                   <li><a href="/docs/resources/channel/muting/">Muting</a></li>
                   <li><a href="/docs/resources/channel/subscriptions/">Subscriptions</a></li>
-                </ul>
+                </ul class="nav nav-list">
                 <li><a href="/docs/resources/message/">Message</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/message/lookup/">Lookup</a></li>
                   <li><a href="/docs/resources/message/lifecycle/">Lifecycle</a></li>
                 </ul>
                 <li><a href="/docs/resources/file/">File</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/file/lookup/">Lookup</a></li>
                   <li><a href="/docs/resources/file/lifecycle/">Lifecycle</a></li>
                   <li><a href="/docs/resources/file/content/">Content</a></li>
                 </ul>
                 <li><a href="/docs/resources/stream/">Stream</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/stream/lifecycle/">Lifecycle</a></li>
                 </ul>
                 <li><a href="/docs/resources/filter/">Filter</a></li>
-                <ul>
+                <ul class="nav nav-list">
                   <li><a href="/docs/resources/filter/lifecycle/">Lifecycle</a></li>
                 </ul>
                 <li><a href="/docs/resources/interaction/">Interaction</a></li>
@@ -114,20 +126,20 @@
               </ul>
 
               <li class="nav-header">Meta</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="/docs/meta/annotations/">Annotations</a></li>
                 <li><a href="/docs/meta/entities/">Entities</a></li>
               </ul>
 
               <li class="nav-header">Other</li>
-              <ul>
+              <ul class="nav nav-list">
                 <li><a href="/docs/other/feeds/">Feeds</a></li>
                 <li><a href="/docs/other/web-intents/">Web Intents</a></li>
               </ul>
             </ul>
-          </div>          
+          </div>
         </div>
-        <div class="span9 content">
+        <div class="yui3-u-3-4 m-yui3-u-1 content subpixel">
           <%= yield %>
         </div>
       </div>
@@ -135,6 +147,12 @@
 
     <script type="text/javascript" src="/assets/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
-
+    <script type="text/javascript">
+      ADN.write_extra_js();
+    </script>
+    <script type="text/javascript">
+      var path = window.location.pathname.replace('index.html', '');
+      $("li a[href='" + path + "']").parent().addClass('active');
+    </script>
   </body>
 </html>

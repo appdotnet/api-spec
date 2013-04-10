@@ -36,7 +36,7 @@ In summary:
 
 Requests for paginated streams can optionally be filtered by passing the following query string parameters along with the request:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>
@@ -63,7 +63,7 @@ Requests for paginated streams can optionally be filtered by passing the followi
 
 When requesting objects from an endpoint that supports [Stream Markers](/docs/resources/stream-marker), you can pass the following special values to the `since_id` and `before_id` pagination parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Value</th>
@@ -94,7 +94,7 @@ When requesting objects from an endpoint that supports [Stream Markers](/docs/re
 
 Responses from paginated streams will include the following fields in the `meta` object of the [response envelope](/docs/basics/responses/#response-envelope).
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

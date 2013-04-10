@@ -33,7 +33,7 @@ At present, these are the limit values we use:
 
 ### Authenticated Requests (per token)
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Type</th>
@@ -60,7 +60,7 @@ At present, these are the limit values we use:
 
 ### Unauthenticated Requests (per IP address)
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Type</th>

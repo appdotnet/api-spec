@@ -32,7 +32,7 @@ In general, annotations are a list of objects that have a ```type``` and a ```va
 ]
 ~~~
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
