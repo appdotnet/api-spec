@@ -8,3 +8,6 @@ output
 tmp
 crash.log
 Gemfile.lock
+bin
+vendor
+.bundle
