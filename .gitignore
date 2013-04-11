@@ -11,3 +11,4 @@ Gemfile.lock
 bin
 vendor
 .bundle
+local_config.yml
