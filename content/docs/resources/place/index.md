@@ -39,7 +39,7 @@ Place objects represent physical locations which can be given a name and associa
 
 ## Place Fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>

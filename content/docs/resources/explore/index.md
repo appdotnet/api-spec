@@ -20,7 +20,7 @@ An Explore Stream is a subset of all public posts flowing through App.net's Glob
 
 ## Explore Stream Fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>

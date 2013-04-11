@@ -72,7 +72,7 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 
 ## Post Fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
@@ -224,7 +224,7 @@ Some posts with annotations data may not be meant for direct consumption by a Us
 
 Where noted, Post endpoints respond to the following query string parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

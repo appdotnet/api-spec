@@ -1,6 +1,6 @@
 #### Endpoint
 
-<table style="width: auto">
+<table class='table table-striped' style="width: auto">
     <thead>
         <tr>
             <th width="">Method</th>

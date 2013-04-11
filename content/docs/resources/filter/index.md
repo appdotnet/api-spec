@@ -29,7 +29,7 @@ A Filter restricts a stream of messages on the server side so your client only s
 
 ## Filter fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>
@@ -63,7 +63,7 @@ A Filter restricts a stream of messages on the server side so your client only s
 
 ## Filter Clauses
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>
@@ -82,7 +82,7 @@ A Filter restricts a stream of messages on the server side so your client only s
             <td>string</td>
             <td>How should <code>field</code> be matched against <code>value</code>.
                 <br>
-                <table>
+                <table class='table table-striped'>
                     <tr>
                         <th>Operator</th>
                         <th>Description</th>
@@ -133,7 +133,7 @@ A Filter restricts a stream of messages on the server side so your client only s
 
 ## Filter variables
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Value</th>

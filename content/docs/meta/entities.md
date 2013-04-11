@@ -70,7 +70,7 @@ Tag a post about a specific subject. A hashtag starts with <code>#</code>.
 }]
 ~~~
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
@@ -106,7 +106,7 @@ Link to another website.
 }]
 ~~~
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
@@ -151,7 +151,7 @@ and the server replaces `{post_id}` with the id of the Post once it has been sav
 
 Currently, the only variables for URI templates that we define are ones that could not be known when the link is being constructed. Additionally, if you specify a variable that is not listed below, we will pass that through instead of replacing it with nothing.
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Value</th>

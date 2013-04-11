@@ -53,7 +53,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
 
 ## Fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>
@@ -67,7 +67,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
             <td>object</td>
             <td>
                 <br>
-                <table>
+                <table class='table table-striped'>
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
@@ -176,7 +176,7 @@ Access control lists (ACLs) specify who can read and who can write <a href="/doc
 
 ### ACL Fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>
@@ -241,7 +241,7 @@ You can create arbitrary Channel types which do not have these restrictions (but
 
 Where noted, Channel endpoints respond to the following query string parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

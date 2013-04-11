@@ -54,7 +54,7 @@ Interactions are objects that represent users taking certain actions on App.net.
 
 ## Interactions Fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>

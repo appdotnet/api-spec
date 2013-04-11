@@ -1,4 +1,4 @@
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th width="410">Description</th>

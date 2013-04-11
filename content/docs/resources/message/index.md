@@ -39,7 +39,7 @@ A Message is very similar to a [Post](/docs/resources/post/) but 1) it doesn't h
 
 ## Fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
@@ -148,7 +148,7 @@ Sometimes a Message is not meant for human consumption but it may be readable by
 
 Where noted, Message endpoints respond to the following query string parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

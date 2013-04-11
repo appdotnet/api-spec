@@ -81,7 +81,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
 
 ## User fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>
@@ -107,7 +107,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         <td>object</td>
         <td>
             <br>
-            <table>
+            <table class='table table-striped'>
                 <tr>
                     <th>Field</th>
                     <th>Type</th>
@@ -166,7 +166,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         <td>object</td>
         <td>
             <br>
-            <table>
+            <table class='table table-striped'>
                 <tr>
                     <th>Field</th>
                     <th>Type</th>
@@ -255,7 +255,7 @@ A user's avatar and cover images can be [directly requested](/docs/resources/use
 
 Where noted, User endpoints respond to the following query string parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

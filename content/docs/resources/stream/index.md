@@ -38,7 +38,7 @@ A customized view of the global stream that is streamed to the client instead of
 
 ## Stream Fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>

@@ -100,7 +100,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 ### Data
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>
@@ -213,7 +213,7 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 
 ### Data
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>

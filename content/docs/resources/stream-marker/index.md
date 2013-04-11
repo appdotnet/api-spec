@@ -34,7 +34,7 @@ A marker that has been set will look like this:
 
 ## Stream Marker fields
 
-<table>
+<table class='table table-striped'>
     <tr>
         <th>Field</th>
         <th>Type</th>

@@ -1,7 +1,7 @@
 /* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
 
 .content {
-	padding-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 .label-GET {
@@ -19,6 +19,43 @@
 .label-DELETE {
   background-color: #b94a48;
 }
+
+.alert, pre {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 0;
+}
+
+.alert-success {
+    background-color: #f8fcf6;
+}
+
+.alert-error {
+    background-color: #faecec;
+}
+
+.alert-info {
+    background-color: #eaf8ff;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+body h2 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+body h2, body h3, body h4, body h5 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+
 
 ul.nav-list ul.nav-list ul.nav-list li a {
     padding-left: 50px;

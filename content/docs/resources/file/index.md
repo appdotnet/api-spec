@@ -15,7 +15,7 @@ A file uploaded by a User and hosted by App.net.
 
 ## File Fields
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Field</th>
@@ -65,7 +65,7 @@ A file uploaded by a User and hosted by App.net.
             <td>
                 If this File is an image that App.net can process, then the following information will be included:
                 <br>
-                <table>
+                <table class='table table-striped'>
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
@@ -119,7 +119,7 @@ A file uploaded by a User and hosted by App.net.
             <td>object</td>
             <td>
                 <br>
-                <table>
+                <table class='table table-striped'>
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
@@ -227,7 +227,7 @@ Paid tier accounts receive 10GB total storage, with a 100MB maximum individual f
 
 Where noted, File endpoints respond to the following query string parameters:
 
-<table>
+<table class='table table-striped'>
     <thead>
         <tr>
             <th>Name</th>
