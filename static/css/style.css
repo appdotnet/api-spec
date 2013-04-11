@@ -20,6 +20,36 @@
   background-color: #b94a48;
 }
 
+.label-GET, .label-POST, .label-PUT, .label-DELETE {
+    color: #fff;
+    padding: 1px 2px;
+}
+
+body a {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+body a:hover {
+    color: #005580;
+    text-decoration: underline;
+}
+
+body a:visited {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+code {
+    font-size: 12px;
+    white-space: nowrap;
+    /* color: #4a484c; */
+}
+
+pre {
+    background-color: #ececec;
+}
+
 .alert, pre {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -29,14 +59,17 @@
 
 .alert-success {
     background-color: #f8fcf6;
+    color: #468847;
 }
 
 .alert-error {
     background-color: #faecec;
+    color: #b94a48;
 }
 
 .alert-info {
     background-color: #eaf8ff;
+    color: #3a87ad;
 }
 
 body {
@@ -45,13 +78,28 @@ body {
     line-height: 18px;
 }
 
+body h1, body h2, body h3 {
+    line-height: 40px;
+}
+
+body h1 {
+    font-size: 38.5px;;
+}
+
 body h2 {
-    font-size: 20px;
-    line-height: 20px;
-    margin-bottom: 12px;
+    font-size: 31.5px;
+}
+
+body h3 {
+    font-size: 24.5px;
+}
+
+body h4 {
+    font-size: 17.5px;
 }
 
 body h2, body h3, body h4, body h5 {
+    color: #4a484c;
     margin-top: 2em;
     margin-bottom: .5em;
 }
