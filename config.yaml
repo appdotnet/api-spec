@@ -86,4 +86,4 @@ watcher:
   notify_on_compilation_failure: true
 
 local_hostname: "localhost"
-lanai_hostname: "sandbox.app.net"
+lanai_hostname: "account.sandbox.app.net"
