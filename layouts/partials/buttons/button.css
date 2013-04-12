@@ -1,0 +1,16 @@
+a.adn-button, a.adn-button:visited, a.adn-button:hover  {
+    background-color: #C75244;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 20px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+}
+
+a.adn-button:hover {
+    background-color: #CA5D4E;
+}
