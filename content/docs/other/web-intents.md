@@ -11,17 +11,27 @@ Web intents are an easy way to integrate with App.net; you don't even need to us
 
 ## The Post Intent
 
-Currently, the only supported intent is the Post Intent. It allows you to create a link that will present the user with a post creation box and any pre-filled text that you may have supplied.
+The post intent allows you to create a link that will present the user with a post creation box and any pre-filled text that you may have supplied.
 
-The base URL for this intent is ```https://alpha.app.net/intent/post```.
+The base URL for this intent is ```https://alpha.app.net/intent/post/```.
 
 You may optionally prepopulate the post creation box by supplying a ```text``` query parameter to the URL.
 
-For example, this URL ```https://alpha.app.net/intent/post?text=@voidfiles+save+some+coffee+for+me``` will create a post that reads:
+For example, this URL ```https://alpha.app.net/intent/post/?text=@voidfiles+save+some+coffee+for+me``` will create a post that reads:
 
     @voidfiles save some coffee for me
 
 At this point the end user will be able to edit and then submit the post.
+
+## The Follow Intent
+
+The follow intent is an easy way to link to a page on App.net that will present the user with an opportunity to follow a selected user.
+
+The base URL for this intent is ```https://alpha.app.net/intent/follow/```.
+
+You must include a user that is the intended target of the follow action. To do this include a ```user_id``` query parameter in the URL. The ```user_id``` can be a username prepended by a @, like @adn, or it can be the numeric user_id, like 136.
+
+For example, this URL ```https://alpha.app.net/intent/follow/?user_id=136``` will show page where the user can choose to follow the user @adn:
 
 ## Javascript & Intents
 

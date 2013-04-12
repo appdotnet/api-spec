@@ -50,6 +50,10 @@ pre {
     background-color: #ececec;
 }
 
+pre code {
+    white-space: pre-wrap;
+}
+
 .alert, pre {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;

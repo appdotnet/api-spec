@@ -75,3 +75,7 @@ Here is an example of a button that fills in a message like "Check out the App.n
     }
 </style>
 <a class='adn-button' href="https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net" onclick="window.open('https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
+
+## The Follow Me on App.net Button
+
+the follow button hooks up with our Follow Intent ()
