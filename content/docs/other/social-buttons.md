@@ -6,32 +6,15 @@ title: "Social Buttons"
 
 * TOC
 {:toc}
+Use social buttons to let visitors to your website [share content](#share-on-appnet-button) and [follow you](#follow-me-on-appnet-button) on App.net.
 
-Social buttons are meant to be an easy way to include a [web intent](/docs/other/web-intents/) on any web page.
+Social buttons are meant to be an easy way to include a [social interaction](/docs/other/web-intents/) on any web page.
 
-## The Share on App.net Button
+## Share on App.net Button
 
-The share buttons hooks up to our [Post Intent](/docs/other/web-intents/#the-post-intent). It's an easy way for publishers to pre-compose a message for user. The user will still have an option to edit any pre-composed message.
+The share on App.net button is an easy way to let visitors to your website share content directly to App.net.
 
-## The Follow Me on App.net Button
-
-the follow button hooks up with our [Follow Intent](/docs/other/web-intents/#the-follow-intent). It's an easy way to link to a page on app.net where a user can then follow you.
-
-
-### Including a button on your site.
-
-There are two parts to including this on button your site. The first part is a small bit of CSS that can be included in any pre-exsisting styles you have, or it ca be including inline with the button. Here is a template you can use to build a share on App.net button.
-
-#### The CSS Portion
-
-~~~css
-<%= render 'partials/buttons/button' %>
-~~~
-
-#### The HTML Portion
-
-
-##### Share on App.net Button
+#### HTML
 
 You will need to replace ```{{ URL Encoded Message }}``` with a pre-composed URL Encoded Message of your choosing.
 
@@ -39,18 +22,15 @@ You will need to replace ```{{ URL Encoded Message }}``` with a pre-composed URL
 <a class="adn-button" href="https://alpha.app.net/intent/post/?text={{ URL Encoded Message}}" onclick="window.open('https://alpha.app.net/intent/post/?text={{ URL Encoded Message }}', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
 ~~~
 
-##### Follow Me on App.net Button
+#### Example
 
-You will need to replace ```{{ USER_ID }}``` with either a number user id like, 136, or a username prepended with an @ like, @adn.
+Here is an example of a post button that fills in a message like "Check out the App.net Developer docs http://developers.app.net"
 
 ~~~html
-<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id={{ USER_ID }}" onclick="window.open('https://alpha.app.net/intent/follow/?user_id={{ USER_ID }}', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
+<a class='adn-button' href="https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20Developer%20docs%20http%3A%2F%2Fdevelopers.app.net" onclick="window.open('https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20Developer%20docs%20http%3A%2F%2Fdevelopers.app.net', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
 ~~~
 
-### Examples
-
-#### Post Button Example
-Here is an example of a post button that fills in a message like "Check out the App.net docs http://developers.app.net"
+this is what that would look like:
 
 <style>
     <%= render 'partials/buttons/button' %>
@@ -59,19 +39,36 @@ Here is an example of a post button that fills in a message like "Check out the 
 <a class='adn-button' href="https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net" onclick="window.open('https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
 
 
+## Follow Me on App.net Button
+
+The follow me on App.net button let's visitors to your website easily follow you on App.net.
+
+#### HTML
+
+You will need to replace ```{{ USER_ID }}``` with either a number user id like, 136, or a username prepended with an @ like, @adn.
+
 ~~~html
-<a class='adn-button' href="https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net" onclick="window.open('https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
+<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id={{ USER_ID }}" onclick="window.open('https://alpha.app.net/intent/follow/?user_id={{ USER_ID }}', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
 ~~~
 
-#### Follow Button Example
+#### Example
 
 Here is an example of a follow button that asks the user to follow the @adn account.
 
-
-<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id=136" onclick="window.open('https://alpha.app.net/intent/follow/?user_id=136', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
-
-
 ~~~html
-<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id=136" onclick="window.open('https://alpha.app.net/intent/follow/?user_id=136', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
+<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id=@adn" onclick="window.open('https://alpha.app.net/intent/follow/?user_id=@adn', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
+~~~
+
+this is what that would look like:
+
+<a class="adn-button" href="https://alpha.app.net/intent/follow/?user_id=@adn" onclick="window.open('https://alpha.app.net/intent/follow/?user_id=@adn', 'adn_follow', 'width=750,height=350,left=100,top=100'); return false;">Follow Me on App.net</a>
+
+
+## Common CSS
+
+In order to integrate an App.net social button into your website, you'll have to complete two steps. Step one, for all buttons, is to add a little bit of CSS into any pre-existing style sheets you have You also have the option of including the CSS inline with the button.
+
+~~~css
+<%= render 'partials/buttons/button' %>
 ~~~
 

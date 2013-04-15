@@ -17,9 +17,9 @@ The base URL for this intent is ```https://alpha.app.net/intent/post/```.
 
 You may optionally prepopulate the post creation box by supplying a ```text``` query parameter to the URL.
 
-For example, this URL ```https://alpha.app.net/intent/post/?text=@voidfiles+save+some+coffee+for+me``` will create a post that reads:
+For example, this URL ```https://alpha.app.net/intent/post/?text=%40adn%20When%20is%20the%20next%20meetup%3F``` will create a post that reads:
 
-    @voidfiles save some coffee for me
+    @adn When is the next meetup?
 
 At this point the end user will be able to edit and then submit the post.
 
@@ -41,8 +41,10 @@ For example, the following Javascript will open a Post Intent in a popup. The po
 
 ~~~
 window.open(
-    'https://alpha.app.net/intent/post?text=@voidfiles+save+some+coffee+for+me',
+    'https://alpha.app.net/intent/post?text=%40adn%20When%20is%20the%20next%20meetup%3F',
     'adn_post',
     'width=750,height=350,left=100,top=100'
 );
 ~~~
+
+You can see an example of how to use Javascript and Intents on the [social buttons](/docs/other/social-buttons/) page.
