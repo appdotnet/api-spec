@@ -6,11 +6,20 @@ title: "Social Buttons"
 
 * TOC
 {:toc}
+
 Use social buttons to let visitors to your website [share content](#share-on-appnet-button) and [follow you](#follow-me-on-appnet-button) on App.net.
 
 Social buttons are meant to be an easy way to include a [social interaction](/docs/other/web-intents/) on any web page.
 
-## Share on App.net Button
+## How To Include A Button On Your Website
+
+1. Copy an example of the button you want use to your website.
+2. Modify the example until it works for your needs.
+3. Include the Common CSS in your existing stylesheet, or inline before an App.net button.
+
+## Buttons
+
+### Share on App.net Button
 
 The share on App.net button is an easy way to let visitors to your website share content directly to App.net.
 
@@ -39,7 +48,7 @@ this is what that would look like:
 <a class='adn-button' href="https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net" onclick="window.open('https://alpha.app.net/intent/post?text=Check%20out%20the%20App.net%20docs%20http%3A%2F%2Fdevelopers.app.net', 'adn_post', 'width=750,height=350,left=100,top=100'); return false;">Share on App.net</a>
 
 
-## Follow Me on App.net Button
+### Follow Me on App.net Button
 
 The follow me on App.net button let's visitors to your website easily follow you on App.net.
 
