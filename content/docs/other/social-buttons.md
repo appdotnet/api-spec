@@ -7,15 +7,14 @@ title: "Social Buttons"
 * TOC
 {:toc}
 
-Use social buttons to let visitors to your website [share content](#share-on-appnet-button) and [follow you](#follow-me-on-appnet-button) on App.net.
+Use social buttons to let visitors to your website share content and follow you on App.net. Social buttons are meant to be an easy way to include a [social interaction](/docs/other/web-intents/) on any web page.
 
-Social buttons are meant to be an easy way to include a [social interaction](/docs/other/web-intents/) on any web page.
+## Add a social button in three simple steps
 
-## How To Include A Button On Your Website
+1. Select either the [Share on App.net](#share-on-appnet-button) button or [Follow Me on App.net](#follow-me-on-appnet-button) button and paste the example html into your website.
+1. Replace the url encoded message for the Share on App.net html or replace the user id for the Follow Me on App.net button.
+1. Include the common CSS in your existing stylesheet or inline before the App.net button.
 
-1. Copy an example of the button you want use to your website.
-2. Modify the example until it works for your needs.
-3. Include the Common CSS in your existing stylesheet, or inline before an App.net button.
 
 ## Buttons
 
