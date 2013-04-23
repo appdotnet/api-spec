@@ -70,7 +70,7 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels", "Any" %>
 
 <%= query_params [
     ["ids", "A comma separated list of ids of Channels to retrieve."]

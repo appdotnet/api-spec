@@ -55,7 +55,7 @@ Once you have been approved, using the password flow is pretty straightforward:
 
 1. If the authorization was successful, App.net will respond with a JSON-encoded token:
 
-        {"access_token": "[user access token]"}
+        {"access_token": "[user access token]", "token": {...Token object...}}
 
     You can use this access_token to make authenticated calls to the App.net API on behalf of a user.
 

@@ -45,7 +45,7 @@ This is the easiest way to get an access token—we recommend it to most users o
 
     > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
 
-1. App.net will respond with a JSON-encoded token: `{"access_token": "[user access token]"}`
+1. App.net will respond with a JSON-encoded token: `{"access_token": "[user access token]", "token": {...Token object...}}`
 
     You can use this access_token to make authenticated calls to the App.net API on behalf of a user.
 

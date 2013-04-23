@@ -17,7 +17,7 @@ Returns a specific [Message](/docs/resources/message/).
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
+<%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "Varies" %>
 
 <%= url_params [
     ["channel_id", "The id of the Channel containing the Message."],
@@ -67,7 +67,7 @@ Returns multiple Messages requested by id. At most 200 messages can be requested
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "GET", "channels/messages", "User", "public_messages</code> or <code>messages" %>
+<%= endpoint "GET", "channels/messages", "Any" %>
 
 <%= query_params [
     ["ids", "A comma separated list of ids of the Messages to retrieve."]

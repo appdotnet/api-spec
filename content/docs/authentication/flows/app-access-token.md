@@ -23,6 +23,6 @@ with URL-encoded POST body:
 
 App.net will respond with a JSON-encoded token:
 
-    {"access_token": "[app access token]"}
+    {"access_token": "[app access token]", "token": {...Token object...}}
 
 You can use this access_token to make authenticated calls to the App.net API on behalf of your app.

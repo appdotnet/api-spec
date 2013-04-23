@@ -25,7 +25,7 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
 
 <%= migration_warning ['response_envelope'] %>
 
-<%= endpoint "POST", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
+<%= endpoint "POST", "channels/[channel_id]/messages", "Varies" %>
 
 <%= url_params [
     ["channel_id", 'The id of the <a href="/docs/resources/channel/">Channel</a> in which to create the Message. Alternatively, you can specify <code>pm</code> to auto-create/reuse a <code>net.app.core.pm</code> <a href="/docs/resources/channel/#private-message">private message channel</a>.']

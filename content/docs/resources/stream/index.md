@@ -65,7 +65,7 @@ A customized view of the global stream that is streamed to the client instead of
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
@@ -125,6 +125,7 @@ A Stream can listen for the following object types:
 * [star](#star): Sent when a user stars a post
 * [user_follow](#user-follow): Sent when a user begins following or unfollows another user
 * [mute](#mute): Sent when a user who has authorized your app mutes or unmutes another user
+* [block](#block): Sent when a user who has authorized your app blocks or unblocks another user
 * [stream_marker](#stream-marker): Sent when a stream marker is updated
 * [message](#message): Sent for new objects, replies, and message deletions
 * [channel](#channel): Sent when a channel is created or updated
@@ -295,6 +296,52 @@ A user that has authorized your app unmutes another user.
     }
 }
 ~~~
+
+### block
+
+*You only see objects in this category for users who have authorized your app.*
+
+A user that has authorized your app blocks another user.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358373991082,
+        "type": "block",
+        "id": "143:144"
+    },
+    "data": {
+        "blocked_user": {
+            ...user object...
+        },
+        "user": {
+            ...user object...
+        }
+    }
+}
+~~~
+
+A user that has authorized your app unblocks another user.
+
+~~~ js
+{
+    "meta": {
+        "timestamp": 1358373991082,
+        "is_deleted": true,
+        "type": "block",
+        "id": "143:144"
+    },
+    "data": {
+        "blocked_user": {
+            ...user object...
+        },
+        "user": {
+            ...user object...
+        }
+    }
+}
+~~~
+
 
 ### stream_marker
 

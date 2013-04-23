@@ -106,6 +106,16 @@ When making a call to one of our API resources, there are three ways to include 
              -F 'text=Test post' \
              https://alpha-api.app.net/stream/0/posts
 
+## What kind of token do I need?
+
+Different endpoints require different kinds of tokens:
+
+* None: no access token is required
+* User: a [user token](/docs/authentication/#how-do-i-get-an-access-token) is required.
+* App: an [app token](/docs/authentication/flows/app-access-token/) is required.
+* Any: either a user token or an app token may be provided but you must have a token of some kind.
+* Varies: Authentication may not be required but if it is not provided, you may not be allowed to see a specific resource. For instance, the [Retrieve a Channel](/docs/resources/channel/lookup/#retrieve-a-channel) endpoint allows unauthenticated calls. But if you try to retrieve a Channel that is not marked public, the call will fail.
+
 ## How can I authenticate between App.net apps?
 
 We call this Identity Delegation. The detailed [Identity Delegation

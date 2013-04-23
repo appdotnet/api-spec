@@ -30,7 +30,7 @@
             <td><a href="/docs/resources/message/lookup/#retrieve-multiple-messages">Retrieve multiple Messages</a></td>
             <td>GET</td>
             <td>/stream/0/channels/messages</td>
-            <td>Varies</td>
+            <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/message/lookup/#retrieve-my-messages">Retrieve my Messages</a></td>
