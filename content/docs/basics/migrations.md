@@ -10,9 +10,6 @@ title: "Migrations"
 We reserve the right to make incremental changes to the API as we deem necessary. In order to make it possible to change the API but still support legacy applications, we will make use of migrations. Migrations are a per-app feature that developers may toggle for their own apps from the time that the old behavior is deprecated until the time that it has reached the end of its life (EOL). Once the EOL date is reached, the migration will be enabled for all apps with no legacy mode available.
 
 {::options parse_block_html="true" /}
-<div class="alert alert-error alert-block">
-**We will be sunsetting all existing migrations on March 20th, 2013. For more information, [read this post](http://devblog.app.net/2013/02/14/sunsetting-existing-migrations-on-march-20th).**
-</div>
 
 ## Accessing Migration Data
 
@@ -33,7 +30,7 @@ All calls to our endpoints will return `X-ADN-Migrations-Enabled`, a query-strin
 ### Using Migrations with JSONP
 For JSONP requests we offer the ability to override the default migration behavior on a per-call basis. To do this, add a list of valid [migration keys](#current-migrations) and values (0 or 1) to the query string. For example, `https://alpha-api.app.net/stream/0/posts/stream/global?callback=json_callback&foo=0`
 
-**Toggling migrations with the query string is ONLY for available JSONP requests.** Use the header mechanism for all other requests.
+**Toggling migrations with the query string is ONLY available for JSONP requests.** Use the header mechanism for all other requests.
 
 ## Current Migrations
 
