@@ -10,8 +10,6 @@ title: "Responses"
 All responses to requests to the App.net API endpoints listed under [Resources](/docs/resources/), whether successful or not, will be returned in the same type of envelope structure. This document describes how that envelope works and what it may contain.
 
 {::options parse_block_html="true" /}
-<div class="alert alert-info alert-block">
-All information in this document assumes the ```response_envelope``` migration is active. Please refer to [Migrations](/docs/basics/migrations/) for more information.
 </div>
 
 ## Response Envelope

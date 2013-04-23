@@ -13,8 +13,6 @@ Create a [Filter](/docs/resources/filter/) for the current user.
 
 Send a JSON document that matches the [Filter schema](/docs/resources/filter/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "filters", "User" %>
 
 #### Data
@@ -54,8 +52,6 @@ A JSON object representing the [Filter](/docs/resources/filter/) to create.
 
 Returns a specific [Filter](/docs/resources/filter/) object.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "filters/[filter_id]", "User" %>
 
 <%= url_params [
@@ -91,8 +87,6 @@ Returns a specific [Filter](/docs/resources/filter/) object.
 
 Return the [Filter](/docs/resources/filter/) for the current user.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "filters", "User" %>
 
 #### Example
@@ -126,8 +120,6 @@ Return the [Filter](/docs/resources/filter/) for the current user.
 ## Update a Filter
 
 Updates a specific [Filter](/docs/resources/filter/) object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [Filter schema](/docs/resources/filter/) with an HTTP header of ```Content-Type: application/json```. The entire filter will be replaced with new value but it's ```id``` will remain the same. Please refer to the documentation on [how to create a Filter](#create-a-filter) for more information.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "filters/[filter_id]", "User" %>
 
@@ -176,8 +168,6 @@ Delete a [Filter](/docs/resources/filter/). The Filter must belong to the curren
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "filters/[filter_id]", "User" %>
 
 <%= url_params [
@@ -214,8 +204,6 @@ Delete a [Filter](/docs/resources/filter/). The Filter must belong to the curren
 Delete all [Filters](/docs/resources/filter/) for the current user. It returns the deleted Filters on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "filters", "User" %>
 

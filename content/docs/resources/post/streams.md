@@ -15,8 +15,6 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the Global stream.
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/stream/global", "None" %>
 
 #### Example
@@ -85,8 +83,6 @@ Get the most recent [Posts](/docs/resources/post/) created by a specific [User](
 <%= general_params_note_for "post" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/posts", "None" %>
 
@@ -161,8 +157,6 @@ Get the most recent [Posts](/docs/resources/post/) mentioning by a specific [Use
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users/[user_id]/mentions", "Any" %>
 
 <%= url_params [
@@ -236,8 +230,6 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current User a
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/stream", "User", "stream" %>
 
 #### Example
@@ -307,8 +299,6 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/stream/unified", "User", "stream" %>
 
 #### Example
@@ -377,8 +367,6 @@ Return the 20 most recent [Posts](/docs/resources/post/) for a specific hashtag.
 <%= general_params_note_for "post" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/tag/[hashtag]", "None" %>
 

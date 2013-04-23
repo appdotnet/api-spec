@@ -80,8 +80,6 @@ The purpose of a Stream Marker is _not_ to allow a user to scroll a stream on on
 
 The `last_read_id` is updated if the provided `id` is larger than the current value of `last_read_id`. If you would like to explicitly set the `last_read_id` to a smaller value, you can pass the query string parameter `reset_read_id=1` when updating a stream marker.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "posts/marker", "User" %>
 
 #### Example

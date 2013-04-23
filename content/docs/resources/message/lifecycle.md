@@ -23,8 +23,6 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
 
 <%= general_params_note_for "message" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "channels/[channel_id]/messages", "Varies" %>
 
 <%= url_params [
@@ -118,8 +116,6 @@ Delete a message. The current user must be the same user who created the Message
 
 <%= general_params_note_for "message" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "channels/[channel_id]/messages/[message_id]", "User", "public_messages</code> or <code>messages" %>
 
 <%= url_params [
@@ -169,8 +165,6 @@ Retrieve a stream of the Messages in a channel.
 <%= general_params_note_for "message" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/[channel_id]/messages", "User", "public_messages</code> or <code>messages" %>
 

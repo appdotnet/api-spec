@@ -19,8 +19,6 @@ If you want to test how your text will be processed you can use the [text proces
 
 <%= general_params_note_for "post" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "posts", "User", "write_post" %>
 
 <%= post_params [
@@ -148,8 +146,6 @@ Delete a <a href="/docs/resources/post/">Post</a>. The current user must be the 
 <%= general_params_note_for "post" %>
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "posts/[post_id]", "User", "write_post" %>
 

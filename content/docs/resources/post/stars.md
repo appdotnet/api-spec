@@ -15,8 +15,6 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 <%= general_params_note_for "post" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "posts/[post_id]/star", "User", "write_post" %>
 
 <%= url_params [
@@ -81,8 +79,6 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 Remove a Star from a Post.
 
 <%= general_params_note_for "post" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "posts/[post_id]/star", "User", "write_post" %>
 
@@ -150,8 +146,6 @@ Get the most recent [Posts](/docs/resources/post/) starred by a specific [User](
 <%= general_params_note_for "post" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/stars", "None" %>
 

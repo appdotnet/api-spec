@@ -15,8 +15,6 @@ Returns a specific [Message](/docs/resources/message/).
 
 <%= general_params_note_for "message" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "Varies" %>
 
 <%= url_params [
@@ -64,8 +62,6 @@ Returns a specific [Message](/docs/resources/message/).
 Returns multiple Messages requested by id. At most 200 messages can be requested. Messages may be requested from more than one channel at a time. Messages which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= general_params_note_for "message" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/messages", "Any" %>
 
@@ -118,8 +114,6 @@ Retrieve a stream of the Messages the current user has created.
 <%= general_params_note_for "message" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/me/messages", "User", "public_messages</code> or <code>messages" %>
 

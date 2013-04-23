@@ -25,13 +25,13 @@ You can toggle the global migration behavior of your apps by editing your apps l
 By default, new apps will come with all existing migrations toggled to "Current" mode. This reflects the fact that support for legacy mode will eventually be removed. However, any migrations that are released after the app is created will be initially toggled to "Legacy" mode, so app developers can expect that the API behavior will not unexpectedly change for existing apps.
 
 ### Per-call Toggle
-In addition to using the edit app toggles, we offer the `X-ADN-Migration-Overrides` header as a way for developers to override migration behavior on a per-call basis. This header should contain a **query-string encoded** list of valid [migration keys](#current-migrations) and values (0 or 1). For example, providing `X-ADN-Migration-Overrides: response_envelope=0` would disable response envelopes for that particular call. We expect that some apps may be distributed in such a way that some users may be running old versions while others are running newer versions, so this override header may make it easier to adopt new functionality without causing regressions. As with the toggle, though, migration override keys cannot be used past their EOL dates. Also, `X-ADN-Migration-Overrides` is whitelisted for CORS, so we expect that it should be usable in all contexts.
+In addition to using the edit app toggles, we offer the `X-ADN-Migration-Overrides` header as a way for developers to override migration behavior on a per-call basis. This header should contain a **query-string encoded** list of valid [migration keys](#current-migrations) and values (0 or 1). For example, providing `X-ADN-Migration-Overrides: foo=0` would disable the migration named `foo`. We expect that some apps may be distributed in such a way that some users may be running old versions while others are running newer versions, so this override header may make it easier to adopt new functionality without causing regressions. As with the toggle, though, migration override keys cannot be used past their EOL dates. Also, `X-ADN-Migration-Overrides` is whitelisted for CORS, so we expect that it should be usable in all contexts.
 
 ### Migration Response Header
 All calls to our endpoints will return `X-ADN-Migrations-Enabled`, a query-string encoded list of migration keys that are enabled for that particular API call. This list will take into account globally toggled migrations as well as those enabled by `X-ADN-Migration-Overrides`.
 
 ### Using Migrations with JSONP
-For JSONP requests we offer the ability to override the default migration behavior on a per-call basis. To do this, add a list of valid [migration keys](#current-migrations) and values (0 or 1) to the query string. For example, `https://alpha-api.app.net/stream/0/posts/stream/global?callback=json_callback&response_envelope=0`
+For JSONP requests we offer the ability to override the default migration behavior on a per-call basis. To do this, add a list of valid [migration keys](#current-migrations) and values (0 or 1) to the query string. For example, `https://alpha-api.app.net/stream/0/posts/stream/global?callback=json_callback&foo=0`
 
 **Toggling migrations with the query string is ONLY for available JSONP requests.** Use the header mechanism for all other requests.
 
@@ -48,28 +48,10 @@ For JSONP requests we offer the ability to override the default migration behavi
     </thead>
     <tbody>
         <tr>
-            <td><code>response_envelope</code></td>
-            <td>Response Envelope</td>
-            <td>Wraps all responses in a JSON <a href="/docs/basics/responses/">response envelope</a>.</td>
-            <td>March 20, 2013</td>
-        </tr>
-        <tr>
-            <td><code>disable_min_max_id</code></td>
-            <td>Disable Min/Max ID</td>
-            <td>Disables the <code>min_id</code> and <code>max_id</code> parameters on endpoints that return Post objects. The new <a href="/docs/basics/pagination/">pagination parameters</a> are <code>since_id</code> and <code>before_id</code>.</td>
-            <td>March 20, 2013</td>
-        </tr>
-        <tr>
-            <td><code>follow_pagination</code></td>
-            <td>Follow(ers/ing) Pagination</td>
-            <td>Turns on pagination for /stream/0/users/[user_id]/{followers,following} endpoints using the <a href="/docs/basics/responses/">response envelope</a> and <a href="/docs/basics/pagination/">pagination parameters</a>.</td>
-            <td>March 20, 2013</td>
-        </tr>
-        <tr>
-            <td><code>pagination_ids</code></td>
-            <td>Stringify min_id/max_id</td>
-            <td>Return min_id/max_id as strings. App.net IDs are always strings, but a bug on our part caused these IDs to be returned as ints. Unmigrated behavior is inconsistent.</td>
-            <td>March 20, 2013</td>
+            <td><code></code></td>
+            <td></td>
+            <td>There are no active migrations.</td>
+            <td></td>
         </tr>
     </tbody>
 </table>

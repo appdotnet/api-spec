@@ -13,8 +13,6 @@ Returns a specific <a href="/docs/resources/user/">User</a> object.
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users/[user_id]", "None" %>
 
 <%= url_params [
@@ -91,8 +89,6 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users", "Any" %>
 
 <%= query_params [
@@ -130,8 +126,6 @@ Returns multiple Users requested by id. At most 200 users can be requested.
 Search the App.net userbase.
 
 <%= general_params_note_for "user" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/search", "Any" %>
 

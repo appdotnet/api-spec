@@ -13,8 +13,6 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being fo
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "users/[user_id]/follow", "User", "follow" %>
 
 <%= url_params [
@@ -94,8 +92,6 @@ Returns the <a href="/docs/resources/user/">User</a> object of the user being un
 
 *Remember, access tokens cannot be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "users/[user_id]/follow", "User", "follow" %>
 
 <%= url_params [
@@ -174,8 +170,6 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects the specified
 <%= general_params_note_for "user" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope','follow_pagination'] %>
 
 <%= endpoint "GET", "users/[user_id]/following", "Any" %>
 
@@ -262,8 +256,6 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects for users fol
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope','follow_pagination'] %>
-
 <%= endpoint "GET", "users/[user_id]/followers", "Any" %>
 
 <%= url_params [
@@ -345,8 +337,6 @@ Returns a list of <a href="/docs/resources/user/">User</a> objects for users fol
 
 Returns an array of user ids the specified user is following.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users/[user_id]/following/ids", "Any" %>
 
 <%= url_params [
@@ -373,8 +363,6 @@ Returns an array of user ids the specified user is following.
 ## List user ids following a user
 
 Returns an array of user ids for users following the specified user.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/followers/ids", "Any" %>
 

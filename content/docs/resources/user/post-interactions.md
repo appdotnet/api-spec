@@ -13,8 +13,6 @@ List all the Users who have reposted a given Post.
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/[post_id]/reposters", "Any" %>
 
 <%= url_params [
@@ -94,8 +92,6 @@ List all the Users who have reposted a given Post.
 List all the Users who have starred a given Post.
 
 <%= general_params_note_for "user" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/[post_id]/stars", "Any" %>
 

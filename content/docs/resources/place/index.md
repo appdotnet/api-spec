@@ -172,8 +172,6 @@ Returns info about a Place object with a given `factual_id`.
 
 Because it is possible for duplicate entries to exist for the same Place, Factual provides a method to deduplicate one Place object by "replacing" it with another. As a result, you may notice sometimes that when requesting a Place with one `factual_id` you will get back an entry with a different `factual_id`. When we return a different Place than the one you requested we are claiming, to the best of our knowledge, that it is equivalent to the one requested.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "places/[factual_id]", "Any" %>
 
 <%= url_params [
@@ -222,8 +220,6 @@ Because it is possible for duplicate entries to exist for the same Place, Factua
 Performs a search for nearest places from given latitude and longitude. Optionally takes a `q` string to restrict matches on name (like autocomplete for Place names).
 
 Returns a list of Places sorted by distance or distance/string match if `q` is provided. These are the same Place objects as returned by the previous endpoint but will also include a `distance` property which gives, in meters, the distance from the search centroid to the Place.
-
-<%= migration_warning ['response_envelope'] %>
 
 {::options parse_block_html="true" /}
 <div class="alert alert-error alert-block">

@@ -15,8 +15,6 @@ Retrieve an "inbox" of the channels the user is currently subscribed to. This st
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "channels", "User", "public_messages</code> or <code>messages"%>
 
 #### Example
@@ -72,8 +70,6 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 <%= general_params_note_for "channel" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
@@ -126,8 +122,6 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 Unsubscribe from a Channel. This removes it from your [Channel stream](#get-current-users-subscribed-channels).
 
 <%= general_params_note_for "channel" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "channels/[channel_id]/subscribe", "User", "public_messages</code> or <code>messages"%>
 
@@ -183,8 +177,6 @@ Retrieve the users who are subscribed to a Channel.
 <%= general_params_note_for "channel" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/[channel_id]/subscribers", "User", "public_messages</code> or <code>messages"%>
 
@@ -267,8 +259,6 @@ Retrieve the users who are subscribed to a Channel.
 
 Retrieve all the user ids who are subscribed to a Channel.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "channels/[channel_id]/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
@@ -294,8 +284,6 @@ Retrieve all the user ids who are subscribed to a Channel.
 ## Retrieve user ids subscribed to multiple Channels
 
 For each requested Channel, retrieve the ids of all Users who are subscribed to that Channel. Up to 200 Channels may be requested at one time. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
 

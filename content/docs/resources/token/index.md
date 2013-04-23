@@ -11,8 +11,6 @@ title: "Token"
 
 Returns info about the current [OAuth access token](/docs/authentication/#access-tokens). If the token is a user token the response will include a [User](/docs/resources/user/) object.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "token", "Any" %>
 
 #### Example (App Token)
@@ -134,8 +132,6 @@ Requested with a user access token:
 
 Deauthorize the current [OAuth access token](/docs/authentication/#access-tokens). This works for User tokens and App tokens.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "token", "Any" %>
 
 #### Example
@@ -232,8 +228,6 @@ Requested with a user access token:
 
 Returns a list of ids of Users that have authorized an app. Must be requested using an [app access token](/docs/authentication/#access-tokens). 
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "apps/me/tokens/user_ids", "App" %>
 
 #### Example
@@ -258,8 +252,6 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
 Returns a list of User tokens corresponding to an app token. Must be requested using an [app access token](/docs/authentication/#access-tokens). 
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "apps/me/tokens", "App" %>
 

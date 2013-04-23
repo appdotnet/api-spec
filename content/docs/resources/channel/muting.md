@@ -13,8 +13,6 @@ Retrieve a list of the channels the current user has muted. A user cannot be [au
 
 This endpoint is **not** paginated and does **not** respond to the [general channel parameters](/docs/resources/channel/#general-parameters).
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users/me/channels/muted", "User", "public_messages</code> or <code>messages"%>
 
 #### Example
@@ -67,8 +65,6 @@ This endpoint is **not** paginated and does **not** respond to the [general chan
 Mute a Channel. If a user doesn't want to see a channel until there is a new message, they should [unsubscribe from the channel](/docs/resources/channel/subscriptions/#unsubscribe-from-a-channel) instead of muting it. If a user mutes a channel, they will automatically be unsubscribed from it and cannot be [auto-subscribed](/docs/basics/messaging/#subscriptions) to it.
 
 <%= general_params_note_for "channel" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "channels/[channel_id]/mute", "User", "public_messages</code> or <code>messages"%>
 
@@ -123,8 +119,6 @@ Mute a Channel. If a user doesn't want to see a channel until there is a new mes
 Unmute a Channel. This allows you to be resubscribed to the channel (but it does not happen automatically).
 
 <%= general_params_note_for "channel" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "channels/[channel_id]/mute", "User", "public_messages</code> or <code>messages"%>
 

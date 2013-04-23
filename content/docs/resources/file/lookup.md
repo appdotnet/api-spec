@@ -13,8 +13,6 @@ Returns a specific [File](/docs/resources/file/).
 
 <%= general_params_note_for "file" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "files/[file_id]", "Varies"%>
 
 <%= file_token_reminder %>
@@ -34,8 +32,6 @@ Returns a specific [File](/docs/resources/file/).
 Returns multiple Files requested by id. At most 200 files can be requested. Files which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= general_params_note_for "file" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "files", "User", "files"%>
 
@@ -63,8 +59,6 @@ Returns a stream of all Files the current user has created.
 <%= general_params_note_for "file" %>
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/me/files", "User", "files"%>
 

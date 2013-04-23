@@ -19,8 +19,6 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 <%= general_params_note_for "post" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "posts/[post_id]/repost", "User", "write_post" %>
 
 <%= url_params [
@@ -103,8 +101,6 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 Given the original ```post_id```, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](/docs/resources/post/lifecycle/#delete-a-post)*.
 
 <%= general_params_note_for "post" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "posts/[post_id]/repost", "User", "write_post" %>
 

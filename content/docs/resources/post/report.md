@@ -15,8 +15,6 @@ Report a post as spam. This will mute the author of the post and send a report t
 
 <%= general_params_note_for "post" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "posts/[post_id]/report", "User" %>
 
 <%= url_params [

@@ -13,8 +13,6 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "users/[user_id]/mute", "User", "follow" %>
 
 <%= url_params [
@@ -94,8 +92,6 @@ Stop hiding all posts for a given user.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "users/[user_id]/mute", "User", "follow" %>
 
 <%= url_params [
@@ -172,8 +168,6 @@ Stop hiding all posts for a given user.
 Retrieve a list of muted users.
 
 <%= general_params_note_for "user" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/muted", "Any" %>
 
@@ -252,8 +246,6 @@ Retrieve a list of muted users.
 ## Retrieve muted User IDs for multiple Users
 
 Returns a list of muted User ids for each User id requested. At most 200 User ids can be requested.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/muted/ids", "App" %>
 

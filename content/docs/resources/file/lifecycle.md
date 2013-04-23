@@ -19,8 +19,6 @@ When creating a complete file, this endpoint could return a `507 Insufficient St
 
 <%= general_params_note_for "file" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "files", "User" %>
 
 <%= file_token_reminder %>
@@ -66,8 +64,6 @@ Updates a specific [File](/docs/resources/file/) object. You can update a file b
 
 <%= general_params_note_for "file" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "PUT", "files/[file_id]", "User"%>
 
 <%= file_token_reminder %>
@@ -93,8 +89,6 @@ Delete a file. The current user must be the same user who created the File. It r
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= general_params_note_for "file" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "files/[file_id]", "User" %>
 

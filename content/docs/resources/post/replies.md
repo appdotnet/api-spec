@@ -17,8 +17,6 @@ Retrieve all the [Posts](/docs/resources/post/) that are in the same thread as t
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/[post_id]/replies", "Any" %>
 
 <%= url_params [

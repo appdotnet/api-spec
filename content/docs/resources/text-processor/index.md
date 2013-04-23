@@ -11,8 +11,6 @@ title: "Text Processor"
 
 When a request is made to [create a Post](/docs/resources/post/lifecycle/#create-a-post) or [Message](/docs/resources/message/lifecycle/#create-a-message), or [update a User profile](/docs/resources/user/profile/#update-a-user) description, the provided body text is processed for [entities](/docs/meta/entities). You can use this endpoint to test how App.net will parse text for entities as well as render text as html. You can test specifying your own entities by sending a [complete JSON object](/docs/resources/post/lifecycle/#json-example) as documented under [Post creation](/docs/resources/post/lifecycle/#create-a-post). Calls to this endpoint will not create or update any objects in App.net.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "text/process", "Any" %>
 
 <%= post_params [

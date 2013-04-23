@@ -15,8 +15,6 @@ Send a JSON document that matches the [stream schema](/docs/resources/stream/) w
 
 You can create up to 5 streams per App token.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "streams", "App" %>
 
 #### POST Data
@@ -65,8 +63,6 @@ A JSON object representing the stream to create. See [the stream object](/docs/r
 
 Returns a specific [Stream](/docs/resources/stream/) object.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "streams/[stream_id]", "App" %>
 
 <%= url_params [
@@ -109,8 +105,6 @@ Returns a specific [Stream](/docs/resources/stream/) object.
 ## Get current token's Streams
 
 Return the [Streams](/docs/resources/stream/) for the current token.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "streams", "App" %>
 
@@ -161,8 +155,6 @@ Return the [Streams](/docs/resources/stream/) for the current token.
 ## Update a Stream
 
 Update a [Stream](/docs/resources/stream/). You can update a Stream by PUTing a JSON document that matches the [stream schema](/docs/resources/stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "streams/[stream_id]", "App" %>
 
@@ -215,8 +207,6 @@ Delete a [Stream](/docs/resources/stream/). The Stream must belong to the curren
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "streams/[stream_id]", "App" %>
 
 <%= url_params [
@@ -261,8 +251,6 @@ Delete a [Stream](/docs/resources/stream/). The Stream must belong to the curren
 Delete all [Streams](/docs/resources/stream/) for the current token. It returns the deleted Streams on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "DELETE", "streams", "App" %>
 

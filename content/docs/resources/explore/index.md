@@ -52,8 +52,6 @@ An Explore Stream is a subset of all public posts flowing through App.net's Glob
 
 Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic and will sometimes change. **Please cache them for 24 hours in your app.** Also, please note that this endpoint is not paginated.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "posts/stream/explore", "None" %>
 
 #### Example
@@ -82,8 +80,6 @@ Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic 
 Retrieve the Posts in an Explore Stream.
 
 <%= pagination_note %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "posts/stream/explore/[slug]", "None" %>
 

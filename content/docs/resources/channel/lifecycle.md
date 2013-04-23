@@ -19,8 +19,6 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 
 <%= general_params_note_for "channel" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "channels", "User", "public_messages</code> or <code>messages"%>
 
 #### Example
@@ -76,8 +74,6 @@ Updates a specific [Channel](/docs/resources/channel/) object. You can update a 
 If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
 <%= general_params_note_for "channel" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 

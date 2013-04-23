@@ -15,8 +15,6 @@ If you want to add or update a User's annotations, you may include the optional 
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "PUT", "users/me", "User", "update_profile" %>
 
 #### Example
@@ -93,8 +91,6 @@ Retrieve a User's avatar image. This endpoint does not require authentication, i
 
 Replace a User's avatar image with the uploaded file. The uploaded image Will be cropped to square and must be smaller than 1 MB. The optimal size for this image is 200×200 pixels. The content type for this request must be ```multipart/form-data```.
 
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "users/me/avatar", "User", "update_profile" %>
 
@@ -206,8 +202,6 @@ Retrieve a User's cover image. This endpoint does not require authentication, is
 Replace a User's cover image with the uploaded file. The uploaded image must be at least 960px wide and less than 4 MB in size. The content type for this request must be ```multipart/form-data```.
 
 <%= general_params_note_for "user" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "POST", "users/me/cover", "User", "update_profile" %>
 

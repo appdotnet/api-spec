@@ -15,8 +15,6 @@ In most cases, [muting a user](/docs/resources/user/muting/#mute-a-user) is prob
 
 <%= general_params_note_for "user" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "POST", "users/[user_id]/block", "User", "follow" %>
 
 <%= url_params [
@@ -97,8 +95,6 @@ Allow a blocked user to interact with my content.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "DELETE", "users/[user_id]/block", "User", "follow" %>
 
 <%= url_params [
@@ -176,8 +172,6 @@ Allow a blocked user to interact with my content.
 Retrieve a list of blocked users.
 
 <%= general_params_note_for "user" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/[user_id]/blocked", "Any" %>
 
@@ -258,8 +252,6 @@ Retrieve a list of blocked users.
 ## Retrieve blocked User IDs for multiple Users
 
 Returns a list of blocked User ids for each User id requested. At most 200 User ids can be requested.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/blocked/ids", "App" %>
 

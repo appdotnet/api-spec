@@ -13,8 +13,6 @@ Get the content for a complete File.
 
 This endpoint will return a 302 Redirect to a temporary URL for the content of this file. This endpoint is useful for fetching private content from a file.
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "files/[file_id]/content", "User" %>
 
 <%= file_token_reminder %>
@@ -28,8 +26,6 @@ This endpoint will return a 302 Redirect to a temporary URL for the content of t
 Set the content for an incomplete File. The content type for this request must be the content type of the file you are uploading.
 
 This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file. For more information, see [file storage limits](/docs/resources/file/#limits).
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "PUT", "files/[file_id]/content", "User" %>
 

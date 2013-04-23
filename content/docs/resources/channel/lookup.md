@@ -13,8 +13,6 @@ Returns a specific [Channel](/docs/resources/channel/).
 
 <%= general_params_note_for "channel" %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
@@ -67,8 +65,6 @@ Returns a specific [Channel](/docs/resources/channel/).
 Returns multiple Channels requested by id. At most 200 channels can be requested. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
 
 <%= general_params_note_for "channel" %>
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "channels", "Any" %>
 
@@ -158,8 +154,6 @@ Returns a stream of all Channels the current user has created.
 
 <%= pagination_note %>
 
-<%= migration_warning ['response_envelope'] %>
-
 <%= endpoint "GET", "users/me/channels", "User", "public_messages</code> or <code>messages"%>
 
 #### Example
@@ -212,8 +206,6 @@ Returns a stream of all Channels the current user has created.
 
 ## Retrieve number of unread PM Channels
 Returns the current number of `net.app.core.pm` Channels where `has_unread: true` for the current user.
-
-<%= migration_warning ['response_envelope'] %>
 
 <%= endpoint "GET", "users/me/channels/pm/num_unread", "User", "messages"%>
 
