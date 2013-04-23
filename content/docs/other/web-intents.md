@@ -46,5 +46,3 @@ window.open(
     'width=750,height=350,left=100,top=100'
 );
 ~~~
-
-You can see an example of how to use Javascript and Intents on the [social buttons](/docs/other/social-buttons/) page.
