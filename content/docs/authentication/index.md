@@ -108,7 +108,7 @@ When making a call to one of our API resources, there are three ways to include 
 
 ## What kind of token do I need?
 
-Different endpoints require different kinds of tokens:
+Each endpoint specified the kind of token it needs:
 
 * None: no access token is required
 * User: a [user token](/docs/authentication/#how-do-i-get-an-access-token) is required.
