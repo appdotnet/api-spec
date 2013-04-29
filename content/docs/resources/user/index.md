@@ -68,6 +68,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     "you_follow": true,
     "you_muted": false,
     "you_can_subscribe": true,
+    "verified_domain": "example.com",
     "annotations": [
         {
             "type": "net.app.core.directory.blog",
@@ -219,6 +220,11 @@ A User is the central object of the App.net APIs. User objects have usernames, f
         <td><code>you_can_subscribe</code></td>
         <td>boolean</td>
         <td>Does the user making the request have the ability to subscribe this user to channels? May be omitted if this is not an authenticated request.</td>
+    </tr>
+    <tr>
+        <td><code>verified_domain</code></td>
+        <td>string</td>
+        <td>A string representing a domain that is controlled by this App.net user and has been verified by App.net.</td>
     </tr>
     <tr>
         <td><code>annotations</code></td>
