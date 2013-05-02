@@ -226,6 +226,7 @@ In general, clients that send push notifications should send based on the follow
 * Notify me when someone reposts one of my posts
 * Notify me when someone replies to one of my posts or messages
 * Notify me when someone mentions me in a post or a message
+* Notify me when someone messages a channel I'm subscribed to
 
 ### Advanced Notifications
 
