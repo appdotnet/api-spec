@@ -201,11 +201,11 @@ as a key in the object so it is easy to distinguish from a Post.
 
 ## Notifications
 
-One of the main uses of the Streaming API is to send notifications to Users about what is happening on App.net. When you run a notification service, you need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences and whether that event came from a [bot account](/docs/resources/user/#user-fields). If you're sending ["standard" notifications](#standard-notifications), App.net provides some information with each streaming event to make this easier. If you'd like to do something besides the standard notifications, App.net provides some [advanced guidance](#advanced-notifications).
+One of the main uses of the Streaming API is to send notifications to users about what is happening on App.net. When you run a notification service, you need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences and whether that event came from a [bot account](/docs/resources/user/#user-fields). If you're sending ["standard" notifications](#standard-notifications), App.net provides some information with each streaming event to make this easier. If you'd like to do something besides the standard notifications, App.net provides some [advanced guidance](#advanced-notifications).
 
 ### Standard Notifications
 
-App.net recognizes that there are some standard notifications that many clients send to users. To make sure users don't get notifications from users they've muted or blocked, App.net provides some extra informations with each streaming event.
+App.net recognizes that there are some standard notifications that many clients send to users. To make sure users don't get notifications from other users they've muted or blocked, App.net provides some extra information with each streaming event.
 
 For each streaming event, App.net generates a list of every user who would be notified using the [standard notifications](#what-are-the-standard-notifications). Then, App.net provides a list of user ids who should not receive a notification from this event.
 
@@ -215,7 +215,11 @@ If your app only sends standard notifications, you won't have to keep lists of w
 2. Generate the list of users you would usually notify.
 3. Filter that list so it doesn't include an user ids specified in `meta.suppress_notifications`
 
-#### What are the Standard Notifications
+These values can also be influenced by App.net's anti-spam system and future features. *If your app fits into the Standard Notification Types, we highly recommend you use this option.*
+
+#### Standard Notification Types
+
+In general, clients that send push notifications should send based on the following events:
 
 * Notify me when someone stars one of my posts
 * Notify me when someone follows me
