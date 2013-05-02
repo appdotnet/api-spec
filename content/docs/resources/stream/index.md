@@ -9,7 +9,7 @@ title: "Stream"
 * TOC
 {:toc}
 
-A customized view of the global stream that is streamed to the client instead of polling.
+A customized view of the the events happening on App.net that is streamed to the client instead of polling.
 
 ~~~ js
 {
@@ -111,11 +111,126 @@ The Stream contains frames separated by ```\r\n```. For example:
     HELLO\r\nWORLD!!!\r\n
 
 
+### Data Message
+
+A data message is a JSON object that represents an action that was taken in the App.net API. These messages are returned in a [response envelope](/docs/basics/responses/#response-envelope). The `data` that's returned is meant to match the responses from the polling API endpoints as closely as possible. Please look at the [sample stream objects](#sample-stream-objects) for documentation about each kind of data message.
+
+The `meta` object may contain the following standard keys:
+
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td>string</td>
+            <td>An opaque string that identifies this message. Do not assume any formatting or meaning with this field.</td>
+        </tr>
+        <tr>
+            <td><code>is_deleted</code></td>
+            <td>boolean</td>
+            <td>Does this event represent an object being deleted?</td>
+        </tr>
+        <tr>
+            <td><code>timestamp</code></td>
+            <td>integer</td>
+            <td>A unix time representing the approximate time this event occurred.</td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>One of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
+        </tr>
+    </tbody>
+</table>
+
+Depending on the event type, the following keys may also be available in the `meta` object:
+
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>channel_id</code></td>
+            <td>string</td>
+            <td>What is the id of the channel this event is connected to? This is included if the event <code>type</code> is <code>stream_marker</code>.</td>
+        </tr>
+        <tr>
+            <td><code>channel_type</code></td>
+            <td>string</td>
+            <td>What is the type of the channel this event is connected to? This is included if the event <code>type</code> is <code>message</code> or <code>stream_marker</code>.</td>
+        </tr>
+        <tr>
+            <td><code>subscribed_user_ids</code></td>
+            <td>list</td>
+            <td>A list of user ids who are subscribed to the channel associated with this event. This is included if the event <code>type</code> is <code>channel</code> or <code>message</code>.</td>
+        </tr>
+        <tr>
+            <td><code>suppress_notifications</code></td>
+            <td>list</td>
+            <td>A list of user ids who should not receive this event as a <a href="#notifications">notification</a>.</td>
+        </tr>
+        <tr>
+            <td><code>suppress_notifications_all</code></td>
+            <td>boolean</td>
+            <td>Should this event be excluded when sending <a href="#notifications">notifications</a> to any user?</td>
+        </tr>
+        <tr>
+            <td><code>user_id</code></td>
+            <td>string</td>
+            <td>What is the id of the user this event is connected to? This is included if the event <code>type</code> is <code>stream_marker</code> or <code>token</code>.</td>
+        </tr>
+    </tbody>
+</table>
+
 ### Control Message
 
 A control message is a JSON object that gives the client important information about the current Stream. For instance, if the buffer
 is getting too full, the client will receive a control message with that warning. A control message will always have ```control```
 as a key in the object so it is easy to distinguish from a Post.
+
+## Notifications
+
+One of the main uses of the Streaming API is to send notifications to Users about what is happening on App.net. When you run a notification service, you need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences and whether that event came from a [bot account](/docs/resources/user/#user-fields). If you're sending ["standard" notifications](#standard-notifications), App.net provides some information with each streaming event to make this easier. If you'd like to do something besides the standard notifications, App.net provides some [advanced guidance](#advanced-notifications).
+
+### Standard Notifications
+
+App.net recognizes that there are some standard notifications that many clients send to users. To make sure users don't get notifications from users they've muted or blocked, App.net provides some extra informations with each streaming event.
+
+For each streaming event, App.net generates a list of every user who would be notified using the [standard notifications](#what-are-the-standard-notifications). Then, App.net provides a list of user ids who should not receive a notification from this event.
+
+If your app only sends standard notifications, you won't have to keep lists of who a user has muted or blocked. Instead, when you receive a message from the Streaming API:
+
+1. Check `meta.suppress_notifications_all`. If that value is `true`, then don't send any notifications.
+2. Generate the list of users you would usually notify.
+3. Filter that list so it doesn't include an user ids specified in `meta.suppress_notifications`
+
+#### What are the Standard Notifications
+
+* Notify me when someone stars one of my posts
+* Notify me when someone follows me
+* Notify me when someone reposts one of my posts
+* Notify me when someone replies to one of my posts or messages
+* Notify me when someone mentions me in a post or a message
+
+### Advanced Notifications
+
+If you'd like to do complex notifications that aren't possible with the [standard notifications](#standard-notifications), your notification server will still need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences.
+
+1. When your notification server starts, retrieve and store the list of [users who have authorized your app](/docs/resources/token/#retrieve-authorized-user-ids-for-an-app).
+2. For each of those users, retrieve and store the users they have [muted](/docs/resources/user/muting/#retrieve-muted-user-ids-for-multiple-users) and [blocked](/docs/resources/user/blocking/#retrieve-blocked-user-ids-for-multiple-users).
+3. As you process [(un)mutes](#mute) and [(un)blocks](#block) from the Streaming API, update those lists for each user.
+4. Before you send a notification to a user, check that it didn't come from a user that they have muted or blocked. Also, check to make sure `meta.suppress_notifications_all` is not `true`.
 
 ## Sample stream objects
 
@@ -535,7 +650,7 @@ A user deauthorizes an application.
 }
 ~~~
 
-### file ###
+### file
 
 *You only see messages in this category for users who have authorized your app with the `files` scope.*
 
