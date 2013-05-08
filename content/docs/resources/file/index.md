@@ -288,8 +288,8 @@ An App.net file can be attached to any resource that allows annotations. You can
         "type": "net.app.core.oembed",
         "value": {
             "+net.app.core.file": {
-                "file_id": "1",
-                "file_token": "the write file_token you received when you uploaded your file to App.net...",
+                "file_id": "...the file id you received when you uploaded your file to App.net...",
+                "file_token": "...the write file_token you received when you uploaded your file to App.net...",
                 "format": "oembed"
             }
         }
@@ -305,7 +305,7 @@ Then, when your post is returned through the API, App.net will replace that anno
         "type": "net.app.core.oembed",
         "value": {
             "file_token_read": "...a new read file_token that represents the file when attached to this post...",
-            "file_id": "1",
+            "file_id": "...the file id...",
             "url_immediate": "<a short-lived URL to the file content>",
             "url_immediate_expires": "2018-01-01T00:00:00Z",
             "type": "photo",
