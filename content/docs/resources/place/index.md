@@ -240,6 +240,8 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 
     ["count", "int", "(Optional) Number of results to return. Defaults to 20, ranges between 1 and 100."],
 
+    ["remove_closed", "int (0 or 1)", "(Optional) Set to 0 if you would like the result to include entities which are closed (is_closed=1) or 1 if you would only prefer to see results for entities that are open. Defaults to 1."],
+
     ["altitude", "decimal", "(Optional) Altitude of search location (in meters). <em>Not presently used to generate search results but may be later.</em>"],
 
     ["horizontal_accuracy", "decimal", "(Optional) Accuracy of <code>latitude</code>/<code>longitude</code> parameters (in meters). <em>Not presently used to generate search results but may be later.</em>"],
