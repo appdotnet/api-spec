@@ -104,5 +104,11 @@
             <td>/stream/0/posts/stream/global</td>
             <td>None</td>
         </tr>
+        <tr>
+            <td><a href="/docs/resources/post/report/#report-a-post">Report a Post</a></td>
+            <td>GET</td>
+            <td>/stream/0/posts/{post_id}/report</td>
+            <td>User</td>
+        </tr>
     </tbody>
 </table>
