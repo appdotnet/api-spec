@@ -176,9 +176,11 @@ A file uploaded by a User and hosted by App.net.
     </tbody>
 </table>
 
-## Derived Files
+## Derived files
 
-When a file is uploaded, App.net may choose to create other files based on the original. A User cannot upload their own derived files. Derived files will include the keys shown in the example below. Please see [the File Fields documentation](#file-fields) for an explanation of each key.
+App.net derived files enable you to upload multiple files that are all derivatives of a single primary file. For instance, if you upload an image, you can upload different sized thumbnails of the image. Or you could upload the same video encoded with a different format/at a different resolution to give client different display options. Each derived file is identified by an alphanumeric string called the key. App.net reserves any derived file key starting with `core_`. For legacy reasons, we also reserve the keys `image_thumb_200s` and `image_thumb_960r`.
+
+Derived files will include the keys shown in the example below. Please see [the File Fields documentation](#file-fields) for an explanation of each key.
 
 ~~~js
 "image_thumb_200s": {
@@ -190,10 +192,48 @@ When a file is uploaded, App.net may choose to create other files based on the o
 }
 ~~~
 
-The current valid derived files are:
+### Auto-generated derived files
+
+For some files, App.net will auto generate derived files. *Note: any new auto-generated derived file keys will be prefixed with `core_`.*
 
 * `image_thumb_200s`: When the root file is an image, App.net will generate a 200x200 square thumbnail of the image that shrinks and crops the center square of the image.
 * `image_thumb_960r`: When the root file is an image, App.net will scale down the entire image so it fits within a 640x960 pixel bounding box. This thumbnail will not be cropped.
+
+### Custom derived files
+
+Users may include their own derived files when uploading a file with the following rules:
+
+* You may specify up to 32 user defined files.
+* Like files, custom derived files are immutable. They may not be updated or deleted from a file.
+* If you specify one of the [auto-generated derived file keys](#auto-generated-derived-files), App.net will validate your file matches the defined file schema. Example: `image_thumb_200s` must be an image with a width and height of 200 pixels.
+* Custom derived files can only be added to an incomplete file.
+* Custom derived files can only be retrieved from a complete file.
+
+#### How to upload custom derived files
+
+##### Custom derived files with a complete file
+
+If you're [creating a complete file](http://developers.app.net/docs/resources/file/lifecycle/#create-a-file), you can specify custom derived files by including a multipart segment for each custom derived file with the key specified in the name field. For example:
+
+
+    curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -X POST -F 'type=com.example.test' -F "content=@filename.png;type=image/png" -F "derived_key1=@derived_file1.png;type=image/png" -F "derived_key2=@derived_file2.png;type=image/png"
+
+##### Custom derived files with an incomplete file
+
+If you've [created a file](http://developers.app.net/docs/resources/file/lifecycle/#create-a-file) without any content, you can upload custom derived files in subsequent requests until you complete the file. For example:
+
+1. Create an incomplete file:
+
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -F 'type=com.example.test'
+
+2. Add custom derived files:
+
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY1} -H 'Content-Type: image/png' -X PUT --data-binary @derived_file1.png
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY2} -H 'Content-Type: image/png' -X PUT --data-binary @derived_file2.png
+
+3. Complete the file:
+
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content -H 'Content-Type: image/png' -X PUT --data-binary @filename.png
 
 ## File Authorization
 
