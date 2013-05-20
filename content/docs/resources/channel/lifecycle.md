@@ -27,7 +27,7 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 >
 > Content-Type: application/json
 > 
-> DATA {"type": "com.example.channel", "writers": {"user_ids": ["@berg", 1]}}
+> DATA {"type": "com.example.channel", "writers": {"user_ids": ["@berg", "1"]}}
 
 ~~~ js
 {

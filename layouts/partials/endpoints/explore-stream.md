@@ -15,7 +15,7 @@
             <td>None</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/explore/#retrieve-an-explore-streams">Retrieve an Explore Stream</a></td>
+            <td><a href="/docs/resources/explore/#retrieve-an-explore-stream">Retrieve an Explore Stream</a></td>
             <td>GET</td>
             <td>/stream/0/posts/stream/explore/[slug]</td>
             <td>None</td>
