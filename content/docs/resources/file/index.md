@@ -213,14 +213,14 @@ Users may include their own derived files when uploading a file with the followi
 
 ##### Custom derived files with a complete file
 
-If you're [creating a complete file](http://developers.app.net/docs/resources/file/lifecycle/#create-a-file), you can specify custom derived files by including a multipart segment for each custom derived file with the key specified in the name field. For example:
+If you're [creating a complete file](/docs/resources/file/lifecycle/#create-a-file), you can specify custom derived files by including a multipart segment for each custom derived file with the key specified in the name field. For example:
 
 
     curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -X POST -F 'type=com.example.test' -F "content=@filename.png;type=image/png" -F "derived_key1=@derived_file1.png;type=image/png" -F "derived_key2=@derived_file2.png;type=image/png"
 
 ##### Custom derived files with an incomplete file
 
-If you've [created a file](http://developers.app.net/docs/resources/file/lifecycle/#create-a-file) without any content, you can upload custom derived files in subsequent requests until you complete the file. For example:
+If you've [created a file](/docs/resources/file/lifecycle/#create-a-file) without any content, you can upload custom derived files in subsequent requests until you complete the file. For example:
 
 1. Create an incomplete file:
 
