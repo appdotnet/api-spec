@@ -283,6 +283,12 @@ Where noted, User endpoints respond to the following query string parameters:
             <td>integer (0 or 1)</td>
             <td>Should <a href="/docs/meta/annotations/">User annotations</a> be included in the response objects? Defaults to false.</td>
         </tr>
+        <tr>
+            <td><code>include_html</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should the user description <a href="/docs/resources/user/#user-fields"><code>html</code> field</a> be included alongside the <code>text</code> field in the response objects? Defaults to true.</td>
+        </tr>
     </tbody>
 </table>
 
