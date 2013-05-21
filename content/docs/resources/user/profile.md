@@ -9,7 +9,9 @@ title: "User Profile"
 
 ## Update a User
 
-Updates a specific user's profile details. You can update a user by PUTing an object that matches the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. For the description, you must specify ```description.text``` as a child key. You can also specify [custom links](/docs/meta/entities/#user-specified-entities) for a user description. If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
+Updates a specific user's profile details. You can update a user by PUTing an object that matches the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You must provide values for each of the following keys: ```name```, ```locale```, ```timezone```, and ```description```. If you would only like to update a subset of those keys, you can also [partially update a user](#partially-update-a-user).
+
+For the description, you must specify ```description.text``` as a child key. You can also specify [custom links](/docs/meta/entities/#user-specified-entities) for a user description. If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
 
 If you want to add or update a User's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
 
@@ -17,7 +19,7 @@ If you want to add or update a User's annotations, you may include the optional 
 
 <%= endpoint "PUT", "users/me", "User", "update_profile" %>
 
-#### Example
+### Example
 
 > PUT https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
 >
@@ -71,6 +73,62 @@ If you want to add or update a User's annotations, you may include the optional 
 }
 ~~~
 
+## Partially Update a User
+
+Updates a subset of a specific user's profile details. You can update a user by passing the keys you'd like to update from the [User schema](/docs/resources/user/) with an HTTP header of ```Content-Type: application/json```. You can also specify [custom links](/docs/meta/entities/#user-specified-entities) for a user description. If you want to test how your text will be processed you can use the [text processor](/docs/resources/text-processor).
+
+<%= general_params_note_for "user" %>
+
+<%= endpoint "PATCH", "users/me", "User", "update_profile" %>
+
+### Example
+
+> PATCH https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
+>
+> Content-Type: application/json
+>
+> DATA {"name": "Mark Thurman 2"}
+
+~~~js
+{
+    "data": {
+        "id": "1", // note this is a string
+        "username": "mthurman",
+        "name": "Mark Thurman 2",
+        "description": {
+           "text": "description",
+           "html": "description",
+           "entities": {}
+        },
+        "timezone": "US/Pacific",
+        "locale": "en",
+        "avatar_image": {
+            "height": 512,
+            "width": 512,
+            "url": "https://example.com/avatar_image.jpg",
+            "is_default": false
+        },
+        "cover_image": {
+            "height": 118,
+            "width": 320,
+            "url": "https://example.com/cover_image.jpg",
+            "is_default": false
+        },
+        "type": "human",
+        "created_at": "2012-07-16T17:23:34Z",
+        "counts": {
+            "following": 100,
+            "followers": 200,
+            "posts": 24,
+            "stars": 76
+        },
+    },
+    "meta": {
+        "code": 200
+    }
+}
+~~~
+
 ## Retrieve a User's avatar image
 
 Retrieve a User's avatar image. This endpoint does not require authentication, is not rate limited, and will return an HTTP 302 redirect to the user's current avatar image. It will include any [query string parameters](/docs/resources/user/#images) you pass to the endpoint.
@@ -81,7 +139,7 @@ Retrieve a User's avatar image. This endpoint does not require authentication, i
   ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
 
-#### Example
+### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/avatar
 >
@@ -191,7 +249,7 @@ Retrieve a User's cover image. This endpoint does not require authentication, is
   ["user_id","The user id. If the user id is <code>me</code> the current authenticated user will be used. You can also specify <code>@username</code> as a <code>user_id</code>."]
 ]%>
 
-#### Example
+### Example
 
 > GET https://alpha-api.app.net/stream/0/users/me/cover
 >

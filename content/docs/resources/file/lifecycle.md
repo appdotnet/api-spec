@@ -72,6 +72,8 @@ If you'd like to upload [custom derived files](/docs/resources/file/#derived-fil
 
 Updates a specific [File](/docs/resources/file/) object. You can update a file by PUTing an object that matches the [File schema](/docs/resources/file/) with an HTTP header of `Content-Type: application/json`. The only keys that can be updated are `annotations`, `name` and `public`. Only the File owner can update a File.
 
+This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods.
+
 <%= general_params_note_for "file" %>
 
 <%= endpoint "PUT", "files/[file_id]", "User"%>
