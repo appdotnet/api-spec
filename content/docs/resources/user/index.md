@@ -155,7 +155,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
     <tr>
         <td><code>type</code></td>
         <td>string</td>
-        <td>An account can be one of the following types: <code>human</code>, <code>bot</code>, <code>corporate</code>, or <code>feed</code>.</td>
+        <td>An account can be one of the following types: <code>human</code>, <code>feed</code>, or <code>bot</code>. See the <a href="#account-types">account types documentation</a> for more information.</td>
     </tr>
     <tr>
         <td><code>created_at</code></td>
@@ -256,6 +256,18 @@ will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 **Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
 
 A user's avatar and cover images can be [directly requested](/docs/resources/user/profile/#retrieve-a-users-avatar-image) without requesting the entire user object.
+
+## Account Types
+
+A user account can be either a `human`, `feed`, or `bot` account type. As App.net develops, we may add other Account Types for specialized purposes.
+
+* `human` means that a human controls how the account interacts with App.net. By default, all accounts are human accounts.
+* `feed` is currently treated just like a human account but is meant to indicate that the account primarily posts from an external feed. If a feed account interacts with other users, a human should be involved.
+* `bot` means that this account interacts with other App.net users without a human's involvement. If your account mentions or sends messages to other App.net users without a human's interaction, it must be classified as a Bot to comply with Appp.net's Terms of Service. A bot account has the following restrictions:
+    * A bot can only follow users who follow the bot.
+    * A bot can only send messages to users who follow the bot.
+    * A bot's posts do not appear in the global stream.
+    * A bot can only mention users who follow the bot.
 
 ## General parameters
 
