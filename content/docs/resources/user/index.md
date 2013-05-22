@@ -265,7 +265,7 @@ A user account can be either a `human`, `feed`, or `bot` account type. As App.ne
 * `feed` is currently treated just like a human account but is meant to indicate that the account primarily posts from an external feed. If a feed account interacts with other users, a human should be involved.
 * `bot` means that this account interacts with other App.net users without a human's involvement. If your account mentions or sends messages to other App.net users without a human's interaction, it must be classified as a Bot to comply with Appp.net's Terms of Service. A bot account has the following restrictions:
     * A bot can only follow users who follow the bot.
-    * A bot can only send messages to users who follow the bot.
+    * A bot can only initiate Channels with users who follow the bot. This means that a bot can only auto-subscribe its followers to channels.
     * A bot's posts do not appear in the global stream.
     * A bot can only mention users who follow the bot.
 
