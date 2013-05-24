@@ -21,6 +21,12 @@
             <td>User</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/user/profile/#partially-update-a-user">Partially Update a User</a></td>
+            <td>PATCH</td>
+            <td>/stream/0/users/me</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/user/profile/#retrieve-a-users-avatar-image">Retrieve a User's avatar image</a></td>
             <td>GET</td>
             <td>/stream/0/users/[user_id]/avatar</td>

@@ -13,7 +13,7 @@ Create a new [Channel](/docs/resources/channel/).
 
 Send a JSON document that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. 
 
-#### Creating a PM Channel
+### Creating a PM Channel
 
 [PM Channels](/docs/resources/channel/#private-message) (channels of type `net.app.core.pm`) cannot be directly created. Instead they are created for you as necessary when sending a [Message](/docs/resources/message/) using `pm` as a `channel_id`. For more information, see the [Create a Message](/docs/resources/message/lifecycle/#create-a-message) endpoint.
 
@@ -21,7 +21,7 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 
 <%= endpoint "POST", "channels", "User", "public_messages</code> or <code>messages"%>
 
-#### Example
+### Example
 
 > POST https://alpha-api.app.net/stream/0/channels
 >
@@ -72,6 +72,8 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 Updates a specific [Channel](/docs/resources/channel/) object. You can update a channel by PUTing an object that matches the [Channel schema](/docs/resources/channel/) with an HTTP header of ```Content-Type: application/json```. The only keys that can be updated are ```annotations```, ```readers```, and ```writers``` (and the ACLs can only be updated if ```immutable=false```). The ```you_can_edit``` property tells you if you are allowed to update a channel. Currently, only the Channel owner can edit a channel.
 
 If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
+
+This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods.
 
 <%= general_params_note_for "channel" %>
 
