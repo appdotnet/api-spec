@@ -166,7 +166,12 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>url_permanent</code></td>
             <td>string</td>
-            <td>[Optional] Permanent URL for a file if file. Only present when <code>public</code> is <code>true</code>. This will often be a HTTP redirect to the file's content. This URL will not need any authentication to retrieve.</td>
+            <td>[Optional] Permanent URL for a file. Only present when <code>public</code> is <code>true</code>. This will be an HTTP redirect to the file's content. This URL will not need any authentication to retrieve.</td>
+        </tr>
+        <tr>
+            <td><code>url_short</code></td>
+            <td>string</td>
+            <td>[Optional] Shortened version of <code>url_permanent</code>. Only present when <code>public</code> is <code>true</code>. This will be an HTTP redirect to the file's content. This URL will be of the form <code>https://files.app.net/&lt;smallblob&gt;</code> and will not need any authentication to retrieve.</td>
         </tr>
         <tr>
             <td><code>user</code></td>
