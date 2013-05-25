@@ -85,5 +85,5 @@ watcher:
   notify_on_compilation_success: true
   notify_on_compilation_failure: true
 
-local_hostname: "developers.mxmlabs.com"
+local_hostname: "developers.sandbox.app.net"
 lanai_hostname: "account.sandbox.app.net"
