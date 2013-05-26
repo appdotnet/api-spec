@@ -145,7 +145,7 @@ Links can contain [URI templates](http://tools.ietf.org/html/rfc6570) that the s
 
 > photos.app.net/{post_id}/1
 
-and the server replaces `{post_id}` with the id of the Post once it has been saved. By default, this processing happens on all links (both custom links and links extracted by the API). If you would like a link to not be processed, you can create the link as a [custom link](#links-with-custom-anchor-text) and include `"process_template": false` in the JSON for the link. The [Embedded Media Annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) also supports URI templating for some of it's attributes.
+and the server replaces `{post_id}` with the id of the Post once it has been saved. By default, this processing happens on all links (both custom links and links extracted by the API). If you would like a link to not be processed, you can create the link as a [custom link](#links-with-custom-anchor-text) and include `"process_template": false` in the JSON for the link. The [Embedded Media Annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) also supports URI templating for some of its attributes.
 
 #### Replacement variables
 
