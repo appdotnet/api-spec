@@ -49,3 +49,7 @@ end
 def general_params_note_for(type)
     '<em>This endpoint responds to <a href="/docs/resources/'+type+'/#general-parameters">general '+type.capitalize+' parameters</a>.</em>'    
 end
+
+def env_var(name)
+    ENV[name]
+end
