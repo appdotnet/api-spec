@@ -156,6 +156,7 @@ html.breakpoint-tablet .nav-list {
     margin-right: 0;
     width: auto;
 }
+
 pre code {
     white-space: pre-wrap;
 }
@@ -224,3 +225,8 @@ pre code  .s1{color:#2aa198 !important}
 pre code  .ss{color:#990073}
 pre code  .il{color:#009999}
 pre code  div .gd,.highlight div .gd .x,.highlight div .gi,.highlight div .gi .x{display:inline-block;width:100%}
+
+p code {
+    word-break: break-all;
+    white-space: normal;
+}
