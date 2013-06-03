@@ -171,7 +171,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>url_short</code></td>
             <td>string</td>
-            <td>[Optional] Shortened version of <code>url_permanent</code>. Only present when <code>public</code> is <code>true</code>. This will be an HTTP redirect to the file's content. This URL will be of the form <code>https://files.app.net/&lt;smallblob&gt;</code> and will not need any authentication to retrieve. <b>Note:</b> Like the <code>public</code> flag, for optimal user experience, apps should ONLY use this field when they are unable to use another mechanism (e.g., an attachment or oembed annotation) to attach a file to an App.net object.</td>
+            <td>[Optional] Shortened version of <code>url_permanent</code>. Only present when <code>public</code> is <code>true</code>. This will be an HTTP redirect to the file's content. This URL will be of the form <code>https://files.app.net/&lt;smallblob&gt;</code> and will not need any authentication to retrieve. You can safely add a file extension (like <code>.jpg</code> for clients to recognize images) to this URL. <b>Note:</b> Like the <code>public</code> flag, for optimal user experience, apps should ONLY use this field when they are unable to use another mechanism (e.g., an attachment or oembed annotation) to attach a file to an App.net object.</td>
         </tr>
         <tr>
             <td><code>user</code></td>
