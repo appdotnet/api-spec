@@ -17,9 +17,9 @@ def migration_warning(migrations = [])
     end
 end
 
-def endpoint(method, path, token, scope = "")
+def endpoint(method, path, token, scope = "", base_path = 'stream/0/')
     path = path.gsub('[','<b>{').gsub(']','}</b>')
-    render '/partials/endpoint', :method => method, :path => 'https://alpha-api.app.net/stream/0/'+path, :token => token, :scope => scope
+    render '/partials/endpoint', :method => method, :path => 'https://alpha-api.app.net/' + base_path + path, :token => token, :scope => scope
 end
 
 def url_params(params = [])
