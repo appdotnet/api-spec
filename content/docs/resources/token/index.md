@@ -120,7 +120,8 @@ Requested with a user access token:
             "follows_you": false,
             "you_follow": true,
             "you_muted": false,
-        }
+        },
+        "invite_link": "https://join.app.net/from/notareallink",
     },
     "meta": {
         "code": 200
