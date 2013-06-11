@@ -97,7 +97,7 @@ A file uploaded by a User and hosted by App.net.
         <tr>
             <td><code>name</code></td>
             <td>string</td>
-            <td>The user provided name of the File. All Unicode characters allowed. Maximum length 255 characters.</td>
+            <td>The user provided name of the File. If no name is provided for a Derived File, it will assume a name of the form <code>filename_derivedkey.ext</code> whenever its root File's name is present. All Unicode characters allowed. Maximum length 255 characters.</td>
         </tr>
         <tr>
             <td><code>public</code></td>
@@ -189,6 +189,7 @@ Derived files will include the keys shown in the example below. Please see [the 
 
 ~~~js
 "image_thumb_200s": {
+    "name": "filename_image_thumb_200s.png"
     "mime_type": "image/png",
     "sha1": "be91cb06d69df13bb103a359ce70cf9fba31234a",
     "size": 33803,
@@ -221,11 +222,11 @@ Users may include their own derived files when uploading a file with the followi
 If you're [creating a complete file](/docs/resources/file/lifecycle/#create-a-file), you can specify custom derived files by including a multipart segment for each custom derived file with the key specified in the name field. For example:
 
 
-    curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -X POST -F 'type=com.example.test' -F "content=@filename.png;type=image/png" -F "derived_key1=@derived_file1.png;type=image/png" -F "derived_key2=@derived_file2.png;type=image/png"
+    curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -X POST -F 'type=com.example.test' -F "content=@filename.png;type=image/png" -F "derived_key1=@derived_file1.png;type=image/png" -F "derived_key2=@derived_file2.png;type=image/png;filename=overridden.png"
 
 ##### Custom derived files with an incomplete file
 
-If you've [created a file](/docs/resources/file/lifecycle/#create-a-file) without any content, you can upload custom derived files in subsequent requests until you complete the file. For example:
+If you've [created a file](/docs/resources/file/lifecycle/#create-a-file) without any content, you can upload custom derived files in subsequent requests until you complete the file. Either the PUT or POST endpoint can be used. For example:
 
 1. Create an incomplete file:
 
@@ -233,8 +234,9 @@ If you've [created a file](/docs/resources/file/lifecycle/#create-a-file) withou
 
 2. Add custom derived files:
 
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY1} -H 'Content-Type: image/png' -X PUT --data-binary @derived_file1.png
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY2} -H 'Content-Type: image/png' -X PUT --data-binary @derived_file2.png
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY1} -H 'Content-Type: image/png' -H 'x-adn-filename: filename.png' -X PUT --data-binary @derived_file1.png
+
+        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/{DERIVED_KEY2} -H 'Content-Type: multipart/form-data' -X POST -F 'type=com.example.test' -F "content=@test.txt;filename=testname.txt"
 
 3. Complete the file:
 

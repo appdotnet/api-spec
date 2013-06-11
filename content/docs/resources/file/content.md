@@ -23,7 +23,7 @@ This endpoint will return a 302 Redirect to a temporary URL for the content of t
 
 ## Set File content
 
-Set the content for an incomplete File. The content type for this request must be the content type of the file you are uploading.
+Set the content for an incomplete File. The content type for this request must be the content type of the file you are uploading. This endpoint can optionally accept a header field `x-adn-filename` to set the File's name.
 
 This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file. For more information, see [file storage limits](/docs/resources/file/#limits).
 
@@ -63,7 +63,7 @@ This endpoint will return a 302 Redirect to a temporary URL for the content of t
 
 ## Set Derived File content
 
-Set the content for a derived file of an incomplete File. The content type for this request must be the content type of the file you are uploading.
+Set the content for a derived file of an incomplete File. The content type for this request must be the content type of the file you are uploading. This endpoint can optionally accept a header field `x-adn-filename` to set the File's name.
 
 This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this derived file. For more information, see [file storage limits](/docs/resources/file/#limits).
 

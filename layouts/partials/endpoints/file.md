@@ -15,6 +15,12 @@
             <td>User</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/file/#how-to-upload-custom-derived-files">Create a Derived File</a></td>
+            <td>POST</td>
+            <td>/stream/0/files/[file_id]/[derived_key]</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/file/lookup/#retrieve-a-file">Retrieve a File</a></td>
             <td>GET</td>
             <td>/stream/0/files/[file_id]</td>
@@ -54,6 +60,12 @@
             <td><a href="/docs/resources/file/content/#set-file-content">Set File content</a></td>
             <td>PUT</td>
             <td>/stream/0/files/[file_id]/content</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/file/content/#set-derived-file-content">Set Derived File content</a></td>
+            <td>PUT</td>
+            <td>/stream/0/files/[file_id]/content/[derived_key]</td>
             <td>User</td>
         </tr>
     </tbody>
