@@ -1,15 +1,15 @@
 ---
-title: "Stream"
+title: "App Stream"
 ---
 
-# Stream
+# App Stream
 
 <%= render 'partials/object-tab' %>
 
 * TOC
 {:toc}
 
-A customized view of the the events happening on App.net that is streamed to the client instead of polling.
+A customized view of the global events happening on App.net that is streamed to the client instead of polling.
 
 ~~~ js
 {
@@ -82,21 +82,17 @@ A customized view of the the events happening on App.net that is streamed to the
 
 ## Basic Use
 
-A Stream is a real-time, ordered collection of objects. An object will always be formatted in a [response envelope](/docs/basics/responses/#response-envelope). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+An App Stream contains all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**. You can create up to 5 app streams per App token. An App Stream can only be used on a server (where the App token can be kept secret).
 
-There will be three different kinds of Streams, but they all follow the same pattern:
+Each object in the App Stream will be formatted in a [response envelope](/docs/basics/responses/#response-envelope). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
 
-* Public stream (available now): A Stream containing all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/docs/authentication/flows/app-access-token/)**. You can create up to 5 public streams per App token.
-
-* User stream (coming soon): A Stream for a single User's view of App.net. This is a Stream version of the [Retrieve a User's personalized stream](/docs/resources/post/streams/#retrieve-a-users-personalized-stream) endpoint. It is very useful for client based Apps that need a single User's Stream. **It must be accessed with a User access token**.
-
-* App stream (coming soon): A Stream for Apps to request multiple Users Streams at once. It is very useful for server based Apps that need the streams of lots of users. **It must be accessed with an App access token**.
+If you would like a realtime stream of an individual user's view of App.net, please use a [User Stream](/docs/resources/user-stream).
 
 Since memory and bandwidth is not unlimited, each Stream has associated limits. App.net maintains a buffer of objects to send to a client, but if that buffer fills, your Stream will be disconnected. Please ensure that you are only requesting streams of data that you can actually process.
 
 ## Filters
 
-Streams will give you lots of data, much of which your application may not want. A [Filter](/docs/resources/filter/) can be passed to the [stream creation endpoint](/docs/resources/stream/lifecycle/#create-a-stream) to control what objects are actually delivered to your App by our servers.
+Streams will give you lots of data, much of which your application may not want. A [Filter](/docs/resources/filter/) can be passed to the [stream creation endpoint](/docs/resources/app-stream/lifecycle/#create-a-stream) to control what objects are actually delivered to your App by our servers.
 
 ## Response Format
 
@@ -201,7 +197,7 @@ as a key in the object so it is easy to distinguish from a Post.
 
 ## Notifications
 
-One of the main uses of the Streaming API is to send notifications to users about what is happening on App.net. When you run a notification service, you need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences and whether that event came from a [bot account](/docs/resources/user/#user-fields). If you're sending ["standard" notifications](#standard-notifications), App.net provides some information with each streaming event to make this easier. If you'd like to do something besides the standard notifications, App.net provides some [advanced guidance](#advanced-notifications).
+One of the main uses of an App Stream is to send notifications to users about what is happening on App.net. When you run a notification service, you need to respect a user's [muting](/docs/resources/user/muting/) and [blocking](/docs/resources/user/blocking/) preferences and whether that event came from a [bot account](/docs/resources/user/#user-fields). If you're sending ["standard" notifications](#standard-notifications), App.net provides some information with each streaming event to make this easier. If you'd like to do something besides the standard notifications, App.net provides some [advanced guidance](#advanced-notifications).
 
 ### Standard Notifications
 
@@ -239,7 +235,7 @@ If you'd like to do complex notifications that aren't possible with the [standar
 
 ## Sample stream objects
 
-A Stream can listen for the following object types:
+An App Stream can listen for the following object types:
 
 * [post](#post): Sent for new posts, replies, reposts, and post deletions
 * [star](#star): Sent when a user stars a post

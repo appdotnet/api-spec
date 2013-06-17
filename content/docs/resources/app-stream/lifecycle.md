@@ -1,17 +1,17 @@
 ---
-title: "Stream Lifecycle"
+title: "App Stream Lifecycle"
 ---
 
-# Stream Lifecycle
+# App Stream Lifecycle
 
 * TOC
 {:toc}
 
 ## Create a Stream
 
-Create a [Stream](/docs/resources/stream/) for the current token.
+Create a [Stream](/docs/resources/app-stream/) for the current token.
 
-Send a JSON document that matches the [stream schema](/docs/resources/stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
+Send a JSON document that matches the [stream schema](/docs/resources/app-stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
 
 You can create up to 5 streams per App token.
 
@@ -19,7 +19,7 @@ You can create up to 5 streams per App token.
 
 #### POST Data
 
-A JSON object representing the stream to create. See [the stream object](/docs/resources/stream/) for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).
+A JSON object representing the stream to create. See [the stream object](/docs/resources/app-stream/) for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).
 
 #### Example
 
@@ -61,7 +61,7 @@ A JSON object representing the stream to create. See [the stream object](/docs/r
 
 ## Retrieve a Stream
 
-Returns a specific [Stream](/docs/resources/stream/) object.
+Returns a specific [Stream](/docs/resources/app-stream/) object.
 
 <%= endpoint "GET", "streams/[stream_id]", "App" %>
 
@@ -104,7 +104,7 @@ Returns a specific [Stream](/docs/resources/stream/) object.
 
 ## Get current token's Streams
 
-Return the [Streams](/docs/resources/stream/) for the current token.
+Return the [Streams](/docs/resources/app-stream/) for the current token.
 
 <%= endpoint "GET", "streams", "App" %>
 
@@ -154,7 +154,7 @@ Return the [Streams](/docs/resources/stream/) for the current token.
 
 ## Update a Stream
 
-Update a [Stream](/docs/resources/stream/). You can update a Stream by PUTing a JSON document that matches the [stream schema](/docs/resources/stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
+Update a [Stream](/docs/resources/app-stream/). You can update a Stream by PUTing a JSON document that matches the [stream schema](/docs/resources/app-stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
 
 <%= endpoint "PUT", "streams/[stream_id]", "App" %>
 
@@ -203,7 +203,7 @@ Update a [Stream](/docs/resources/stream/). You can update a Stream by PUTing a 
 
 ## Delete a Stream
 
-Delete a [Stream](/docs/resources/stream/). The Stream must belong to the current User. It returns the deleted Stream on success.
+Delete a [Stream](/docs/resources/app-stream/). The Stream must belong to the current User. It returns the deleted Stream on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
@@ -248,7 +248,7 @@ Delete a [Stream](/docs/resources/stream/). The Stream must belong to the curren
 
 ## Delete all of the current user's Streams
 
-Delete all [Streams](/docs/resources/stream/) for the current token. It returns the deleted Streams on success.
+Delete all [Streams](/docs/resources/app-stream/) for the current token. It returns the deleted Streams on success.
 
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 

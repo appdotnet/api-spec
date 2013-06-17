@@ -95,7 +95,7 @@ List all the [Interactions](/docs/resources/interaction/) other users have had w
 > Note: you can only request this list for the current user.
 
 <!-- blockquote break -->
-> Note: although this endpoint supports paging, a user's Interactions stream is continuously rebuilt as new actions in the system occur, so developers should generally plan to refetch the stream whenever switching to display it as Interactions may have shifted their position, with users being added or removed. If you need to keep track of activity in a more precise manner, you should using the [Streaming API](/docs/resources/stream/) to monitor the global feed for relevant activity.
+> Note: although this endpoint supports paging, a user's Interactions stream is continuously rebuilt as new actions in the system occur, so developers should generally plan to refetch the stream whenever switching to display it as Interactions may have shifted their position, with users being added or removed. If you need to keep track of activity in a more precise manner, you should using the [Streaming API](/docs/resources/app-stream/) to monitor the global feed for relevant activity.
 
 
 <%= endpoint "GET", "users/me/interactions", "User" %>

@@ -9,7 +9,7 @@ title: "Filter"
 * TOC
 {:toc}
 
-A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](/docs/resources/stream/) are currently the only way to use filters right now.
+A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](/docs/resources/app-stream/) are currently the only way to use filters right now.
 
 ~~~ js
 {

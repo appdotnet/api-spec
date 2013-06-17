@@ -13,6 +13,14 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+# This redirect stuff is inspired by https://gist.github.com/maxim/1782458
+preprocess do
+  Redirector.generate(config[:redirects], items)
+end
+
+compile '/docs/resources/stream/*' do
+end
+
 compile '/static/*' do
 end
 

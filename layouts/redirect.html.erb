@@ -1,0 +1,12 @@
+<!-- Make this work with our normal layout? -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= redirect[:title] %></title>
+    <meta http-equiv="refresh" content="0;URL='<%= redirect[:url] %>'" />
+  </head>
+  <body>
+    <p>This page has moved to <a href="<%= redirect[:url] %>"><%= redirect[:url] %></a>.</p>
+  </body>
+</html>
