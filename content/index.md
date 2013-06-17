@@ -16,6 +16,7 @@ To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adna
 
 {::options parse_block_html="true" /}
 <div class="alert alert-success alert-block">
+* (6/17/2013) **Introducing the User Stream API** — check out the documentation for [User Streams](/docs/resources/user-stream/).
 * (2/5/2013) **Introducing the Place API** — check out the documentation for [Places](/docs/resources/place/).
 * (1/28/2013) **Introducing the File API** — check out the documentation for [Files](/docs/resources/file/).
 * (12/13/2012) **Introducing the Messaging API** — check out the documentation for [Channels](/docs/resources/channel/) and [Messages](/docs/resources/message/) and the [App.net Messaging overview](/docs/basics/messaging/).

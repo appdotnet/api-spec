@@ -169,17 +169,17 @@ In general, the User Streams API tries to mimc the format and conventions of the
 
 1. When you receive a message, it will look like:
 
-    {
-        "meta": {
-            "subscription_ids": ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
-            "min_id": "5675993",
-            "max_id": "5675993",
-            "connection_id": "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw",
-            "more": false
-        },
-        "data": [
-            ... posts ...
-        ]
-    }
+        {
+            "meta": {
+                "subscription_ids": ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
+                "min_id": "5675993",
+                "max_id": "5675993",
+                "connection_id": "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw",
+                "more": false
+            },
+            "data": [
+                ... posts ...
+            ]
+        }
 
 <%= render 'partials/endpoints-tab', :for => "user-stream" %>
