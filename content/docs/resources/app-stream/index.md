@@ -742,4 +742,4 @@ A file is deleted.
 }
 ~~~
 
-<%= render 'partials/endpoints-tab', :for => "stream" %>
+<%= render 'partials/endpoints-tab', :for => "app-stream" %>

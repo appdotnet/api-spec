@@ -40,9 +40,13 @@ Please use https://alpha-api.app.net/ to access the APIs.
 
 <%= render 'partials/endpoints/file' %>
 
-## Stream
+## App Stream
 
-<%= render 'partials/endpoints/stream' %>
+<%= render 'partials/endpoints/app-stream' %>
+
+## User Stream
+
+<%= render 'partials/endpoints/user-stream' %>
 
 ## Filter
 
