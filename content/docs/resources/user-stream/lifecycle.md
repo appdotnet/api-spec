@@ -11,6 +11,8 @@ title: "User Stream Lifecycle"
 
 Delete a [User Stream](/docs/resources/user-stream/). The User Stream must belong to the current token. It disconnects any sockets with this User Stream open and returns an HTTP 204 No Content on success.
 
+If you'd like your user stream to be automatically deleted when you disconnect from it, please add the [`auto_delete=1`](/docs/resources/user-stream/#limits) query string parameter when you create the user stream.
+
 *Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/docs/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "users/me/streams/[connection_id]", "User" %>

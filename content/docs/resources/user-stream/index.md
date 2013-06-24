@@ -79,6 +79,10 @@ Ordering is not guaranteed for events delivered on streams, but we aim to have t
 * Each user token can create at most 5 User Streams
 * Each User Stream can have at most 50 subscriptions. The same endpoint can be subscribed to multiple times.
 
+To avoid thinking about limits, you can create User streams that automatically delete themselves once you disconnect from them. If you use this option, you will always have to recreate your subscriptions from scratch. To enable this, add the `auto_delete=1` query string parameter when connecting to a stream.
+
+    curl -i -H 'Authorization: BEARER ...' "https://stream-channel.app.net/stream/user?auto_delete=1"
+
 ## Subscription options
 
 The App.net API accepts many query string parameters (`include_deleted`, `include_html`, etc) to customize and filter the data returned. These query string parameters are also respected by the User Streaming API with an important caveat. "Display options" are a connection-wide property and must be specified when a User Stream is created. "Filter options" are provided per subscription.
