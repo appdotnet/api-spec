@@ -85,7 +85,6 @@ To implement the button replace the variables inside the brackets in this snippe
     <a href='https://account.app.net/oauth/authenticate' class='adn-button' data-type='authorize' data-width="145" data-height="22" data-client-id='[your client ID]' data-response-type='[token, or code]' data-scope='[scopes separated by spaces]' >Authorize with App.net</a>
     <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script>
 
-If you want to see a live example of this button you can checkout [Patter](http://patter-app.net).
 
 We suggest that you put copy like this near the button to explain to the user what is going to happen:
 
