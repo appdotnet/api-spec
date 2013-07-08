@@ -80,11 +80,14 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 The Authorize with App.net Button is the easiest way to let people sign into and authorize your web app with their App.net credentials. If they don’t have an App.net account, this button will allow new users to create an account and then authorize your app.
 
+### Implementation
+
 To implement the button replace the variables inside the brackets in this snippet and then paste it into your HTML where you want the button to show up.
 
     <a href='https://account.app.net/oauth/authenticate' class='adn-button' data-type='authorize' data-width="145" data-height="22" data-client-id='[your client ID]' data-response-type='[token, or code]' data-scope='[scopes separated by spaces]' >Authorize with App.net</a>
     <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script>
 
+### Best Practices
 
 We suggest that you put copy like this near the button to explain to the user what is going to happen:
 
