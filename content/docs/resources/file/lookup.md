@@ -49,7 +49,6 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
     second = h["data"][0].clone()
     second["id"] = "2"
     h["data"].unshift(second)
-    h
 } %>
 
 ## Retrieve my Files

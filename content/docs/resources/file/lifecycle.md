@@ -92,7 +92,7 @@ This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods
 > 
 > DATA {"name": "updated_filename.jpg"}
 
-<%= response(:file) {|h| h["data"]["name"] = "updated_filename.jpg"; h} %>
+<%= response(:file) {|h| h["data"]["name"] = "updated_filename.jpg"} %>
 
 ## Delete a File
 

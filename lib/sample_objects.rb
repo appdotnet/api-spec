@@ -10,14 +10,58 @@ module Resources
           h
         when Array
           key
-        else Resources.const_get(key.to_s.upcase).dup()
+        # deep copy so we can make any overrides we need for our specific use of this hash
+        else deep_copy(Resources.const_get(key.to_s.upcase))
       end
+    end
+
+    def json_output(hash)
+      "~~~js\n" + JSON.pretty_generate(hash) + "\n~~~"
     end
 
     def json(key)
       hash = get_hash(key)
-      hash = yield hash if block_given?
-      "~~~js\n" + JSON.pretty_generate(hash) + "\n~~~"
+      yield hash if block_given?
+      json_output(hash)
+    end
+
+    def deep_copy(o)
+      Marshal.load(Marshal.dump(o))
+    end
+
+    def diff_hash(a, b)
+      (a.keys | b.keys).inject({}) do |diff, k|
+        if a[k] != b[k]
+          if a[k].is_a?(Hash) && b[k].is_a?(Hash)
+            diff[k] = diff_hash(a[k], b[k])
+          elsif a[k].is_a?(Array) && b[k].is_a?(Array)
+            diff[k] = a[k].zip(b[k]).map {|el| diff_hash(el[0], el[1])}
+          else
+            diff[k] = [a[k], b[k]]
+          end
+        end
+        diff
+      end
+    end
+
+    def parse_hash(data)
+      # strip out ~~~js and ~~~ at the beginning and end of the string
+      data.gsub!(/^~~~\s*js$|^~~~$/, '')
+      JSON.parse(data)
+    end
+
+    # make it easier to migrate to this new sample objects syntax by figuring out the difference between the current
+    # json representation and a sample object one. Wrap the old json blob in something like this:
+    # <%= json_diff(%q{
+    # ~~~ js
+    # ...the entire old json blob including the begining { and ending }
+    # ~~~
+    # }, response(:user) do |h|
+    #   ...any modifications to h you need...
+    # end) %>
+    def json_diff(old_data, new_data)
+      # give us an easy anchor on the page to jump to #diff
+      "# DIFF:\n" + json_output(diff_hash(parse_hash(old_data), parse_hash(new_data)))
     end
 
     def base_response(data, meta, &block)
@@ -27,6 +71,9 @@ module Resources
       }, &block)
     end
 
+    # when using these responses, make sure you always set the defining attributes in a block instead of relying on
+    # whatever is defined as the default. For instance, for "follow a user", make sure you set h["data"]["you_follow"] = true
+    # in case the default changes in the future
     def response(key, &block)
       base_response(get_hash(key), {"code"=> 200}, &block)
     end
@@ -90,7 +137,69 @@ module Resources
       "url" => "https://...",
       "url_expires" => "2013-01-25T03:00:00Z",
       "user" => "...user object...",  # TODO render this as a user placholder somehow
-  }.freeze
-end
+  }
+
+  USER = {
+      "id" => "1",
+      "username" => "mthurman",
+      "name" => "Mark Thurman",
+      "description" => {
+         "text" => "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
+         "html" => "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
+         "entities" => {
+             "mentions" => [{
+                 "name" => "appdotnet",
+                 "id" => "3",
+                 "pos" => 52,
+                 "len" => 10
+             }],
+             "hashtags" => [{
+                 "name" => "api",
+                 "pos" => 70,
+                 "len" => 4
+             }],
+             "links" => [{
+                 "text" => "teaching you",
+                 "url" => "https://github.com/appdotnet/api-spec",
+                 "pos" => 29,
+                 "len" => 12
+             }]
+          }
+      },
+      "timezone" => "US/Pacific",
+      "locale" => "en_US",
+      "avatar_image" => {
+          "height" => 200,
+          "width" => 200,
+          "url" => "https://example.com/avatar_image.jpg",
+          "is_default" => false
+      },
+      "cover_image" => {
+          "width" => 320,
+          "height" => 118,
+          "url" => "https://example.com/cover_image.jpg",
+          "is_default" => false
+      },
+      "type" => "human",
+      "created_at" => "2012-07-16T17:23:34Z",
+      "counts" => {
+          "following" => 100,
+          "followers" => 200,
+          "posts" => 24,
+          "stars" => 76
+      },
+      "follows_you" => false,
+      "you_blocked" => false,
+      "you_follow" => false,
+      "you_muted" => false,
+      "you_can_subscribe" => true,
+      "you_can_follow" => true,
+      "verified_domain" => "example.com",
+      "canonical_url" => "https://alpha.app.net/mthurman"
+  }
+
+  USER_SELF_BLACKLIST = ['follows_you', 'you_follow', 'you_muted', 'you_blocked', 'you_can_subscribe', 'you_can_follow']
+  USER_SELF = USER.reject {|key, value| USER_SELF_BLACKLIST.include?(key) }
+  end
 
 include Resources::Helpers

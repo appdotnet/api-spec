@@ -27,51 +27,20 @@ If you want to add or update a User's annotations, you may include the optional 
 >
 > DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": {"url": "http://mynewblog.com"}}]
 
-~~~js
-{
-    "data": {
-        "id": "1", // note this is a string
-        "username": "mthurman",
-        "name": "Mark Thurman 2",
-        "description": {
-           "text": "new description",
-           "html": "new description",
-           "entities": {}
-        },
-        "timezone": "US/Central",
-        "locale": "en",
-        "avatar_image": {
-            "height": 512,
-            "width": 512,
-            "url": "https://example.com/avatar_image.jpg",
-            "is_default": false
-        },
-        "cover_image": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/cover_image.jpg",
-            "is_default": false
-        },
-        "type": "human",
-        "created_at": "2012-07-16T17:23:34Z",
-        "counts": {
-            "following": 100,
-            "followers": 200,
-            "posts": 24,
-            "stars": 76
-        },
-        "annotations": [
-            {
-                "type": "net.app.core.directory.blog",
-                "value": "http://mynewblog.com"
-            }
-        ]
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:user_self) do |h|
+    h["data"]["name"] = "Mark Thurman 2"
+    h["data"]["locale"] = "en_US"
+    h["data"]["description"]["text"] = "new description"
+    h["data"]["description"]["html"] = "new description"
+    h["data"]["description"]["entities"] = {}
+    h["data"]["timezone"] = "US/Central"
+    h["data"]["annotations"] = [
+        {
+            "type" => "net.app.core.directory.blog",
+            "value" => "http://mynewblog.com"
+        }
+    ]
+end %>
 
 ## Partially Update a User
 
@@ -89,45 +58,9 @@ Updates a subset of a specific user's profile details. You can update a user by 
 >
 > DATA {"name": "Mark Thurman 2"}
 
-~~~js
-{
-    "data": {
-        "id": "1", // note this is a string
-        "username": "mthurman",
-        "name": "Mark Thurman 2",
-        "description": {
-           "text": "description",
-           "html": "description",
-           "entities": {}
-        },
-        "timezone": "US/Pacific",
-        "locale": "en",
-        "avatar_image": {
-            "height": 512,
-            "width": 512,
-            "url": "https://example.com/avatar_image.jpg",
-            "is_default": false
-        },
-        "cover_image": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/cover_image.jpg",
-            "is_default": false
-        },
-        "type": "human",
-        "created_at": "2012-07-16T17:23:34Z",
-        "counts": {
-            "following": 100,
-            "followers": 200,
-            "posts": 24,
-            "stars": 76
-        },
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:user_self) do |h|
+    h["data"]["name"] = "Mark Thurman 2"
+end %>
 
 ## Retrieve a User's avatar image
 
@@ -181,63 +114,9 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 >
 > DATA [MIME encoded image]
 
-~~~ js
-{
-    "data": {
-        "id": "1", // note this is a string
-        "username": "mthurman",
-        "name": "Mark Thurman",
-        "description": {
-           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-           "entities": {
-               "mentions": [{
-                   "name": "appdotnet",
-                   "id": "3",
-                   "pos": 52,
-                   "len": 10
-               }],
-               "hashtags": [{
-                   "name": "api",
-                   "pos": 70,
-                   "len": 4
-               }],
-               "links": [{
-                   "text": "teaching you",
-                   "url": "https://github.com/appdotnet/api-spec",
-                   "pos": 29,
-                   "len": 12
-               }]
-            }
-        },
-        "timezone": "US/Pacific",
-        "locale": "en_US",
-        "avatar_image": {
-            "height": 512,
-            "width": 512,
-            "url": "https://example.com/new_avatar_image.jpg",
-            "is_default": false
-        },
-        "cover_image": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/cover_image.jpg",
-            "is_default": false
-        },
-        "type": "human",
-        "created_at": "2012-07-16T17:23:34Z",
-        "counts": {
-            "following": 100,
-            "followers": 200,
-            "posts": 24,
-            "stars": 76
-        },
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:user_self) do |h|
+    h["data"]["avatar_image"]["url"] = "https://example.com/new_avatar_image.jpg"
+end %>
 
 ## Retrieve a User's cover image
 
@@ -292,60 +171,6 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 >
 > DATA [MIME encoded image]
 
-~~~ js
-{
-    "data": {
-        "id": "1", // note this is a string
-        "username": "mthurman",
-        "name": "Mark Thurman",
-        "description": {
-           "text": "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-           "html": "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-           "entities": {
-               "mentions": [{
-                   "name": "appdotnet",
-                   "id": "3",
-                   "pos": 52,
-                   "len": 10
-               }],
-               "hashtags": [{
-                   "name": "api",
-                   "pos": 70,
-                   "len": 4
-               }],
-               "links": [{
-                   "text": "teaching you",
-                   "url": "https://github.com/appdotnet/api-spec",
-                   "pos": 29,
-                   "len": 12
-               }]
-            }
-        },
-        "timezone": "US/Pacific",
-        "locale": "en_US",
-        "avatar_image": {
-            "height": 512,
-            "width": 512,
-            "url": "https://example.com/avatar_image.jpg",
-            "is_default": false
-        },
-        "cover_image": {
-            "height": 118,
-            "width": 320,
-            "url": "https://example.com/new_cover_image.jpg",
-            "is_default": false
-        },
-        "type": "human",
-        "created_at": "2012-07-16T17:23:34Z",
-        "counts": {
-            "following": 100,
-            "followers": 200,
-            "posts": 24,
-            "stars": 76
-        },
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:user_self) do |h|
+    h["data"]["cover_image"]["url"] = "https://example.com/new_cover_image.jpg"
+end %>
