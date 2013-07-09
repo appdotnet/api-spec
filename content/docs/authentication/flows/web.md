@@ -77,5 +77,5 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 ## Finishing The Flow
 
-Now that you have figured out how to authenticate users we want to help you build your interface. Checkout our guide to getting started with using the Authorize with App.net button.
+After you have decided which flow will work for your app you should read our [Web Flow Integration Guide](/docs/authentication/authorize-with-appnet/) to help you integrate the authentication flow into your app.
 
