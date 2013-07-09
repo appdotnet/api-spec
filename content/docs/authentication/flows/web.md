@@ -78,17 +78,21 @@ If you're building a client-side Javascript app or a mobile app that doesn't hav
 
 ## Authorize With App.net Button
 
-The Authorize with App.net Button is the easiest way to let people sign into and authorize your web app with their App.net credentials. If they don’t have an App.net account, this button will allow new users to create an account and then authorize your app.
+The Authorize with App.net Button is the easiest way to let people sign into and authorize your web app with their App.net credentials. If they don't have an App.net account, this button will allow new users to create an account and then authorize your app.
 
 ### Implementation
 
-To implement the button replace the variables inside the brackets in this snippet and then paste it into your HTML where you want the button to show up.
+To implement the button on your site, you must:
 
-    <a href='https://account.app.net/oauth/authenticate' class='adn-button' data-type='authorize' data-width="145" data-height="22" data-client-id='[your client ID]' data-response-type='[token, or code]' data-scope='[scopes separated by spaces]' >Authorize with App.net</a>
-    <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script>
+1. Replace the variables inside the brackets
+1. Copy and paste the snippet below into your HTML where you want the button to show up
+
+
+<pre><code>&lt;a href='[Your Normal Authentication URL]' class='adn-button' data-type='authorize' data-width=&quot;145&quot; data-height=&quot;22&quot; data-client-id='[your client ID]' data-response-type='[token, or code]' data-scope='[scopes separated by spaces]' &gt;Authorize with App.net&lt;/a&gt;&lt;script&gt;(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));&lt;/script&gt;</code></pre>
 
 ### Best Practices
 
-We suggest that you put copy like this near the button to explain to the user what is going to happen:
+We suggest that you put the following copy directly above or below the button:
 
->An App.net account is required to use [Your App Name]. You can create an account and sign in with this button.
+    An App.net account is required to use [Your App Name]. You can create an account and sign in by clicking this button.
+
