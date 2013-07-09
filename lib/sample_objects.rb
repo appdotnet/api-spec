@@ -175,8 +175,8 @@ module Resources
           "is_default" => false
       },
       "cover_image" => {
-          "width" => 320,
-          "height" => 118,
+          "width" => 960,
+          "height" => 264,
           "url" => "https://example.com/cover_image.jpg",
           "is_default" => false
       },
