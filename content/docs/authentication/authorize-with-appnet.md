@@ -26,6 +26,10 @@ To implement the button on your site, you must:
 <a href='[Your authentication URL]' class='adn-button' data-type='authorize_v2' data-width="145" data-height="22" >Authorize with App.net</a><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script>
 ~~~
 
+If you do everything correctly you should see a button like this:
+
+![example button](/assets/images/button.png)
+
 ### Best Practices
 
 We suggest that you put the following copy directly above or below the button:
