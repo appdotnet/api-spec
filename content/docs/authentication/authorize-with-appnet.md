@@ -19,7 +19,7 @@ Why you should implement this button:
 
 1. It's easy: Add this button to your site in seconds.
 1. It's beautiful: it looks good and potential users will recognize the App.net branding.
-1. It's useful: One button helps your get new and existing accounts using your app.
+1. It's useful: One button helps your app get new and existing App.net users.
 
 ### Implementation
 
