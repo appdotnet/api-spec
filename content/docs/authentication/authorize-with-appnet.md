@@ -4,14 +4,22 @@ title: "Web Flow Integration Guide"
 
 # Web Flow Integration Guide
 
-Once you have decided which [web flow](/docs/authentication/flows/web/) is best for your app this guide will show you how to integrate Authorize with App.net into your web app. For your convince we have created a button that will make it easier for you. Not only will it help you create a consistent branding experience, but it will also help you sign up existing, and new users.
+Now that you've identified which [web flow](/docs/authentication/flows/web/) to use with your app, it's time to expose this to end users.
 
 * TOC
 {:toc}
 
 ## Authorize With App.net Button
 
-The Authorize with App.net Button is the easiest way to let people sign into and authorize your web app with their App.net credentials. If they don't have an App.net account, this button will allow new users to create an account and then authorize your app.
+The easiest way to integrate a web flow into your app is through an "Authorize with App.net" Button, which allows current App.net users to enjoy the ease of authorizing your app in two clicks. Less means more, as they'll be able to start using your app even faster.
+
+As an added benefit, this button will also allow new users to sign up for a free account and then authorize your app.
+
+Why you should implement this button:
+
+1. It's easy: Add this button to your site in seconds.
+1. It's beautiful: it looks good and potential users will recognize the App.net branding.
+1. It's useful: One button helps your get new and existing accounts using your app.
 
 ### Implementation
 
