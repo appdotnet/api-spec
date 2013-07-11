@@ -17,9 +17,9 @@ As an added benefit, this button will also allow new users to sign up for a free
 
 ### Benefits
 
-1. **It's easy**: Add this button to your site in seconds.
-1. **It's beautiful**: it looks good and potential users will recognize the App.net branding.
-1. **It's useful**: One button helps your app get new and existing App.net users.
+1. **It's easy**: Add an Authorize with App.net button to your site in seconds.
+1. **It's beautiful**: The minimal style of the button is versatile and users will recognize the App.net branding.
+1. **It's useful**: Your potential users can either sign up or sign in to your app with the same button.
 
 ### Implementation
 
