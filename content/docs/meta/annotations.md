@@ -142,7 +142,7 @@ We currently define the following core annotations:
 | [Geolocation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.geolocation.md) | net.app.core.geolocation | Specifies a geographic point on the Earth. |
 | [Language](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.language.md) | net.app.core.language | Specifies a language. |
 | [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
-| [Embedded Media Metadata](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.metadata.md) | net.app.core.oembed.metadata | Provides information for generating an oEmbed representation of a file. |
+| [oEmbed Metadata](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.metadata.md) | net.app.core.oembed.metadata | Provides information for generating an oEmbed representation of a file. |
 
 We will be defining core annotations soon for the following types of data:
 
