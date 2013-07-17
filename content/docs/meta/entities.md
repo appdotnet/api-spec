@@ -198,7 +198,9 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 ### Links with custom anchor text
 
-If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net by default will not extract any links on the server.** Mentions and hashtags will still be extracted and your provided links must not overlap with these extracted entities. So you **cannot** have a custom link around a hashtag or mention. If you want App.net to still extract links, you can pass the `parse_links: true` option to App.net. User provided links will take precedence over any links App.net detects. For example, the following JSON will create a post to 2 links 1) the parsed link to App.net and 2) the user provided link to the App.net blog:
+If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net by default will not extract any links on the server.** Mentions and hashtags will still be extracted. If you want App.net to still extract links, you can pass the `parse_links: true` option to App.net. User provided links will take precedence over any links, mentions, or hashtags that App.net detects. However, a user provided link can not partially overlap with a mention or hashtag.
+
+As an example, the following JSON will create a post to 2 links 1) the parsed link to App.net and 2) the user provided link to the App.net blog:
 
 ~~~js
 {
