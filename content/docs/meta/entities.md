@@ -28,6 +28,7 @@ Bring another user's attention to your post. A mention starts with <code>@</code
     "id": "2",
     "pos": 0,
     "len": 5,
+    "is_leading": true
 }]
 ~~~
 
@@ -56,6 +57,11 @@ Bring another user's attention to your post. A mention starts with <code>@</code
         <td><code>len</code></td>
         <td>integer</td>
         <td>The length of the substring in <code>text</code> that represents this mention. Since <code>@</code> is included, <code>len</code> will be the length of the <code>name</code> + 1.</td>
+    </tr>
+    <tr>
+        <td><code>is_leading</code></td>
+        <td>boolean</td>
+        <td>Is this mention a leading mention? A leading mention is a mention at the beginning of a post's text. This is used when computing the whether the post is a <a href="/docs/resources/post#general-parameters">directed post</a>.</td>
     </tr>
 </table>
 
