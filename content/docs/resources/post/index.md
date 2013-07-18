@@ -250,7 +250,7 @@ Where noted, Post endpoints respond to the following query string parameters:
             <td><code>include_directed_posts</code></td>
             <td>Optional</td>
             <td>integer (0 or 1)</td>
-            <td>Should Posts directed at people I don't follow be included? A directed Post is a Post that has leading mentions (mentions at the beginning of the text). A machine only Post with mentions is also considered a directed Post. Defaults to false for "My Stream" and true everywhere else.</td>
+            <td>Should Posts directed at people I don't follow be included? A directed Post is a Post that has <a href="/docs/meta/entities/#mentions">leading mentions</a> (mentions at the beginning of the text). A machine only Post with mentions is also considered a directed Post. Defaults to false for "My Stream" and true everywhere else.</td>
         </tr>
         <tr>
             <td><code>include_machine</code></td>
