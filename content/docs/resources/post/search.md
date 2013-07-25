@@ -11,7 +11,7 @@ title: "Post Search"
 
 Returns [Post](/docs/resources/post/) objects which match a given search query. Searches require an ordering and at least one search query to be specified, and allow for zero or more filters to be added. All parameters should be passed in the query string.
 
-<%= general_params_note_for "post" %> Note: Pagination is currently only available for the `id` ordering. All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Machine-only posts are not included in the search index.
+<%= general_params_note_for "post" %> Note: Pagination is currently only available for the `id` ordering. All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Machine-only posts are not included in the search index. Separate lists of terms by spaces.
 
 <%= endpoint "GET", "posts/search", "Any" %>
 
@@ -28,7 +28,7 @@ Returns [Post](/docs/resources/post/) objects which match a given search query. 
     ["query", :optional, "string", "Automatically attempts to extract hashtags and mentions while searching text. If you do not want this behavior, you can use more specific parameters below."],
 
     ["text", :optional, "string", "Include posts containing certain text."],
-    ["hashtags", :optional, "string", "Include posts tagged with certain hashtags"],
+    ["hashtags", :optional, "string", "Include posts tagged with certain hashtags. Do not include #"],
     ["links", :optional, "string", "Include posts linking to certain URLs"],
     ["link_domains", :optional, "string", "Include posts linking to certain domains. Do not include \"www.\""],
     ["mentions", :optional, "string", "Include posts mentioning certain users, by username. Do not include @"],
