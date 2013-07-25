@@ -114,7 +114,7 @@
             <td><a href="/docs/resources/post/search/#search-for-posts">Search for Posts</a></td>
             <td>GET</td>
             <td>/stream/0/posts/search</td>
-            <td>None</td>
+            <td>Any</td>
         </tr>
     </tbody>
 </table>
