@@ -9,7 +9,7 @@ title: "Post Search"
 
 ## Search for Posts
 
-Returns [Post](/docs/resources/post/) objects which match a given search query. Searches require an ordering and at least one search query to be specified, and allow for zero or more filters to be added. All parameters should be passed in the query string.
+Returns [Post](/docs/resources/post/) objects which match a given search query. Searches ordered by `id` require at least one query or filter to be specified; searches ordered by `score` require at least one query and zero or more filters to be specified. Searches require an ordering and at least one search query to be specified, and allow for zero or more filters to be added. All parameters should be passed in the query string.
 
 <%= general_params_note_for "post" %> Note: Pagination is currently only available for the `id` ordering. All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Machine-only posts are not included in the search index. Separate lists of terms by spaces.
 
@@ -26,17 +26,17 @@ Returns [Post](/docs/resources/post/) objects which match a given search query. 
 <%= query_params_typed 'Search Query Parameters', [
 
     ["query", :optional, "string", "Automatically attempts to extract hashtags and mentions while searching text. If you do not want this behavior, you can use more specific parameters below."],
-
     ["text", :optional, "string", "Include posts containing certain text."],
-    ["hashtags", :optional, "string", "Include posts tagged with certain hashtags. Do not include #"],
-    ["links", :optional, "string", "Include posts linking to certain URLs"],
-    ["link_domains", :optional, "string", "Include posts linking to certain domains. Do not include \"www.\""],
-    ["mentions", :optional, "string", "Include posts mentioning certain users, by username. Do not include @"],
-    ["leading_mentions", :optional, "string", "Include posts directed at users, by username. Do not include @"],
+
 
 ]%>
 
 <%= query_params_typed 'Filter Parameters', [
+    ["hashtags", :optional, "string", "Only include posts tagged with certain hashtags. Do not include #"],
+    ["links", :optional, "string", "Only include posts linking to certain URLs"],
+    ["link_domains", :optional, "string", "Only include posts linking to certain domains. Do not include \"www.\""],
+    ["mentions", :optional, "string", "Only include posts mentioning certain users, by username. Do not include @"],
+    ["leading_mentions", :optional, "string", "Only include posts directed at users, by username. Do not include @"],
     ["annotation_types", :optional, "string", "Only include posts with a specific annotation type, e.g., <code>net.app.core.fallback_url</code>"],
     ["attachment_types", :optional, "string", "Only include posts with a specific file type attached via the <code>net.app.core.file_list</code> annotation"],
     ["crosspost_url", :optional, "string", "Only include posts which are crossposts of a specific URL, via the <code>net.app.core.crosspost</code> annotation"],
