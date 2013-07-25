@@ -30,8 +30,8 @@ def query_params(params = [])
     render '/partials/parameters', :header => "Query String Parameters", :params => params
 end
 
-def query_params_typed(params = [])
-    render "/partials/parameters-typed", :header => "Query String Parameters", :params => params
+def query_params_typed(header = "Query String Parameters", params = [])
+    render "/partials/parameters-typed", :header => header, :params => params
 end
 
 def post_params(params = [])
@@ -47,9 +47,14 @@ def pagination_note()
 end
 
 def general_params_note_for(type)
-    '<em>This endpoint responds to <a href="/docs/resources/'+type+'/#general-parameters">general '+type.capitalize+' parameters</a>.</em>'    
+    '<em>This endpoint responds to <a href="/docs/resources/'+type+'/#general-parameters">general '+type.capitalize+' parameters</a>.</em>'
 end
 
-def env_var(name)
-    ENV[name]
+# feel free to override these from your environment
+def lanai_hostname()
+    ENV['LANAI_HOSTNAME'] || 'app.net'
+end
+
+def local_hostname()
+    ENV['LOCAL_HOSTNAME'] || 'localhost'
 end

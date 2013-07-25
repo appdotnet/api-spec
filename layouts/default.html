@@ -5,7 +5,7 @@
 
     <title><%= @item[:title] %> - App.net API Documentation</title>
 
-    <script type="text/javascript" src='https://account.<%= env_var('LANAI_HOSTNAME') %>/exports/base/?hostname=<%= env_var('LOCAL_HOSTNAME') %>'></script>
+    <script type="text/javascript" src='https://account.<%= lanai_hostname() %>/exports/base/?hostname=<%= local_hostname() %>'></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
@@ -91,6 +91,7 @@
                   <li><a href="/docs/resources/post/reposts/">Reposts</a></li>
                   <li><a href="/docs/resources/post/stars/">Stars</a></li>
                   <li><a href="/docs/resources/post/report/">Report</a></li>
+                  <li><a href="/docs/resources/post/search/">Search</a></li>
                 </ul>
                 <li><a href="/docs/resources/channel/">Channel</a></li>
                 <ul class="nav nav-list">
