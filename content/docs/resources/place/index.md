@@ -228,25 +228,25 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 
 <%= endpoint "GET", "places/search", "User" %>
 
-<%= query_params_typed [
+<%= query_params_typed 'Query String Parameters', [
 
-    ["latitude", "decimal", "Latitude of search location. Combined with longitude to create central point of search results."],
+    ["latitude", :required, "decimal", "Latitude of search location. Combined with longitude to create central point of search results."],
 
-    ["longitude", "decimal", "Longitude of search location. Combined with latitude to create central point of search results."],
+    ["longitude", :required, "decimal", "Longitude of search location. Combined with latitude to create central point of search results."],
 
-    ["q", "string", "(Optional) The name-based search query. Can be a partial string — for example, 'cre' will find any local 'creameries' and 'ice cream' locations."],
+    ["q", :optional, "string", "The name-based search query. Can be a partial string — for example, 'cre' will find any local 'creameries' and 'ice cream' locations."],
 
-    ["radius", "decimal", "(Optional) Approximate radius (in meters) of bounding circle on results. For example, supplying <code>radius=100</code> will limit all locations to be within 100 meters. Defaults to 100, ranges between 0.001 and 50,000."],
+    ["radius", :optional, "decimal", "Approximate radius (in meters) of bounding circle on results. For example, supplying <code>radius=100</code> will limit all locations to be within 100 meters. Defaults to 100, ranges between 0.001 and 50,000."],
 
-    ["count", "int", "(Optional) Number of results to return. Defaults to 20, ranges between 1 and 100."],
+    ["count", :optional, "integer", "Number of results to return. Defaults to 20, ranges between 1 and 100."],
 
-    ["remove_closed", "int (0 or 1)", "(Optional) Set to 0 if you would like the result to include entities which are closed (is_closed=1) or 1 if you would only prefer to see results for entities that are open. Defaults to 1."],
+    ["remove_closed", :optional, "int (0 or 1)", "Set to 0 if you would like the result to include entities which are closed (is_closed=1) or 1 if you would only prefer to see results for entities that are open. Defaults to 1."],
 
-    ["altitude", "decimal", "(Optional) Altitude of search location (in meters). <em>Not presently used to generate search results but may be later.</em>"],
+    ["altitude", :optional, "decimal", "Altitude of search location (in meters). <em>Not presently used to generate search results but may be later.</em>"],
 
-    ["horizontal_accuracy", "decimal", "(Optional) Accuracy of <code>latitude</code>/<code>longitude</code> parameters (in meters). <em>Not presently used to generate search results but may be later.</em>"],
+    ["horizontal_accuracy", :optional, "decimal", "Accuracy of <code>latitude</code>/<code>longitude</code> parameters (in meters). <em>Not presently used to generate search results but may be later.</em>"],
 
-    ["vertical_accuracy", "decimal", "(Optional) Accuracy of <code>altitude</code> parameter (in meters). <em>Not presently used to generate search results but may be later.</em>"]
+    ["vertical_accuracy", :optional, "decimal", "Accuracy of <code>altitude</code> parameter (in meters). <em>Not presently used to generate search results but may be later.</em>"]
 
 ]%>
 

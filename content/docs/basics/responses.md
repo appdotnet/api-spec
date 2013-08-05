@@ -34,8 +34,8 @@ The second key present, ```meta```, corresponds to an object containing addition
             "updated_at": "2012-11-09T23:35:38Z",
             "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
         },
-        "max_id": 65039,
-        "min_id": 65039,
+        "max_id": "65039",
+        "min_id": "65039",
         "more": true
     }
 }

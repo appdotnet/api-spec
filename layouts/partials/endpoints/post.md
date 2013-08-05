@@ -110,5 +110,11 @@
             <td>/stream/0/posts/{post_id}/report</td>
             <td>User</td>
         </tr>
+        <tr>
+            <td><a href="/docs/resources/post/search/#search-for-posts">Search for Posts</a></td>
+            <td>GET</td>
+            <td>/stream/0/posts/search</td>
+            <td>Any</td>
+        </tr>
     </tbody>
 </table>
