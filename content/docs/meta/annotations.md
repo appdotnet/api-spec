@@ -133,6 +133,7 @@ We currently define the following core annotations:
 | [Attachments](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) | net.app.core.attachments | A pointer to App.net [Files](/docs/resources/file/) that are attached to the object being annotated. |
 | [Channel Invite](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.channel.invite.md) | net.app.core.channel.invite | A pointer to a [Channel](/docs/resources/channel/). |
 | [Checkin](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.checkin.md) | net.app.core.checkin | Indicates a user has "checked in" to a [Place](/docs/resources/place/). |
+| [Phototag](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.phototag.md) | net.app.core.phototag | Indicates a user appears in a photo |
 | [Crosspost](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.crosspost.md) | net.app.core.crosspost | Specifies the original or canonical source of a Post on App.net from somewhere else on the web. |
 | [Blog URL](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.blog.md) | net.app.core.directory.blog | A pointer to a user's blog. |
 | [Facebook ID](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.directory.facebook.md) | net.app.core.directory.facebook | A pointer to a user's Facebook account. |
