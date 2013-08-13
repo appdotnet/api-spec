@@ -7,7 +7,7 @@ title: "Configuration"
 * TOC
 {:toc}
 
-The Configuration object defines platform-wide variables that Apps can use to make sure their behavior is consistent with the platform.
+The Configuration object contains variables which define the current behavior of the App.net platform.
 
 ## Example Configuration object
 
@@ -102,17 +102,19 @@ A Resource Configuration object represents values that only apply to a specific 
     </tbody>
 </table>
 
-## How should I use the Configuration object
+## How to use the Configuration object
 
-The App.net platform has platform-wide limits that all apps must respect. They are enforced at an API level, but they can be useful to have defined as variable in your app's code. Examples are things like: "how long can a Post be" or "how long can annotations be on a Channel object." This endpoint allows you to update your app's configuration so it always has the newest platform-wide configuration values available.
+The App.net platform has platform-wide limits that all apps must respect. These limits are enforced at an API level, but can be useful to have defined as constants in your app's code, often for the purpose of displaying your user interface. Examples are things like: "how long can a Post be" or "how long can annotations be on a Channel object." This endpoint allows you to update your app's configuration so it always has the newest platform-wide configuration values available.
 
 We recommend:
 
-1. Ship your application with the current values defined for these configuration values. Persist them when your app launches.
-2. At most once per day, query this endpoint.
-3. Update any configuration keys to their newest values. We recommend you do this when your app launches or in a cronjob.
+1. Ship your application with a static copy of the configuration object. When your app launches for the first time, persist those static values into your application's preference store (NSUserDefaults or SharedPreferences, etc.)
+2. On launch, and at most once per day, poll the configuration endpoint; if it differs from the previously persisted data, update your persisted copy of the configuration object.
+3. Always use the values from your persisted configuration.
 
-This endpoint should be queried with an access token if you have one. However, if you are creating an app with multiple user accounts you may store this data globally instead of per-user if you'd like.
+This pattern will ensure that no matter whether your application has network connectivity or not, you will have values, even if they are out of date. As the majority of these variables are related to user interface, slightly outdated configuration variables are generally not a problem.
+
+This endpoint should be queried with an access token if you have one. If you are creating an app which spports with multiple user accounts, you may store this data globally instead of per-user.
 
 ## Retrieve the Configuration object
 
