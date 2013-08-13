@@ -200,6 +200,33 @@ module Resources
 
   USER_SELF_BLACKLIST = ['follows_you', 'you_follow', 'you_muted', 'you_blocked', 'you_can_subscribe', 'you_can_follow']
   USER_SELF = USER.reject {|key, value| USER_SELF_BLACKLIST.include?(key) }
+
+  CONFIG = {
+    "text" => {
+      "uri_template_length" => {
+        "post_id" => 9,
+        "message_id" => 12
+      }
+    },
+    "user" => {
+      "annotation_max_bytes" => 8192,
+      "text_max_length" => 256
+    },
+    "file" => {
+      "annotation_max_bytes" => 8192
+    },
+    "post" => {
+      "annotation_max_bytes" => 8192,
+      "text_max_length" => 256
+    },
+    "message" => {
+      "annotation_max_bytes" => 8192,
+      "text_max_length" => 256
+    },
+    "channel" => {
+      "annotation_max_bytes" => 8192
+    }
+  }
   end
 
 include Resources::Helpers

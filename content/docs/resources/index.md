@@ -75,3 +75,7 @@ Please use https://alpha-api.app.net/ to access the APIs.
 ## Explore Stream
 
 <%= render 'partials/endpoints/explore-stream' %>
+
+## Configuration
+
+<%= render 'partials/endpoints/config' %>
