@@ -114,7 +114,7 @@ We recommend:
 
 This pattern will ensure that no matter whether your application has network connectivity or not, you will have values, even if they are out of date. As the majority of these variables are related to user interface, slightly outdated configuration variables are generally not a problem.
 
-This endpoint should be queried with an access token if you have one. If you are creating an app which spports with multiple user accounts, you may store this data globally instead of per-user.
+This endpoint should be queried with an access token if you have one. If you are creating an app which supports multiple user accounts, you may store this data globally instead of per-user.
 
 ## Retrieve the Configuration object
 
