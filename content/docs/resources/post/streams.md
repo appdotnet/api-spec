@@ -228,6 +228,8 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current User a
 
 <%= general_params_note_for "post" %>
 
+<%= stream_facet_note %>
+
 <%= pagination_note %>
 
 <%= endpoint "GET", "posts/stream", "User", "stream" %>
@@ -298,6 +300,8 @@ Return the 20 most recent [Posts](/docs/resources/post/) from the current user's
 <%= general_params_note_for "post" %>
 
 <%= pagination_note %>
+
+<%= stream_facet_note %>
 
 <%= endpoint "GET", "posts/stream/unified", "User", "stream" %>
 

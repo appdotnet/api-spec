@@ -50,6 +50,10 @@ def general_params_note_for(type)
     '<em>This endpoint responds to <a href="/docs/resources/'+type+'/#general-parameters">general '+type.capitalize+' parameters</a>.</em>'
 end
 
+def stream_facet_note()
+    "<em>This endpoint can be <a href='/docs/resources/post/#stream-faceting-parameters'>Faceted</a> to filter it's results.</em>"
+end
+
 # feel free to override these from your environment
 def lanai_hostname()
     ENV['LANAI_HOSTNAME'] || 'app.net'

@@ -299,6 +299,33 @@ Where noted, Post endpoints respond to the following query string parameters:
 
 Where noted, endpoints that return a stream of Posts additionally respond to [pagination parameters](/docs/basics/pagination).
 
+
+## Stream Faceting parameters
+
+Stream Faceting allows you to filter and query a user's [personalized stream](/docs/resources/post/streams/#retrieve-a-users-personalized-stream) or [unified stream](/docs/resources/post/streams/#retrieve-a-users-unified-stream) with an interface similar to our [Post Search API](/docs/resources/post/search/#search-for-posts). If you use stream faceting, the API will only return recent posts in a user's stream.
+
+Currently the following stream facets are supported:
+
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Required?</th>
+            <th width="50">Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>has_oembed_photo</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Only include posts with photo oembed annotations.</td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## Sorting Posts
 
 Post `id` is the ordering field for multiple posts, not `created_at`. `created_at` is meant to be displayed to users, not to sort Posts. This also makes pagination with `since_id` and `before_id` more straightforward. Posts are presently always returned in reverse chronological order (newest to oldest). As a result, the Posts endpoints will always return the newest posts that meet the requested criteria (e.g. `before_id` and `count`).
