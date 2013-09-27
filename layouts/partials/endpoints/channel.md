@@ -98,5 +98,11 @@
             <td>/stream/0/users/me/channels/muted</td>
             <td>User</td>
         </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/search/#search-for-channels">Search for Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/channels/search</td>
+            <td>Any</td>
+        </tr>
     </tbody>
 </table>
