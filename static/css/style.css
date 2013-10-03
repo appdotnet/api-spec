@@ -109,6 +109,7 @@ ul.nav-list ul.nav-list ul.nav-list li a {
     padding-left: 50px;
 }
 
+.new-nav .nav.header,
 .nav.header {
     margin-bottom: 0;
     border-bottom: none;
