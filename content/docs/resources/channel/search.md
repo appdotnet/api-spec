@@ -32,7 +32,7 @@ Returns [Channel](/docs/resources/channel/) objects which match a given search q
     ["type", :optional, "string", "Only include channels which were created with a specific channel type"],
     ["creator_id", :optional, "string", "Only include channels which were created by a user with a certain id"],
     ["tags", :optional, "string", "Only include channels which are tagged with certain tags. This data is extracted from channel annotations"],
-    ["is_private", :optional, "boolean", "Only include channels which have <code>any_user</code> set to false for read and write ACLs"],
+    ["is_private", :optional, "boolean", "Only include channels which have <code>any_user</code> and <code>public</code> set to false for read and write ACLs"],
     ["is_public", :optional, "boolean", "Only include channels which have <code>public</code> set to true for read ACLs"],
 
 ]%>
