@@ -17,7 +17,7 @@ Returns [Channel](/docs/resources/channel/) objects which match a given search q
 
 <%= query_params_typed 'General Parameters', [
 
-    ["order", :optional, "string", "One of: <code>popularity</code> (default), <code>id</code>. Searches of ordering <code>popularity</code> are returned in an order that roughly matches the popularity of the channels."],
+    ["order", :optional, "string", "One of: <code>popularity</code> (default), <code>id</code>, or <code>activity</code>. Searches of ordering <code>popularity</code> are returned in an order that roughly matches the popularity of the channels. <code>activity</code> searches will order results roughly by time of last message (precise sorting of very recent messages is not guaranteed)."],
 
 ]%>
 
@@ -32,6 +32,8 @@ Returns [Channel](/docs/resources/channel/) objects which match a given search q
     ["type", :optional, "string", "Only include channels which were created with a specific channel type"],
     ["creator_id", :optional, "string", "Only include channels which were created by a user with a certain id"],
     ["tags", :optional, "string", "Only include channels which are tagged with certain tags. This data is extracted from channel annotations"],
+    ["is_private", :optional, "boolean", "Only include channels which have <code>any_user</code> set to false for read and write ACLs"],
+    ["is_public", :optional, "boolean", "Only include channels which have <code>public</code> set to true for read ACLs"],
 
 ]%>
 
