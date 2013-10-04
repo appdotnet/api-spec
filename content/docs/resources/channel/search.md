@@ -11,7 +11,7 @@ title: "Channel Search"
 
 Returns [Channel](/docs/resources/channel/) objects which match a given search query. Because channels have no inherent notion of description or name, we take textual data from common channel annotations which contain such fields, e.g. <code>net.patter-app.settings</code>. We also allow filtering on specific channel properties, such as channel type. No matter what query data is supplied, the search results will respect channel ACLs, and results are limited to non-private channels if the requesting access token does not have the <code>messages</code> scope.
 
-<%= general_params_note_for "channel" %> Note: Pagination works for all orderings on this endpoint. Be sure to make requests with before_id=max_id or since_id=min_id as usual when paginating the popularity-sorted results. Separate lists of terms by spaces.
+<%= general_params_note_for "channel" %> Note: Pagination works for all orderings on this endpoint. Be sure to make requests with before_id=min_id or since_id=max_id as usual when paginating the popularity-sorted results. Separate lists of terms by spaces.
 
 <%= endpoint "GET", "channels/search", "User", "public_messages</code> or <code>messages" %>
 
