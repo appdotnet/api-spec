@@ -13,7 +13,7 @@ This is referred to as the Resource Owner Password Credential flow in the OAuth 
 
 ## Obtaining approval to use the password flow
 
-**Your application must be specifically approved to use this flow.** To obtain authorization, visit the account page for your app and click **Request approval for password flow**. You will need to provide an explanation of your situation and then click the **Submit Request** button to complete your request for authroization. When your request has been approved you will receive an email with your password grant secret. The password grant secret token will also be available on your account page.
+**Your application must be specifically approved to use this flow.** To obtain authorization, go to your [App.net developer dashboard](https://account.app.net/developer/apps/), select your app, and click **Request approval for password flow**. You will need to provide an explanation of your situation and then click the **Submit Request** button to complete your request for authroization. When your request has been approved you will receive an email with your password grant secret. The password grant secret token will also be available on your account page.
 
 ## Rules
 
