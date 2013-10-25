@@ -52,7 +52,7 @@ Returns [Post](/docs/resources/post/) objects which match a given search query. 
     ["has_oembed_photo", :optional, "int (0 or 1)", "Only include posts with photo oembed annotations"],
     ["has_oembed_video", :optional, "int (0 or 1)", "Only include posts with video (not html5video) oembed annotations"],
     ["has_oembed_html5video", :optional, "int (0 or 1)", "Only include posts with html5video oembed annotations"],
-    ["has_oembed_rich", :optional, "int (0 or 1)", "Only include posts with rich oembed anntations"],
+    ["has_oembed_rich", :optional, "int (0 or 1)", "Only include posts with rich oembed annotations"],
 
     ["language", :optional, "string", "Only include posts with a certain language tagged with the <code>net.app.core.language</code> annotation."],
     ["client_id", :optional, "string", "Only include posts created by a certain app. Use the alphanumeric client_id"],
