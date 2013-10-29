@@ -19,7 +19,7 @@ If you want to test how your text will be processed you can use the [text proces
 
 #### Creating Private Messages for use with net.app.core.pm Channels
 
-To create private group messages for use in `net.app.core.pm` channels, you can specify the special `channel_id` of `pm`. With this parameter, the server will look for an extra field in the provided message object called `destinations` which is a list of user ids to send this message to. If a private message channel already exists between this group of users, its `channel_id` will be reused. Otherwise, a new channel will be created and the users specified in the `destinations` list will be auto-subscribed (according to their [subscription preferences](https://account.app.net/settings/messaging-permissions/)) and able to write to that channel. Note that the `destinations` value may include user ids in the form of "@username" or integer id.
+To create private group messages for use in `net.app.core.pm` channels, you can specify the special `channel_id` of `pm`. With this parameter, the server will look for an extra field in the provided message object called `destinations` which is a list of user ids to send this message to. If a private message channel already exists between this group of users, its `channel_id` will be reused. Otherwise, a new channel will be created and the users specified in the `destinations` list will be auto-subscribed (according to their [subscription preferences](https://account.app.net/settings/privacy/#messaging)) and able to write to that channel. Note that the `destinations` value may include user ids in the form of "@username" or integer id.
 
 <%= general_params_note_for "message" %>
 
