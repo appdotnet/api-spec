@@ -241,13 +241,13 @@ An App Stream can listen for the following object types:
 
 * [post](#post): Sent for new posts, replies, reposts, and post deletions
 * [star](#star): Sent when a user stars a post
-* [user_follow](#user-follow): Sent when a user begins following or unfollows another user
+* [user_follow](#user_follow): Sent when a user begins following or unfollows another user
 * [mute](#mute): Sent when a user who has authorized your app mutes or unmutes another user
 * [block](#block): Sent when a user who has authorized your app blocks or unblocks another user
-* [stream_marker](#stream-marker): Sent when a stream marker is updated
+* [stream_marker](#stream_marker): Sent when a stream marker is updated
 * [message](#message): Sent for new objects, replies, and message deletions
 * [channel](#channel): Sent when a channel is created or updated
-* [channel_subscription](#channel-subscription): Sent when a user subscribes or unsubscribes to a channel
+* [channel_subscription](#channel_subscription): Sent when a user subscribes or unsubscribes to a channel
 * [token](#token): Sent when a user authorizes, changes scopes for, or deauthorizes an app
 * [file](#file): Sent when a user creates a file, updates a file, or deletes a file
 
