@@ -45,7 +45,7 @@ Returns [Post](/docs/resources/post/) objects which match a given search query. 
 
     ["is_reply", :optional, "int (0 or 1)", "Only include replies"],
     ["is_directed", :optional, "int (0 or 1)", "Only include posts with leading mentions, i.e., posts which were directed at other users"],
-    ["has_location", :optional, "int (0 or 1)", "Only include posts containing geo coordinates, i.e., tagged with the <code>net.app.core.location</code> annotation"],
+    ["has_location", :optional, "int (0 or 1)", "Only include posts containing geo coordinates, i.e., tagged with the <code>net.app.core.geolocation</code> annotation"],
     ["has_checkin", :optional, "int (0 or 1)", "Only include posts containing place IDs, i.e., tagged with the <code>net.app.core.checkin</code> annotation"],
     ["is_crosspost", :optional, "int (0 or 1)", "Only include posts which are crossposts, i.e., tagged with the <code>net.app.core.crosspost</code> annotation"],
     ["has_attachment", :optional, "int (0 or 1)", "Only include posts with file attachments"],
