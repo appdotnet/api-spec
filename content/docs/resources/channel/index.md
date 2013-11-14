@@ -233,7 +233,8 @@ This Channel type is for private messages between 2 or more people. As a core Ch
 
 - Private message Channels enforce that there is at least one non-owner user_id in the `writers` ACL and that both ACLs are immutable. 
 - Messages with the `machine_only` flag set are disallowed (though, of course, annotations are permitted when accompanied with text.)
-- This Channel type differs from others in that it is designed to provide a simple, combined API for Channel creation, reuse and Message sending. You can only create `net.app.core.pm` Channels via the [create private message Channel endpoint].
+- This Channel type differs from others in that it is designed to provide a simple, combined API for Channel creation, reuse and Message sending. You can only create `net.app.core.pm` Channels via the [create private message Channel endpoint](http://developers.app.net/docs/resources/message/lifecycle/#create-a-message
+).
 
 You can create arbitrary Channel types which do not have these restrictions (but are able to maintain the same level of privacy.)
 
