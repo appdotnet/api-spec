@@ -231,3 +231,11 @@ p code {
     word-break: break-all;
     white-space: normal;
 }
+
+img {
+    max-width: 90%;
+    margin: 25px auto 50px auto;
+    display: block;
+    padding: 5px;
+    background-color: #aaa;
+}
