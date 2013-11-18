@@ -83,19 +83,19 @@ body h1, body h2, body h3 {
 }
 
 body h1 {
-    font-size: 38.5px;;
+    font-size: 36px;
 }
 
 body h2 {
-    font-size: 31.5px;
+    font-size: 26px;
 }
 
 body h3 {
-    font-size: 24.5px;
+    font-size: 22px;
 }
 
 body h4 {
-    font-size: 17.5px;
+    font-size: 20px;
 }
 
 body h2, body h3, body h4, body h5 {
@@ -104,6 +104,10 @@ body h2, body h3, body h4, body h5 {
     margin-bottom: .5em;
 }
 
+p, div.layout-like-p {
+    line-height: 20px;
+    font-size: 14px;
+}
 
 ul.nav-list ul.nav-list ul.nav-list li a {
     padding-left: 50px;
@@ -158,10 +162,15 @@ html.breakpoint-tablet .nav-list {
     width: auto;
 }
 
+pre {
+    border: 1px solid #aaa;
+}
+
 pre code {
     white-space: pre-wrap;
 }
-pre code, pre {background-color:#073642;color:#93a1a1}
+
+pre code, pre {background-color:#073642;color:#93a1a1;}
 pre code  .c{color:#586e75 !important;font-style:italic !important}
 pre code  .cm{color:#586e75 !important;font-style:italic !important}
 pre code  .cp{color:#586e75 !important;font-style:italic !important}

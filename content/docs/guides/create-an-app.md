@@ -21,15 +21,15 @@ Clicking on [Your Apps](https://account.app.net/developer/apps/) in the bottom l
 
 This is what you will see if you haven't created any apps. To start the process of registering your app click on [Create one here](https://account.app.net/developer/app/create/).
 
-Next, we will see the App Create page.
+Next, you will see the App Create page.
 
 ![Create Your App](https://files.app.net/01qdir2Q.png)
 
 You will be able to change all of this later, but start by giving your app a name that is unique to you, or your organization.
 
-Enter a website that is most closely related to this app. If doesn't make sense for you to enter a website feel free to enter in your Alpha profile URL. (https://app.net/<YOUR USERNAME>). This will let others know who is responsible for this app.
+Enter a website that is most closely related to this app. If it doesn't make sense for you to enter a website feel free to enter in your Alpha profile URL. (https://app.net/<YOUR USERNAME>). This will let others know who is responsible for this app.
 
-The **Callback URL** is prefilled with http://localhost:8000 as a convince for local development. The Callback URL will be used when you [authenticate your app](/docs/authentication/) later.
+The **Callback URL** is prefilled with http://localhost:8000 as a convenience for local development. The Callback URL will be used when you [authenticate your app](/docs/authentication/) later.
 
 When you are satisfied with the information you have entered click create.
 
@@ -37,7 +37,7 @@ You will see something like this once you have created your app.
 
 ![Your New App](https://files.app.net/01qb1llv.png)
 
-As you can see we have blurred out the **client secret**, but this is roughly what your app will look like once it has been created. 
+As you can see the **client secret** is blurred, but this is roughly what your app will look like once it has been created. 
 
 From here you could add additional callback URL's for different environments. As well as update your apps information at any time.
 
@@ -45,7 +45,7 @@ You can also generate your self an access token.
 
 ## Generating an Access Token
 
-There are a few ways to get an access token, but the easiest way to get an access token for personal use is to generate one from your app detail page.
+There are a few ways to get an access token, but the easiest way to get an access token for personal use or experimentation is to generate one from your app detail page.
 
 To see a list of your current apps visit [account.app.net/settings/developer/.](https://account.app.net/settings/developer/)
 
@@ -73,6 +73,15 @@ Now you should see an access token in a textbox, then you can copy and use in a 
     <b>Remember</b>: An access token is just like a password. It will allow applications to interact with the API on your behalf. So, keep it secret.
 </div>
 
+## What's Next?
+
+Now that you have an access token you can use it to access authenticated parts of the API.
+
+You could:
+
+* [Send a broadcast](/docs/guides/send-a-broadcast/)
+
+Or, you could build something completely new. Let us know what it is if you do.
 
 
 
