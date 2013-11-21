@@ -53,7 +53,7 @@ To see a list of your current apps visit [account.app.net/settings/developer/.](
 
 Find the app you would like to generate an access token for and click on the name. You should now see your app detail page.
 
-![Generate a token](https://files.app.net/01q9srKw.png)
+![Generate a token](https://files.app.net/0q1t3Zt2.png)
 
 From this screen, if you look at the second block you will see a link: 'Generate a user token for yourself'. Click on that link, and you will see a page like this.
 
