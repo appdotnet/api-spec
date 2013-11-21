@@ -45,8 +45,26 @@
             <td>User</td>
         </tr>
         <tr>
+            <td><a href="/docs/resources/channel/lookup/#retrieve-number-of-unread-broadcast-channels">Retrieve number of unread Broadcast Channels</a></td>
+            <td>GET</td>
+            <td>/stream/0/users/me/channels/broadcast/num_unread</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/lookup/#mark-all-broadcast-channels-as-read">Mark all Broadcast Channels as read</a></td>
+            <td>DELETE</td>
+            <td>/stream/0/users/me/channels/broadcast/num_unread</td>
+            <td>User</td>
+        </tr>
+        <tr>
             <td><a href="/docs/resources/channel/lifecycle/#update-a-channel">Update a Channel</a></td>
             <td>PUT</td>
+            <td>/stream/0/channels/[channel_id]</td>
+            <td>User</td>
+        </tr>
+        <tr>
+            <td><a href="/docs/resources/channel/lifecycle/#deactivate-a-channel">Deactivate a Channel</a></td>
+            <td>DELETE</td>
             <td>/stream/0/channels/[channel_id]</td>
             <td>User</td>
         </tr>

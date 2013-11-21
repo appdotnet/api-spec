@@ -204,9 +204,9 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 ### Links with custom anchor text
 
-If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net by default will not extract any links on the server.** Mentions and hashtags will still be extracted. If you want App.net to still extract links, you can pass the `parse_links: true` option to App.net. User provided links will take precedence over any links, mentions, or hashtags that App.net detects. However, a user provided link can not partially overlap with a mention or hashtag.
+If you'd like to provide a link without including the entire URL in your post text or user description, you can specify a custom link at Post creation time or User update time. **If you include a list of links in your Post — even an empty list — App.net by default will not extract any links on the server.** Mentions and hashtags will still be extracted. If you want App.net to still extract links, you can pass the `parse_links: true` option to App.net. User provided links will take precedence over any links, mentions, or hashtags that App.net detects. However, a user provided link cannot partially overlap with a mention or hashtag.
 
-As an example, the following JSON will create a post to 2 links 1) the parsed link to App.net and 2) the user provided link to the App.net blog:
+As an example, the following JSON will create a post with 2 links 1) the parsed link to App.net and 2) the user provided link to the App.net blog:
 
 ~~~js
 {
@@ -220,6 +220,27 @@ As an example, the following JSON will create a post to 2 links 1) the parsed li
             }
         ],
         "parse_links": true
+    }
+}
+~~~
+
+Many apps like to use [inline Markdown link syntax](http://daringfireball.net/projects/markdown/syntax#link) to create user provided links. To make that easier, App.net can process the markdown links server side to populate the `entities`. Essentially, App.net will parse the `text` value for Markdown links overwriting any `links` you provided. The same rules for `parse_links` still apply when using Markdown.
+
+As an example, the following JSON will create a post with 2 links 1) the parsed link to App.net and 2) the user provided (via Markdown) link to the App.net blog. The link provided in `entities.links` is discarded and replaced with the Markdown links becase `parse_markdown_links` is true.
+
+~~~js
+{
+    "text": "The official App.net [blog](http://blog.app.net) is here",
+    "entities": {
+        "links": [
+            {
+                "pos": 0,
+                "len": 3,
+                "url": "http://app.net/mthurman"
+            }
+        ],
+        "parse_links": true,
+        "parse_markdown_links": true
     }
 }
 ~~~

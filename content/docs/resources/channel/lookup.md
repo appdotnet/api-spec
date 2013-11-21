@@ -221,3 +221,41 @@ Returns the current number of `net.app.core.pm` Channels where `has_unread: true
     }
 }
 ~~~
+
+
+## Retrieve number of unread Broadcast Channels
+Returns the current number of `net.app.core.broadcast` Channels where `has_unread: true` for the current user.
+
+<%= endpoint "GET", "users/me/channels/broadcast/num_unread", "User", "messages"%>
+
+#### Example
+
+> GET https://alpha-api.app.net/stream/0/users/me/channels/broadcast/num_unread
+
+~~~ js
+{
+    "data": 3,
+    "meta": {
+        "code": 200
+    }
+}
+~~~
+
+
+## Mark all Broadcast Channels as read
+Mark all `net.app.core.broadcast` Channels as read for the current user.
+
+<%= endpoint "DELETE", "users/me/channels/broadcast/num_unread", "User", "messages"%>
+
+#### Example
+
+> DELETE https://alpha-api.app.net/stream/0/users/me/channels/broadcast/num_unread
+
+~~~ js
+{
+    "data": 0,
+    "meta": {
+        "code": 200
+    }
+}
+~~~

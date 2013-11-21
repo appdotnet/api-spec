@@ -14,10 +14,19 @@ A Channel is a user created stream of Messages. It controls access to the messag
 ~~~ js
 {
     "counts": {
-        "messages": 42
+        "messages": 42,
+        "subscribers": 43
     },
     "has_unread": true,
     "id": "1",
+    "is_inactive": false
+    "editors": {
+        "any_user": false,
+        "immutable": false,
+        "public": false,
+        "user_ids": [],
+        "you": true
+    },
     "owner": {
         ...
     },
@@ -78,6 +87,11 @@ A Channel is a user created stream of Messages. It controls access to the messag
                         <td>integer</td>
                         <td>The number of <a href="/docs/resources/message/">Messages</a> in the channel.</td>
                     </tr>
+                    <tr>
+                        <td><code>subscribers</code></td>
+                        <td>integer</td>
+                        <td>The number of <a href="/docs/resources/user/">Users</a> subscribed to this channel. This field is only shown to channel editors.</td>
+                    </tr>
                 </table>
             </td>
         </tr>
@@ -107,6 +121,11 @@ A Channel is a user created stream of Messages. It controls access to the messag
             <td>The access control list that describes who can read this Channel and its <a href="/docs/resources/message/">Messages</a>.</td>
         </tr>
         <tr>
+            <td><code>editors</code></td>
+            <td><a href="#acl">ACL object</a></td>
+            <td>The access control list that describes who can edit this Channel object.</td>
+        </tr>
+        <tr>
             <td><code>writers</code></td>
             <td><a href="#acl">ACL object</a></td>
             <td>The access control list that describes who can write <a href="/docs/resources/message/">Messages</a> to this Channel.</td>
@@ -124,7 +143,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
         <tr>
             <td><code>you_can_edit</code></td>
             <td>boolean</td>
-            <td>Are you allowed to edit the Channel.</td>
+            <td>Are you allowed to edit the Channel. This is deprecated. <code>editors.you</code> should be used instead.</td>
         </tr>
         <tr>
             <td><code>has_unread</code></td>
@@ -152,6 +171,13 @@ A Channel is a user created stream of Messages. It controls access to the messag
 ## ACL
 
 ~~~ js
+"editors": {
+    "any_user": false,
+    "immutable": false,
+    "public": false,
+    "user_ids": [],
+    "you": true
+},
 "readers": {
     "any_user": false,
     "immutable": false,
@@ -172,7 +198,7 @@ A Channel is a user created stream of Messages. It controls access to the messag
 }
 ~~~
 
-Access control lists (ACLs) specify who can read and who can write <a href="/docs/resources/message/">Messages</a> in a Channel. In our permissions model, writing implies reading. Note that `any_user`, `public`, and non-empty `user_ids` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has write access and will not be specified in the `user_ids` list. For some Channel types (like `net.app.core.pm`), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [Messaging overview](/docs/basics/messaging/) for more information.
+Access control lists (ACLs) specify who can edit a channel and read or write <a href="/docs/resources/message/">Messages</a> to a Channel. In our permissions model, editing implies writings and writing implies reading. Note that `any_user`, `public`, and non-empty `user_ids` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has edit access and will not be specified in the `user_ids` list. For some Channel types (like `net.app.core.pm`), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [Messaging overview](/docs/basics/messaging/) for more information. `editors` can edit the channel ACLs, annotations, write messages and perform any action against a channel except for marking it as inactive. Only an owner can mark a channel as inactive.
 
 ### ACL Fields
 
@@ -188,7 +214,7 @@ Access control lists (ACLs) specify who can read and who can write <a href="/doc
         <tr>
             <td><code>any_user</code></td>
             <td>boolean</td>
-            <td>Can any logged in <a href="/docs/resources/user/">User</a> read/write to this Channel? If true, <code>public</code> will be false and <code>user_ids</code> will be empty.</td>
+            <td>Can any logged in <a href="/docs/resources/user/">User</a> read/write to this Channel? This will always be <code>false</code> for the <code>editors</code> ACL. If true, <code>public</code> will be false and <code>user_ids</code> will be empty.</td>
         </tr>
         <tr>
             <td><code>immutable</code></td>
@@ -198,12 +224,12 @@ Access control lists (ACLs) specify who can read and who can write <a href="/doc
         <tr>
             <td><code>public</code></td>
             <td>boolean</td>
-            <td>Can anyone (including not logged in <a href="/docs/resources/user/">Users</a>), read this channel. This will always be <code>false</code> for the <code>writers</code> ACL. If <code>true</code>, <code>any_user</code> will be false and <code>user_ids</code> will be empty.</td>
+            <td>Can anyone (including not logged in <a href="/docs/resources/user/">Users</a>), read this channel. This will always be <code>false</code> for the <code>writers</code> and <code>editors</code> ACLs. If <code>true</code>, <code>any_user</code> will be false and <code>user_ids</code> will be empty.</td>
         </tr>
         <tr>
             <td><code>user_ids</code></td>
             <td>list</td>
-            <td>A list of strings specifying the ids of <a href="/docs/resources/user/">Users</a> who can read/write to this Channel. If non-empty, <code>any_user</code> and <code>public</code> will be <code>false</code>. This list can contain at most 200 User ids.</td>
+            <td>A list of strings specifying the ids of <a href="/docs/resources/user/">Users</a> who can read/write to this Channel. If non-empty, <code>any_user</code> and <code>public</code> will be <code>false</code>. This list can contain at most 200 User ids except for <a href="#broadcast-channel">Broadcast channels</a> which allow an unlimited number of readers.</td>
         </tr>
         <tr>
             <td><code>you</code></td>
@@ -223,7 +249,7 @@ For more information on Annotations in general, see the [Annotations](/docs/meta
 
 A Channel's `type` can be used to identify the behavior of a Channel. Channel types are specified by the application creating the Channel and should have corresponding entries in the [channel-types directory](https://github.com/appdotnet/object-metadata/tree/master/channel-types) describing their behavior.    
 
-There is currently one core Channel type:
+There is currently 2 core Channel types:
 
 #### Private Message
 
@@ -237,6 +263,17 @@ This Channel type is for private messages between 2 or more people. As a core Ch
 ).
 
 You can create arbitrary Channel types which do not have these restrictions (but are able to maintain the same level of privacy.)
+
+#### Broadcast Channel
+
+> [net.app.core.broadcast](https://github.com/appdotnet/object-metadata/blob/master/channel-types/net.app.core.broadcast.md)
+
+This Channel type is for broadcasting very occasional, high value information groups of people.
+
+- Broadcast channels must not have multiple writers. If you'd like multiple people to be able to publish to a Broadcast channel, you must make them all editors.
+- Broadcast channels can have an unlimited number of readers explicitly specified.
+- You *cannot* auto-subscribe anyone to Broadcast channels. They are opt-in.
+
 
 ## General Parameters
 
@@ -293,6 +330,12 @@ Where noted, Channel endpoints respond to the following query string parameters:
             <td>Optional</td>
             <td>integer (0 or 1)</td>
             <td>Should <a href="/docs/meta/annotations/">Message annotations</a> be included in the response objects? Defaults to false.</td>
+        </tr>
+        <tr>
+            <td><code>include_inactive</code></td>
+            <td>Optional</td>
+            <td>integer (0 or 1)</td>
+            <td>Should <a href="/docs/resources/channel/lifecycle/#deactivate-a-channel">inactive channels</a> be included? Defaults to false.</td>
         </tr>
     </tbody>
 </table>

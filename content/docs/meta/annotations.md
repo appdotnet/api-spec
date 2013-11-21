@@ -96,7 +96,8 @@ All objects that support annotations (User, Post, Channel, Message, File) have a
 - A Post or Message can have multiple annotations of the same "type". 
 - User and Channel annotations are mutable and can be updated at any time.
 - Because they are mutable, a User or Channel object can only have one annotation of each "type".
-- User annotations are meant to provide more information about the user. **They are not meant to be an arbitrary data store for apps**. 
+- User annotations are meant to provide more information about the user. **They are not meant to be an arbitrary data store for apps**.
+- Some annotations are read-only and will be ignored or rejected if you try to write to them.
 
 ### Creating, Updating and Deleting
 
@@ -145,11 +146,13 @@ We currently define the following core annotations:
 | [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
 | [oEmbed Metadata](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.metadata.md) | net.app.core.oembed.metadata | Provides information for generating an oEmbed representation of a file. |
 
-We will be defining core annotations soon for the following types of data:
+We have considered core annotations for the following types of data:
 
 * Long-form content
 * Attribution and source
 * Additional content license grants, where users can opt in to Creative Commons licensing, etc., if desired.
+
+If you are interested in these ideas, please [open an issue](https://github.com/appdotnet/object-metadata/issues).
 
 Developers are encouraged to create annotations for data not well represented here. If possible, care should be taken not to overlap with existing annotations. Annotations designed to address edge-cases in well-known annotations should include both the well-known annotation and only the augmented parts in the enhancing annotation.
 

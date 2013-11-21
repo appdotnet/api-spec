@@ -227,6 +227,36 @@ module Resources
       "annotation_max_bytes" => 8192
     }
   }
+
+  CHANNEL = {
+    "counts" => {
+        "messages" => 42,
+        "subscribers" => 43
+    },
+    "has_unread" => false,
+    "id" => "1",
+    "owner" => "...user object...",  # TODO render this as a user placholder somehow
+    "is_inactive" => false,
+    "readers" => {
+        "any_user" => false,
+        "immutable" => false,
+        "public" => true,
+        "user_ids" => [],
+        "you" => true
+    },
+    "type" => "com.example.channel",
+    "writers" => {
+        "any_user" => false,
+        "immutable" => false,
+        "public" => false,
+        "user_ids" => [
+            "1"
+        ],
+        "you" => true
+    },
+    "you_can_edit" => true,
+    "you_subscribed" => true
+  }
   end
 
 include Resources::Helpers

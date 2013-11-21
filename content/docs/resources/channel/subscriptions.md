@@ -11,6 +11,8 @@ title: "Channel Subscriptions"
 
 Retrieve an "inbox" of the channels the user is currently subscribed to. This stream is ordered like an inbox with the stream containing the most recent post first.
 
+The `meta` response will contain unread counts for common channel types.
+
 <%= general_params_note_for "channel" %>
 
 <%= pagination_note %>
@@ -59,7 +61,11 @@ Retrieve an "inbox" of the channels the user is currently subscribed to. This st
         "code": 200,
         "max_id": 146,
         "min_id": 123,
-        "more": true
+        "more": true,
+        "unread_counts": {
+            "net.app.core.pm": 5,
+            "net.app.core.broadcast": 3
+        }
     }
 }
 ~~~
