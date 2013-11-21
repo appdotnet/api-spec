@@ -31,7 +31,7 @@ A good description might be:
 
 Now that we have decided on a title and description we can start constructing a channel object that we will send to the API to create a broadcast channel.
 
-**You can create channels using the API, but it might be easier to create your channel using our [publisher tools](https://directory.app.net/broadcast/manage/) instead.**
+**You can create channels using the API, but it might be easier to create your broadcast channel using our [publisher tools](https://directory.app.net/broadcast/manage/) instead.**
 
 It's a good idea to start creating a channel object in a way that you can easily serialize to a JSON string. In python that might be a dict, and in JavaScript that might be an object literal. Pick the one that is right for your language.
 
