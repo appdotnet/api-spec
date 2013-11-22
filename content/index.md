@@ -12,7 +12,7 @@ This page is your starting point to getting familiar with the App.net developer 
 
 ### Tracking news and announcements
 
-To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adnapi). You may also want to subscribe to the [App.net blog](http://blog.app.net/) for general news and the [developer blog](http://devblog.app.net/) for developer related news.
+To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adnapi). You may also want to subscribe to the [App.net blog](https://broadcast.app.net/26283/appnet-blog/) for general news and [App.net API Updates](https://broadcast.app.net/24368/appnet-api-updates/) for developer related news.
 
 {::options parse_block_html="true" /}
 <div class="alert alert-success alert-block">
