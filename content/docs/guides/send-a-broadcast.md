@@ -10,7 +10,7 @@ To start sending broadcasts from the API you will need an access token. <a href=
 
 Broadcast channels are mean't for low-volume high-value updates that users are interested in. Because broadcasts are built on top of our existing [Channels](/docs/resources/channel/), and [Messages](/docs/resources/message/) API there isn't much new stuff you need to know. In this guide we will go over the specifics of creating a Broadcast Channel and a Broadcast.
 
-While you can do all of this using our API you don't have to. We have [publishers tools](https://directory.app.net/broadcast/manage/) to help you quickly get started.
+While you can do all of this using our API you don't have to. We have [publishers tools](https://broadcast.app.net/manage/) to help you quickly get started.
 
 * TOC
 {:toc}
@@ -31,7 +31,7 @@ A good description might be:
 
 Now that we have decided on a title and description we can start constructing a channel object that we will send to the API to create a broadcast channel.
 
-**You can create channels using the API, but it might be easier to create your broadcast channel using our [publisher tools](https://directory.app.net/broadcast/manage/) instead.**
+**You can create channels using the API, but it might be easier to create your broadcast channel using our [publisher tools](https://broadcast.app.net/manage/) instead.**
 
 It's a good idea to start creating a channel object in a way that you can easily serialize to a JSON string. In python that might be a dict, and in JavaScript that might be an object literal. Pick the one that is right for your language.
 
@@ -149,7 +149,7 @@ We will get back our channel resource. You will see that a bunch of information 
 }
 ~~~
 
-We have now created a channel. We can continue to administer this channel via API, or we could use the [publishers tools](https://directory.app.net/broadcast/manage/). Either way, we are all setup to send a Broadcast.
+We have now created a channel. We can continue to administer this channel via API, or we could use the [publishers tools](https://broadcast.app.net/manage/). Either way, we are all setup to send a Broadcast.
 
 ## Send a Broadcast
 
