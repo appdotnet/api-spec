@@ -8,7 +8,7 @@ title: "Send A Broadcast From The API"
 To start sending broadcasts from the API you will need an access token. <a href='/docs/guides/create-an-app/'>Read our guide an creating an app to get an access token.</a>
 </div>
 
-Broadcast channels are mean't for low-volume high-value updates that users are interested in. Because broadcasts are built on top of our existing [Channels](/docs/resources/channel/), and [Messages](/docs/resources/message/) API there isn't much new stuff you need to know. In this guide we will go over the specifics of creating a Broadcast Channel and a Broadcast.
+Broadcast channels are meant for low-volume high-value updates that users are interested in. Because broadcasts are built on top of our existing [Channels](/docs/resources/channel/), and [Messages](/docs/resources/message/) API there isn't much new stuff you need to know. In this guide we will go over the specifics of creating a Broadcast Channel and a Broadcast.
 
 While you can do all of this using our API you don't have to. We have [publishers tools](https://directory.app.net/broadcast/manage/) to help you quickly get started.
 
@@ -19,7 +19,7 @@ While you can do all of this using our API you don't have to. We have [publisher
 
 Before you create your channel you should come up with a compelling title and description for your channel. Users will use this information to decide if they want to subscribe to your channel. Take an extra moment before you dive in. Also, keep in mind that users will be able to see how often your Broadcast Channel updates and may choose to not subscribe to high volume channels.
 
-For this example, lets say we are going to create a Broadcast Channel for a food truck called Mikhail Borscht. We want to send a Broadcast every time we setup our truck. Using Broadcasts we will immediately be able to inform our customers of our location, our specials for the day, or anything that is of a timely nature.
+For this example, let's say we are going to create a Broadcast Channel for a food truck called Mikhail Borscht. We want to send a Broadcast every time we setup our truck. Using Broadcasts we will immediately be able to inform our customers of our location, our specials for the day, or anything that is of a timely nature.
 
 We might title this channel:
     
@@ -54,7 +54,7 @@ We set our annotation to a type of `net.app.core.broadcast.metadata`. Then we se
 
 But, we aren't done creating our channel object. Next, we need to decide who can read our broadcasts, and who can send send broadcasts.
 
-To do that we are going to add two [ACL's](/docs/resources/channel/#acl) to our channel object. A readers ACL, and an editors ACL.
+To do that we are going to add two [ACLs](/docs/resources/channel/#acl) to our channel object. A readers ACL, and an editors ACL.
 
 This channel will be public. Public means anyone, even people who aren't App.net users, will be able to read from this Broadcast Channel. Also, since it won't make sense for the public nature of this channel to change and we don't want anyone to accidentally mark it as private, we are going to make this channel's readers ACL as immutable.
 
@@ -157,7 +157,7 @@ A Broadcast is a message that is received as a push notification. To send a Broa
 
 Continuing with our example of Mikhail Borscht Food Truck, lets send a broadcast to our customers. Say we just setup our truck at 5th and mission and we want to tell them where we are.
 
-Well, first we'll need to figure out what our subject should be. A subject is what a user will see in their push notification. It's kind of like the subject of an e-mail. It should give the user enough information so that they will know who its from and entice them to open the Broadcast. For our purposes that might be something like:
+Well, first we'll need to figure out what our subject should be. A subject is what a user will see in their push notification. It's kind of like the subject of an e-mail. It should give the user enough information so that they will know who it's from and entice them to open the Broadcast. For our purposes that might be something like:
 
     Mikhail Borscht will be at 5th and Mission with 2 for 1 perogies till 2pm
 
@@ -181,7 +181,7 @@ message = {
 }
 ~~~
 
-Before you send the Broadcast take a second to make sure all the information is correct. This is going to be sent as a push notification to people and that push notification won't be retractable. You can always delete the Broadcast, but that won't remove all traces of it. That being said, lets send Mikhail Borscht's customers a Broadcast.
+Before you send the Broadcast take a second to make sure all the information is correct. This is going to be sent as a push notification to people and that push notification won't be retractable. You can always delete the Broadcast, but that won't remove all traces of it. That being said, let's send Mikhail Borscht's customers a Broadcast.
 
 Just like building our channel we are going to use curl (remember to check out the libraries page for something language specific.)
 
