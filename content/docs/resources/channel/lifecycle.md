@@ -141,7 +141,7 @@ The current user must be the same user who created the Channel. *Editors cannot 
 
 <%= general_params_note_for "channel" %>
 
-<%= endpoint "DELETE", "channel/[channel_id]", "User" %>
+<%= endpoint "DELETE", "channels/[channel_id]", "User" %>
 
 <%= url_params [
     ["channel_id", "The id of the Channel to delete."]
@@ -149,7 +149,7 @@ The current user must be the same user who created the Channel. *Editors cannot 
 
 ### Example
 
-> DELETE https://alpha-api.app.net/stream/0/channel/1
+> DELETE https://alpha-api.app.net/stream/0/channels/1
 
 <%= response(:channel) do |h|
     h["data"]["is_inactive"] = true
