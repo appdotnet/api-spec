@@ -23,7 +23,7 @@ There are a number of parts to each broadcast message. To illustrate, here's a s
 
 The important parts are the **Headline**, **Photo**, **Text** and **Read More Link**. Everything but the headline is optional, but we recommend that your broadcasts contain a compelling image and some context through a summary text body and a link to content.
 
-The easiest way to send a broadcast with the API is via the [ADNPy](http://adnpy.readthedocs.org) Python module or the [adn](https://github.com/adn-rb/adn) Ruby gem. You can also use the HTTP API with your own client, if you'd like.
+The easiest way to send a broadcast with the API is via the [ADNPy](http://adnpy.readthedocs.org) Python module, the [adn](https://github.com/adn-rb/adn) Ruby gem, the [appnet.js](https://github.com/duerig/appnet.js) library for Node.js, or the [AppDotNetPHP](https://github.com/jdolitsky/AppDotNetPHP) library. You can also use the HTTP API with your own client, if you'd like.
 
 Starting with Python, here's an example of using the ADNPy `BroadcastMessageBuilder` recipe. If you're interested in the specific API calls the library is making behind the scenes, [look at the source](https://github.com/appdotnet/ADNpy/blob/master/adnpy/recipes/broadcast.py).
 
@@ -49,6 +49,21 @@ You can easily attach a photo:
 
 ~~~ python
 builder.photo = '/home/paul/celeryman.gif'
+~~~
+
+Or with the [adn](https://github.com/adn-rb/adn) Ruby gem:
+
+~~~ ruby
+require 'adn'
+
+ADN.token = 'your access token here'
+
+builder = ADN::Recipes::BroadcastMessageBuilder.new
+builder.channel_id = 24204
+builder.headline = 'sending from ruby'
+builder.read_more_link = 'https://app.net'
+builder.photo = '/home/mthurman/oyster-smiling.png'
+builder.send
 ~~~
 
 If you want to send the equivalent broadcast from the API without using a library, use this curl command:
