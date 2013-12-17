@@ -165,7 +165,6 @@ Delete a <a href="/docs/resources/post/">Post</a>. The current user must be the 
             ...
         },
         "created_at": "2012-07-16T17:25:47Z",
-        "text": "@berg FIRST post on this new site #newsocialnetwork",
         "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
         "source": {
             "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
