@@ -37,7 +37,9 @@ If you want to add or update a User's annotations, you may include the optional 
     h["data"]["annotations"] = [
         {
             "type" => "net.app.core.directory.blog",
-            "value" => "http://mynewblog.com"
+            "value" => {
+                "url" => "http://mynewblog.com"
+            }
         }
     ]
 end %>
