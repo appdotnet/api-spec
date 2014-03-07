@@ -11,7 +11,7 @@
         <tr>
             <td><a href="/docs/resources/config/#retrieve-the-configuration-object">Retrieve the Configuration object</a></td>
             <td>GET</td>
-            <td>/stream/0/config</td>
+            <td><code>/stream/0/config</code></td>
             <td>None</td>
         </tr>
     </tbody>

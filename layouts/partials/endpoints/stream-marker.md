@@ -11,7 +11,7 @@
         <tr>
             <td><a href="/docs/resources/stream-marker/#update-a-stream-marker">Update a Stream Marker</a></td>
             <td>POST</td>
-            <td>/stream/0/posts/marker</td>
+            <td><code>/stream/0/posts/marker</code></td>
             <td>User</td>
         </tr>
     </tbody>

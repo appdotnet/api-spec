@@ -11,13 +11,13 @@
         <tr>
             <td><a href="/docs/resources/place/#retrieve-a-place">Retrieve a Place</a></td>
             <td>GET</td>
-            <td>/stream/0/places/[factual_id]</td>
+            <td><code>/stream/0/places/{factual_id}</code></td>
             <td>Any</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/place/#search-for-a-place">Search for Places</a></td>
             <td>GET</td>
-            <td>/stream/0/places/search</td>
+            <td><code>/stream/0/places/search</code></td>
             <td>User</td>
         </tr>
     </tbody>

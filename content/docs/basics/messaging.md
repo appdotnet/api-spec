@@ -60,6 +60,7 @@ Messages, channel updates and marker updates are pushed as objects over the stre
 
 ## Types
 
-Much like annotation types, channel types are freeform strings; we suggest you use a reversed-domain format for any custom channel types. Core channel types are prefixed with `net.app.core` and may have additional validation imposed by the App.net API. Right now, there's only one core channel type:
+Much like annotation types, channel types are freeform strings; we suggest you use a reversed-domain format for any custom channel types. Core channel types are prefixed with `net.app.core` and may have additional validation imposed by the App.net API. Currently defined core channel types are:
 
 * [Private Message](/docs/resources/channel/#private-message): net.app.core.pm
+* [Broadcast Channel](/docs/resources/channel/#broadcast-channel): net.app.core.broadcast

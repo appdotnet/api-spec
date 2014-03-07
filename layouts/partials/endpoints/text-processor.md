@@ -11,7 +11,7 @@
         <tr>
             <td><a href="/docs/resources/text-processor/">Process text</a></td>
             <td>POST</td>
-            <td>/stream/0/text/process</td>
+            <td><code>/stream/0/text/process</code></td>
             <td>Any</td>
         </tr>
     </tbody>

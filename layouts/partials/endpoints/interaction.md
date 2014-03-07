@@ -11,7 +11,7 @@
         <tr>
             <td><a href="/docs/resources/interaction/">Retrieve Interactions with the current User</a></td>
             <td>GET</td>
-            <td>/stream/0/users/me/interactions</td>
+            <td><code>/stream/0/users/me/interactions</code></td>
             <td>User</td>
         </tr>
     </tbody>

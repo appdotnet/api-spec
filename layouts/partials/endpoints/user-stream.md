@@ -11,13 +11,13 @@
         <tr>
             <td><a href="/docs/resources/user-stream/lifecycle/#delete-a-user-stream">Delete a User Stream</a></td>
             <td>DELETE</td>
-            <td>/stream/0/users/me/streams/[connection_id]</td>
+            <td><code>/stream/0/users/me/streams/{connection_id}</code></td>
             <td>User</td>
         </tr>
         <tr>
             <td><a href="/docs/resources/user-stream/lifecycle/#delete-a-user-stream-subscription">Delete a User Stream subscription</a></td>
             <td>DELETE</td>
-            <td>/stream/0/users/me/streams/[connection_id]/[subscription_id]</td>
+            <td><code>/stream/0/users/me/streams/{connection_id}/{subscription_id}</code></td>
             <td>User</td>
         </tr>
     </tbody>
