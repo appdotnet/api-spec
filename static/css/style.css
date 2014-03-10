@@ -110,6 +110,11 @@ blockquote {
     line-height: 20px;
 }
 
+blockquote p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
 table {
     border: 1px solid #ddd;
 }
@@ -186,6 +191,7 @@ html.breakpoint-tablet .nav-list {
 }
 
 pre code {
+    margin-left: 20px;
     white-space: pre-wrap;
 }
 
@@ -256,7 +262,7 @@ pre code  .il{color:#009999}
 pre code  div .gd,.highlight div .gd .x,.highlight div .gi,.highlight div .gi .x{display:inline-block;width:100%}
 
 p code {
-    word-break: break-all;
+    word-break: keep-all;
     white-space: normal;
 }
 
