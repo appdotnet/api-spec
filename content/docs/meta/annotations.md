@@ -145,6 +145,7 @@ We currently define the following core annotations:
 | [Language](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.language.md) | net.app.core.language | Specifies a language. |
 | [Embedded Media](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) | net.app.core.oembed | Provides information for displaying an image, video, or other rich content. |
 | [oEmbed Metadata](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.metadata.md) | net.app.core.oembed.metadata | Provides information for generating an oEmbed representation of a file. |
+{: .table .table-striped}
 
 We have considered core annotations for the following types of data:
 
@@ -197,3 +198,4 @@ We currently define the following replacement values in annotations:
 | [File List](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file_list.md) | +net.app.core.file_list | Add information about a list of App.net [Files](/docs/resources/file/) to an annotation. |
 | [Place](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.place.md) | +net.app.core.place | Add information about a [Place](/docs/resources/place/) to an annotation. |
 | [User](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.user.md) | +net.app.core.user | Add information about a [User](/docs/resources/user/) to an annotation. |
+{: .table .table-striped}

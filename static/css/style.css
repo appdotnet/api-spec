@@ -104,6 +104,29 @@ body h2, body h3, body h4, body h5 {
     margin-bottom: .5em;
 }
 
+blockquote {
+    font-style: italic;
+    margin-left: 50px;
+    line-height: 20px;
+}
+
+table {
+    border: 1px solid #ddd;
+}
+
+table td, .table th {
+    border-right: 1px solid #ddd;
+}
+
+code {
+    border: none;
+    background-color: transparent;
+}
+
+ul.nav-list ul.nav-list ul.nav-list li a {
+    padding-left: 50px;
+}
+
 p, div.layout-like-p {
     line-height: 20px;
     font-size: 14px;
