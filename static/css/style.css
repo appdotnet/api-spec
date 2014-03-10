@@ -185,10 +185,6 @@ html.breakpoint-tablet .nav-list {
     width: auto;
 }
 
-pre {
-    border: 1px solid #aaa;
-}
-
 pre code {
     white-space: pre-wrap;
 }
