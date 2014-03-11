@@ -17,7 +17,9 @@ This page is your starting point to getting familiar with the App.net developer 
                 <div class="promo-block-inner">
                     <a class="overlay" href="../docs/guides/send-a-broadcast/"></a>
                     <div class="promo-block-image"></div>
-                    <h3 class="heading-with-hr dark"><span>Quick Start: Broadcast</span><hr></h3>
+                    <h3 class="heading-with-hr dark">
+                        <span>Quick Start: Broadcast</span><hr>
+                    </h3>
                     <p class="note-style">Send a broadcast with the App.net API.</p>
                 </div>
             </div>
@@ -27,7 +29,9 @@ This page is your starting point to getting familiar with the App.net developer 
                 <div class="promo-block-inner">
                     <a class="overlay" href="../docs/authentication/"></a>
                     <div class="promo-block-image authentication"></div>
-                    <h3 class="heading-with-hr dark"><span>Quick Start: Authentication</span><hr></h3>
+                    <h3 class="heading-with-hr dark">
+                        <span>Quick Start: Authentication</span><hr>
+                    </h3>
                     <p class="note-style">Learn how to make authenticated requests to the API.</p>
                 </div>
             </div>

@@ -337,8 +337,8 @@ img {
 .promo-block-image {
     width: 58px;
     height: 58px;
-    background-size: 58px 58px;
     margin: 0 auto 20px auto;
+    background-size: 58px 58px;
     background-image: url(/assets/images/docs-broadcast.png);
 }
 
