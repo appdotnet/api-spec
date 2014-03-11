@@ -11,54 +11,11 @@ title: "Channel"
 
 A Channel is a user created stream of Messages. It controls access to the messages in the channel allowing for (among other things) public, private, and group messaging. For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/basics/messaging/).
 
-~~~ js
-{
-    "counts": {
-        "messages": 42,
-        "subscribers": 43
-    },
-    "has_unread": true,
-    "id": "1",
-    "is_inactive": false
-    "editors": {
-        "any_user": false,
-        "immutable": false,
-        "public": false,
-        "user_ids": [],
-        "you": true
-    },
-    "owner": {
-        ...
-    },
-    "marker": {
-        ...
-    },
-    "readers": {
-        "any_user": false,
-        "immutable": true,
-        "public": false,
-        "user_ids": [],
-        "you": true
-    },
-    "recent_message_id": "231",
-    "recent_message": {
-        ...
-    },
-    "type": "net.app.core.pm",
-    "writers": {
-        "any_user": false,
-        "immutable": true,
-        "public": false,
-        "user_ids": [
-            "1",
-        ],
-        "you": true
-    },
-    "you_can_edit": false,
-    "you_muted": false,
-    "you_subscribed": true
-}
-~~~
+## Example Channel object
+
+<%= json(:CHANNEL_WITH_MARKER) do |h|
+    h["writers"]["user_ids"] = ["2", "3"]
+end %>
 
 ## Fields
 

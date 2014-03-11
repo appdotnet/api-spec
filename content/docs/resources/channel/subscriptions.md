@@ -23,52 +23,15 @@ The `meta` response will contain unread counts for common channel types.
 
 > GET https://alpha-api.app.net/stream/0/channels
 
-~~~ js
-{
-    "data": [
-        {
-            "counts": {
-                "messages": 42
-            },
-            "has_unread": true,
-            "id": "1",
-            "owner": {
-                ...
-            },
-            "readers": {
-                "any_user": false,
-                "immutable": true,
-                "public": false,
-                "user_ids": [],
-                "you": true
-            },
-            "type": "net.app.core.pm",
-            "writers": {
-                "any_user": false,
-                "immutable": true,
-                "public": false,
-                "user_ids": [
-                    "1",
-                ],
-                "you": true
-            },
-            "you_can_edit": false,
-            "you_subscribed": true
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": 146,
-        "min_id": 123,
-        "more": true,
-        "unread_counts": {
-            "net.app.core.pm": 5,
-            "net.app.core.broadcast": 3
-        }
+<%= paginated_response(:channel) do |h|
+    h["meta"]["max_id"] = "146"
+    h["meta"]["min_id"] = "123"
+    h["meta"]["more"] = true
+    h["meta"]["unread_counts"] = {
+        "net.app.core.pm" => 5,
+        "net.app.core.broadcast" => 3
     }
-}
-~~~
+end %>
 
 ## Subscribe to a Channel
 
@@ -86,42 +49,9 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 > POST https://alpha-api.app.net/stream/0/channels/1/subscribe
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },
-        "has_unread": false,
-        "id": "1",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "1"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_subscribed": true
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:channel) do |h|
+    h["data"]["you_subscribed"] = true
+end %>
 
 ## Unsubscribe from a Channel
 
@@ -139,42 +69,10 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 > DELETE https://alpha-api.app.net/stream/0/channels/1/subscribe
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },
-        "has_unread": false,
-        "id": "1",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "1"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_subscribed": false
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:channel) do |h|
+    h["data"]["counts"]["subscribers"] -= 1
+    h["data"]["you_subscribed"] = false
+end %>
 
 ## Retrieve users subscribed to a Channel
 
@@ -214,17 +112,7 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 > GET https://alpha-api.app.net/stream/0/channels/1/subscribers
 
-~~~ js
-{
-    "data": [
-        "1",
-        ...
-    ],
-    "meta": {
-        "code": 200,
-    }
-}
-~~~
+<%= response(["1"]) %>
 
 ## Retrieve user ids subscribed to multiple Channels
 
@@ -240,20 +128,9 @@ For each requested Channel, retrieve the ids of all Users who are subscribed to 
 
 > GET https://alpha-api.app.net/stream/0/channels/subscribers/ids?ids=1,2,3,5
 
-~~~ js
-{
-    "data": {
-        "1": [
-            "5",
-            "10"
-        ],
-        "2": [
-            "5",
-            "20"
-        ] // channels 3 and 5 are omitted as if they are not visible or do not exist
-    },
-    "meta": {
-        "code": 200,
-    }
-}
-~~~
+Channels 3 and 5 are omitted as if they are not visible or do not exist
+
+<%= response({
+    "1" => ["5", "10"],
+    "2" => ["5", "20"]
+}) %>

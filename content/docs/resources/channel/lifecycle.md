@@ -29,43 +29,13 @@ Send a JSON document that matches the [Channel schema](/docs/resources/channel/)
 > 
 > DATA {"type": "com.example.channel", "writers": {"user_ids": ["@berg", "1"]}}
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },    
-        "has_unread": false,
-        "id": "36",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": true,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example.channel",
-        "writers": {
-            "any_user": false,
-            "immutable": true,
-            "public": false,
-            "user_ids": [
-                "1",
-                "2"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_subscribed": true
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:channel) do |h|
+    h["data"]["id"] = "2"
+    h["data"]["readers"]["public"] = false
+    h["data"]["writers"]["user_ids"] = ["1", "2"]
+    h["data"].delete("recent_message_id")
+    h["data"].delete("recent_message")
+end %>
 
 ## Update a Channel
 
@@ -91,43 +61,7 @@ This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods
 > 
 > DATA {"readers": {"public": true}}
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },
-        "has_unread": false,
-        "id": "1",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": true,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example.channel",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "1"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_subscribed": true
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
-
+<%= response(:channel) %>
 
 ## Deactivate a Channel
 

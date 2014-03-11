@@ -41,63 +41,8 @@ Returns [Channel](/docs/resources/channel/) objects which match a given search q
 
 > GET https://alpha-api.app.net/stream/0/channels/search?q=kerbal&order=popularity
 
-~~~ js
-{
-    "data": [
-        ...
-        {
-            "counts": {
-                "messages": 178
-            },
-            "has_unread": false,
-            "id": "13797",
-            "is_inactive": false,
-            "owner": {
-                ...
-            },
-            "readers": {
-                "any_user": false,
-                "immutable": false,
-                "public": true,
-                "user_ids": [],
-                "you": true
-            },
-            "recent_message_id": "1222525",
-            "type": "net.patter-app.room",
-            "writers": {
-                "any_user": true,
-                "immutable": false,
-                "public": false,
-                "user_ids": [],
-                "you": true
-            },
-            "you_can_edit": true,
-            "you_muted": false,
-            "you_subscribed": true,
-            "annotations": [
-                {
-                    "type": "net.patter-app.settings",
-                    "value": {
-                        "blurb": "Discussion for the wonderful space simulator "Kerbal Space Program." Rocket designs, missions, anecdotes etc. welcome",
-                        "blurb_id": "417309",
-                        "categories": ["fun"],
-                        "name": "Kerbonauts"
-                    }
-                },
-                {
-                    "type": "net.app.core.fallback_url",
-                    "value": {
-                        "url": "http://patter-app.net/room.html?channel=13797"
-                    }
-                }
-            ]
-        }
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": "1",
-        "min_id": "1",
-        "more": false
-    }
-}
-~~~
+<%= paginated_response(:channel) do |h|
+    h["meta"]["count"] = 1
+    h["meta"]["max_id"] = "10000"
+    h["meta"]["min_id"] = "10000"
+end %>

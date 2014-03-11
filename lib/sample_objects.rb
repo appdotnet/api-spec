@@ -10,6 +10,8 @@ module Resources
           h
         when Array
           key
+        when Integer
+          key
         # deep copy so we can make any overrides we need for our specific use of this hash
         else deep_copy(Resources.const_get(key.to_s.upcase))
       end
@@ -35,7 +37,13 @@ module Resources
           if a[k].is_a?(Hash) && b[k].is_a?(Hash)
             diff[k] = diff_hash(a[k], b[k])
           elsif a[k].is_a?(Array) && b[k].is_a?(Array)
-            diff[k] = a[k].zip(b[k]).map {|el| diff_hash(el[0], el[1])}
+            diff[k] = a[k].zip(b[k]).map do |el|
+              if el[0].is_a?(Hash) && el[1].is_a?(Hash)
+                diff_hash(el[0], el[1])
+              else
+                el
+              end
+            end
           else
             diff[k] = [a[k], b[k]]
           end
@@ -228,7 +236,7 @@ module Resources
     }
   }
 
-  CHANNEL = {
+  CHANNEL_WITH_MARKER = {
     "counts" => {
         "messages" => 42,
         "subscribers" => 43
@@ -244,19 +252,30 @@ module Resources
         "user_ids" => [],
         "you" => true
     },
+    "editors" => {
+        "any_user" => false,
+        "immutable" => false,
+        "public" => false,
+        "user_ids" => [],
+        "you" => true
+    },
+    "recent_message_id" => "231",
+    "recent_message" => "...message object...",
     "type" => "com.example.channel",
     "writers" => {
         "any_user" => false,
         "immutable" => false,
         "public" => false,
-        "user_ids" => [
-            "1"
-        ],
+        "user_ids" => [],
         "you" => true
     },
     "you_can_edit" => true,
-    "you_subscribed" => true
+    "you_subscribed" => true,
+    "you_muted" => false,
+    "marker" => "...marker object..."
   }
+
+  CHANNEL = CHANNEL_WITH_MARKER.reject {|key, value| key == "marker" }
   end
 
 include Resources::Helpers

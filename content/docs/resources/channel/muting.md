@@ -19,46 +19,9 @@ This endpoint is **not** paginated and does **not** respond to the [general chan
 
 > GET https://alpha-api.app.net/stream/0/users/me/channels/muted
 
-~~~ js
-{
-    "data": [
-        {
-            "counts": {
-                "messages": 42
-            },
-            "has_unread": true,
-            "id": "1",
-            "owner": {
-                ...
-            },
-            "readers": {
-                "any_user": false,
-                "immutable": true,
-                "public": false,
-                "user_ids": [],
-                "you": true
-            },
-            "type": "net.app.core.pm",
-            "writers": {
-                "any_user": false,
-                "immutable": true,
-                "public": false,
-                "user_ids": [
-                    "1",
-                ],
-                "you": true
-            },
-            "you_can_edit": false,
-            "you_muted": true,
-            "you_subscribed": true
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-    }
-}
-~~~
+<%= collection_response(:channel) do |h|
+    h["data"][0]["you_muted"] = true
+end %>
 
 ## Mute a Channel
 
@@ -76,43 +39,10 @@ Mute a Channel. If a user doesn't want to see a channel until there is a new mes
 
 > POST https://alpha-api.app.net/stream/0/channels/1/mute
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },
-        "has_unread": false,
-        "id": "1",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "1"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_muted": true,
-        "you_subscribed": false
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:channel) do |h|
+    h["data"]["you_muted"] = true
+    h["data"]["you_subscribed"] = false
+end %>
 
 ## Unmute a Channel
 
@@ -130,40 +60,7 @@ Unmute a Channel. This allows you to be resubscribed to the channel (but it does
 
 > DELETE https://alpha-api.app.net/stream/0/channels/1/mute
 
-~~~ js
-{
-    "data": {
-        "counts": {
-            "messages": 42
-        },
-        "has_unread": false,
-        "id": "1",
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "com.example",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "1"
-            ],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_muted": false,
-        "you_subscribed": false
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response(:channel) do |h|
+    h["data"]["you_muted"] = false
+    h["data"]["you_subscribed"] = false
+end %>
