@@ -10,6 +10,31 @@ Welcome aboard!
 
 This page is your starting point to getting familiar with the App.net developer platform. Our aim is to get you up and running as quickly and easily as possible. What you see here is always under revision and we always want you to give us your feedback.
 
+<div class="promo-block-wrapper ta-center">
+    <div class="yui3-g">
+        <div class="yui3-u-1-2">
+            <div class="promo-block">
+                <div class="promo-block-inner">
+                    <a class="overlay" href="../docs/guides/send-a-broadcast/"></a>
+                    <div class="promo-block-image"></div>
+                    <h3 class="heading-with-hr dark"><span>Quick Start: Broadcast</span><hr></h3>
+                    <p class="note-style">Send a broadcast with the App.net API.</p>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-1-2">
+            <div class="promo-block">
+                <div class="promo-block-inner">
+                    <a class="overlay" href="../docs/authentication/"></a>
+                    <div class="promo-block-image authentication"></div>
+                    <h3 class="heading-with-hr dark"><span>Quick Start: Authentication</span><hr></h3>
+                    <p class="note-style">Learn how to make authenticated requests to the API.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 ### Tracking news and announcements
 
 To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adnapi). You may also want to subscribe to the [App.net blog](https://broadcast.app.net/26283/appnet-blog/) for general news and [App.net API Updates](https://broadcast.app.net/24368/appnet-api-updates/) for developer related news.
