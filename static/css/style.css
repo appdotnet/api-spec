@@ -291,7 +291,7 @@ img {
     background-color: #aaa;
 }
 
-<<<<<<< mxml/new-docs
+
 .promo-block-wrapper {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -359,3 +359,9 @@ html.breakpoint-retina .promo-block-image.authentication {
   display: none !important;
 }
 
+.container {
+    width:1152px;
+    margin-right:auto;
+    margin-left:auto;
+    *zoom:1
+}
