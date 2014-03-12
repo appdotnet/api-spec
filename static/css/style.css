@@ -291,6 +291,7 @@ img {
     background-color: #aaa;
 }
 
+
 .promo-block-wrapper {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -352,4 +353,15 @@ html.breakpoint-retina .promo-block-image {
 
 html.breakpoint-retina .promo-block-image.authentication {
     background-image: url(/assets/images/docs-authentication@2x.png);
+}
+
+.search-bar-container {
+  display: none !important;
+}
+
+.container {
+    width:1152px;
+    margin-right:auto;
+    margin-left:auto;
+    *zoom:1
 }
