@@ -1,0 +1,8 @@
+<% if @site.config[:redirects] %>
+# Set up URL redirects
+<% @site.config[:redirects].each do |h| %>
+<% unless h[:from].include? '"' or h[:to].include? ';' %>
+rewrite "<%= h[:from] %>" "<%= h[:to] %>" redirect;
+<% end %>
+<% end %>
+<% end %>
