@@ -248,3 +248,8 @@ img {
     padding: 5px;
     background-color: #aaa;
 }
+
+.search-bar-container {
+  display: none !important;
+}
+
