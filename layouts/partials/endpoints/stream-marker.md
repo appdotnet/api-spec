@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/stream-marker/#update-a-stream-marker">Update a Stream Marker</a></td>
+            <td><a href="/reference/resources/stream-marker/#update-a-stream-marker">Update a Stream Marker</a></td>
             <td>POST</td>
             <td><code>/stream/0/posts/marker</code></td>
             <td>User</td>

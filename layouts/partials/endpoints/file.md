@@ -9,61 +9,61 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/file/lifecycle/#create-a-file">Create a File</a></td>
+            <td><a href="/reference/resources/file/lifecycle/#create-a-file">Create a File</a></td>
             <td>POST</td>
             <td><code>/stream/0/files</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/#how-to-upload-custom-derived-files">Create a Derived File</a></td>
+            <td><a href="/reference/resources/file/#how-to-upload-custom-derived-files">Create a Derived File</a></td>
             <td>POST</td>
             <td><code>/stream/0/files/{file_id}/{derived_key}</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lookup/#retrieve-a-file">Retrieve a File</a></td>
+            <td><a href="/reference/resources/file/lookup/#retrieve-a-file">Retrieve a File</a></td>
             <td>GET</td>
             <td><code>/stream/0/files/{file_id}</code></td>
             <td>Varies</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lookup/#retrieve-multiple-files">Retrieve multiple Files</a></td>
+            <td><a href="/reference/resources/file/lookup/#retrieve-multiple-files">Retrieve multiple Files</a></td>
             <td>GET</td>
             <td><code>/stream/0/files</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lifecycle/#delete-a-file">Delete a File</a></td>
+            <td><a href="/reference/resources/file/lifecycle/#delete-a-file">Delete a File</a></td>
             <td>DELETE</td>
             <td><code>/stream/0/files/{file_id}</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lookup/#retrieve-my-files">Retrieve my Files</a></td>
+            <td><a href="/reference/resources/file/lookup/#retrieve-my-files">Retrieve my Files</a></td>
             <td>GET</td>
             <td><code>/stream/0/users/me/files</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/lifecycle/#update-a-file">Update a File</a></td>
+            <td><a href="/reference/resources/file/lifecycle/#update-a-file">Update a File</a></td>
             <td>PUT</td>
             <td><code>/stream/0/files/{file_id}</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/content/#get-file-content">Get File content</a></td>
+            <td><a href="/reference/resources/file/content/#get-file-content">Get File content</a></td>
             <td>GET</td>
             <td><code>/stream/0/files/{file_id}/content</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/content/#set-file-content">Set File content</a></td>
+            <td><a href="/reference/resources/file/content/#set-file-content">Set File content</a></td>
             <td>PUT</td>
             <td><code>/stream/0/files/{file_id}/content</code></td>
             <td>User</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/file/content/#set-derived-file-content">Set Derived File content</a></td>
+            <td><a href="/reference/resources/file/content/#set-derived-file-content">Set Derived File content</a></td>
             <td>PUT</td>
             <td><code>/stream/0/files/{file_id}/content/{derived_key}</code></td>
             <td>User</td>

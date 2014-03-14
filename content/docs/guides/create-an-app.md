@@ -29,7 +29,7 @@ You will be able to change all of this later, but start by giving your app a nam
 
 Enter a website that is most closely related to this app. If it doesn't make sense for you to enter a website feel free to enter in your Alpha profile URL. (https://app.net/<YOUR USERNAME>). This will let others know who is responsible for this app.
 
-The **Callback URL** is prefilled with http://localhost:8000 as a convenience for local development. The Callback URL will be used when you [authenticate your app](/docs/authentication/) later.
+The **Callback URL** is prefilled with http://localhost:8000 as a convenience for local development. The Callback URL will be used when you [authenticate your app](/reference/authentication/) later.
 
 When you are satisfied with the information you have entered click create.
 
@@ -47,7 +47,7 @@ You can also generate your self an access token.
 
 There are a few ways to get an access token, but the easiest way to get an access token for personal use or experimentation is to generate one from your app detail page.
 
-To see a list of your current apps visit [account.app.net/developer/apps/](https://account.app.net/developer/apps/)
+To see a list of your current apps visit [account.app.net/developer/apps/](https://account.app.net/developer/apps/).
 
 ![Your Apps Dashboard](https://files.app.net/01qlWgpd.png)
 
@@ -59,9 +59,9 @@ From this screen, if you look at the second block you will see a link: 'Generate
 
 ![Scope Selection Screen](https://files.app.net/01qv_Geq.png)
 
-This is the scope authorization screen. If you have already generated a token this page may have some permissions checked already otherwise there won't be any.
+This is the scope authorization screen. If you have previously generated a token, some of these boxes may already be checked.
 
-To find out more about scopes your can [read the scope docs.](/docs/authentication/#scopes)
+To find out more about scopes your can [read the scope docs](/reference/authentication/#scopes).
 
 Once you have determined which scopes you will need select them in the form and then click generate.
 
@@ -73,6 +73,19 @@ Now you should see an access token in a textbox, then you can copy and use in a 
     <b>Remember</b>: An access token is just like a password. It will allow applications to interact with the API on your behalf. So, keep it secret.
 </div>
 
+## Launching your app
+
+Before you learn more about the API and start building your app, we want to make sure you know about some other opportunities for when you're ready to launch your app.
+
+### Directory
+
+We want to make sure App.net users can find all the great apps that get created so we created the [App.net Directory](https://directory.app.net/). To include your app in the directory, you must [**register your app with us**](https://alpha.app.net/developer/apps/). For more information about how the directory, please see the [Directory Requirements](https://mml.desk.com/customer/portal/articles/779115-what-are-the-criteria-for-being-accepted-into-the-app-net-directory-).
+
+
+### Developer Incentive Program
+
+To financially reward the development of great apps, [we announced the Developer Incentive Program](http://blog.app.net/2012/09/27/announcing-the-app-net-developer-incentive-program/). If you'd like to include your app you must [**register for the Developer Incentive Program**](https://alpha.app.net/developer/enrollment/).
+
 ## What's Next?
 
 Now that you have an access token you can use it to access authenticated parts of the API.
@@ -80,10 +93,6 @@ Now that you have an access token you can use it to access authenticated parts o
 You could:
 
 * [Send a broadcast](/docs/guides/send-a-broadcast/)
+* [Create a post](/docs/guides/create-a-post/)
 
-Or, you could build something completely new. Let us know what it is if you do.
-
-
-
-
-
+Or, you could build something completely new. We always love to see new apps.

@@ -4,11 +4,9 @@ title: "Broadcasts and the API"
 
 # Publishing Broadcasts via the API
 
-<div class="alert alert-success alert-block">
-To start sending broadcasts directly from the API, you'll need an access token. If you're not familiar with how to get an access token, <a href='/docs/guides/create-an-app/'>check out our guide on creating an app.</a>
-</div>
+<%= access_token_required_note %>
 
-Broadcast Channels are designed to carry low-volume, high-value updates of interest to users. We call the actual updates themselves Broadcast Messages (or sometimes just "broadcasts"). Because broadcasts are built on top of the existing App.net [Channel](/docs/resources/channel/) and [Message](/docs/resources/message/) APIs, it's helpful to be familiar with them, but for simple tasks, there's not much you need to know.
+Broadcast Channels are designed to carry low-volume, high-value updates of interest to users. We call the actual updates themselves Broadcast Messages (or sometimes just "broadcasts"). Because broadcasts are built on top of the existing App.net [Channel](/reference/resources/channel/) and [Message](/reference/resources/message/) APIs, it's helpful to be familiar with them, but for simple tasks, there's not much you need to know.
 
 Just a reminder: while you can do all of this using our API, you don't have to. We have [tools for publishers](https://broadcast.app.net/manage/) to help you quickly get started pulling content in from elsewhere on the web, and you can send them manually via the web or the App.net iOS and Android apps. To get started, **we recommend that you create and set up your broadcast channel with [our web publisher tools](https://broadcast.app.net/manage/)** and only use the API to send broadcasts via the channel you created.
 
@@ -100,7 +98,7 @@ curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
 
 You can create broadcast channels with the API as well.
 
-Broadcast channels are created like any other channel, with a specific type value (`net.app.core.broadcast`) and a few special annotations. For information on creating channels, see the [Channel lifecycle documentation](/docs/resources/channel/lifecycle/). Broadcast channels fully support [ACLs](/docs/resources/channel/) for private applications.
+Broadcast channels are created like any other channel, with a specific type value (`net.app.core.broadcast`) and a few special annotations. For information on creating channels, see the [Channel lifecycle documentation](/reference/resources/channel/lifecycle/). Broadcast channels fully support [ACLs](/reference/resources/channel/) for private applications.
 
 Here is an example channel body, set to be public, with multiple editors, which you can POST to us:
 

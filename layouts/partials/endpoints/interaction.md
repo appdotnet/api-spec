@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/interaction/">Retrieve Interactions with the current User</a></td>
+            <td><a href="/reference/resources/interaction/">Retrieve Interactions with the current User</a></td>
             <td>GET</td>
             <td><code>/stream/0/users/me/interactions</code></td>
             <td>User</td>

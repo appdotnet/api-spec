@@ -9,19 +9,19 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/token/#retrieve-current-token">Retrieve the current token</a></td>
+            <td><a href="/reference/resources/token/#retrieve-current-token">Retrieve the current token</a></td>
             <td>GET</td>
             <td><code>/stream/0/token</code></td>
             <td>Any</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/token/#retrieve-authorized-user-ids-for-an-app">Retrieve authorized User IDs for an app</a></td>
+            <td><a href="/reference/resources/token/#retrieve-authorized-user-ids-for-an-app">Retrieve authorized User IDs for an app</a></td>
             <td>GET</td>
             <td><code>/stream/0/apps/me/tokens/user_ids</code></td>
             <td>App</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/token/#retrieve-authorized-user-tokens-for-an-app">Retrieve authorized User tokens for an app</a></td>
+            <td><a href="/reference/resources/token/#retrieve-authorized-user-tokens-for-an-app">Retrieve authorized User tokens for an app</a></td>
             <td>GET</td>
             <td><code>/stream/0/apps/me/tokens</code></td>
             <td>App</td>

@@ -9,13 +9,13 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href="/docs/resources/explore/#retrieve-all-explore-streams">Retrieve all Explore Streams</a></td>
+            <td><a href="/reference/resources/explore/#retrieve-all-explore-streams">Retrieve all Explore Streams</a></td>
             <td>GET</td>
             <td><code>/stream/0/posts/stream/explore</code></td>
             <td>None</td>
         </tr>
         <tr>
-            <td><a href="/docs/resources/explore/#retrieve-an-explore-stream">Retrieve an Explore Stream</a></td>
+            <td><a href="/reference/resources/explore/#retrieve-an-explore-stream">Retrieve an Explore Stream</a></td>
             <td>GET</td>
             <td><code>/stream/0/posts/stream/explore/{slug}</code></td>
             <td>None</td>
