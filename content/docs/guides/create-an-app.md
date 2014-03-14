@@ -47,7 +47,7 @@ You can also generate your self an access token.
 
 There are a few ways to get an access token, but the easiest way to get an access token for personal use or experimentation is to generate one from your app detail page.
 
-To see a list of your current apps visit [account.app.net/settings/developer/.](https://account.app.net/settings/developer/)
+To see a list of your current apps visit [account.app.net/developer/apps/](https://account.app.net/developer/apps/)
 
 ![Your Apps Dashboard](https://files.app.net/01qlWgpd.png)
 
