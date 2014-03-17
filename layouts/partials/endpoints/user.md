@@ -93,7 +93,7 @@
             <td>Any</td>
         </tr>
         <tr>
-            <td><a href="/reference/resources/user/lookup/#search-for-users">Search for Users</a></td>
+            <td><a href="/reference/resources/user/search/#search-for-users">Search for Users</a></td>
             <td>GET</td>
             <td><code>/stream/0/users/search</code></td>
             <td>Any</td>
