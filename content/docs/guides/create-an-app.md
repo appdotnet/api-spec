@@ -29,7 +29,7 @@ You will be able to change all of this later, but start by giving your app a nam
 
 Enter a website that is most closely related to this app. If it doesn't make sense for you to enter a website feel free to enter in your Alpha profile URL. (https://app.net/<YOUR USERNAME>). This will let others know who is responsible for this app.
 
-The **Callback URL** is prefilled with http://localhost:8000 as a convenience for local development. The Callback URL will be used when you [authenticate your app](/reference/authentication/) later.
+The **Redirect URL** is prefilled with http://localhost:8000 as a convenience for local development. The Redirect URL will be used when you [authenticate your app](/reference/authentication/) later.
 
 When you are satisfied with the information you have entered click create.
 

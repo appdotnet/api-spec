@@ -142,7 +142,7 @@ Message annotations are immutable attributes that describe the entire message. P
 
 ## Machine only Messages
 
-Sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a machine only Message by including `annotations` and not including `text`. You can request machine only Messages using the `include_machine=1` query string parameter.
+Sometimes a Message is not meant for human consumption but it may be readable by an App of some kind. In that case, you can create a machine only Message by including `annotations`, omitting `text`, and setting `machine_only: true`. You can request machine only Messages using the `include_machine=1` query string parameter.
 
 ## General Parameters
 

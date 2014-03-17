@@ -11,7 +11,9 @@ title: "Web Flows"
 
 This is the easiest way to get an access token—we recommend it to most users of the API. If you're writing an app on a server using a language like  Ruby, Python, PHP, Java, etc. you should use this flow.
 
-**You must keep your client_secret confidential**. That means that you may not include it in the source code or binary of an application that you ship to end-users, even in obscured form.
+**You must keep your `client_secret` confidential**. That means that you may not include it in the source code or binary of an application that you ship to end-users, even in obscured form.
+
+Your `redirect_uri` must be registered with App.net before you can use it.
 
 1. Direct the user that you want to authenticate to this URL:
 
