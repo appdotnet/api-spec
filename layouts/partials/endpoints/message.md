@@ -44,5 +44,11 @@
             <td><code>/stream/0/channels/{channel_id}/messages/{message_id}</code></td>
             <td>User</td>
         </tr>
+        <tr>
+            <td><a href="/reference/resources/message/search/#search-for-messages">Search for Messages</a></td>
+            <td>GET</td>
+            <td><code>/stream/0/channels/messages/search</code></td>
+            <td>Any</td>
+        </tr>
     </tbody>
 </table>
