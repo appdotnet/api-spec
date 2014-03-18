@@ -28,6 +28,7 @@ requesting it with `before_id=9&since_id=2&count=-2` returns
 In summary:
 
 * `before_id` and `since_id` define the range App.net will return results from. If provided, they should be filled in from a previous request's `min_id` or `max_id`.
+* Every item in a paginated response will have a `pagination_id` attribute. This attribute is NOT unique for the individual item but it is unique per (user, api endpoint) pair. For example, if user 2 follows user 1 and subscribes to channel 1, user 2 will appear in both results for [Users subscribed to a channel](/reference/resources/channel/subscriptions/#retrieve-users-subscribed-to-a-channel) and [Users following a user](/reference/resources/user/following/#list-users-following-a-user). But, the `pagination_id`s for user 2 in each of those responses will be different.
 * `count` tells App.net how many items you want. It defaults to 20 and cannot be more than 200.
 * If `count` is negative, App.net returns results starting from the `since_id`. **Remember, items are always returned from newest to oldest even in this case.**
 

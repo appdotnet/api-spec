@@ -24,8 +24,7 @@ The `meta` response will contain unread counts for common channel types.
 > GET https://alpha-api.app.net/stream/0/channels
 
 <%= paginated_response(:channel) do |h|
-    h["meta"]["max_id"] = "146"
-    h["meta"]["min_id"] = "123"
+    h["data"][0]["pagination_id"] = "146"
     h["meta"]["more"] = true
     h["meta"]["unread_counts"] = {
         "net.app.core.pm" => 5,
@@ -94,8 +93,7 @@ Retrieve the users who are subscribed to a Channel.
 
 <%= paginated_response(:user) do |h|
     h["meta"]["more"] = true
-    h["meta"]["max_id"] = 82
-    h["meta"]["min_id"] = 82
+    h["data"][0]["pagination_id"] = "82"
 end %>
 
 ## Retrieve user ids subscribed to a Channel

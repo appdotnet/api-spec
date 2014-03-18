@@ -69,8 +69,7 @@ Returns a list of <a href="/reference/resources/user/">User</a> objects the spec
 
 <%= paginated_response(:user) do |h|
     h["meta"]["more"] = true
-    h["meta"]["min_id"] = "4621"
-    h["meta"]["max_id"] = "4621"
+    h["data"][0]["pagination_id"] = "4621"
 end %>
 
 ## List users following a user
@@ -93,8 +92,7 @@ Returns a list of <a href="/reference/resources/user/">User</a> objects for user
 
 <%= paginated_response(:user) do |h|
     h["meta"]["more"] = true
-    h["meta"]["min_id"] = "2889"
-    h["meta"]["max_id"] = "2889"
+    h["data"][0]["pagination_id"] = "2889"
 end %>
 
 ## List user ids a User is following

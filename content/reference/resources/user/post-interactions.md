@@ -24,8 +24,7 @@ List all the Users who have reposted a given Post.
 > GET https://alpha-api.app.net/stream/0/posts/1/reposters
 
 <%= paginated_response(:user) do |h|
-    h["meta"]["min_id"] = "345"
-    h["meta"]["max_id"] = "345"
+    h["data"][0]["pagination_id"] = "345"
     h["meta"]["more"] = true
 end %>
 
@@ -46,7 +45,6 @@ List all the Users who have starred a given Post.
 > GET https://alpha-api.app.net/stream/0/posts/1/stars
 
 <%= paginated_response(:user) do |h|
-    h["meta"]["min_id"] = "1356"
-    h["meta"]["max_id"] = "1356"
+    h["data"][0]["pagination_id"] = "1356"
     h["meta"]["more"] = true
 end %>

@@ -21,10 +21,14 @@ module Resources
       "~~~js\n" + JSON.pretty_generate(hash) + "\n~~~"
     end
 
-    def json(key)
+    def process_json(key, &block)
       hash = get_hash(key)
       yield hash if block_given?
-      json_output(hash)
+      hash
+    end
+
+    def json(key, &block)
+      json_output(process_json(key, &block))
     end
 
     def deep_copy(o)
@@ -73,7 +77,7 @@ module Resources
     end
 
     def base_response(data, meta, &block)
-      json({
+      process_json({
         "data" => data,
         "meta" => meta
       }, &block)
@@ -83,15 +87,23 @@ module Resources
     # whatever is defined as the default. For instance, for "follow a user", make sure you set h["data"]["you_follow"] = true
     # in case the default changes in the future
     def response(key, &block)
-      base_response(get_hash(key), {"code"=> 200}, &block)
+      json_output(base_response(get_hash(key), {"code"=> 200}, &block))
     end
 
     def collection_response(key, &block)
-      base_response([get_hash(key)], {"code"=> 200}, &block)
+      json_output(base_response([get_hash(key)], {"code"=> 200}, &block))
     end
 
     def paginated_response(key, &block)
-      base_response([get_hash(key)], {"code" => 200, "more" => false, "min_id" => "1", "max_id" => "2"}, &block)
+      base_data = get_hash(key)
+      base_data["pagination_id"] = base_data["id"]
+
+      response = base_response([base_data], {"code" => 200, "more" => false}, &block)
+      # then if someone overrides pagination_id, we create an appropriate meta env
+      response["meta"]["min_id"] = response["data"][-1]["pagination_id"] unless response["meta"].has_key? "min_id"
+      response["meta"]["max_id"] = response["data"][0]["pagination_id"] unless response["meta"].has_key? "max_id"
+
+      json_output(response)
     end
   end
 

@@ -43,6 +43,5 @@ Returns [Channel](/reference/resources/channel/) objects which match a given sea
 
 <%= paginated_response(:channel) do |h|
     h["meta"]["count"] = 1
-    h["meta"]["max_id"] = "10000"
-    h["meta"]["min_id"] = "10000"
+    h["data"][0]["pagination_id"] = "10000"
 end %>
