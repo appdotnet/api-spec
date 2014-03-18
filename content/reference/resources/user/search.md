@@ -24,7 +24,7 @@ Search the App.net userbase.
 
 > GET https://alpha-api.app.net/stream/0/users/search?q=%23api
 
-<%= pagination_response(:user) do |h|
+<%= paginated_response(:user) do |h|
     h["meta"]["count"] = 1
     h["data"][0]["pagination_id"] = "10000"
 end %>
