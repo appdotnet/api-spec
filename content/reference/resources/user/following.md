@@ -21,9 +21,7 @@ Returns the <a href="/reference/resources/user/">User</a> object of the user bei
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/users/1/follow
-
-<%= response(:user) do |h|
+<%= curl_example(:post, "users/1/follow", :user) do |h|
     h["data"]["you_follow"] = true
 end %>
 
@@ -43,9 +41,7 @@ Returns the <a href="/reference/resources/user/">User</a> object of the user bei
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/users/1/follow
-
-<%= response(:user) do |h|
+<%= curl_example(:delete, "users/1/follow", :user) do |h|
     h["data"]["you_follow"] = false
 end %>
 
@@ -65,9 +61,7 @@ Returns a list of <a href="/reference/resources/user/">User</a> objects the spec
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/2/following
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "users/2/following", :user, {:response => :paginated}) do |h|
     h["meta"]["more"] = true
     h["data"][0]["pagination_id"] = "4621"
 end %>
@@ -88,9 +82,7 @@ Returns a list of <a href="/reference/resources/user/">User</a> objects for user
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/2/followers
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "users/2/followers", :user, {:response => :paginated}) do |h|
     h["meta"]["more"] = true
     h["data"][0]["pagination_id"] = "2889"
 end %>
@@ -107,9 +99,7 @@ Returns an array of user ids the specified user is following.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/following/ids
-
-<%= response(["2", "3"]) %>
+<%= curl_example(:get, "users/1/following/ids", ["2", "3"]) %>
 
 ## List user ids following a user
 
@@ -123,6 +113,4 @@ Returns an array of user ids for users following the specified user.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/followers/ids
-
-<%= response(["2", "3"]) %>
+<%= curl_example(:get, "users/1/followers/ids", ["2", "3"]) %>

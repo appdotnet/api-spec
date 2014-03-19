@@ -21,9 +21,7 @@ List all the Users who have reposted a given Post.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/1/reposters
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "posts/1/reposters", :user, {:response => :paginated}) do |h|
     h["data"][0]["pagination_id"] = "345"
     h["meta"]["more"] = true
 end %>
@@ -42,9 +40,7 @@ List all the Users who have starred a given Post.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/1/stars
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "posts/1/stars", :user, {:response => :paginated}) do |h|
     h["data"][0]["pagination_id"] = "1356"
     h["meta"]["more"] = true
 end %>

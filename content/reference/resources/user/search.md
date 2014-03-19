@@ -22,9 +22,7 @@ Search the App.net userbase.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/search?q=%23api
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "users/search?q=%23api", :user, {:response => :paginated}) do |h|
     h["meta"]["count"] = 1
     h["data"][0]["pagination_id"] = "10000"
 end %>

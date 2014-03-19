@@ -23,9 +23,7 @@ In most cases, [muting a user](/reference/resources/user/muting/#mute-a-user) is
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/users/1/block
-
-<%= response(:user) do |h|
+<%= curl_example(:post, "users/1/block", :user) do |h|
     h["data"]["you_blocked"] = true
     h["data"]["you_follow"] = false
 end %>
@@ -46,9 +44,7 @@ Allow a blocked user to interact with my content.
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/users/1/block
-
-<%= response(:user) do |h|
+<%= curl_example(:delete, "users/1/block", :user) do |h|
     h["data"]["you_blocked"] = false
     h["data"]["you_follow"] = false
 end %>
@@ -67,9 +63,7 @@ Retrieve a list of blocked users.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/blocked
-
-<%= collection_response(:user) do |h|
+<%= curl_example(:get, "users/me/blocked", :user, {:response => :collection}) do |h|
     h["data"][0]["you_blocked"] = true
     h["data"][0]["you_follow"] = false
 end %>
@@ -86,9 +80,7 @@ Returns a list of blocked User ids for each User id requested. At most 200 User 
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/blocked/ids?ids=1,2
-
-<%= response({
+<%= curl_example(:get, "users/blocked/ids?ids=1,2", {
     "1" => ["3", "29"],
     "2" => []
 }) %>

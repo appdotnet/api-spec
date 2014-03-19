@@ -69,3 +69,77 @@ end
 def local_hostname()
     ENV['LOCAL_HOSTNAME'] || 'localhost'
 end
+
+def curl_example(method, path, response_key, options = {}, &block)
+    # things left to figure out
+    # - some quoting/escaping stuff
+    # - how to show redirects and no content responses
+    default_curl_options = {
+        :token => "<YOUR ACCESS TOKEN>",
+        :pretty_json => true,
+        :base_url => "https://alpha-api.app.net/stream/0/",
+        :response => :response,
+        :content_type => "application/json", # we only show this on put/post/patch
+        :data => {},
+        :files => {},
+        :follow_redirects => false,
+    }
+
+    options = default_curl_options.merge(options)
+
+    curl_parts = ["curl"]
+
+    response = case options[:response]
+        when :response
+            response(response_key, &block)
+        when :collection
+            collection_response(response_key, &block)
+        when :pagination
+            pagination_response(response_key, &block)
+        when :raw
+            options[:pretty_json] = false
+            %{~~~ sh
+#{response_key}
+~~~
+}
+    end
+
+    if method != :get
+        curl_parts << "-X #{method.to_s.upcase}"
+    end
+
+    if options[:token]
+        curl_parts << %{-H "Authorization: Bearer #{options[:token]}"}
+    end
+
+    if options[:pretty_json]
+        curl_parts << %{-H "X-adn-pretty-json: 1"}
+    end
+
+    if options[:follow_redirects]
+        curl_parts << %{-L}
+    end
+
+    if [:post, :put, :patch].include? method and not options[:data].empty?
+        curl_parts << %{-H "Content-Type: #{options[:content_type]}"}
+        if options[:content_type] == "application/json"
+            json_data = JSON.pretty_generate(options[:data])
+            # escape any single quotes in json_data
+            curl_parts << %{-d '#{json_data}'}
+        end
+    end
+
+    options[:files].each do |k, v|
+        curl_parts << %{-F #{k}=@#{v}}
+    end
+
+    # don't foget to quote this when we have qs params
+    curl_parts << options[:base_url] + path
+
+    %{~~~ sh
+#{curl_parts.join(' ')}
+~~~
+
+#{response}
+}
+end
