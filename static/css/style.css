@@ -25,12 +25,14 @@
     padding: 1px 2px;
 }
 
-body a {
+body a,
+ul.nav-list li a {
     color: #0088cc;
     text-decoration: none;
 }
 
-body a:hover {
+body a:hover,
+ul.nav-list li a:hover {
     color: #005580;
     text-decoration: underline;
 }
@@ -188,14 +190,16 @@ ul.nav-list li a {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-ul.nav-list li a {
-    color: #0088cc;
+ul.nav-list li a:hover {
+    background-color: transparent;
 }
 
-ul.nav-list li a:hover {
+ul.nav-list li.active a,
+ul.nav-list li.active a:hover {
     color: #005580;
     background-color: transparent;
-    text-decoration: underline;
+    font-weight: 900;
+    text-decoration: none;
 }
 
 .alert {
