@@ -88,17 +88,7 @@ Returns a list of blocked User ids for each User id requested. At most 200 User 
 
 > GET https://alpha-api.app.net/stream/0/users/blocked/ids?ids=1,2
 
-~~~ js
-{
-    "data": {
-        "1": [
-            "3",
-            "29"
-        ],
-        "2": []
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response({
+    "1" => ["3", "29"],
+    "2" => []
+}) %>

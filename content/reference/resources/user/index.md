@@ -195,14 +195,11 @@ A User is the central object of the App.net APIs. User objects have usernames, f
 ## Images
 Images are objects so that app developers can more easily pick the appropriated sized image for different contexts.
 
-~~~ js
-{
-    "height": 512,
-    "width": 512,
-    "url": "https://example.com/image.jpg",
-    "is_default": true
-}
-~~~
+<%= json(:user) do |h|
+    image_info = h["avatar_image"]
+    h.clear
+    h.update(image_info)
+end %>
 
 Images may be dynamically resized on the server by adding `w` and/or `h` parameters to the query string of the URL as desired. If
 one of the parameters is omitted, the omitted dimension will be scaled according to the aspect ratio of the original image. Images

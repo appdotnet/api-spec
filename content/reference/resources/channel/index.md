@@ -127,33 +127,11 @@ end %>
 
 ## ACL
 
-~~~ js
-"editors": {
-    "any_user": false,
-    "immutable": false,
-    "public": false,
-    "user_ids": [],
-    "you": true
-},
-"readers": {
-    "any_user": false,
-    "immutable": false,
-    "public": false,
-    "user_ids": [],
-    "you": true
-},
-"writers": {
-    "any_user": false,
-    "immutable": false,
-    "public": false,
-    "user_ids": [
-        "1",
-        "2",
-        "3"
-    ],
-    "you": true
-}
-~~~
+<%= json(:channel) do |h|
+    keys_to_keep = ["editors", "readers", "writers"]
+    h.keep_if {|k,v| keys_to_keep.include? k }
+    h["readers"]["user_ids"] = ["1", "2", "3"]
+end %>
 
 Access control lists (ACLs) specify who can edit a channel and read or write <a href="/reference/resources/message/">Messages</a> to a Channel. In our permissions model, editing implies writings and writing implies reading. Note that `any_user`, `public`, and non-empty `user_ids` are all mutually exclusive (only one of those can be true at a time). Also, the creator of a Channel always has edit access and will not be specified in the `user_ids` list. For some Channel types (like `net.app.core.pm`), the ACLs will be sanitized to make sure they fit a specific schema. Please see the [Messaging overview](/docs/guides/messaging/) for more information. `editors` can edit the channel ACLs, annotations, write messages and perform any action against a channel except for marking it as inactive. Only an owner can mark a channel as inactive.
 

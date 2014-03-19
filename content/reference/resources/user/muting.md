@@ -83,17 +83,7 @@ Returns a list of muted User ids for each User id requested. At most 200 User id
 
 > GET https://alpha-api.app.net/stream/0/users/muted/ids?ids=1,2
 
-~~~ js
-{
-    "data": {
-        "1": [
-            "3",
-            "29"
-        ],
-        "2": []
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= response({
+    "1" => ["3", "29"],
+    "2" => []
+}) %>

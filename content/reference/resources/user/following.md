@@ -109,18 +109,7 @@ Returns an array of user ids the specified user is following.
 
 > GET https://alpha-api.app.net/stream/0/users/1/following/ids
 
-~~~ js
-{
-    "data": [
-        "2",
-        "3",
-        ...
-    ],
-    "meta": {
-        "code": 200,
-    }
-}
-~~~
+<%= response(["2", "3"]) %>
 
 ## List user ids following a user
 
@@ -136,16 +125,4 @@ Returns an array of user ids for users following the specified user.
 
 > GET https://alpha-api.app.net/stream/0/users/1/followers/ids
 
-~~~ js
-{
-    "data": [
-        "2",
-        "3",
-        ...
-    ],
-    "meta": {
-        "code": 200,
-    }
-}
-~~~
-
+<%= response(["2", "3"]) %>
