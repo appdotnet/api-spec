@@ -40,6 +40,10 @@ body a:visited {
     text-decoration: none;
 }
 
+#replace-header a:hover, .subnav-container a:hover {
+    text-decoration: none;
+}
+
 code {
     font-size: 12px;
     white-space: nowrap;
@@ -79,29 +83,30 @@ body {
 }
 
 body h1, body h2, body h3 {
-    line-height: 40px;
+    line-height: normal;
 }
 
 body h1 {
-    font-size: 36px;
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 body h2 {
-    font-size: 26px;
+    font-size: 24px;
 }
 
 body h3 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 body h4 {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 body h2, body h3, body h4, body h5 {
     color: #4a484c;
-    margin-top: 2em;
-    margin-bottom: .5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 ul {
@@ -145,17 +150,10 @@ code {
     padding: 2px;
 }
 
-ul.nav-list ul.nav-list ul.nav-list li a {
-    padding-left: 50px;
-}
-
 p, div.layout-like-p {
-    line-height: 20px;
-    font-size: 14px;
-}
-
-ul.nav-list ul.nav-list ul.nav-list li a {
-    padding-left: 50px;
+    line-height: 18px;
+    font-size: 13px;
+    margin-bottom: 10px;
 }
 
 .new-nav .nav.header,
@@ -169,16 +167,41 @@ ul.nav-list ul.nav-list ul.nav-list li a {
     margin-bottom: 30px;
 }
 
+ul.nav-list .nav-header {
+    text-transform: none;
+    margin-bottom: 6px;
+}
+
 ul.nav-list {
     padding: 0 0 5px 0;
 }
 
-ul.nav-list li a {
-    font-size: 12px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+ul.nav-list li {
+    border-bottom: none;
 }
 
+ul.nav-list li a {
+    padding: 6px;
+    padding-left: 28px;
+    font-weight: 500;
+    line-height: normal;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+ul.nav-list li a {
+    color: #0088cc;
+}
+
+ul.nav-list li a:hover {
+    color: #005580;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.alert {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 html.breakpoint-phone .nav.header, html.breakpoint-tablet .nav.header {
     min-width: 100%;
     margin-bottom: 0;
@@ -227,8 +250,8 @@ img {
 }
 
 .promo-block-wrapper {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
