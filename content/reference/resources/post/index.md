@@ -11,64 +11,7 @@ title: "Post"
 
 A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed. Posts are closely tied to the follow graph. If you want to create data that isn't tied to the follow graph, you should look at [Messages](/reference/resources/message/).
 
-~~~ js
-{
-    "id": "1", // note this is a string
-    "user": {
-        ...
-    },
-    "created_at": "2012-07-16T17:25:47Z",
-    "text": "@berg FIRST post on this new site #newsocialnetwork",
-    "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
-    "source": {
-        "name": "Clientastic for iOS",
-        "link": "http://app.net"
-    },
-    "machine_only": false,
-    "reply_to": null,
-    "thread_id": "1",
-    "canonical_url": "https://alpha.app.net/mthurman/post/1",
-    "num_replies": 3,
-    "num_reposts": 1,
-    "num_stars": 1,
-    "annotations": [
-        {
-            "type": "net.app.core.geolocation",
-            "value": {
-                "latitude": 74.0064,
-                "longitude": 40.7142,
-            }
-        }
-    ],
-    "entities": {
-        "mentions": [{
-            "name": "berg",
-            "id": "2",
-            "pos": 0,
-            "len": 5
-        }],
-        "hashtags": [{
-            "name": "newsocialnetwork",
-            "pos": 34,
-            "len": 17
-        }],
-        "links": [{
-            "text": "this new site",
-            "url": "https://join.app.net"
-            "pos": 20,
-            "len": 13
-        }]
-    },
-    "you_reposted": true,
-    "you_starred": false,
-    "reposters": [
-        ...user...
-    ],
-    "starred_by": [
-        ...users...
-    ]
-}
-~~~
+<%= json(:full_post) %>
 
 ## Post Fields
 

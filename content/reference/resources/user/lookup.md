@@ -57,7 +57,7 @@ Returns multiple Users requested by id. At most 200 users can be requested.
         },
     ],
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~

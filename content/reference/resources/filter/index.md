@@ -163,9 +163,7 @@ For instance, in the message:
     "data": [
         {
             "id": "2", // note this is a string
-            "user": {
-                ...
-            },
+            "user": "...user object...",
             "created_at": "2012-07-16T17:25:47Z",
             "text": "@mthurman stop trolling",
             "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
