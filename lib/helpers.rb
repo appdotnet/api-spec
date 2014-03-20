@@ -94,8 +94,8 @@ def curl_example(method, path, response_key, options = {}, &block)
             response(response_key, &block)
         when :collection
             collection_response(response_key, &block)
-        when :pagination
-            pagination_response(response_key, &block)
+        when :paginated
+            paginated_response(response_key, &block)
         when :raw
             options[:pretty_json] = false
             %{~~~ sh
@@ -121,12 +121,15 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
 
     if [:post, :put, :patch].include? method and not options[:data].empty?
-        curl_parts << %{-H "Content-Type: #{options[:content_type]}"}
-        if options[:content_type] == "application/json"
-            json_data = JSON.pretty_generate(options[:data])
-            # escape any single quotes in json_data
-            curl_parts << %{-d '#{json_data}'}
+        if options[:content_type]
+            curl_parts << %{-H "Content-Type: #{options[:content_type]}"}
         end
+
+        if options[:content_type] == "application/json"
+            options[:data] = JSON.pretty_generate(options[:data])
+            # todo: escape any single quotes in json data since we're about to wrap in single quotes for bash
+        end
+        curl_parts << %{-d '#{options[:data]}'}
     end
 
     options[:files].each do |k, v|
@@ -134,7 +137,7 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
 
     # don't foget to quote this when we have qs params
-    curl_parts << options[:base_url] + path
+    curl_parts << %{"#{options[:base_url] + path}"}
 
     %{~~~ sh
 #{curl_parts.join(' ')}

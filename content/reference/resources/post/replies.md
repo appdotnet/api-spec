@@ -25,6 +25,4 @@ Retrieve all the [Posts](/reference/resources/post/) that are in the same thread
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/1/replies
-
-<%= paginated_response(:post_reply) %>
+<%= curl_example(:get, "posts/1/replies", :post_reply, {:response => :paginated}) %>

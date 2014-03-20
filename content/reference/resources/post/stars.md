@@ -23,9 +23,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/posts/1/star
-
-<%= response(:post) do |h|
+<%= curl_example(:get, "posts/1/star", :post) do |h|
     h["data"]["num_stars"] += 1
     h["data"]["you_starred"] = true
 end %>
@@ -44,9 +42,7 @@ Remove a Star from a Post.
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/posts/1/star
-
-<%= response(:post) do |h|
+<%= curl_example(:delete, "posts/1/star", :post) do |h|
     h["data"]["you_starred"] = false
 end %>
 
@@ -68,9 +64,7 @@ Get the most recent [Posts](/reference/resources/post/) starred by a specific [U
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/stars
-
-<%= paginated_response(:post) do |h|
+<%= curl_example(:get, "users/1/stars", :post, {:response => :paginated}) do |h|
     h["data"][0]["num_stars"] += 1
     h["data"][0]["you_starred"] = true
 end %>

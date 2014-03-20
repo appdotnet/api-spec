@@ -28,30 +28,22 @@ If you want to test how your text will be processed you can use the [text proces
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/posts
->
-> DATA text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork
-
-<%= response(:first_post) %>
-
-<br>
+<%= curl_example(:post, "posts", :first_post, {:data => "text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork", :content_type => nil}) %>
 
 #### Example (JSON Data)
 
-> POST https://alpha-api.app.net/stream/0/posts?include_post_annotations=1
-> 
-> Content-Type: application/json
-> 
-> DATA '{"text": "@berg FIRST post on this new site #newsocialnetwork", "annotations": [{"type": "net.app.core.geolocation", "value": {"latitude": 74.0064, "longitude": 40.7142}}]}'
-
-<%= response(:first_post) do |h|
-    h["data"]["annotations"] = [{
+<% data = {
+    "text" => "@berg FIRST post on this new site #newsocialnetwork",
+    "annotations" => [{
         "type" => "net.app.core.geolocation",
         "value" => {
             "latitude" => 74.0064,
             "longitude" => 40.7142
         }
     }]
+} %>
+<%= curl_example(:post, "posts?include_post_annoations=1", :first_post, {:data => data}) do |h|
+    h["data"]["annotations"] = data["annotations"]
 end %>
 
 ## Delete a Post
@@ -70,9 +62,7 @@ Delete a <a href="/reference/resources/post/">Post</a>. The current user must be
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/posts/1
-
-<%= response(:post) do |h|
+<%= curl_example(:delete, "posts/1", :post) do |h|
     h["data"]["is_deleted"] = true
     h["data"].delete("text")
     h["data"].delete("html")

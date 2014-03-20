@@ -23,6 +23,4 @@ Report a post as spam. This will mute the author of the post and send a report t
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/posts/1/report
-
-<%= response(:post) %>
+<%= curl_example(:post, "posts/1/report", :post) %>

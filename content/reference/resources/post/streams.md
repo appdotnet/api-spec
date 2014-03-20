@@ -19,9 +19,7 @@ Return the 20 most recent [Posts](/reference/resources/post/) from the Global st
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/stream/global
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "posts/stream/global", :post, {:response => :paginated}) %>
 
 ## Retrieve Posts created by a User
 
@@ -39,9 +37,7 @@ Get the most recent [Posts](/reference/resources/post/) created by a specific [U
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1/posts
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "users/1/posts", :post, {:response => :paginated}) %>
 
 ## Retrieve Posts mentioning a User
 
@@ -59,9 +55,7 @@ Get the most recent [Posts](/reference/resources/post/) mentioning by a specific
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/2/mentions
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "users/2/mentions", :post, {:response => :paginated}) %>
 
 ## Retrieve a User's personalized stream
 
@@ -77,9 +71,7 @@ Return the 20 most recent [Posts](/reference/resources/post/) from the current U
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/stream
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "posts/stream", :post, {:response => :paginated}) %>
 
 ## Retrieve a User's unified stream
 
@@ -95,9 +87,7 @@ Return the 20 most recent [Posts](/reference/resources/post/) from the current u
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/stream/unified
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "posts/stream/unified", :post, {:response => :paginated}) %>
 
 ## Retrieve tagged Posts
 
@@ -111,6 +101,4 @@ Return the 20 most recent [Posts](/reference/resources/post/) for a specific has
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/tag/newsocialnetwork
-
-<%= paginated_response(:post) %>
+<%= curl_example(:get, "posts/tag/newsocialnetwork", :post, {:response => :paginated}) %>

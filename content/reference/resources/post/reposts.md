@@ -27,9 +27,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/posts/3/repost
-
-<%= response(:repost) do |h|
+<%= curl_example(:get, "posts/3/repost", :repost) do |h|
     h["data"]["repost_of"]["you_reposted"] = true
 end %>
 
@@ -47,8 +45,6 @@ Given the original ```post_id```, delete the current user's repost. *Note: this 
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/posts/3/repost
-
-<%= response(:repost_of) do |h|
+<%= curl_example(:delete, "posts/3/repost", :repost_of) do |h|
     h["data"]["you_reposted"] = false
 end %>

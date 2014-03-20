@@ -64,9 +64,7 @@ Returns [Post](/reference/resources/post/) objects which match a given search qu
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/search?hashtags=newsocialnetwork&mentions=berg&is_directed=1&count=-1
-
-<%= paginated_response(:post) do |h|
+<%= curl_example(:get, "posts/search?hashtags=newsocialnetwork&mentions=berg&is_directed=1&count=-1", :post, {:response => :paginated}) do |h|
     h["meta"]["count"] = 1
     h["data"][0]["pagination_id"] = "10000"
 end %>

@@ -21,9 +21,7 @@ Returns a specific [Post](/reference/resources/post/).
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/1
-
-<%= response(:post) %>
+<%= curl_example(:get, "posts/1", :post) %>
 
 ## Retrieve multiple Posts
 
