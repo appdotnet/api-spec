@@ -214,8 +214,7 @@ ul.nav-list ul.nav-list ul.nav-list li:first-child {
     border-top: 1px solid #ddd;
 }
 
-ul.nav-list li.active a,
-ul.nav-list li.active a:hover {
+ul.nav-list li.active a, ul.nav-list li.active a:hover {
     color: #005580;
     background-color: transparent;
     font-weight: 900;
