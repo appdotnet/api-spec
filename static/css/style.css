@@ -188,10 +188,30 @@ ul.nav-list li a {
     font-weight: 500;
     line-height: normal;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+    transition: color 0.2s linear;
 }
 
 ul.nav-list li a:hover {
     background-color: transparent;
+    -webkit-transition: color 0.15s linear;
+    -moz-transition: color 0.15s linear;
+    -o-transition: color 0.15s linear;
+    transition: color 0.15s linear;
+}
+
+ul.nav-list ul.nav-list ul.nav-list li {
+    margin-left: 20px;
+}
+
+ul.nav-list ul.nav-list ul.nav-list li a {
+    padding-left: 30px;
+}
+
+ul.nav-list ul.nav-list ul.nav-list li:first-child {
+    border-top: 1px solid #ddd;
 }
 
 ul.nav-list li.active a,
