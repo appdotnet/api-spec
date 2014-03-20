@@ -124,7 +124,7 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
 
     if options[:pretty_json]
-        options[:headers]["X-adn-pretty-json"] = "1"
+        options[:headers]["X-ADN-Pretty-JSON"] = "1"
     end
 
     if options[:follow_redirects]
