@@ -187,16 +187,16 @@ App.net derived files enable you to upload multiple files that are all derivativ
 
 Derived files will include the keys shown in the example below. Please see [the File Fields documentation](#file-fields) for an explanation of each key.
 
-~~~js
-"image_thumb_200s": {
-    "name": "filename_image_thumb_200s.png"
-    "mime_type": "image/png",
-    "sha1": "be91cb06d69df13bb103a359ce70cf9fba31234a",
-    "size": 33803,
-    "url": "https://example.com/thumbnail_200s",
-    "url_expires": "2013-01-25T03:00:00Z",
-}
-~~~
+<%= json_output({
+    "image_thumb_200s" => {
+        "name" => "filename_image_thumb_200s.png",
+        "mime_type" => "image/png",
+        "sha1" => "be91cb06d69df13bb103a359ce70cf9fba31234a",
+        "size" => 33803,
+        "url" => "https://example.com/thumbnail_200s",
+        "url_expires" => "2013-01-25T03:00:00Z",
+    }
+}) %>
 
 ### Auto-generated derived files
 
@@ -357,39 +357,34 @@ Where noted, endpoints that return a stream of Files additionally respond to [pa
 
 An App.net file can be attached to any resource that allows annotations. You can attach a file to a resource with any annotation by using the [annotation replacement values](/reference/meta/annotations/#annotation-replacement-values). For instance, to attach a photo that you've uploaded as a file to a new post, you would send the following annotations when making your post:
 
-~~~js
-[
+<%= json_output([
     {
-        "type": "net.app.core.oembed",
-        "value": {
-            "+net.app.core.file": {
-                "file_id": "...the file id you received when you uploaded your file to App.net...",
-                "file_token": "...the write file_token you received when you uploaded your file to App.net...",
-                "format": "oembed"
+        "type" => "net.app.core.oembed",
+        "value" => {
+            "+net.app.core.file" => {
+                "file_id" => "...the file id you received when you uploaded your file to App.net...",
+                "file_token" => "...the write file_token you received when you uploaded your file to App.net...",
+                "format" => "oembed"
             }
         }
     }
-]
-~~~
+]) %>
 
 Then, when your post is returned through the API, App.net will replace that annotation with an OEmbed annotation that represents the referenced file:
 
-~~~js
-[
+<%= json_output([
     {
-        "type": "net.app.core.oembed",
-        "value": {
-            "file_token_read": "...a new read file_token that represents the file when attached to this post...",
-            "file_id": "...the file id...",
-            "url_immediate": "<a short-lived URL to the file content>",
-            "url_immediate_expires": "2018-01-01T00:00:00Z",
-            "type": "photo",
-            "version": "1.0",
-            ...remaining OEmbed data...
+        "type" => "net.app.core.oembed",
+        "value" => {
+            "file_token_read" => "...a new read file_token that represents the file when attached to this post...",
+            "file_id" => "...the file id...",
+            "url_immediate" => "<a short-lived URL to the file content>",
+            "url_immediate_expires" => "2018-01-01T00:00:00Z",
+            "type" => "photo",
+            "version" => "1.0",
         }
     }
-]
-~~~
+]) %>
 
 In addition to these replacement annotation values that allow you to embed a file in any (core or 3rd party) annotation, we've also defined an [attachments core annotation](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.attachments.md) as a generic way to attach multiple arbitrary files to a resource.
 

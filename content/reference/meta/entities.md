@@ -22,15 +22,15 @@ All of the following examples are about the following post:
 ## Mentions
 Bring another user's attention to your post. A mention starts with <code>@</code>.
 
-~~~ js
-"mentions": [{
-    "name": "berg",
-    "id": "2",
-    "pos": 0,
-    "len": 5,
-    "is_leading": true
-}]
-~~~
+<%= json_output({
+    "mentions" => [{
+        "name" => "berg",
+        "id" => "2",
+        "pos" => 0,
+        "len" => 5,
+        "is_leading" => true
+    }]
+}) %>
 
 <table class='table table-striped'>
     <tr>
@@ -68,13 +68,13 @@ Bring another user's attention to your post. A mention starts with <code>@</code
 ## Hashtags
 Tag a post about a specific subject. A hashtag starts with <code>#</code>.
 
-~~~ js
-"hashtags": [{
-    "name": "newsocialnetwork",
-    "pos": 34,
-    "len": 17
-}]
-~~~
+<%= json_output({
+    "hashtags" => [{
+        "name" => "newsocialnetwork",
+        "pos" => 34,
+        "len" => 17
+    }]
+}) %>
 
 <table class='table table-striped'>
     <tr>
@@ -102,15 +102,15 @@ Tag a post about a specific subject. A hashtag starts with <code>#</code>.
 ## Links
 Link to another website.
 
-~~~ js
-"links": [{
-    "text": "this new site",
-    "url": "https://join.app.net",
-    "pos": 20,
-    "len": 13,
-    "amended_len": 28
-}]
-~~~
+<%= json_output({
+    "links" => [{
+        "text" => "this new site",
+        "url" => "https://join.app.net",
+        "pos" => 20,
+        "len" => 13,
+        "amended_len" => 28
+    }]
+}) %>
 
 <table class='table table-striped'>
     <tr>
@@ -184,23 +184,20 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 [Machine only Posts](/reference/resources/post/#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a directed post to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
 
-~~~ js
-{
-    "annotations": ...,
-    "machine_only": true,
-    "entities": {
-        "mentions": [
+<%= json_output({
+    "annotations" => ["...annotations are required for machine only posts..."],
+    "machine_only" => true,
+    "entities" => {
+        "mentions" => [
             {
-                "name": "mthurman"
+                "name" => "mthurman"
             },
             {
-                "id": "1"
-            },
-            ...
+                "id" => "1"
+            }
         ]
     }
-}
-~~~
+}) %>
 
 ### Links with custom anchor text
 
@@ -208,42 +205,38 @@ If you'd like to provide a link without including the entire URL in your post te
 
 As an example, the following JSON will create a post with 2 links 1) the parsed link to App.net and 2) the user provided link to the App.net blog:
 
-~~~js
-{
-    "text": "The official App.net blog is here",
-    "entities": {
-        "links": [
+<%= json_output({
+    "text" => "The official App.net blog is here",
+    "entities" => {
+        "links" => [
             {
-                "pos": 29,
-                "len": 4,
-                "url": "http://blog.app.net"
+                "pos" => 29,
+                "len" => 4,
+                "url" => "http://blog.app.net"
             }
         ],
-        "parse_links": true
+        "parse_links" => true
     }
-}
-~~~
+}) %>
 
 Many apps like to use [inline Markdown link syntax](http://daringfireball.net/projects/markdown/syntax#link) to create user provided links. To make that easier, App.net can process the markdown links server side to populate the `entities`. Essentially, App.net will parse the `text` value for Markdown links overwriting any `links` you provided. The same rules for `parse_links` still apply when using Markdown.
 
 As an example, the following JSON will create a post with 2 links 1) the parsed link to App.net and 2) the user provided (via Markdown) link to the App.net blog. The link provided in `entities.links` is discarded and replaced with the Markdown links becase `parse_markdown_links` is true.
 
-~~~js
-{
-    "text": "The official App.net [blog](http://blog.app.net) is here",
-    "entities": {
-        "links": [
+<%= json_output({
+    "text" => "The official App.net [blog](http://blog.app.net) is here",
+    "entities" => {
+        "links" => [
             {
-                "pos": 0,
-                "len": 3,
-                "url": "http://app.net/mthurman"
+                "pos" => 0,
+                "len" => 3,
+                "url" => "http://app.net/mthurman"
             }
         ],
-        "parse_links": true,
-        "parse_markdown_links": true
+        "parse_links" => true,
+        "parse_markdown_links" => true
     }
-}
-~~~
+}) %>
 
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters added by App.net to the `text` field will not count against the 256 character Post limit. In this case, App.net will also add the [`amended_len`](#links) field that includes the length of the complete entity and added anti-phishing text. This will make it easier for apps to customize how the anti-phishing protection looks in their apps. **When rendering links in your app, you must show users an indication of where they will end up.**
 
@@ -255,36 +248,31 @@ The `url` value can contain [URI templates](#uri-templates) which the server wil
 
 If you created the following post:
 
-~~~ js
-{
-    "text": "I love this website!",
-    "entities": {
-        "links": [
+<%= json_output({
+    "text" => "I love this website!",
+    "entities" => {
+        "links" => [
             {
-                "pos": 7,
-                "len": 12,
-                "url": "https://alpha.app.net"
+                "pos" => 7,
+                "len" => 12,
+                "url" => "https://alpha.app.net"
             }
         ]
     }
-}
-~~~
+}) %>
 
 App.net will store and return:
 
-~~~ js
-{
-    "text": "I love this website [alpha.app.net]!",
-    "entities": {
-        "links": [
+<%= json_output({
+    "text" => "I love this website [alpha.app.net]!",
+    "entities" => {
+        "links" => [
             {
-                "pos": 7,
-                "len": 12,
-                "url": "https://alpha.app.net",
-                "amended_len": 28
+                "pos" => 7,
+                "len" => 12,
+                "url" => "https://alpha.app.net",
+                "amended_len" => 28
             }
         ]
-    },
-    ...
-}
-~~~
+    }
+}) %>

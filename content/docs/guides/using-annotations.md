@@ -19,16 +19,14 @@ Let's say I'm at a restaurant eating a great dinner, but instead of just telling
 
 Annotations are a list of objects that have a `type` and a `value`.
 
-~~~ js
-[
+<%= json_output([
     {
-        "type": "com.example.awesome",
-        "value": {
-            "annotations work": "beautifully"
+        "type" => "com.example.awesome",
+        "value" => {
+            "annotations work" => "beautifully"
         }
     }
-]
-~~~
+]) %>
 
 The `type` field identifies essentially a schema for the `value` of the annotation. Please see the [annotations reference](/reference/meta/annotations/#documenting-annotations) for more information about different kinds of annotations.
 

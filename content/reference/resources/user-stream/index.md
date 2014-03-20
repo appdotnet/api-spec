@@ -135,16 +135,14 @@ The filter options that may be specified when creating a subscription are:
 
 In general, the User Streams API tries to mimc the format and conventions of the rest of the App.net API. For deleted objects (posts, unfollows, files, etc), this isn't always possible. Deleted objects will always have `meta.is_deleted == true` and `meta.deleted_id` set to the identifier of the object that was removed. If possible, App.net will return a complete `data` object but that is not always possible.
 
-~~~js
-{
-    "meta": {
-        "is_deleted": true,
-        "deleted_id": "1212",
-        "subscription_ids": ["bf42ca05-e67e-4e26-8bd0-8b042dd5b04c"],
-        "connection_id": "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw"
+<%= json_output({
+    "meta" => {
+        "is_deleted" => true,
+        "deleted_id" => "1212",
+        "subscription_ids" => ["bf42ca05-e67e-4e26-8bd0-8b042dd5b04c"],
+        "connection_id" => "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw"
     }
-}
-~~~
+}) %>
 
 ## Examples
 

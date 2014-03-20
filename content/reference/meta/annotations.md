@@ -10,14 +10,12 @@ title: "Annotations"
 
 ## Annotation Fields
 
-~~~ js
-{
-    "type": "com.example.awesome",
-    "value": {
-        "annotations work": "beautifully"
+<%= json_output({
+    "type" => "com.example.awesome",
+    "value" => {
+        "annotations work" => "beautifully"
     }
-}
-~~~
+}) %>
 
 <table class='table table-striped'>
     <tr>
@@ -51,7 +49,9 @@ title: "Annotations"
 
 For Posts, Messages, Channels, and Files, you can create annotations when you create the object. You must pass JSON objects that include annotations matching the above schema. Please see the documentation for [creating Posts](/reference/resources/post/lifecycle/#create-a-post), [Messages](/reference/resources/message/lifecycle/#create-a-message), [Channels](/reference/resources/channel/lifecycle/#create-a-channel), or [Files](/reference/resources/file/lifecycle/#create-a-file).
 
-To add or update User or Channel annotations, you [update a User's profile](/reference/resources/user/profile/#update-a-user), [update a Channel](/reference/resources/channel/lifecycle/#update-a-channel), or [update a File](/reference/resources/file/lifecycle/#update-a-file) and pass in the annotations you want to add or update. To delete an annotation, omit the `value` key for the annotation type you want to delete. For example, to delete a user's blog url, specify `{"type": "net.app.core.directory.blog"}`.
+To add or update User or Channel annotations, you [update a User's profile](/reference/resources/user/profile/#update-a-user), [update a Channel](/reference/resources/channel/lifecycle/#update-a-channel), or [update a File](/reference/resources/file/lifecycle/#update-a-file) and pass in the annotations you want to add or update. To delete an annotation, omit the `value` key for the annotation type you want to delete. For example, to delete a user's blog url, specify:
+
+<%= json_output({"type" => "net.app.core.directory.blog"}) %>
 
 ## Retrieving
 
@@ -103,34 +103,30 @@ Developers are encouraged to create annotations for data not well represented he
 
 When App.net processes annotation values, any value with a key that starts with `+net.app.core.*` will be rewritten based on the core schemas defined below. For example, when attaching a File to a Post, you might send App.net the following annotation:
 
-~~~js
-{
-    "type": "com.example.my_own_annotation",
-    "value": {
-        "+net.app.core.file": {
-            "file_id": "1",
-            "format": "url",
-            "file_token": "12345abcdef"
+<%= json_output({
+    "type" => "com.example.my_own_annotation",
+    "value" => {
+        "+net.app.core.file" => {
+            "file_id" => "1",
+            "format" => "url",
+            "file_token" => "12345abcdef"
         },
-        "foo": "bar"
+        "foo" => "bar"
     }
-}
-~~~
+}) %>
 
 As explained in the [schema for the `net.app.core.file` value](https://github.com/appdotnet/object-metadata/blob/master/annotation-replacement-values/+net.app.core.file.md), this annotation will be rewritten when the Post is requested from the API:
 
-~~~js
-{
-    "type": "com.example.my_own_annotation",
-    "value": {
-        "file_id": "1",
-        "file_token": "12345abcdef",
-        "foo": "bar",
-        "url": "http://example.com/link_to_file",
-        "url_expires": "2013-01-25T03:00:00Z"
+<%= json_output({
+    "type" => "com.example.my_own_annotation",
+    "value" => {
+        "file_id" => "1",
+        "file_token" => "12345abcdef",
+        "foo" => "bar",
+        "url" => "http://example.com/link_to_file",
+        "url_expires" => "2013-01-25T03:00:00Z"
     }
-}
-~~~
+}) %>
 
 We currently define the following replacement values in annotations:
 

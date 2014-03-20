@@ -20,26 +20,22 @@ The top-level response is an object containing two keys. The first key, ```data`
 The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination metadata](/reference/make-request/pagination/#response-metadata) and/or a [stream marker](/reference/resources/stream-marker/) when relevant.
 
 ### Sample Response Envelope
-~~~ js
-{
-    "data": {
-        ...
-    },
-    "meta": {
-        "code": 200,
-        "marker": {
-            "id": "1",
-            "name": "global",
-            "percentage": 0,
-            "updated_at": "2012-11-09T23:35:38Z",
-            "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
+<%= json_output({
+    "data" => "the data you requested",
+    "meta" => {
+        "code" => 200,
+        "marker" => {
+            "id" => "1",
+            "name" => "global",
+            "percentage" => 0,
+            "updated_at" => "2012-11-09T23:35:38Z",
+            "version" => "NWoZK3kTsExUV00Ywo1G5jlUKKs"
         },
-        "max_id": "65039",
-        "min_id": "65039",
-        "more": true
+        "max_id" => "65039",
+        "min_id" => "65039",
+        "more" => true
     }
-}
-~~~
+}) %>
 
 ## JSONP
 
