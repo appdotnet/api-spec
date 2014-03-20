@@ -21,9 +21,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/users/1/mute
-
-<%= response(:user) do |h|
+<%= curl_example(:post, "users/1/mute", :user) do |h|
     h["data"]["you_muted"] = true
 end %>
 
@@ -43,9 +41,7 @@ Stop hiding all posts for a given user.
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/users/1/mute
-
-<%= response(:user) do |h|
+<%= curl_example(:delete, "users/1/mute", :user) do |h|
   h["data"]["you_muted"] = false
 end %>
 
@@ -63,9 +59,7 @@ Retrieve a list of muted users.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/muted
-
-<%= collection_response(:user) do |h|
+<%= curl_example(:get, "users/me/muted", :user, {:response => :collection}) do |h|
     h["data"][0]["you_muted"] = true
 end %>
 
@@ -81,19 +75,7 @@ Returns a list of muted User ids for each User id requested. At most 200 User id
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/muted/ids?ids=1,2
-
-~~~ js
-{
-    "data": {
-        "1": [
-            "3",
-            "29"
-        ],
-        "2": []
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "users/muted/ids?ids=1,2", {
+    "1" => ["3", "29"],
+    "2" => []
+}) %>

@@ -21,9 +21,7 @@ Returns a specific <a href="/reference/resources/user/">User</a> object.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/1
-
-<%= response(:user) %>
+<%= curl_example(:get, "users/1", :user) %>
 
 ## Retrieve multiple Users
 Returns multiple Users requested by id. At most 200 users can be requested.
@@ -57,7 +55,7 @@ Returns multiple Users requested by id. At most 200 users can be requested.
         },
     ],
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~

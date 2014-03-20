@@ -560,9 +560,7 @@ A user subscribes to a channel.
         "id": "92"
     },
     "data": {
-        "user": {
-            ...
-        },
+        "user": "...user object...",
         "channel": {
             ...
         }
@@ -581,9 +579,7 @@ A user unsubscribes to a channel.
         "id": "92"
     },
     "data": {
-        "user": {
-            ...
-        },
+        "user": "...user object...",
         "channel": {
             ...
         }
@@ -673,9 +669,7 @@ A file is created.
         "source": {
             ...
         },
-        "user": {
-            ...
-        },
+        "user": "...user object...",
         "type": "com.example.test",
         "annotations": [],
         "complete": false
@@ -718,9 +712,7 @@ A file is uploaded to (or updated).
         },
         "id": "85",
         "total_size": 346369,
-        "user": {
-            ...
-        },
+        "user": "...user object...",
         "complete": true,
         "size": 172393,
         "type": "com.example.test",

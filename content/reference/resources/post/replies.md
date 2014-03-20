@@ -27,48 +27,4 @@ Retrieve all the [Posts](/reference/resources/post/) that are in the same thread
 
 > GET https://alpha-api.app.net/stream/0/posts/1/replies
 
-~~~ js
-{
-    "data": [
-        {
-            "id": "2", // note this is a string
-            "user": {
-                ...
-            },
-            "created_at": "2012-07-16T17:25:47Z",
-            "text": "@mthurman stop trolling",
-            "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
-            "source": {
-                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
-                "name": "Clientastic for iOS",
-                "link": "http://app.net"
-            },
-            "machine_only": false,
-            "reply_to": "1",
-            "thread_id": "1",
-            "num_replies": 0,
-            "num_reposts": 0,
-            "num_stars": 0,
-            "entities": {
-                "mentions": [{
-                    "name": "mthurman",
-                    "id": "2",
-                    "pos": 0,
-                    "len": 9
-                }],
-                "hashtags": [],
-                "links": []
-            },
-            "you_reposted": false,
-            "you_starred": false
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
-    }
-}
-~~~
+<%= paginated_response(:post_reply) %>

@@ -21,27 +21,28 @@ If you want to add or update a User's annotations, you may include the optional 
 
 ### Example
 
-> PUT https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
->
-> Content-Type: application/json
->
-> DATA {"name": "Mark Thurman 2", "locale":"en", "timezone":"US/Central", "description":{"text": "new description"}, "annotations":[{"type": "net.app.core.directory.blog", "value": {"url": "http://mynewblog.com"}}]
-
-<%= response(:user_self) do |h|
-    h["data"]["name"] = "Mark Thurman 2"
-    h["data"]["locale"] = "en_US"
-    h["data"]["description"]["text"] = "new description"
-    h["data"]["description"]["html"] = "new description"
-    h["data"]["description"]["entities"] = {}
-    h["data"]["timezone"] = "US/Central"
-    h["data"]["annotations"] = [
-        {
-            "type" => "net.app.core.directory.blog",
-            "value" => {
-                "url" => "http://mynewblog.com"
-            }
+<% data = {
+    "name" => "Mark Thurman 2",
+    "locale" => "en",
+    "timezone" => "US/Central",
+    "description" => {
+        "text" => "new description"
+    },
+    "annotations" => [{
+        "type" => "net.app.core.directory.blog",
+        "value" => {
+            "url" => "http://mynewblog.com"
         }
-    ]
+    }]
+} %>
+<%= curl_example(:put, "users/me?include_user_annotations=1", :user_self, {:data => data}) do |h|
+    h["data"]["name"] = data["name"]
+    h["data"]["locale"] = "en_US"
+    h["data"]["description"]["text"] = data["description"]["text"]
+    h["data"]["description"]["html"] = data["description"]["text"]
+    h["data"]["description"]["entities"] = {}
+    h["data"]["timezone"] = data["timezone"]
+    h["data"]["annotations"] = data["annotations"]
 end %>
 
 ## Partially Update a User
@@ -54,14 +55,12 @@ Updates a subset of a specific user's profile details. You can update a user by 
 
 ### Example
 
-> PATCH https://alpha-api.app.net/stream/0/users/me?include_user_annotations=1
->
-> Content-Type: application/json
->
-> DATA {"name": "Mark Thurman 2"}
+<% data = {
+    "name" => "Mark Thurman 3",
+} %>
 
-<%= response(:user_self) do |h|
-    h["data"]["name"] = "Mark Thurman 2"
+<%= curl_example(:patch, "users/me", :user_self, {:data => data}) do |h|
+    h["data"]["name"] = data["name"]
 end %>
 
 ## Retrieve a User's avatar image
@@ -76,9 +75,7 @@ Retrieve a User's avatar image. This endpoint does not require authentication, i
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/avatar
->
-> 302 Location: https://example.com/avatar.jpg
+<%= curl_example(:get, "users/me/avatar", "<the binary contents of your avatar image>", {:response => :raw, :follow_redirects => true}) %>
 
 ## Update a User's avatar image
 
@@ -110,13 +107,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 ### Example
 
-> POST https://alpha-api.app.net/stream/0/users/me/avatar
->
-> Content-Type: multipart/form-data; boundary=----------------------------82481319dca6
->
-> DATA [MIME encoded image]
-
-<%= response(:user_self) do |h|
+<%= curl_example(:post, "users/me/avatar", :user_self, {:files => {"avatar" => "new_avatar_image.jpg"}}) do |h|
     h["data"]["avatar_image"]["url"] = "https://example.com/new_avatar_image.jpg"
 end %>
 
@@ -132,9 +123,7 @@ Retrieve a User's cover image. This endpoint does not require authentication, is
 
 ### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/cover
->
-> 302 Location: https://example.com/cover.jpg
+<%= curl_example(:get, "users/me/cover", "<the binary contents of your cover image>", {:response => :raw, :follow_redirects => true}) %>
 
 ## Update a User's cover image
 
@@ -167,12 +156,6 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 
 ### Example
 
-> POST https://alpha-api.app.net/stream/0/users/me/cover
->
-> Content-Type: multipart/form-data; boundary=----------------------------82481319dca6
->
-> DATA [MIME encoded image]
-
-<%= response(:user_self) do |h|
+<%= curl_example(:post, "users/me/cover", :user_self, {:files => {"cover" => "new_cover_image.jpg"}}) do |h|
     h["data"]["cover_image"]["url"] = "https://example.com/new_cover_image.jpg"
 end %>

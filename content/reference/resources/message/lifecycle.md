@@ -58,12 +58,10 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
         },
         "text": "Hello channel!",
         "thread_id": "103",
-        "user": {
-            ...
-        }
+        "user": "...user object..."
     },
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~
@@ -96,12 +94,10 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
         },
         "text": "Hello brand new channel!",
         "thread_id": "105",
-        "user": {
-            ...
-        }
+        "user": "...user object..."
     },
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~
@@ -148,12 +144,10 @@ Delete a message. The current user must be the same user who created the Message
         },
         "text": "Hello channel!",
         "thread_id": "103",
-        "user": {
-            ...
-        }
+        "user": "...user object..."
     },
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~

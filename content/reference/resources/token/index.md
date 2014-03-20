@@ -145,7 +145,7 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
         ...
     ],
     "meta": {
-        "code": 200,
+        "code": 200
     }
 }
 ~~~

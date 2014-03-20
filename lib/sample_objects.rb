@@ -13,7 +13,7 @@ module Resources
         when Integer
           key
         # deep copy so we can make any overrides we need for our specific use of this hash
-        else deep_copy(Resources.const_get(key.to_s.upcase))
+        else Helpers.deep_copy(Resources.const_get(key.to_s.upcase))
       end
     end
 
@@ -31,7 +31,7 @@ module Resources
       json_output(process_json(key, &block))
     end
 
-    def deep_copy(o)
+    def self.deep_copy(o)
       Marshal.load(Marshal.dump(o))
     end
 
@@ -288,6 +288,119 @@ module Resources
   }
 
   CHANNEL = CHANNEL_WITH_MARKER.reject {|key, value| key == "marker" }
-  end
+
+  FULL_POST = {
+      "id" => "1",
+      "user" => "...user object...",
+      "created_at" => "2012-07-16T17:25:47Z",
+      "text" => "@berg FIRST post on this new site #newsocialnetwork",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span",
+      "source" => {
+          "name" => "Clientastic for iOS",
+          "link" => "http://app.net",
+          "client_id" => "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"
+      },
+      "machine_only" => false,
+      "reply_to" => nil,
+      "thread_id" => "1",
+      "canonical_url" => "https://alpha.app.net/mthurman/post/1",
+      "num_replies" => 0,
+      "num_reposts" => 0,
+      "num_stars" => 0,
+      "annotations" => [{
+          "type" => "net.app.core.geolocation",
+          "value" => {
+              "latitude" => 74.0064,
+              "longitude" => 40.7142
+          }
+      }],
+      "entities" => {
+          "mentions" => [{
+              "name" => "berg",
+              "id" => "2",
+              "pos" => 0,
+              "len" => 5
+          }],
+          "hashtags" => [{
+              "name" => "newsocialnetwork",
+              "pos" => 34,
+              "len" => 17
+          }],
+          "links" => [{
+              "text" => "this new site",
+              "url" => "https://join.app.net",
+              "pos" => 20,
+              "len" => 13
+          }]
+      },
+      "you_reposted" => false,
+      "you_starred" => false,
+      "reposters" => [
+          "...user objects..."
+      ],
+      "starred_by" => [
+          "...user objects..."
+      ]
+  }
+
+  post_fields_omitted = ["annotations", "reposters", "starred_by"]
+  POST = FULL_POST.reject {|key, value| post_fields_omitted.include? key }
+  # since posts have text, html, entities, instead of always having to override in the block, provide more options here if we care
+  # about what the text is
+  FIRST_POST = Helpers.deep_copy(POST)
+  # get rid of the user defined link through here
+  FIRST_POST["html"] = "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>"
+  FIRST_POST["entities"]["links"] = []
+
+  POST_REPLY = Helpers.deep_copy(POST)
+  POST_REPLY["id"] = "2"
+  POST_REPLY["canonical_url"] = "https://alpha.app.net/berg/post/2"
+  POST_REPLY["reply_to"] = "1"
+  POST_REPLY["thread_id"] = "1"
+  POST_REPLY["text"] = "@mthurman stop trolling"
+  POST_REPLY["html"] = "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling</span>"
+  POST_REPLY["entities"] = {
+      "mentions" => [{
+          "name" => "mthurman",
+          "id" => "2",
+          "pos" => 0,
+          "len" => 9
+      }],
+      "hashtags" => [],
+      "links" => []
+  }
+
+  # simplify POST before we "repost" it so there are fewer entities etc
+  REPOST_OF = Helpers.deep_copy(POST)
+  REPOST_OF["text"] = "a really insightful post that must be shared with the world"
+  REPOST_OF["html"] = "<span itemscope=\"https://app.net/schemas/Post\">" + REPOST_OF["text"] + "</span>"
+  REPOST_OF["entities"] = {
+      "hashtags" => [],
+      "links" => [],
+      "mentions" => []
+  }
+  REPOST_OF["id"] = "3"
+  REPOST_OF["thread_id"] = "3"
+  REPOST_OF["canonical_url"] = "https://alpha.app.net/berg/post/3"
+
+  REPOST = Helpers.deep_copy(REPOST_OF)
+  REPOST["repost_of"] = REPOST_OF
+  REPOST["repost_of"]["you_reposted"] = true
+  REPOST["repost_of"]["num_reposts"] += 1
+  REPOST["id"] = "4"
+  REPOST["created_at"] = "2012-09-13T21:26:19Z"
+  REPOST["canonical_url"] = "https://alpha.app.net/mthurman/post/4"
+  REPOST["num_replies"] = 0
+  REPOST["num_reposts"] = 0
+  REPOST["num_stars"] = 0
+  REPOST["text"] = ">> @berg: " + REPOST_OF["text"]
+  REPOST["html"] = "<span itemscope=\"https://app.net/schemas/Post\">&gt;&gt; <span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span>: a really insightful post that must be shared with the world</span>"
+  REPOST["entities"]["mentions"] = [{
+      "name" => "berg",
+      "id" => "2",
+      "pos" => 3,
+      "len" => 5
+  }]
+end
 
 include Resources::Helpers
