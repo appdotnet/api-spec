@@ -25,48 +25,53 @@ When creating a complete file, this endpoint could return a `507 Insufficient St
 
 #### Example
 
-##### JSON Metadata
+##### JSON Metadata 2
 
-~~~
-POST https://alpha-api.app.net/stream/0/files
+The most comprehensive way to to specify a file's attributes are to upload json data that fits the File schema with the file itself.
 
-Content-Type: multipart/form-data; boundary=82481319dca6
-
-REQUEST BODY:
---82481319dca6
-Content-Disposition: form-data; name="content"; filename="filename.png"
-Content-Type: image/png
-
-...contents of file...
---82481319dca6
-Content-Disposition: form-data; name="metadata"; filename="metadata.json"
-Content-Type: application/json
-
-{"type": "com.example.test"}
-~~~
+<%= curl_example(:post, "files", :none, {
+    :files => {
+        "metadata" => "@-;type=application/json",
+        "content" => "@filename.jpg",
+    },
+    :stdin => JSON.pretty_generate({
+        "type" => "com.example.test",
+        "annotations" => [
+            {
+                "type" => "com.example.annotation",
+                "value" => {
+                    "foo" => "bar"
+                }
+            }
+        ]
+    })
+}) %>
 
 ##### Form-data metadata
 
-The metadata can also be submitted as normal post data in which case that part of the request body will look like:
-
-~~~
---82481319dca6
-Content-Disposition: form-data; name="type"
-
-com.example.test
-~~~
+The metadata can also be submitted as normal post data. If you want to create annotations on the file, you must use the JSON metadata format to do so.
 
 Here is some [sample File upload code written in Python](https://gist.github.com/4659409). You can also use the following curl command to upload a file:
 
-    curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -F 'type=com.example.test' -F content=@filename.png -X POST
+<%= curl_example(:post, "files", :none, {
+    :files => {
+        "type" => "com.example.test",
+        "content" => "@filename.jpg",
+    },
+}) %>
 
 ##### Custom derived files
 
 If you'd like to upload [custom derived files](/reference/resources/file/#derived-files) at the same time as the original file, you can include the derived files as extra parts:
 
-    curl -k -H ‘Authorization: BEARER …’ https://alpha-api.app.net/stream/0/files -X POST -F ‘type=com.example.test’ -F “content=@filename.jpg” -F “derived_key1=@derived_file1.png;type=image/png” -F “derived_key2=@derived_file2.png;type=image/png”
-
-<%= response(:file) %>
+<%= curl_example(:post, "files", :file, {
+    :files => {
+        "type" => "com.example.test",
+        "content" => "@filename.jpg",
+        "derived_key1" => "@derived_file1.png;type=image/png",
+        "derived_key2" => "@derived_file2.png;type=image/png",
+    }
+}) %>
 
 ## Update a File
 
@@ -86,13 +91,10 @@ This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/files/1
->
-> Content-Type: application/json
-> 
-> DATA {"name": "updated_filename.jpg"}
-
-<%= response(:file) {|h| h["data"]["name"] = "updated_filename.jpg"} %>
+<% data = {"name" => "update_filename.jpg"}%>
+<%= curl_example(:put, "files/1", :file, {:data => data}) do |h|
+    h["data"]["name"] = data["name"]
+end %>
 
 ## Delete a File
 
@@ -112,6 +114,4 @@ Delete a file. The current user must be the same user who created the File. It r
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/files/1
-
-<%= response(:file) %>
+<%= curl_example(:delete, "files/1", :file) %>

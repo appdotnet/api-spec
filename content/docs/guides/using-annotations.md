@@ -36,31 +36,26 @@ The `type` field identifies essentially a schema for the `value` of the annotati
 
 When you see an image included in an App.net post, you see the results of annotations at work. We'll be using the [`net.app.core.oembed`](https://github.com/appdotnet/object-metadata/blob/master/annotations/net.app.core.oembed.md) annotation to embed a photo in an App.net post.
 
-~~~ sh
-curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
-    -H "X-adn-pretty-json: 1" -H "Content-Type: application/json" \
-    --data-ascii '{
-      "text": "Hello App.net from curl, with a photo!",
-      "annotations": [
-        {
-          "type": "net.app.core.oembed",
-          "value": {
-            "type": "photo",
-            "version": "1.0",
-            "width": 870,
-            "height": 106,
-            "url": "https://files.app.net/2jxk2CoP4",
-            "thumbnail_width": 200,
-            "thumbnail_height": 24,
-            "thumbnail_url": "https://files.app.net/2jxk12R7F",
-            "embeddable_url": "https://app.net"
-          }
+<% data = {
+    "text" => "Hello App.net from curl, with a photo!",
+    "annotations" => [
+      {
+        "type" => "net.app.core.oembed",
+        "value" => {
+          "type" => "photo",
+          "version" => "1.0",
+          "width" => 870,
+          "height" => 106,
+          "url" => "https://files.app.net/2jxk2CoP4",
+          "thumbnail_width" => 200,
+          "thumbnail_height" => 24,
+          "thumbnail_url" => "https://files.app.net/2jxk12R7F",
+          "embeddable_url" => "https://app.net"
         }
-      ]
-    }' \
-    \
-    'https://alpha-api.app.net/stream/0/posts'
-~~~
+      }
+    ]
+} %>
+<%= curl_example(:post, "posts?include_annotations=1", :none, {:data => data}) %>
 
 Most clients expect `thumbnail_url`, `thumbnail_width`, and `thumbnail_height` to render a preview inline with the post.
 
@@ -70,52 +65,40 @@ Most apps that include images don't generate a raw oembed annotation to an image
 
 ### Upload a file
 
-~~~ sh
-curl -k -X POST -H "Authorization: BEARER <YOUR ACCESS TOKEN>" \
-     -H "X-adn-pretty-json: 1" -F "type=testing.image" \
-     -F "content=@filename.png;type=image/png" \
-     'https://alpha-api.app.net/stream/0/files'
-~~~
+<%= curl_example(:post, "files", :none, {
+    :files => {
+        "type" => "testing.image",
+        "content" => "@filename.png;type=image/png",
+    }
+}) %>
+
 
 This will return a JSON blob similar with the following fields we care about:
 
-~~~ js
-{
-    "data": {
-        "file_token": "1234567NQD4isqELTZlIiEd9fp24e5wC1NACSYFI_Svc7-hkvCKWOTsOPQLrrMiVu-9x2L400MbKlG4T8-WA97HokUdApqXwtQjJt9wOJ12ZZX_hZSFmj_O0xFlvJt8rwqaTAOvK7qECaj1LS131baLjJojErPB5TwZiQQJko0BU",
-        "id": "123",
-        ...
+<%= json_output({
+    "data" => {
+        "file_token" => "1234567NQD4isqELTZlIiEd9fp24e5wC1NACSYFI_Svc7-hkvCKWOTsOPQLrrMiVu-9x2L400MbKlG4T8-WA97HokUdApqXwtQjJt9wOJ12ZZX_hZSFmj_O0xFlvJt8rwqaTAOvK7qECaj1LS131baLjJojErPB5TwZiQQJko0BU",
+        "id" => "123",
     },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+}) %>
 
 ### Attach the file to a post
 
 Once we've uploaded the file, we can attach it to a post and let App.net generate the correct oembed annotation:
 
-~~~ sh
-curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
-    -H "X-adn-pretty-json: 1" -H "Content-Type: application/json" \
-    --data-ascii '{
-      "text": "Hello App.net from curl, with an App.net hosted photo!",
-      "annotations": [
-        {
-          "type": "net.app.core.oembed",
-          "value": {
-            "+net.app.core.file": {
-              "file_id": "<data.file_id from the last command>",
-              "file_token": "<data.file_token from the last command>",
-              "format": "oembed"
+<% data = {
+    "text" => "Hello App.net from curl, with an App.net hosted photo!",
+    "annotations" => [{
+        "type" => "net.app.core.oembed",
+        "value" => {
+            "+net.app.core.file" => {
+                "file_id" => "<data.file_id from the last command>",
+                "file_token" => "<data.file_token from the last command>",
+                "format" => "oembed"
             }
-          }
         }
-      ]
-    }' \
-    \
-    'https://alpha-api.app.net/stream/0/posts?include_annotations=1'
-~~~
+    }]
+} %>
+<%= curl_example(:post, "posts?include_annotations=1", :none, {:data => data}) %>
 
 Since annotations can contain up to [8192 bytes of data](/reference/meta/annotations/#limit), they are not returned by default. We have to explicitly request that App.net return annotations by passing the `include_annotations=1` query string parameter.

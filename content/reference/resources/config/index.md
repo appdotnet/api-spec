@@ -126,6 +126,4 @@ Returns the current Configuration object.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/config
-
-<%= response(:config) %>
+<%= curl_example(:get, "config", :config) %>

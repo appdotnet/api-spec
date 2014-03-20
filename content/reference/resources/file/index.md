@@ -221,8 +221,14 @@ Users may include their own derived files when uploading a file with the followi
 
 If you're [creating a complete file](/reference/resources/file/lifecycle/#create-a-file), you can specify custom derived files by including a multipart segment for each custom derived file with the key specified in the name field. For example:
 
-
-    curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -X POST -F 'type=com.example.test' -F "content=@filename.png;type=image/png" -F "derived_key1=@derived_file1.png;type=image/png" -F "derived_key2=@derived_file2.png;type=image/png;filename=overridden.png"
+<%= curl_example(:post, "files", :none, {
+    :files => {
+        "type" => "com.example.test",
+        "content" => "@filename.jpg",
+        "derived_key1" => "@derived_file1.png;type=image/png",
+        "derived_key2" => "@derived_file2.png;type=image/png;filename=overridden.png",
+    }
+}) %>
 
 ##### Custom derived files with an incomplete file
 
@@ -230,17 +236,39 @@ If you've [created a file](/reference/resources/file/lifecycle/#create-a-file) w
 
 1. Create an incomplete file:
 
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files -F 'type=com.example.test'
+    <%= curl_example(:post, "files", :none, {
+        :files => {
+            "type" => "com.example.test",
+        }
+    }) %>
 
 2. Add custom derived files:
 
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content/{DERIVED_KEY1} -H 'Content-Type: image/png' -H 'x-adn-filename: filename.png' -X PUT --data-binary @derived_file1.png
+    <%= curl_example(:put, "files/{FILE_ID}/content/{DERIVED_KEY1}", :none, {
+        :content_type => "image/png",
+        :headers => {
+            "X-ADN-Filename" => "filename.png"
+        },
+        :data_binary => "@derived_file1.png",
+        :pretty_json => false,
+    }) %>
 
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/{DERIVED_KEY2} -H 'Content-Type: multipart/form-data' -X POST -F 'type=com.example.test' -F "content=@test.txt;filename=testname.txt"
+    <%= curl_example(:post, "files/{FILE_ID}/content/{DERIVED_KEY2}", :none, {
+        :content_type => "multipart/form-data",
+        :files => {
+            "type" => "com.example.test",
+            "content" => "@test.txt;filename=testname.txt"
+        },
+        :pretty_json => false,
+    }) %>
 
 3. Complete the file:
 
-        curl -k -H 'Authorization: BEARER ...' https://alpha-api.app.net/stream/0/files/{FILE_ID}/content -H 'Content-Type: image/png' -X PUT --data-binary @filename.png
+    <%= curl_example(:put, "files/{FILE_ID}/content", :none, {
+        :content_type => "image/png",
+        :data_binary => "@filename.png",
+        :pretty_json => false,
+    }) %>
 
 ## File Authorization
 

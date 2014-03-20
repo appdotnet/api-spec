@@ -100,22 +100,26 @@ When making a call to one of our API resources, there are three ways to include 
     where `[access token]` is the value of the user's access token.
 
     Here's an example:
-    
-        curl -H 'Authorization: Bearer [access token]' \
-             -F 'text=Test post' \
-             https://alpha-api.app.net/stream/0/posts
+
+    <%= curl_example(:post, "posts", :none, {
+        :data => {"text" => "Test post"},
+        :content_type => nil,
+        :token => "[access token]"
+    }) %>
 
 * Add `access_token` to query string
-    
-        curl https://alpha-api.app.net/stream/0/posts/1?access_token=[access token]
+
+    <%= curl_example(:get, "posts/1?access_token=[access token]", :none, {:data => "text=Test post", :content_type => nil, :token => nil}) %>
 
 * Add `access_token` to HTTP body. 
 
     > Note: this method will only work with the `PUT`, `POST`, and `PATCH` methods. `GET` and `DELETE` do not accept an HTTP body.
 
-        curl -F 'access_token=[access token]' \
-             -F 'text=Test post' \
-             https://alpha-api.app.net/stream/0/posts
+    <%= curl_example(:post, "posts", :none, {
+        :data => {"text" => "Test post", "access_token" => "[access token]"},
+        :content_type => nil,
+        :token => nil
+    }) %>
 
 ## What kind of token do I need?
 

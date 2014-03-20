@@ -1,3 +1,4 @@
+require 'cgi'
 include Nanoc::Helpers::Rendering
 
 def join_all(ary, join_with = ", ", connector = "</code> and <code>")
@@ -81,13 +82,21 @@ def curl_example(method, path, response_key, options = {}, &block)
         :response => :response,
         :content_type => "application/json", # we only show this on put/post/patch
         :data => {},
+        :data_binary => nil,
         :files => {},
         :follow_redirects => false,
+        :print_headers => false,
+        :stdin => nil,
+        :headers => {}
     }
 
     options = default_curl_options.merge(options)
 
     curl_parts = ["curl"]
+
+    if response_key == :none
+        options[:response] = :none
+    end
 
     response = case options[:response]
         when :response
@@ -98,10 +107,12 @@ def curl_example(method, path, response_key, options = {}, &block)
             paginated_response(response_key, &block)
         when :raw
             options[:pretty_json] = false
-            %{~~~ sh
-#{response_key}
-~~~
+            %{<pre><code class="language-sh">
+#{CGI.escapeHTML(response_key)}
+</code></pre>
 }
+        when :none
+            ""
     end
 
     if method != :get
@@ -109,40 +120,64 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
 
     if options[:token]
-        curl_parts << %{-H "Authorization: Bearer #{options[:token]}"}
+        options[:headers]["Authorization"] = "Bearer #{options[:token]}"
     end
 
     if options[:pretty_json]
-        curl_parts << %{-H "X-adn-pretty-json: 1"}
+        options[:headers]["X-adn-pretty-json"] = "1"
     end
 
     if options[:follow_redirects]
         curl_parts << %{-L}
     end
 
-    if [:post, :put, :patch].include? method and not options[:data].empty?
-        if options[:content_type]
-            curl_parts << %{-H "Content-Type: #{options[:content_type]}"}
-        end
+    if options[:print_headers]
+        curl_parts << %{-i}
+    end
 
-        if options[:content_type] == "application/json"
-            options[:data] = JSON.pretty_generate(options[:data])
-            # todo: escape any single quotes in json data since we're about to wrap in single quotes for bash
+
+    if [:post, :put, :patch].include? method and options[:content_type] and (options[:data_binary] or not options[:data].empty?)
+        options[:headers]["Content-Type"] = options[:content_type]
+    end
+
+    options[:headers].each do |k, v|
+        curl_parts << %{-H "#{k}: #{v}"}
+    end
+
+    if [:post, :put, :patch].include? method
+        if not options[:data].empty?
+            if options[:content_type] == "application/json"
+                options[:data] = JSON.pretty_generate(options[:data])
+                # todo: escape any single quotes in json data since we're about to wrap in single quotes for bash
+                curl_parts << %{-d '#{options[:data]}'}
+            elsif options[:data].instance_of? Hash
+                options[:data].each do |k, v|
+                    curl_parts << %{-d '#{k}=#{v}'}
+                end
+            else
+                # get rid of this case
+                curl_parts << %{-d '#{options[:data]}'}
+            end
+        elsif options[:data_binary]
+            curl_parts << %{--data-binary '#{options[:data_binary]}'}
         end
-        curl_parts << %{-d '#{options[:data]}'}
     end
 
     options[:files].each do |k, v|
-        curl_parts << %{-F #{k}=@#{v}}
+        curl_parts << %{-F "#{k}=#{v}"}
+    end
+
+    if options[:stdin]
+        curl_parts.unshift %{echo '#{options[:stdin]}' |}
     end
 
     # don't foget to quote this when we have qs params
     curl_parts << %{"#{options[:base_url] + path}"}
 
-    %{~~~ sh
-#{curl_parts.join(' ')}
-~~~
-
+    # use pre, code instead of a fenced code block so I can use these insted of markdown lists. Fenced code blocks don't work in md lists
+    %{<pre><code class="language-sh">
+#{CGI.escapeHTML(curl_parts.join(' '))}
+</code></pre>
 #{response}
 }
 end

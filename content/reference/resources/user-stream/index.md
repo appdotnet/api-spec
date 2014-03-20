@@ -81,7 +81,11 @@ Ordering is not guaranteed for events delivered on streams, but we aim to have t
 
 To avoid thinking about limits, you can create User streams that automatically delete themselves once you disconnect from them. If you use this option, you will always have to recreate your subscriptions from scratch. To enable this, add the `auto_delete=1` query string parameter when connecting to a stream.
 
-    curl -i -H 'Authorization: BEARER ...' "https://stream-channel.app.net/stream/user?auto_delete=1"
+<%= curl_example(:get, "user?auto_delete=1", :none, {
+    :base_url => "https://stream-channel.app.net/stream/",
+    :pretty_json => false,
+    :print_headers => true,
+}) %>
 
 ## Subscription options
 
@@ -89,11 +93,17 @@ The App.net API accepts many query string parameters (`include_deleted`, `includ
 
 For example, if I never want to receive the `html` attribute over my user stream, when I connect I can specify that:
 
-    curl -i -H 'Authorization: BEARER ...' "https://stream-channel.app.net/stream/user?include_html=0"
+<%= curl_example(:get, "user?include_html=0", :none, {
+    :base_url => "https://stream-channel.app.net/stream/",
+    :pretty_json => false,
+    :print_headers => true,
+}) %>
 
 But if I want to only receive File notifications for complete files, when I subscribe to my Files, I can specify that option:
 
-    curl -H 'Authorization: BEARER ...' "https://alpha-api.app.net/stream/0/users/me/files?connection_id=...&include_incomplete=0"
+<%= curl_example(:get, "users/me/files?connection_id=<YOUR CONNECTION ID>&include_incomplete=0", :none, {
+    :pretty_json => false,
+}) %>
 
 The display options that may be specified when a User Stream is created are:
 
@@ -140,50 +150,58 @@ In general, the User Streams API tries to mimc the format and conventions of the
 
 1. Create a User Stream:
 
-        curl -i -H 'Authorization: BEARER ...' "https://stream-channel.app.net/stream/user"
+    <%= curl_example(:get, "user", :none, {
+        :base_url => "https://stream-channel.app.net/stream/",
+        :pretty_json => false,
+        :print_headers => true,
+    }) %>
+
+    One of the headers in the response will include a `connection_id` which you will need in the next step:
 
         Connection-Id: sxousNClc4Cq12du3f6GTZXNUvaHoJnFnjdOt6fH2xhJolPdDfR3rOxxjdPfPOIf
 
 1. In a second terminal, add a subscription:
 
-        curl -H 'Authorization: BEARER ...' "https://alpha-api.app.net/stream/0/posts/stream/unified?connection_id=sxousNClc4Cq12du3f6GTZXNUvaHoJnFnjdOt6fH2xhJolPdDfR3rOxxjdPfPOIf"
+    <%= curl_example(:get, "posts/stream/unified?connection_id=<YOUR CONNECTION ID FROM STEP 2>", :none, {
+        :pretty_json => false,
+    }) %>
 
     Will return:
 
-        {
-            "meta": {
-                "code": 200,
-                "subscription_ids": ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
-                "marker": {
-                    "id": "5668480",
-                    "last_read_id": "5668480",
-                    "name": "unified",
-                    "percentage": 0,
-                    "updated_at": "2013-05-14T20:18:16Z",
-                    "version": "eMKC1BskFw8hL5q7FfTItiqgr4s"
-                },
-                "max_id": "5675954",
-                "min_id": "5675037",
-                "more": true
+    <%= json_output({
+        "meta" => {
+            "code" => 200,
+            "subscription_ids" => ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
+            "marker" => {
+                "id" => "5668480",
+                "last_read_id" => "5668480",
+                "name" => "unified",
+                "percentage" => 0,
+                "updated_at" => "2013-05-14T20:18:16Z",
+                "version" => "eMKC1BskFw8hL5q7FfTItiqgr4s"
             },
-            "data": [
-                ... posts ...
-            ]
-        }
+            "max_id" => "5675954",
+            "min_id" => "5675037",
+            "more" => true
+        },
+        "data" => [
+            "... posts ..."
+        ]
+    }) %>
 
-1. When you receive a message, it will look like:
+1. When you receive a message in your first terminal, it will look like:
 
-        {
-            "meta": {
-                "subscription_ids": ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
-                "min_id": "5675993",
-                "max_id": "5675993",
-                "connection_id": "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw",
-                "more": false
-            },
-            "data": [
-                ... posts ...
-            ]
-        }
+    <%= json_output({
+        "meta" => {
+            "subscription_ids" => ["d3b72b23-f8d7-4108-a4f1-3aaa25328286"],
+            "min_id" => "5675993",
+            "max_id" => "5675993",
+            "connection_id" => "<YOUR CONNECTION ID FROM STEP 2>",
+            "more" => false
+        },
+        "data" => [
+            "... posts ..."
+        ]
+    }) %>
 
 <%= render 'partials/endpoints-tab', :for => "user-stream" %>

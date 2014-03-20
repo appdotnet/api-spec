@@ -1,3 +1,4 @@
+require 'cgi'
 require 'yajl/json_gem'
 
 module Resources
@@ -18,7 +19,7 @@ module Resources
     end
 
     def json_output(hash)
-      "~~~js\n" + JSON.pretty_generate(hash) + "\n~~~"
+      "\n<pre><code class='language-js'>\n" + CGI.escapeHTML(JSON.pretty_generate(hash)) + "\n</code></pre>\n"
     end
 
     def process_json(key, &block)

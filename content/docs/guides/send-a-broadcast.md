@@ -66,33 +66,27 @@ builder.send
 
 If you want to send the equivalent broadcast from the API without using a library, use this curl command:
 
-~~~ sh
-curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
-    -H "X-adn-pretty-json: 1" -H "Content-Type: application/json" \
-    --data-ascii '{
-      "text": "Here is a [link](http://www.google.com) for my text body.",
-      "annotations": [
-        {
-          "value": {
-            "subject": "Hello world!"
-          },
-          "type": "net.app.core.broadcast.message.metadata"
+<% data = {
+    "text" => "Here is a [link](http://www.google.com) for my text body.",
+    "annotations" => [{
+        "type" => "net.app.core.broadcast.message.metadata",
+        "value" => {
+            "subject" => "Hello world!"
         },
-        {
-          "value": {
-            "canonical_url": "http://www.example.com"
-          },
-          "type": "net.app.core.crosspost"
-        }
-      ],
-      "entities": {
-        "parse_markdown_links": true,
-        "parse_links": true
-      }
-    }' \
-    \
-    'https://alpha-api.app.net/stream/0/channels?include_annotations=1'
-~~~
+    },
+    {
+        "type" => "net.app.core.crosspost",
+        "value" => {
+            "canonical_url" => "http://www.example.com"
+        },
+    }],
+    "entities" => {
+        "parse_markdown_links" => true,
+        "parse_links" => true
+    }
+} %>
+<%= curl_example(:post, "channels/24204/messages?include_annotations=1", :none, {:data => data}) %>
+
 
 ## Create a Broadcast Channel
 
@@ -102,119 +96,50 @@ Broadcast channels are created like any other channel, with a specific type valu
 
 Here is an example channel body, set to be public, with multiple editors, which you can POST to us:
 
-~~~ js
-{
-    "type": "net.app.core.broadcast",
-    "readers": {
-        "public": true
+<% data = {
+    "type" => "net.app.core.broadcast",
+    "readers" => {
+        "public" => true
     },
-    "editors": {
-        "user_ids": ["@samsharp", "@sfborscht"],
+    "editors" => {
+        "user_ids" => ["@samsharp", "@sfborscht"]
     },
-    "annotations": [{
-        "type": "net.app.core.broadcast.metadata",
-        "value": {
-            "title": "SF Borscht Truck Updates",
-            "description": "Get a notification when the SF Borscht Food Truck will be on the streets!"
+    "annotations" => [{
+        "type" => "net.app.core.broadcast.metadata",
+        "value" => {
+            "title" => "SF Borscht Truck Updates",
+            "description" => "Get a notification when the SF Borscht Food Truck will be on the streets!"
         }
     }]
-}
-~~~
+} %>
+<%= json_output(data) %>
 
 Here's a sample curl command that'll create a channel:
 
-~~~ sh
-curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
-    -H "X-adn-pretty-json: 1" -H "Content-Type: application/json" \
-    --data-ascii '{
-        "type": "net.app.core.broadcast",
-        "readers": {
-            "public": true
-        },
-        "editors": {
-            "user_ids": ["@samsharp", "@sfborscht"]
-        },
-        "annotations": [{
-            "type": "net.app.core.broadcast.metadata",
-            "value": {
-                "title": "SF Borscht Truck Updates",
-                "description": "Get a notification when the SF Borscht Food Truck will be on the streets!"
-            }
-        }]
-    }' \
-    \
-    'https://alpha-api.app.net/stream/0/channels?include_annotations=1'
-~~~
+<%= curl_example(:post, "channels?include_annotations=1", :none, {:data => data}) %>
 
 This will return a fully-populated channel resource, including the `id` of the channel, a few auto-generated annotations, and the `fallback_url`, which is the short URL for the channel's detail page.
 
-~~~ js
-{
-    "data": {
-        "annotations": [
-            {
-                "type": "net.app.core.broadcast.metadata",
-                "value": {
-                    "description": "Get a notification when the SF Borscht Food Truck will be on the streets!",
-                    "tags": [],
-                    "title": "SF Borscht Truck Updates"
-                }
-            },
-            {
-                "type": "net.app.core.broadcast.freq",
-                "value": {
-                    "avg_freq": "less than 1 per week",
-                    "intensity": 0.1
-                }
-            },
-            {
-                "type": "net.app.core.fallback_url",
-                "value": {
-                    "url": "https://app.net/c/2rds"
-                }
-            }
-        ],
-        "counts": {
-            "messages": 0,
-            "subscribers": 1
-        },
-        "editors": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [
-                "190151",
-                "190195"
-            ],
-            "you": true
-        },
-        "has_unread": false,
-        "id": "37332",
-        "is_inactive": false,
-        "owner": {
-            ...
-        },
-        "readers": {
-            "any_user": false,
-            "immutable": false,
-            "public": true,
-            "user_ids": [],
-            "you": true
-        },
-        "type": "net.app.core.broadcast",
-        "writers": {
-            "any_user": false,
-            "immutable": false,
-            "public": false,
-            "user_ids": [],
-            "you": true
-        },
-        "you_can_edit": true,
-        "you_muted": false,
-        "you_subscribed": true
-    },
-    "meta": {
-        "code": 200
+<%= response(:channel) do |h|
+    h["data"]["recent_message"] = nil
+    h["data"]["recent_message_id"] = nil
+    h["data"]["counts"]["messages"] = 0
+    h["data"]["counts"]["subscribers"] = 1
+    data["annotations"] << {
+        "type" => "net.app.core.broadcast.freq",
+        "value" => {
+            "avg_freq" => "less than 1 per week",
+            "intensity" => 0.1
+        }
     }
-}
-~~~
+    data["annotations"] << {
+        "type" => "net.app.core.fallback_url",
+        "value" => {
+            "url" => "https://app.net/c/2rds"
+        }
+    }
+    data["annotations"][0]["value"]["tags"] = []
+    h["data"]["annotations"] = data["annotations"]
+    h["data"]["type"] = data["type"]
+    h["data"]["editors"]["user_ids"] = ["190151", "190195"]
+end %>

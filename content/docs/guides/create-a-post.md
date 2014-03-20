@@ -38,12 +38,4 @@ post = ADN::Post.send_post(:text => "Hello App.net from Ruby!")
 
 If you want to send the equivalent broadcast from the API without using a library, use this curl command:
 
-~~~ sh
-curl -X POST -H "Authorization: Bearer <YOUR ACCESS TOKEN>" \
-    -H "X-adn-pretty-json: 1" -H "Content-Type: application/json" \
-    --data-ascii '{
-      "text": "Hello App.net from curl!",
-    }' \
-    \
-    'https://alpha-api.app.net/stream/0/posts'
-~~~
+<%= curl_example(:post, "posts", :none, {:data => {"text" => "Hello App.net from curl!"}}) %>

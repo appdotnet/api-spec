@@ -107,7 +107,7 @@ Replace a User's avatar image with the uploaded file. The uploaded image Will be
 
 ### Example
 
-<%= curl_example(:post, "users/me/avatar", :user_self, {:files => {"avatar" => "new_avatar_image.jpg"}}) do |h|
+<%= curl_example(:post, "users/me/avatar", :user_self, {:files => {"avatar" => "@new_avatar_image.jpg"}}) do |h|
     h["data"]["avatar_image"]["url"] = "https://example.com/new_avatar_image.jpg"
 end %>
 
@@ -156,6 +156,6 @@ Replace a User's cover image with the uploaded file. The uploaded image must be 
 
 ### Example
 
-<%= curl_example(:post, "users/me/cover", :user_self, {:files => {"cover" => "new_cover_image.jpg"}}) do |h|
+<%= curl_example(:post, "users/me/cover", :user_self, {:files => {"cover" => "@new_cover_image.jpg"}}) do |h|
     h["data"]["cover_image"]["url"] = "https://example.com/new_cover_image.jpg"
 end %>

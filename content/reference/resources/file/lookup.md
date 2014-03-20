@@ -23,9 +23,7 @@ Returns a specific [File](/reference/resources/file/).
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/files/1
-
-<%= response(:file) %>
+<%= curl_example(:get, "files/1", :file) %>
 
 ## Retrieve multiple Files
 
@@ -43,13 +41,11 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/files?ids=1,2,6502
-
-<%= collection_response(:file) { |h|
+<%= curl_example(:get, "files?ids=1,2,6502", :file, {:response => :collection}) do |h|
     second = h["data"][0].clone()
     second["id"] = "2"
     h["data"].unshift(second)
-} %>
+end %>
 
 ## Retrieve my Files
 
@@ -63,6 +59,4 @@ Returns a stream of all Files the current user has created.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/files
-
-<%= paginated_response(:file) %>
+<%= curl_example(:get, "users/me/files", :file, {:response => :paginated}) %>

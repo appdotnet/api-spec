@@ -82,7 +82,10 @@ A customized view of the global events happening on App.net that is streamed to 
 
 ## Basic Use
 
-    curl -i <value from stream.endpoint>
+<%= curl_example(:get, "<value from stream.endpoint>", :none, {
+    :pretty_json => false,
+    :print_headers => true,
+}) %>
 
 An App Stream contains all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/reference/authentication/flows/app-access-token/)**. You can create up to 5 app streams per App token. An App Stream can only be used on a server (where the App token can be kept secret). If you would like your stream to be automatically deleted when you disconnect from your app stream, add the `auto_delete=1` query string parameter when connecting to a stream.
 
