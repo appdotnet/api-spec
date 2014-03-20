@@ -17,9 +17,7 @@ This endpoint is **not** paginated and does **not** respond to the [general chan
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/channels/muted
-
-<%= collection_response(:channel) do |h|
+<%= curl_example(:get, "users/me/channels/muted", :channel, {:response => :collection}) do |h|
     h["data"][0]["you_muted"] = true
 end %>
 
@@ -37,9 +35,7 @@ Mute a Channel. If a user doesn't want to see a channel until there is a new mes
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/channels/1/mute
-
-<%= response(:channel) do |h|
+<%= curl_example(:post, "channels/1/mute", :channel) do |h|
     h["data"]["you_muted"] = true
     h["data"]["you_subscribed"] = false
 end %>
@@ -58,9 +54,7 @@ Unmute a Channel. This allows you to be resubscribed to the channel (but it does
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/channels/1/mute
-
-<%= response(:channel) do |h|
+<%= curl_example(:delete, "channels/1/mute", :channel) do |h|
     h["data"]["you_muted"] = false
     h["data"]["you_subscribed"] = false
 end %>

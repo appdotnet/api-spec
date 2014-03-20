@@ -39,9 +39,7 @@ Returns [Channel](/reference/resources/channel/) objects which match a given sea
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/search?q=kerbal&order=popularity
-
-<%= paginated_response(:channel) do |h|
+<%= curl_example(:get, "channels/search?q=kerbal&order=popularity", :channel, {:response => :paginated}) do |h|
     h["meta"]["count"] = 1
     h["data"][0]["pagination_id"] = "10000"
 end %>

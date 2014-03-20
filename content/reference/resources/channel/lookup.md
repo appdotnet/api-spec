@@ -21,9 +21,7 @@ Returns a specific [Channel](/reference/resources/channel/).
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/1
-
-<%= response(:channel) %>
+<%= curl_example(:get, "channels/1", :channel) %>
 
 ## Retrieve multiple Channels
 Returns multiple Channels requested by id. At most 200 channels can be requested. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
@@ -70,9 +68,7 @@ Returns a stream of all Channels the current user has created.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/channels
-
-<%= paginated_response(:channel) %>
+<%= curl_example(:get, "users/me/channels", :channel, {:response => :paginated}) %>
 
 ## Retrieve number of unread PM Channels
 Returns the current number of `net.app.core.pm` Channels where `has_unread: true` for the current user.
@@ -81,9 +77,7 @@ Returns the current number of `net.app.core.pm` Channels where `has_unread: true
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/channels/pm/num_unread
-
-<%= response(5) %>
+<%= curl_example(:get, "users/me/channels/pm/num_unread", 5) %>
 
 ## Retrieve number of unread Broadcast Channels
 Returns the current number of `net.app.core.broadcast` Channels where `has_unread: true` for the current user.
@@ -92,9 +86,8 @@ Returns the current number of `net.app.core.broadcast` Channels where `has_unrea
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/channels/broadcast/num_unread
+<%= curl_example(:get, "users/me/channels/broadcast/num_unread", 3) %>
 
-<%= response(3) %>
 
 ## Mark all Broadcast Channels as read
 Mark all `net.app.core.broadcast` Channels as read for the current user.
@@ -103,6 +96,4 @@ Mark all `net.app.core.broadcast` Channels as read for the current user.
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/users/me/channels/broadcast/num_unread
-
-<%= response(0) %>
+<%= curl_example(:delete, "users/me/channels/broadcast/num_unread", 0) %>

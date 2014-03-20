@@ -21,9 +21,7 @@ The `meta` response will contain unread counts for common channel types.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels
-
-<%= paginated_response(:channel) do |h|
+<%= curl_example(:get, "channels", :channel, {:response => :paginated}) do |h|
     h["data"][0]["pagination_id"] = "146"
     h["meta"]["more"] = true
     h["meta"]["unread_counts"] = {
@@ -46,9 +44,7 @@ Subscribe to a Channel. This adds it to your [Channel stream](#get-current-users
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/channels/1/subscribe
-
-<%= response(:channel) do |h|
+<%= curl_example(:post, "channels/1/subscribe", :channel) do |h|
     h["data"]["you_subscribed"] = true
 end %>
 
@@ -66,9 +62,7 @@ Unsubscribe from a Channel. This removes it from your [Channel stream](#get-curr
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/channels/1/subscribe
-
-<%= response(:channel) do |h|
+<%= curl_example(:delete, "channels/1/subscribe", :channel) do |h|
     h["data"]["counts"]["subscribers"] -= 1
     h["data"]["you_subscribed"] = false
 end %>
@@ -89,9 +83,7 @@ Retrieve the users who are subscribed to a Channel.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/1/subscribers
-
-<%= paginated_response(:user) do |h|
+<%= curl_example(:get, "channels/1/subscribers", :channel, {:response => :paginated}) do |h|
     h["meta"]["more"] = true
     h["data"][0]["pagination_id"] = "82"
 end %>
@@ -108,9 +100,7 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/1/subscribers
-
-<%= response(["1"]) %>
+<%= curl_example(:get, "channels/1/subscribers/ids", ["1"]) %>
 
 ## Retrieve user ids subscribed to multiple Channels
 
@@ -128,7 +118,7 @@ For each requested Channel, retrieve the ids of all Users who are subscribed to 
 
 Channels 3 and 5 are omitted as if they are not visible or do not exist
 
-<%= response({
+<%= curl_example(:get, "channels/1/subscribers/ids?ids=1,2,3,5", {
     "1" => ["5", "10"],
     "2" => ["5", "20"]
 }) %>

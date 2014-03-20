@@ -23,13 +23,13 @@ Send a JSON document that matches the [Channel schema](/reference/resources/chan
 
 ### Example
 
-> POST https://alpha-api.app.net/stream/0/channels
->
-> Content-Type: application/json
-> 
-> DATA {"type": "com.example.channel", "writers": {"user_ids": ["@berg", "1"]}}
-
-<%= response(:channel) do |h|
+<% data = {
+    "type" => "com.example.channel",
+    "writers" => {
+        "user_ids" => ["@berg", "1"]
+    }
+} %>
+<%= curl_example(:post, "channels", :channel, {:data => data}) do |h|
     h["data"]["id"] = "2"
     h["data"]["readers"]["public"] = false
     h["data"]["writers"]["user_ids"] = ["1", "2"]
@@ -55,13 +55,7 @@ This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/channels/1
->
-> Content-Type: application/json
-> 
-> DATA {"readers": {"public": true}}
-
-<%= response(:channel) %>
+<%= curl_example(:put, "channels/1", :channel, {:data => {"readers" => {"public" => true}}}) %>
 
 ## Deactivate a Channel
 
@@ -83,9 +77,7 @@ The current user must be the same user who created the Channel. *Editors cannot 
 
 ### Example
 
-> DELETE https://alpha-api.app.net/stream/0/channels/1
-
-<%= response(:channel) do |h|
+<%= curl_example(:delete, "channels/1", :channel) do |h|
     h["data"]["is_inactive"] = true
     h["data"]["counts"]["subscribers"] = 0
     h["you_subscribed"] = false
