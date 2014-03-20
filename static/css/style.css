@@ -176,6 +176,7 @@ ul.nav-list .nav-header {
 
 ul.nav-list {
     padding: 0 0 5px 0;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 ul.nav-list li {
