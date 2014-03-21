@@ -41,6 +41,8 @@ Returns multiple Files requested by id. At most 200 files can be requested. File
 
 #### Example
 
+In the following example, file 6502 is omitted because it doesn't exist or we don't have permission to view it.
+
 <%= curl_example(:get, "files?ids=1,2,6502", :file, {:response => :collection}) do |h|
     second = h["data"][0].clone()
     second["id"] = "2"

@@ -9,14 +9,7 @@ title: "Explore Stream"
 
 An Explore Stream is a subset of all public posts flowing through App.net's Global Stream. These Explore Streams are defined by App.net to provide developers and users new ways to discover posts. **We will be adding and removing Explore Streams so in your app please [Retrieve all Explore Streams](#retrieve-all-explore-streams) and cache that list for up to 24 hours instead of hardcoding the current Explore Streams into your app.**
 
-~~~ js
-{
-    "description": "Photos uploaded to App.net",
-    "slug": "photos",
-    "title": "Photos",
-    "url": "https://alpha-api.app.net/stream/0/posts/stream/explore/photos"
-}
-~~~
+<%= json(:explore_stream) %>
 
 ## Explore Stream Fields
 
@@ -56,24 +49,7 @@ Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic 
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/stream/explore
-
-~~~ js
-{
-    "data": [
-        {
-            "description": "Photos uploaded to App.net",
-            "slug": "photos",
-            "title": "Photos",
-            "url": "https://alpha-api.app.net/stream/0/posts/stream/explore/photos"
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "posts/stream/explore", :explore_stream, {:response => :collection}) %>
 
 ## Retrieve an Explore Stream
 
@@ -89,27 +65,14 @@ Retrieve the Posts in an Explore Stream.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts/stream/explore/photos
-
-~~~ js
-{
-    "data": [
-        ...posts...
-    ],
-    "meta": {
-        "code": 200,
-        "explore_stream": {
-            "description": "Photos uploaded to App.net",
-            "slug": "photos",
-            "title": "Photos",
-            "url": "https://alpha-api.app.net/stream/0/posts/stream/explore/photos"
+<%= curl_example(:get, "posts/stream/explore/photos", :explore_stream, {:response => :paginated}) do |h|
+    h["meta"].merge!({
+        "max_id" => "3382496",
+        "min_id" => "3382480",
+        "marker" => {
+            "name" => "explore:photos"
         },
-        "max_id": "3382496",
-        "min_id": "3382480",
-        "more": true,
-        "marker": {
-            "name": "explore:photos"
-        }
-    }
-}
-~~~
+        "explore_stream" => get_hash(:explore_stream)
+    })
+    h["data"] = ["...post objects..."]
+end %>

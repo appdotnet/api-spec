@@ -60,7 +60,8 @@ module Resources
     def parse_hash(data)
       # strip out ~~~js and ~~~ at the beginning and end of the string
       data.gsub!(/^~~~\s*js$|^~~~$/, '')
-      JSON.parse(data)
+      data.gsub!(/^<pre><code class='language-js'>$|^<\/code><\/pre>$/, '')
+      JSON.parse(CGI.unescapeHTML(data))
     end
 
     # make it easier to migrate to this new sample objects syntax by figuring out the difference between the current
@@ -402,6 +403,90 @@ module Resources
       "pos" => 3,
       "len" => 5
   }]
+
+  MESSAGE = {
+      "channel_id" => "1",
+      "created_at" => "2012-12-11T00:31:49Z",
+      "entities" => {
+          "hashtags" => [],
+          "links" => [],
+          "mentions" => []
+      },
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
+      "id" => "1",
+      "machine_only" => false,
+      "num_replies" => 0,
+      "source" => {
+          "client_id" => "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
+          "link" => "https://app.net",
+          "name" => "Test app"
+      },
+      "text" => "Hello channel!",
+      "thread_id" => "1",
+      "user" => "...user object..."
+  }
+
+  APP_TOKEN = {
+      "app" => {
+          "client_id" => "LHYCvdgDuUXndfCfyqABAtezCJjjsVM2",
+          "link" => "http://foo.example.com",
+          "name" => "Test app"
+      },
+      "scopes" => []
+  }
+
+  USER_TOKEN = APP_TOKEN.merge({
+      "scopes" => [
+          "stream",
+          "messages",
+          "export",
+          "write_post",
+          "follow"
+      ],
+      "limits" => {
+          "following" => 40,
+          "max_file_size" => 10000000
+      },
+      "storage" => {
+          "available" => 8787479688,
+          "used" => 1212520312
+      },
+      "user" => "...user object...",
+      "invite_link" => "https://join.app.net/from/notareallink",
+  })
+
+  PLACE = {
+      "factual_id" => "19931850-dc2f-012e-561d-003048cad9da",
+      "name" => "Caltrain",
+      "longitude" => -122.395012,
+      "latitude" => 37.776905,
+      "address" => "700 4th St",
+      "address_extended" => "Ste 4",
+      "locality" => "San Francisco",
+      "region" => "CA",
+      "postcode" => "94107",
+      "country_code" => "us",
+      "is_open" => true,
+      "website" => "http://www.caltrain.com",
+      "telephone" => "(800) 660-4287",
+      "categories" => [
+          {
+              "id" => "429",
+              "labels" => [
+                  "Transportation",
+                  "Transport Hubs",
+                  "Rail Stations"
+              ]
+          }
+      ]
+  }
+
+  EXPLORE_STREAM = {
+      "description" => "Photos uploaded to App.net",
+      "slug" => "photos",
+      "title" => "Photos",
+      "url" => "https://alpha-api.app.net/stream/0/posts/stream/explore/photos"
+  }
 end
 
 include Resources::Helpers

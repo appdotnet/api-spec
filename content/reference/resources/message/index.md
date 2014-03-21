@@ -11,31 +11,7 @@ title: "Message"
 
 A Message is very similar to a [Post](/reference/resources/post/) but 1) it doesn't have to be public and 2) it will be delivered to an arbitrary set of users (not just the users who follow the Message creator). For an overview of the App.net messaging API, please see the [Introduction to App.net Messaging](/docs/guides/messaging/).
 
-~~~ js
-{
-    "channel_id": "1",
-    "created_at": "2012-12-11T00:31:49Z",
-    "entities": {
-        "hashtags": [],
-        "links": [],
-        "mentions": []
-    },
-    "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-    "id": "103",
-    "machine_only": false,
-    "num_replies": 0,
-    "source": {
-        "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-        "link": "https://app.net",
-        "name": "Test app"
-    },
-    "text": "Hello channel!",
-    "thread_id": "103",
-    "user": {
-        ...
-    }
-}
-~~~
+<%= json(:message) %>
 
 ## Fields
 

@@ -37,26 +37,8 @@ Returns multiple Posts requested by id. At most 200 posts can be requested.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/posts?ids=1,2,3
-
-~~~ js
-{
-    "data": [
-        {
-            "id": "1", // note this is a string
-            ...
-        },
-        {
-            "id": "2",
-            ...
-        },
-        {
-            "id": "3",
-            ...
-        },
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "posts?ids=1,2", :post, {:response => :collection}) do |h|
+    second = h["data"][0].clone()
+    second["id"] = "2"
+    h["data"].unshift(second)
+end %>

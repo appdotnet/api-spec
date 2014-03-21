@@ -9,33 +9,7 @@ title: "Place"
 
 Place objects represent physical locations which can be given a name and associated with a latitude and longitude somewhere on Earth. For example, the Caltrain station in San Francisco, CA at 700 4th St., which has a location of latitude 37.776905, longitude -122.395012, can be considered a Place. In order to provide accurate and thorough Place data, we use a database from [factual.com](http://factual.com/). As such, all of our Places use the same UUIDs as those retrieved from factual.com.
 
-~~~ js
-{
-    "factual_id": "19931850-dc2f-012e-561d-003048cad9da",
-    "name": "Caltrain",
-    "longitude": -122.395012,
-    "latitude": 37.776905,
-    "address": "700 4th St",
-    "address_extended": "Ste 4",
-    "locality": "San Francisco",
-    "region": "CA",
-    "postcode": "94107",
-    "country_code": "us",
-    "is_open": true,
-    "website": "http://www.caltrain.com",
-    "telephone": "(800) 660-4287",
-    "categories": [
-        {
-            "id":"429",
-            "labels": [
-                "Transportation",
-                "Transport Hubs",
-                "Rail Stations"
-            ]
-        }
-    ]
-}
-~~~
+<%= json(:place) %>
 
 ## Place Fields
 
@@ -180,40 +154,7 @@ Because it is possible for duplicate entries to exist for the same Place, Factua
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/places/19931850-dc2f-012e-561d-003048cad9da
-
-~~~ js
-{
-    "data": {
-        "website": "http://www.caltrain.com",
-        "name": "Caltrain",
-        "locality": "San Francisco",
-        "region": "CA",
-        "telephone": "(800) 660-4287",
-        "longitude": -122.395012,
-        "latitude": 37.776905,
-        "is_open": true,
-        "postcode": "94107",
-        "factual_id": "19931850-dc2f-012e-561d-003048cad9da",
-        "address": "700 4th St",
-        "address_extended": "Ste 4",
-        "country_code": "us",
-        "categories": [
-            {
-                "labels": [
-                    "Transportation",
-                    "Transport Hubs",
-                    "Rail Stations"
-                ],
-                "id": "429"
-            }
-        ]
-    },
-    "meta": {
-        "code":200
-    }
-}
-~~~
+<%= curl_example(:get, "places/19931850-dc2f-012e-561d-003048cad9da", :place) %>
 
 ## Search for a Place
 
@@ -251,97 +192,14 @@ Returns a list of Places sorted by distance or distance/string match if `q` is p
 ]%>
 
 #### Example (no search string)
-> GET https://alpha-api.app.net/stream/0/places/search?latitude=37.761334&longitude=-122.426276
 
-~~~ js
-{
-    "data": [
-        {
-            "distance": 17.9039689207,
-            "name": "Dolores Park Tennis Courts",
-            "locality": "San Francisco",
-            "region": "CA",
-            "longitude": -122.426165,
-            "is_open": true,
-            "factual_id": "4c469fdf-8f28-43c7-a9f6-c1cb5e95ff9f",
-            "latitude": 37.761469,
-            "country_code": "us",
-            "categories": [
-                {
-                    "labels": [
-                        "Sports and Recreation",
-                        "Racquet Sports",
-                        "Tennis"
-                    ],
-                    "id": "399"
-                }
-            ]
-        },
-        {
-            "distance": 17.9039689207,
-            "name": "Dolores Park",
-            "locality": "San Francisco",
-            "region": "CA",
-            "telephone": "(415) 831-5520",
-            "longitude": -122.426165,
-            "is_open": true,
-            "factual_id": "b7a7f1c8-c68f-4f24-92cb-668cf05658e2",
-            "latitude": 37.761469,
-            "country_code": "us",
-            "categories": [
-                {
-                    "labels": [
-                        "Landmarks",
-                        "Parks"
-                    ],
-                    "id": "118"
-                }
-            ]
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
 
-<br>
+<%= curl_example(:get, "places/search?latitude=37.776905&longitude=-122.395012", :place, {:response => :collection}) do |h|
+    h["data"][0]["distance"] = 15.895655654
+end %>
 
 #### Example (search string, radius and count)
-> GET https://alpha-api.app.net/stream/0/places/search?latitude=37.78592&longitude=-122.400751&q=bi-rite&count=1&radius=5000
 
-~~~ js
-{
-    "data": [
-        {
-            "website": "http://www.biritecreamery.com",
-            "distance": 2771.26823449,
-            "name": "Bi-Rite Creamery",
-            "locality": "San Francisco",
-            "region": "CA",
-            "telephone": "(415) 626-5600",
-            "longitude": -122.409012,
-            "is_open": true,
-            "postcode": "94110",
-            "factual_id": "96304850-ea37-012e-3020-00259004449e",
-            "address": "3692 18th St",
-            "latitude": 37.761868,
-            "country_code": "us",
-            "categories": [
-                {
-                    "labels": [
-                        "Social",
-                        "Food and Dining",
-                        "Restaurants"
-                    ],
-                    "id": "347"
-                }
-            ]
-        }
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "places/search?latitude=37.776905&longitude=-122.395012&q=caltrain&count=1&radius=5000", :place, {:response => :collection}) do |h|
+    h["data"][0]["distance"] = 15.895655654
+end %>

@@ -31,76 +31,22 @@ To create private group messages for use in `net.app.core.pm` channels, you can 
 
 #### Generic Channel Example
 
-> POST https://alpha-api.app.net/stream/0/channels/1/messages
->
-> Content-Type: application/json
-> 
-> DATA {"text": "Hello channel!"}
-
-~~~ js
-{
-    "data": {
-        "channel_id": "1",
-        "created_at": "2012-12-11T00:31:49Z",
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-        "id": "103",
-        "machine_only": false,
-        "num_replies": 0,
-        "source": {
-            "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-            "link": "https://app.net",
-            "name": "Test app"
-        },
-        "text": "Hello channel!",
-        "thread_id": "103",
-        "user": "...user object..."
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<% data = {
+    "text" => "Hello channel!",
+} %>
+<%= curl_example(:post, "channels/1/messages", :message, {:data => data}) %>
 
 #### PM Channel Example
-> POST https://alpha-api.app.net/stream/0/channels/pm/messages
->
-> Content-Type: application/json
-> 
-> DATA {"text": "Hello brand new channel!", "destinations": ["@berg", 1]}
 
-~~~ js
-{
-    "data": {
-        "channel_id": "2",
-        "created_at": "2012-12-11T00:31:49Z",
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-        "id": "105",
-        "machine_only": false,
-        "num_replies": 0,
-        "source": {
-            "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-            "link": "https://app.net",
-            "name": "Test app"
-        },
-        "text": "Hello brand new channel!",
-        "thread_id": "105",
-        "user": "...user object..."
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<% data = {
+    "text" => "Hello channel!",
+    "destinations" => ["@berg", 1]
+} %>
+<%= curl_example(:post, "channels/pm/messages", :message, {:data => data}) do |h|
+    h["data"]["channel_id"] = "2"
+    h["data"]["id"] = "105"
+    h["data"]["thread_id"] = "105"
+end %>
 
 ## Delete a Message
 
@@ -121,36 +67,13 @@ Delete a message. The current user must be the same user who created the Message
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/channels/1/messages/103
+<%= curl_example(:delete, "channels/1/messages/1", :message) do |h|
+    h["data"]["is_deleted"] = true
+    h["data"].delete("text")
+    h["data"].delete("html")
+    h["data"]["entities"].each { |k, v| h["data"]["entities"][k] = []}
+end %>
 
-~~~ js
-{
-    "data": {
-        "channel_id": "1",
-        "created_at": "2012-12-11T00:31:49Z",
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-        "id": "103",
-        "machine_only": false,
-        "num_replies": 0,
-        "source": {
-            "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-            "link": "https://app.net",
-            "name": "Test app"
-        },
-        "text": "Hello channel!",
-        "thread_id": "103",
-        "user": "...user object..."
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
 
 ## Retrieve the Messages in a Channel
 
@@ -168,44 +91,6 @@ Retrieve a stream of the Messages in a channel.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/1/messages
-
-~~~ js
-{
-    "data": [
-        {
-            "channel_id": "1",
-            "created_at": "2012-12-11T00:31:49Z",
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-            "id": "103",
-            "machine_only": false,
-            "num_replies": 0,
-            "source": {
-                "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-                "link": "https://app.net",
-                "name": "Test app"
-            },
-            "text": "Hello channel!",
-            "thread_id": "103",
-            "user": {
-                ...
-            }
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "marker": {
-            "name": "channel:1"
-        },
-        "max_id": 103,
-        "min_id": 95,
-        "more": true
-    }
-}
-~~~
+<%= curl_example(:get, "channels/1/messages", :message, {:response => :paginated}) do |h|
+    h["meta"]["marker"] = {"name" => "channel:1"}
+end %>

@@ -36,26 +36,13 @@ Returns multiple Channels requested by id. At most 200 channels can be requested
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels?ids=1,2,6502
+In the following example, Channel 6502 is omitted because it doesn't exist or we don't have permission to view it.
 
-~~~ js
-{
-    "data": [
-        {
-            "id": "1", // note this is a string
-            ...
-        },
-        {
-            "id": "2",
-            ...
-        }
-        // In this example, Channel 6502 is not present as it doesn't exist.
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "channels?ids=1,2,6502", :channel, {:response => :collection}) do |h|
+    second = h["data"][0].clone()
+    second["id"] = "2"
+    h["data"].unshift(second)
+end %>
 
 ## Retrieve my Channels
 Returns a stream of all Channels the current user has created. 

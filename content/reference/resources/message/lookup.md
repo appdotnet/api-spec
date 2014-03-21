@@ -24,38 +24,7 @@ Returns a specific [Message](/reference/resources/message/).
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/2/messages/480
-
-~~~ js
-{
-    "data": {
-        "channel_id": "2",
-        "created_at": "2012-12-13T18:43:14Z",
-        "entities": {
-            "hashtags": [],
-            "links": [],
-            "mentions": []
-        },
-        "html": "<span itemscope=\"https://app.net/schemas/Post\">heh</span>",
-        "id": "480",
-        "machine_only": false,
-        "num_replies": 0,
-        "source": {
-            "client_id": "zuETCrYwDQW7GtewwyWdv2p69vhg25RW",
-            "link": "https://omega.app.net/",
-            "name": "ADN \u03a9"
-        },
-        "text": "heh",
-        "thread_id": "480",
-        "user": {
-            // full user object
-        }
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "channels/1/messages/1", :message) %>
 
 ## Retrieve multiple Messages
 
@@ -71,41 +40,7 @@ Returns multiple Messages requested by id. At most 200 messages can be requested
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/messages?ids=480,481
-
-~~~ js
-{
-    "data": [
-        {
-            "channel_id": "2",
-            "created_at": "2012-12-13T18:43:14Z",
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">heh</span>",
-            "id": "480",
-            "machine_only": false,
-            "num_replies": 0,
-            "source": {
-                "client_id": "zuETCrYwDQW7GtewwyWdv2p69vhg25RW",
-                "link": "https://omega.app.net/",
-                "name": "ADN \u03a9"
-            },
-            "text": "heh",
-            "thread_id": "480",
-            "user": {
-                // full user object
-            }
-        }
-        // Note that message 481 is not returned because the requesting user does not have permission to see it.
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "channels/messages?ids=1,2", :message, {:response => :collection}) %>
 
 ## Retrieve my Messages
 
@@ -119,41 +54,4 @@ Retrieve a stream of the Messages the current user has created.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/messages
-
-~~~ js
-{
-    "data": [
-        {
-            "channel_id": "1",
-            "created_at": "2012-12-11T00:31:49Z",
-            "entities": {
-                "hashtags": [],
-                "links": [],
-                "mentions": []
-            },
-            "html": "<span itemscope=\"https://app.net/schemas/Post\">Hello channel!</span>",
-            "id": "103",
-            "machine_only": false,
-            "num_replies": 0,
-            "source": {
-                "client_id": "UxUWrSdVLyCaShN62xZR5tknGvAxK93P",
-                "link": "https://app.net",
-                "name": "Test app"
-            },
-            "text": "Hello channel!",
-            "thread_id": "103",
-            "user": {
-                ...
-            }
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": 103,
-        "min_id": 95,
-        "more": true
-    }
-}
-~~~
+<%= curl_example(:get, "users/me/messages", :message, {:response => :paginated}) %>
