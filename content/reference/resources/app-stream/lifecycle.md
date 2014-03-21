@@ -11,7 +11,7 @@ title: "App Stream Lifecycle"
 
 Create a [Stream](/reference/resources/app-stream/) for the current token.
 
-Send a JSON document that matches the [stream schema](/reference/resources/app-stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
+Send a JSON document that matches the [stream schema](/reference/resources/app-stream/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `object_types`, `type`, `filter_id` and `key`. If you don't want to specify a filter, omit `filter_id`. If you don't want to specify a key, omit `key`.
 
 You can create up to 5 streams per App token.
 
@@ -19,7 +19,7 @@ You can create up to 5 streams per App token.
 
 #### POST Data
 
-A JSON object representing the stream to create. See [the stream object](/reference/resources/app-stream/) for more information. Specify ```filter_id``` instead of ```filter``` if you want to filter this stream. (Omit the ```id``` and ```endpoint``` parameters).
+A JSON object representing the stream to create. See [the stream object](/reference/resources/app-stream/) for more information. Specify `filter_id` instead of `filter` if you want to filter this stream. (Omit the `id` and `endpoint` parameters).
 
 #### Example
 
@@ -62,7 +62,7 @@ Return the [Streams](/reference/resources/app-stream/) for the current token.
 
 ## Update a Stream
 
-Update a [Stream](/reference/resources/app-stream/). You can update a Stream by PUTing a JSON document that matches the [stream schema](/reference/resources/app-stream/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```object_types```, ```type```, ```filter_id``` and ```key```. If you don't want to specify a filter, omit ```filter_id```. If you don't want to specify a key, omit ```key```.
+Update a [Stream](/reference/resources/app-stream/). You can update a Stream by PUTing a JSON document that matches the [stream schema](/reference/resources/app-stream/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `object_types`, `type`, `filter_id` and `key`. If you don't want to specify a filter, omit `filter_id`. If you don't want to specify a key, omit `key`.
 
 <%= endpoint "PUT", "streams/[stream_id]", "App" %>
 
@@ -88,7 +88,7 @@ Delete a [Stream](/reference/resources/app-stream/). The Stream must belong to t
 
 If you'd like your app stream to be automatically deleted when you disconnect from it, please add the [`auto_delete=1`](/reference/resources/user-stream/#limits) query string parameter when you connect to your app stream.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "streams/[stream_id]", "App" %>
 
@@ -104,7 +104,7 @@ If you'd like your app stream to be automatically deleted when you disconnect fr
 
 Delete all [Streams](/reference/resources/app-stream/) for the current token. It returns the deleted Streams on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "streams", "App" %>
 

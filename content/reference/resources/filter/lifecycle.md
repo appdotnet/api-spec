@@ -11,7 +11,7 @@ title: "Filter Lifecycle"
 
 Create a [Filter](/reference/resources/filter/) for the current user.
 
-Send a JSON document that matches the [Filter schema](/reference/resources/filter/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```name```, ```match_policy``` and ```clauses```.
+Send a JSON document that matches the [Filter schema](/reference/resources/filter/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `name`, `match_policy` and `clauses`.
 
 <%= endpoint "POST", "filters", "User" %>
 
@@ -62,7 +62,7 @@ Return the [Filter](/reference/resources/filter/) for the current user.
 
 ## Update a Filter
 
-Updates a specific [Filter](/reference/resources/filter/) object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [Filter schema](/reference/resources/filter/) with an HTTP header of ```Content-Type: application/json```. The entire filter will be replaced with new value but it's ```id``` will remain the same. Please refer to the documentation on [how to create a Filter](#create-a-filter) for more information.
+Updates a specific [Filter](/reference/resources/filter/) object. When a filter is updated, all the streams using the filter will start using the new filter criteria. You can update a filter by PUTing an object that matches the [Filter schema](/reference/resources/filter/) with an HTTP header of `Content-Type: application/json`. The entire filter will be replaced with new value but it's `id` will remain the same. Please refer to the documentation on [how to create a Filter](#create-a-filter) for more information.
 
 <%= endpoint "PUT", "filters/[filter_id]", "User" %>
 
@@ -98,7 +98,7 @@ end %>
 
 Delete a [Filter](/reference/resources/filter/). The Filter must belong to the current User. It returns the deleted Filter on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "filters/[filter_id]", "User" %>
 
@@ -114,7 +114,7 @@ Delete a [Filter](/reference/resources/filter/). The Filter must belong to the c
 
 Delete all [Filters](/reference/resources/filter/) for the current user. It returns the deleted Filters on success.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "filters", "User" %>
 

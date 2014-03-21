@@ -11,7 +11,7 @@ title: "File Lifecycle"
 
 Create a new [File](/reference/resources/file/).
 
-An App.net File object can be created without setting the file content. This is called an "incomplete" file object. To create an incomplete file object, POST a JSON document that matches the [File schema](/reference/resources/file/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be `kind`, `type`, `name`, `public` and `annotations`. You can also send those keys as standard form data instead of as JSON. Once you have an incomplete file object, you can [set the file content](/reference/resources/file/content/#set-file-content) in a later request.
+An App.net File object can be created without setting the file content. This is called an "incomplete" file object. To create an incomplete file object, POST a JSON document that matches the [File schema](/reference/resources/file/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `kind`, `type`, `name`, `public` and `annotations`. You can also send those keys as standard form data instead of as JSON. Once you have an incomplete file object, you can [set the file content](/reference/resources/file/content/#set-file-content) in a later request.
 
 You can also create a complete File object with one request by including the file content with the File metadata. To create a complete file object, send a POST with an HTTP header of `Content-Type: multipart/form-data`. Our API expects one part of the request body to contain a `Content-Disposition` header with a value for `filename` and `name="content"`. The data from this part will be used as the file's content. If you wish to send your data as Base64 encoded instead of as a byte stream you must include a `Content-Transfer-Encoding: base64` header. If there is a part with `name="metadata"` and `Content-Type: application/json` then we will parse that JSON as the file's metadata. Otherwise, we will construct the metadata from the `form-data` sent in the request body. If you send extra parts with a value for `filename`, the `name`
 
@@ -100,7 +100,7 @@ end %>
 
 Delete a file. The current user must be the same user who created the File. It returns the deleted File on success. *Since a File could be referenced by multiple resources we recommend that you don't automatically delete files when you delete Posts. Deleting a file should be a more explicit action taken by the user.*
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= general_params_note_for "file" %>
 

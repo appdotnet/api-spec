@@ -182,7 +182,7 @@ Entities are automatically extracted from the post text but there are 2 cases wh
 
 ### Mentions in machine only posts
 
-[Machine only Posts](/reference/resources/post/#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a directed post to those users. You should not pass the ```pos``` or ```len``` keys in these mentions. Please see the example:
+[Machine only Posts](/reference/resources/post/#machine-only-posts) don't have any text so entities cannot be extracted. We allow you to specify up to 10 users (by username or id) who can be mentioned in a machine only post. A machine only post with mentions is treated as a directed post to those users. You should not pass the `pos` or `len` keys in these mentions. Please see the example:
 
 <%= json_output({
     "annotations" => ["...annotations are required for machine only posts..."],
@@ -240,7 +240,7 @@ As an example, the following JSON will create a post with 2 links 1) the parsed 
 
 To prevent phishing, any link where the anchor text differs from the destination domain will be followed by the domain of the link target. These extra characters added by App.net to the `text` field will not count against the 256 character Post limit. In this case, App.net will also add the [`amended_len`](#links) field that includes the length of the complete entity and added anti-phishing text. This will make it easier for apps to customize how the anti-phishing protection looks in their apps. **When rendering links in your app, you must show users an indication of where they will end up.**
 
-The ```text``` attribute of a link should be omitted as it will always be filled in from the post text.
+The `text` attribute of a link should be omitted as it will always be filled in from the post text.
 
 The `url` value can contain [URI templates](#uri-templates) which the server will process.
 

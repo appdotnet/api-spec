@@ -41,8 +41,8 @@ You'll notice that the displayed URL is automatically truncated to 40 chars. The
 
 The follow intent is an easy way to link to a page on App.net that will present the user with an opportunity to follow a selected user.
 
-The base URL for this intent is ```https://alpha.app.net/intent/follow/```.
+The base URL for this intent is `https://alpha.app.net/intent/follow/`.
 
-You must include a user that is the intended target of the follow action. To do this include a ```user_id``` query parameter in the URL. The ```user_id``` can be a username prepended by a @, like @adn, or it can be the numeric user_id, like 136.
+You must include a user that is the intended target of the follow action. To do this include a `user_id` query parameter in the URL. The `user_id` can be a username prepended by a @, like @adn, or it can be the numeric user_id, like 136.
 
-For example, this URL ```https://alpha.app.net/intent/follow/?user_id=136``` will show page where the user can choose to follow the user @adn.
+For example, this URL `https://alpha.app.net/intent/follow/?user_id=136` will show page where the user can choose to follow the user @adn.

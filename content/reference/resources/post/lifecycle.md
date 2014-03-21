@@ -11,7 +11,7 @@ title: "Post Lifecycle"
 
 Create a new <a href="/reference/resources/post/">Post</a> object. Mentions and hashtags will be parsed out of the post text, as will bare URLs.
 
-You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/reference/resources/post/">post schema</a> with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```machine_only```, ```annotations``` and ```entities```. To create complex posts (including [machine only posts](/reference/resources/post/#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entities](/reference/meta/entities/#user-specified-entities) documentation.
+You can also create a Post by sending JSON in the HTTP post body that matches the <a href="/reference/resources/post/">post schema</a> with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `text`, `reply_to`, `machine_only`, `annotations` and `entities`. To create complex posts (including [machine only posts](/reference/resources/post/#machine-only-posts)), you must use the JSON interface. See the [JSON example](#json-example) below. If you would like to specify your own entities, please refer to the [user specified entities](/reference/meta/entities/#user-specified-entities) documentation.
 
 If you want to test how your text will be processed you can use the [text processor](/reference/resources/text-processor).
 
@@ -52,7 +52,7 @@ Delete a <a href="/reference/resources/post/">Post</a>. The current user must be
 
 <%= general_params_note_for "post" %>
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "posts/[post_id]", "User", "write_post" %>
 

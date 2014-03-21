@@ -190,7 +190,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
 
 ### Deprecations
 
-* ```is_following```, ```is_follower```, and ```is_muted``` have all been deprecated and replaced with ```follows_you```, ```you_follow```, and ```you_muted```. These keys should not be used and will be removed from the User object soon.
+* `is_following`, `is_follower`, and `is_muted` have all been deprecated and replaced with `follows_you`, `you_follow`, and `you_muted`. These keys should not be used and will be removed from the User object soon.
 
 ## Images
 Images are objects so that app developers can more easily pick the appropriated sized image for different contexts.
@@ -205,7 +205,7 @@ Images may be dynamically resized on the server by adding `w` and/or `h` paramet
 one of the parameters is omitted, the omitted dimension will be scaled according to the aspect ratio of the original image. Images
 will be returned with HTTPS URLs, but can be fetched over HTTP if desired.
 
-**Currently, gif images can not be resized with the ```w``` and ```h``` parameters.**
+**Currently, gif images can not be resized with the `w` and `h` parameters.**
 
 A user's avatar and cover images can be [directly requested](/reference/resources/user/profile/#retrieve-a-users-avatar-image) without requesting the entire user object.
 

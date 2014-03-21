@@ -15,9 +15,9 @@ All responses to requests to the App.net API endpoints listed under [Resources](
 
 ## Response Envelope
 
-The top-level response is an object containing two keys. The first key, ```data```, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no ```data``` key will be present.
+The top-level response is an object containing two keys. The first key, `data`, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no `data` key will be present.
 
-The second key present, ```meta```, corresponds to an object containing additional information about the request. This object will always contain ```code```, a copy of the HTTP status code that has been returned. It will also contain [pagination metadata](/reference/make-request/pagination/#response-metadata) and/or a [stream marker](/reference/resources/stream-marker/) when relevant.
+The second key present, `meta`, corresponds to an object containing additional information about the request. This object will always contain `code`, a copy of the HTTP status code that has been returned. It will also contain [pagination metadata](/reference/make-request/pagination/#response-metadata) and/or a [stream marker](/reference/resources/stream-marker/) when relevant.
 
 ### Sample Response Envelope
 <%= json_output({
@@ -69,7 +69,7 @@ To request pretty-printing, send the following HTTP header with your request:
 
 ## Error Conditions
 
-If the request was unsuccessful for some reason, no ```data``` key will be returned -- the response object will only contain a ```meta``` object. Additional information pertaining to the type of error generated will be returned inside the ```meta``` object. In particular, the ```code``` and ```error_message``` keys will point out what sort of error occurred. There may also be a uniquely-identifying ```error_slug``` and ```error_id``` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
+If the request was unsuccessful for some reason, no `data` key will be returned -- the response object will only contain a `meta` object. Additional information pertaining to the type of error generated will be returned inside the `meta` object. In particular, the `code` and `error_message` keys will point out what sort of error occurred. There may also be a uniquely-identifying `error_slug` and `error_id` present that can be used to get more information about the error and which may be helpful in support requests with App.net staff.
 
 ### Error Slugs
 

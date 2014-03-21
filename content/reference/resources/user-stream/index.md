@@ -54,7 +54,7 @@ Clients may begin receiving events on the stream **before** the JSON API call re
 
 ### Client consumes stream events
 
-Each stream message is a JSON blob that matches the [response format](/reference/make-request/responses/#response-envelope) returned by the JSON API. If you are consuming a User Stream with WebSockets, each frame will be a separate JSON blob. If you are using the HTTP interface, the response will be encoded with ```Transfer-Encoding: chunked``` and each stream message is separated by ```\r\n```.
+Each stream message is a JSON blob that matches the [response format](/reference/make-request/responses/#response-envelope) returned by the JSON API. If you are consuming a User Stream with WebSockets, each frame will be a separate JSON blob. If you are using the HTTP interface, the response will be encoded with `Transfer-Encoding: chunked` and each stream message is separated by `\r\n`.
 
 Once the JSON is parsed, each message will include the `subscription_ids` which is a list of all subscriptions this message matches. If the original endpoint supported pagination, updated pagination keys `max_id`, `min_id` and `more` will be included. `more` will always be false in the case of streaming events. Events may contain multiple data objects. The `subscription_ids` should be used by your stream consumer to decide how to process the streaming event.
 

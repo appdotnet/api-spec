@@ -11,9 +11,9 @@ title: "Message Lifecycle"
 
 Create a [Message](/reference/resources/message/) in the specified Channel.
 
-Send a JSON document that matches the [Message schema](/reference/resources/message/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```text```, ```reply_to```, ```annotations```, ```entities```, and ```machine_only```.
+Send a JSON document that matches the [Message schema](/reference/resources/message/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `text`, `reply_to`, `annotations`, `entities`, and `machine_only`.
 
-If you would like to specify your own entities, please refer to the [user specified entites](/reference/meta/entities/#user-specified-entities) documentation, otherwise we will parse out links, hashtags, and mentions from the ```text``` field.
+If you would like to specify your own entities, please refer to the [user specified entites](/reference/meta/entities/#user-specified-entities) documentation, otherwise we will parse out links, hashtags, and mentions from the `text` field.
 
 If you want to test how your text will be processed you can use the [text processor](/reference/resources/text-processor).
 
@@ -54,7 +54,7 @@ Delete a message. The current user must be the same user who created the Message
 
 *Note: you can always delete a message you created even if you are no longer able to view the rest of the Channel anymore.*
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= general_params_note_for "message" %>
 

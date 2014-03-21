@@ -151,10 +151,10 @@ For instance, in the message:
 
 <%= response(:post) %>
 
-* ```/data/source/client_id``` = "<%= get_hash(:post)["source"]["client_id"] %>"
-* ```/data/entities/mentions/0/name``` = "<%= get_hash(:post)["entities"]["mentions"][0]["name"] %>"
-* ```/data/num_replies``` = <%= get_hash(:post)["num_replies"] %>
+* `/data/source/client_id` = "<%= get_hash(:post)["source"]["client_id"] %>"
+* `/data/entities/mentions/0/name` = "<%= get_hash(:post)["entities"]["mentions"][0]["name"] %>"
+* `/data/num_replies` = <%= get_hash(:post)["num_replies"] %>
 
-We extend JSON pointer slightly to allow all the elements of a list to match. For example, to answer the question "Does this post contain the hashtag 'rollout'", you'd use a field selector like ```/data/entities/hashtags/*/name```. Following the JSON Pointer spec, if you'd like to encode a literal ```*``` you can use ```~2``` instead.
+We extend JSON pointer slightly to allow all the elements of a list to match. For example, to answer the question "Does this post contain the hashtag 'rollout'", you'd use a field selector like `/data/entities/hashtags/*/name`. Following the JSON Pointer spec, if you'd like to encode a literal `*` you can use `~2` instead.
 
 <%= render 'partials/endpoints-tab', :for => "filter" %>

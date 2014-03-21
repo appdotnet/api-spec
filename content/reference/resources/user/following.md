@@ -31,7 +31,7 @@ Returns the <a href="/reference/resources/user/">User</a> object of the user bei
 
 <%= general_params_note_for "user" %>
 
-*Remember, access tokens cannot be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens cannot be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= endpoint "DELETE", "users/[user_id]/follow", "User", "follow" %>
 

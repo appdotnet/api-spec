@@ -155,13 +155,13 @@ A Post is the other central object utilized by the App.net Stream API. It has ri
 
 ### Deprecations
 
-* ```deleted``` has been deprecated and replaced with ```is_deleted```. This key should not be used and will be removed from the Post object soon.
+* `deleted` has been deprecated and replaced with `is_deleted`. This key should not be used and will be removed from the Post object soon.
 
 ## Post Annotations
 Post annotations are immutable attributes that describe the entire post. Please see the [Annotations](/reference/meta/annotations/) documentation for more information.
 
 ## Machine only Posts
-Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with ```annotations``` and without ```text```. These posts must be specifically asked for by using the ```include_machine=1``` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense to a human?"
+Some posts with annotations data may not be meant for direct consumption by a User. For example, a chess app may create Posts with annotations representing chess moves but having human readable text doesn't make sense. Machine only Posts solve this problem by allowing clients to create posts with `annotations` and without `text`. These posts must be specifically asked for by using the `include_machine=1` query string parameter. They must contain at least one annotation and cannot contain any text. When deciding if a Post should be machine only, ask yourself "Would this Post make sense to a human?"
 
 ## General parameters
 

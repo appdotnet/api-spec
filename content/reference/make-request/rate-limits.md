@@ -21,11 +21,11 @@ The following sample shows a set of three headers which might be returned with a
     X-RateLimit-Limit: 5000
     X-RateLimit-Reset: 3600
 
-The first header, ```X-RateLimit-Remaining```, indicates the total number of requests remaining for this cycle (4959). ```X-RateLimit-Limit``` indicates the total capacity (5000). ```X-RateLimit-Reset``` gives the number of seconds until the remaining number of requests will be reset to the capacity; in this case, ```X-RateLimit-Remaining``` will be reset to 5000 requests in 3600 seconds, irrespective of how many additional requests are made between now and then.
+The first header, `X-RateLimit-Remaining`, indicates the total number of requests remaining for this cycle (4959). `X-RateLimit-Limit` indicates the total capacity (5000). `X-RateLimit-Reset` gives the number of seconds until the remaining number of requests will be reset to the capacity; in this case, `X-RateLimit-Remaining` will be reset to 5000 requests in 3600 seconds, irrespective of how many additional requests are made between now and then.
 
 ## Exceeding Limits
 
-Should your request exceed any applicable rate limits, we will return a status code ```429``` (Too many requests). We ask that any app which is accessing our API respect this response code. The ```Retry-After``` header will contain the number of seconds before another request of this type can be made -- if your request receives a ```429``` code, your application should wait until the ```Retry-After``` period has elapsed before attempting the same kind of request.
+Should your request exceed any applicable rate limits, we will return a status code `429` (Too many requests). We ask that any app which is accessing our API respect this response code. The `Retry-After` header will contain the number of seconds before another request of this type can be made -- if your request receives a `429` code, your application should wait until the `Retry-After` period has elapsed before attempting the same kind of request.
 
 ## Limits
 

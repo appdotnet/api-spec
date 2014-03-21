@@ -66,7 +66,7 @@ A customized view of the global events happening on App.net that is streamed to 
 
 An App Stream contains all public activity (and any private activity the App is authorized to see). **It must be accessed with an [App access token](/reference/authentication/flows/app-access-token/)**. You can create up to 5 app streams per App token. An App Stream can only be used on a server (where the App token can be kept secret). If you would like your stream to be automatically deleted when you disconnect from your app stream, add the `auto_delete=1` query string parameter when connecting to a stream.
 
-Each object in the App Stream will be formatted in a [response envelope](/reference/make-request/responses/#response-envelope). The ```data``` key will always contain the object. Some actions (like following a user) will contain extra information in the ```meta``` key.
+Each object in the App Stream will be formatted in a [response envelope](/reference/make-request/responses/#response-envelope). The `data` key will always contain the object. Some actions (like following a user) will contain extra information in the `meta` key.
 
 If you would like a realtime stream of an individual user's view of App.net, please use a [User Stream](/reference/resources/user-stream).
 
@@ -80,11 +80,11 @@ Streams will give you lots of data, much of which your application may not want.
 
 A Stream is a long-lived HTTP connection that enables clients to receive objects in near real-time from App.net.
 
-When a Stream is established, App.net will send response that includes the ```endpoint``` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any objects previously queued up for this stream.
+When a Stream is established, App.net will send response that includes the `endpoint` that the app can use to consume the newly created stream. You may pass ?purge=1 if you do not wish to receive any objects previously queued up for this stream.
 
-Once connected to the stream endpoint, the response will be encoded using HTTP ```Transfer-Encoding: chunked```.
+Once connected to the stream endpoint, the response will be encoded using HTTP `Transfer-Encoding: chunked`.
 
-The Stream contains frames separated by ```\r\n```. For example:
+The Stream contains frames separated by `\r\n`. For example:
 
     HELLO\r\nWORLD!!!\r\n
 
@@ -174,7 +174,7 @@ Depending on the event type, the following keys may also be available in the `me
 ### Control Message
 
 A control message is a JSON object that gives the client important information about the current Stream. For instance, if the buffer
-is getting too full, the client will receive a control message with that warning. A control message will always have ```control```
+is getting too full, the client will receive a control message with that warning. A control message will always have `control`
 as a key in the object so it is easy to distinguish from a Post.
 
 ## Notifications

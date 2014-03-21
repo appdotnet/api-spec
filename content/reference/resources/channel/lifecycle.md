@@ -11,7 +11,7 @@ title: "Channel Lifecycle"
 
 Create a new [Channel](/reference/resources/channel/).
 
-Send a JSON document that matches the [Channel schema](/reference/resources/channel/) with an HTTP header of ```Content-Type: application/json```. Currently, the only keys we use from your JSON will be ```readers```, ```writers```, ```annotations```, and ```type```. The owner will be auto-subscribed to this channel.
+Send a JSON document that matches the [Channel schema](/reference/resources/channel/) with an HTTP header of `Content-Type: application/json`. Currently, the only keys we use from your JSON will be `readers`, `writers`, `annotations`, and `type`. The owner will be auto-subscribed to this channel.
 
 ### Creating a PM Channel
 
@@ -39,9 +39,9 @@ end %>
 
 ## Update a Channel
 
-Updates a specific [Channel](/reference/resources/channel/) object. You can update a channel by PUTing an object that matches the [Channel schema](/reference/resources/channel/) with an HTTP header of ```Content-Type: application/json```. The only keys that can be updated are ```annotations```, ```readers```, and ```writers``` (and the ACLs can only be updated if ```immutable=false```). The ```you_can_edit``` property tells you if you are allowed to update a channel. Currently, only the Channel owner can edit a channel.
+Updates a specific [Channel](/reference/resources/channel/) object. You can update a channel by PUTing an object that matches the [Channel schema](/reference/resources/channel/) with an HTTP header of `Content-Type: application/json`. The only keys that can be updated are `annotations`, `readers`, and `writers` (and the ACLs can only be updated if `immutable=false`). The `you_can_edit` property tells you if you are allowed to update a channel. Currently, only the Channel owner can edit a channel.
 
-If you want to add or update a Channel's annotations, you may include the optional ```annotations``` key and pass in the annotations that are changing.
+If you want to add or update a Channel's annotations, you may include the optional `annotations` key and pass in the annotations that are changing.
 
 This endpoint currently works identically for the `PUT` and `PATCH` HTTP methods.
 
@@ -65,7 +65,7 @@ The current user must be the same user who created the Channel. *Editors cannot 
 
 *net.app.core.pm* channels cannot be marked as inactive.
 
-*Remember, access tokens can not be passed in a HTTP body for ```DELETE``` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
+*Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 
 <%= general_params_note_for "channel" %>
 

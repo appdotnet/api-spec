@@ -61,7 +61,7 @@ A marker that has been set will look like this:
 
 ## Update a Stream Marker
 
-Update the User's current place in a Stream. To update a Stream Marker, you can POST an object that matches the [Stream Marker schema](/reference/resources/stream-marker/) with an HTTP header of ```Content-Type: application/json```. Only the ```id```, ```name```, and ```percentage``` fields will be used. ```name``` will come from the marker you received in the last GET request you made for the stream. You can update multiple stream markers at once by POSTing a list of stream markers instead of a single one.
+Update the User's current place in a Stream. To update a Stream Marker, you can POST an object that matches the [Stream Marker schema](/reference/resources/stream-marker/) with an HTTP header of `Content-Type: application/json`. Only the `id`, `name`, and `percentage` fields will be used. `name` will come from the marker you received in the last GET request you made for the stream. You can update multiple stream markers at once by POSTing a list of stream markers instead of a single one.
 
 The purpose of a Stream Marker is _not_ to allow a user to scroll a stream on one device and see the scroll happen on another device in realtime. A stream marker should only be updated when a user has stopped scrolling (i.e. the stream's position hasn't changed in multiple seconds) or when the app is being closed. Please make sure your code understands our [rate limit headers](/reference/make-request/rate-limits/#response-headers) so if the rate limits for this endpoint change in the future your app handles this gracefully.
 

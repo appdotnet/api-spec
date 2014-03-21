@@ -11,7 +11,7 @@ title: "Post Replies"
 
 Retrieve all the [Posts](/reference/resources/post/) that are in the same thread as this post. The specified Post does not have to be the root of the conversation. Additionally, the specified Post will be included in the response at the appropriate place.
 
-**This endpoint would be more accurately named ```stream/0/posts/{post_id}/thread``` and may be renamed in a later API version.**
+**This endpoint would be more accurately named `stream/0/posts/{post_id}/thread` and may be renamed in a later API version.**
 
 <%= general_params_note_for "post" %>
 
