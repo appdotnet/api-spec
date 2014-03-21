@@ -42,7 +42,7 @@ A customized view of the global events happening on App.net that is streamed to 
         <tr>
             <td><code>object_types</code></td>
             <td>list</td>
-            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
+            <td>A list of strings that specify the kinds of objects this stream is interested in. Accepted strings are <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>, <code>user</code>.</td>
         </tr>
         <tr>
             <td><code>type</code></td>
@@ -122,7 +122,7 @@ The `meta` object may contain the following standard keys:
         <tr>
             <td><code>type</code></td>
             <td>string</td>
-            <td>One of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>.</td>
+            <td>One of <code>post</code>, <code>star</code>, <code>user_follow</code>, <code>mute</code>, <code>block</code>, <code>stream_marker</code>, <code>message</code>, <code>channel</code>, <code>channel_subscription</code>, <code>token</code>, <code>file</code>, <code>user</code>.</td>
         </tr>
     </tbody>
 </table>
@@ -230,6 +230,7 @@ An App Stream can listen for the following object types:
 * [channel_subscription](#channel_subscription): Sent when a user subscribes or unsubscribes to a channel
 * [token](#token): Sent when a user authorizes, changes scopes for, or deauthorizes an app
 * [file](#file): Sent when a user creates a file, updates a file, or deletes a file
+* [user](#user): Sent when a user updates their profile
 
 ### post
 
@@ -616,6 +617,21 @@ A file is deleted.
         "id" => "85",
         "is_deleted" => true,
     },
+}) %>
+
+### user
+
+*You only see objects in this category for users who have authorized your app with.*
+
+A user updates their profile.
+
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1355349183060,
+        "type" => "user",
+        "id" => "8"
+    },
+    "data" => "...user object..."
 }) %>
 
 <%= render 'partials/endpoints-tab', :for => "app-stream" %>

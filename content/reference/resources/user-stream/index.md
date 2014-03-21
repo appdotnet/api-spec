@@ -66,12 +66,14 @@ Ordering is not guaranteed for events delivered on streams, but we aim to have t
 * /stream/0/users/me/followers
 * /stream/0/users/me/posts
 * /stream/0/users/me/mentions
+* /stream/0/posts/:post_id/replies
 * /stream/0/posts/stream
 * /stream/0/posts/stream/unified
 * /stream/0/channels (includes new messages for channels you're subscribed to)
 * /stream/0/channels/:channel_id/subscribers
 * /stream/0/channels/:channel_id/messages
 * /stream/0/users/me/files
+* /stream/0/token (includes updates for both the token and the user objects of the current user)
 
 ## Limits
 
@@ -140,7 +142,8 @@ In general, the User Streams API tries to mimc the format and conventions of the
         "is_deleted" => true,
         "deleted_id" => "1212",
         "subscription_ids" => ["bf42ca05-e67e-4e26-8bd0-8b042dd5b04c"],
-        "connection_id" => "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw"
+        "connection_id" => "Ne1Rpr4DgmilaYUCe51aoRQpCDei14Aw",
+        "type" => "post",
     }
 }) %>
 
@@ -195,7 +198,8 @@ In general, the User Streams API tries to mimc the format and conventions of the
             "min_id" => "5675993",
             "max_id" => "5675993",
             "connection_id" => "<YOUR CONNECTION ID FROM STEP 2>",
-            "more" => false
+            "more" => false,
+            "type" => "post",
         },
         "data" => [
             "... posts ..."
