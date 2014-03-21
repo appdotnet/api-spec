@@ -27,6 +27,8 @@ Set the content for an incomplete File. The content type for this request must b
 
 This endpoint could return a `507 Insufficient Storage` error if the user doesn't have enough space for this file. For more information, see [file storage limits](/reference/resources/file/#limits).
 
+When successful, this endpoint will return a `204 No Content` response.
+
 <%= endpoint "PUT", "files/[file_id]/content", "User" %>
 
 <%= file_token_reminder %>
@@ -37,14 +39,11 @@ This endpoint could return a `507 Insufficient Storage` error if the user doesn'
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/files/1/content
->
-> Content-Type: image/jpeg
->
-> DATA [raw file, not base64 encoded]
->
-> 204 No Content
-
+<%= curl_example(:put, "files/1/content", "204 No Content", {
+    :content_type => "image/png",
+    :data_binary => "@filename.png",
+    :response => :raw
+}) %>
 
 ## Get Derived File content
 
@@ -78,10 +77,8 @@ This endpoint could return a `507 Insufficient Storage` error if the user doesn'
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/files/1/content/thumbnail_jpg
->
-> Content-Type: image/jpeg
->
-> DATA [raw file, not base64 encoded]
->
-> 204 No Content
+<%= curl_example(:put, "files/1/content/thumbnail_png", "204 No Content", {
+    :content_type => "image/png",
+    :data_binary => "@filename.png",
+    :response => :raw
+}) %>

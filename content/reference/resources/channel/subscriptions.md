@@ -114,8 +114,6 @@ For each requested Channel, retrieve the ids of all Users who are subscribed to 
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/channels/subscribers/ids?ids=1,2,3,5
-
 Channels 3 and 5 are omitted as if they are not visible or do not exist
 
 <%= curl_example(:get, "channels/1/subscribers/ids?ids=1,2,3,5", {

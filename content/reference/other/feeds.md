@@ -37,10 +37,7 @@ Retrieve a feed for the User [@voidfiles](http://alpha.app.net/voidfiles). This 
 
 ### Example
 
-> GET https://alpha-api.app.net/feed/rss/users/@voidfiles/posts
-
-~~~ xml
-<?xml version='1.0' encoding='utf-8'?>
+<% response = %q{<?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Posts from voidfiles on App.net</title>
@@ -63,8 +60,14 @@ Retrieve a feed for the User [@voidfiles](http://alpha.app.net/voidfiles). This 
             <category>hashtag</category>
         </item>
     </channel>
-</rss>
-~~~
+</rss>} %>
+
+<%= curl_example(:get, "users/@voidfiles/posts", response, {
+    :token => nil,
+    :response => :raw,
+    :response_syntax => "xml",
+    :base_url => "https://alpha-api.app.net/feed/rss/",
+}) %>
 
 ## Retrieve a feed for a hashtag
 
@@ -74,10 +77,8 @@ Retrieve a feed for the specified hashtag. This endpoint is similar to the [Retr
 > https://alpha-api.app.net/feed/rss/posts/tag/hashtag
 
 ### Example
-> GET https://alpha-api.app.net/feed/rss/posts/tag/hashtag
 
-~~~ xml
-<?xml version='1.0' encoding='utf-8'?>
+<% response = %q{<?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>#hashtag - App.net</title>
@@ -95,5 +96,11 @@ Retrieve a feed for the specified hashtag. This endpoint is similar to the [Retr
             <category>hashtag</category>
         </item>
     </channel>
-</rss>
-~~~
+</rss>} %>
+
+<%= curl_example(:get, "posts/tag/hashtag", response, {
+    :token => nil,
+    :response => :raw,
+    :response_syntax => "xml",
+    :base_url => "https://alpha-api.app.net/feed/rss/",
+}) %>

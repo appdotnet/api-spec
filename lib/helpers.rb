@@ -1,4 +1,5 @@
 require 'cgi'
+require 'yajl/json_gem'
 include Nanoc::Helpers::Rendering
 
 def join_all(ary, join_with = ", ", connector = "</code> and <code>")
@@ -87,7 +88,8 @@ def curl_example(method, path, response_key, options = {}, &block)
         :follow_redirects => false,
         :print_headers => false,
         :stdin => nil,
-        :headers => {}
+        :headers => {},
+        :response_syntax => "sh", # for raw responses, default to shell highlighting
     }
 
     options = default_curl_options.merge(options)
@@ -107,7 +109,7 @@ def curl_example(method, path, response_key, options = {}, &block)
             paginated_response(response_key, &block)
         when :raw
             options[:pretty_json] = false
-            %{<pre><code class="language-sh">
+            %{<pre><code class="language-#{options[:response_syntax]}">
 #{CGI.escapeHTML(response_key)}
 </code></pre>
 }
@@ -174,9 +176,25 @@ def curl_example(method, path, response_key, options = {}, &block)
     # don't foget to quote this when we have qs params
     curl_parts << %{"#{options[:base_url] + path}"}
 
+    # do some cleanup and wrapping
+    curl_parts = curl_parts.map { |p| CGI.escapeHTML(p) }
+
+    curl_lines = []
+    cur_line = ""
+    width = 80
+    curl_parts.each do |p|
+        if cur_line.length > width
+            curl_lines << cur_line.strip
+            cur_line = ""
+        end
+        cur_line << p
+        cur_line << " "
+    end
+    curl_lines << cur_line.strip
+
     # use pre, code instead of a fenced code block so I can use these insted of markdown lists. Fenced code blocks don't work in md lists
     %{<pre><code class="language-sh">
-#{CGI.escapeHTML(curl_parts.join(' '))}
+#{curl_lines.join(" \\\n    ")}
 </code></pre>
 #{response}
 }

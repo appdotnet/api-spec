@@ -108,8 +108,6 @@ Delete a [Filter](/reference/resources/filter/). The Filter must belong to the c
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/filters/1
-
 <%= curl_example(:delete, "filters/1", :filter) %>
 
 ## Delete all of the current user's Filters

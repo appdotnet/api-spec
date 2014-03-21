@@ -88,6 +88,7 @@ module Resources
     # when using these responses, make sure you always set the defining attributes in a block instead of relying on
     # whatever is defined as the default. For instance, for "follow a user", make sure you set h["data"]["you_follow"] = true
     # in case the default changes in the future
+    # You should _rarely_ call this directly. Usually use curl_example unless you want to have markup between the request and response
     def response(key, &block)
       json_output(base_response(get_hash(key), {"code"=> 200}, &block))
     end
