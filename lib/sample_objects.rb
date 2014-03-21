@@ -500,6 +500,67 @@ module Resources
       "title" => "Photos",
       "url" => "https://alpha-api.app.net/stream/0/posts/stream/explore/photos"
   }
+
+  FILTER = {
+      "clauses" => [
+          {
+              "field" => "/data/entities/hashtags/*/name",
+              "object_type" => "post",
+              "operator" => "matches",
+              "value" => "rollout"
+          }
+      ],
+      "id" => "1",
+      "match_policy" => "include_any",
+      "name" => "Posts about rollouts",
+      "owner" => "...user object..."
+  }
+
+  APP_STREAM = {
+      "endpoint" => "https://stream-channel.app.net...",
+      "filter" => "...filter object...",
+      "id" => "1",
+      "object_types" => [
+          "post"
+      ],
+      "type" => "long_poll",
+      "key" => "rollout_stream"
+  }
+
+  MARKER = {
+      "name" => "global"
+  }
+
+  FULL_MARKER = MARKER.merge({
+      "id" => "1234",
+      "last_read_id" => "2345",
+      "percentage" => 0,
+      "updated_at" => "2012-11-09T23:35:38Z",
+      "version" => "NWoZK3kTsExUV00Ywo1G5jlUKKs"
+  })
+
+  REPOST_INTERACTION = {
+      "action" => "repost",
+      "event_date" => "2012-07-16T17:23:34Z",
+      "objects" => [
+          "...post 1..."
+      ],
+      "users" => [
+          "...@berg's user object",
+          "...@dalton's user object",
+      ]
+  }
+
+  FOLLOW_INTERACTION = {
+      "action" => "follow",
+      "event_date" => "2012-07-16T17:23:34Z",
+      "objects" => [
+          "...@dalton's user object",
+      ],
+      "users" => [
+          "...@berg's user object",
+      ]
+  }
 end
 
 include Resources::Helpers

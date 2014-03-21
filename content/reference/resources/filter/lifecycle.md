@@ -21,32 +21,20 @@ A JSON object representing the [Filter](/reference/resources/filter/) to create.
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/filters
-> 
-> Content-Type: application/json
-> 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}], "name": "Posts about rollouts"}
-
-~~~js
-{
-    "data": {
-        "clauses": [
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "rollout"
-            }
-        ],
-        "id": "1",
-        "match_policy": "include_any",
-        "name": "Posts about rollouts"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<% data = {
+    "clauses" => [
+        {
+            "field" => "/data/entities/hashtags/*/name",
+            "object_type" => "post",
+            "operator" => "matches",
+            "value" => "rollout"
+        }
+    ],
+    "id" => "1",
+    "match_policy" => "include_any",
+    "name" => "Posts about rollouts",
+}%>
+<%= curl_example(:post, "filters", :filter, {:data => data}) %>
 
 ## Retrieve a Filter
 
@@ -60,28 +48,7 @@ Returns a specific [Filter](/reference/resources/filter/) object.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/filters/1
-
-~~~ js
-{
-    "data": {
-        "clauses": [
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "rollout"
-            }
-        ],
-        "id": "1",
-        "match_policy": "include_any",
-        "name": "Posts about rollouts"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "filters/1", :filter) %>
 
 ## Get current user's Filters
 
@@ -91,31 +58,7 @@ Return the [Filter](/reference/resources/filter/) for the current user.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/filters
-
-~~~ js
-{
-    "data": [
-        {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "filters", :filter, {:response => :collection}) %>
 
 ## Update a Filter
 
@@ -129,38 +72,27 @@ Updates a specific [Filter](/reference/resources/filter/) object. When a filter 
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/filters/1
-> 
-> Content-Type: application/json
-> 
-> DATA {"match_policy": "include_any", "clauses": [{"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "rollout"}, {"operator": "matches", "field": "/data/entities/hashtags/*/name", "object_type": "post", "value": "bug"}], "name": "Posts about rollouts or bugs"}
-
-~~~js
-{
-    "data": {
-        "clauses": [
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "rollout"
-            },
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "bug"
-            }
-        ],
-        "id": "1",
-        "match_policy": "include_any",
-        "name": "Posts about rollouts or bugs"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<% data = {
+    "match_policy" => "include_any",
+    "clauses" => [
+        {
+            "operator" => "matches",
+            "field" => "/data/entities/hashtags/*/name",
+            "object_type" => "post",
+            "value" => "rollout"
+        }, {
+            "operator" => "matches",
+            "field" => "/data/entities/hashtags/*/name",
+            "object_type" => "post",
+            "value" => "bug"
+        }
+    ],
+    "name" => "Posts about rollouts or bugs"
+} %>
+<%= curl_example(:put, "filters/1", :filter, {:data => data}) do |h|
+    h["data"]["clauses"] = data["clauses"]
+    h["data"]["name"] = data["name"]
+end %>
 
 ## Delete a Filter
 
@@ -178,26 +110,7 @@ Delete a [Filter](/reference/resources/filter/). The Filter must belong to the c
 
 > DELETE https://alpha-api.app.net/stream/0/filters/1
 
-~~~ js
-{
-    "data": {
-        "clauses": [
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "rollout"
-            }
-        ],
-        "id": "1",
-        "match_policy": "include_any",
-        "name": "Posts about rollouts"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:delete, "filters/1", :filter) %>
 
 ## Delete all of the current user's Filters
 
@@ -209,28 +122,4 @@ Delete all [Filters](/reference/resources/filter/) for the current user. It retu
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/filters
-
-~~~ js
-{
-    "data": [
-        {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:delete, "filters", :filter, {:response => :collection}) %>

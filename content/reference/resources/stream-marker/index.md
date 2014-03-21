@@ -13,24 +13,11 @@ Stream markers allows a User's position in a stream of Posts to be synced betwee
 
 If a Stream Marker hasn't yet been set, you will receive the following format:
 
-~~~ js
-{
-    "name": "global"
-}
-~~~
+<%= json(:marker) %>
 
 A marker that has been set will look like this:
 
-~~~ js
-{
-    "id": "1234",
-    "last_read_id": "2345",
-    "name": "global",
-    "percentage": 0,
-    "updated_at": "2012-11-09T23:35:38Z",
-    "version": "NWoZK3kTsExUV00Ywo1G5jlUKKs"
-}
-~~~
+<%= json(:full_marker) %>
 
 ## Stream Marker fields
 
@@ -84,24 +71,14 @@ The `last_read_id` is updated if the provided `id` is larger than the current va
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/posts/marker
->
-> Content-Type: application/json
-> 
-> DATA {"name": "global", "id": 2}
+<% data = {
+    "name" => "global",
+    "id" => "2"
+} %>
 
-~~~ js
-{
-    "data": {
-        "id": "2",
-        "last_read_id": "2",
-        "name": "global",
-        "percentage": 0,
-        "updated_at": "2012-11-12T20:04:58Z",
-        "version": "d95o2uzYI7q7tY7bHI4U1xBug7s"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:post, "posts/marker", :full_marker) do |h|
+    h["data"]["id"] = h["data"]["last_read_id"] = data["id"]
+    h["data"]["name"] = data["name"]
+    h["data"]["updated_at"] = "2012-11-12T20:04:58Z"
+    h["data"]["version"] = "d95o2uzYI7q7tY7bHI4U1xBug7s"
+end %>

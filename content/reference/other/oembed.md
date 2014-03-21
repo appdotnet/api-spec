@@ -19,19 +19,16 @@ Returns an oEmbed response for a given URL.
 
 #### Example
 
-> GET https://alpha-api.app.net/oembed?url=https%3A%2F%2Fposts.app.net%2F1
+<% response = {
+    "provider_url" => "https://app.net",
+    "version" => "1.0",
+    "author_url" => "https://alpha.app.net/mthurman",
+    "title" => "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
+    "url" => "https://alpha.app.net/mthurman/post/1",
+    "provider_name" => "App.net",
+    "type" => "link",
+    "html" => "...",
+    "author_name" => "mthurman"
+} %>
 
-~~~ js
-{
-    "provider_url": "https://app.net",
-    "version": "1.0",
-    "author_url": "https://alpha.app.net/mthurman",
-    "title": "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
-    "url": "https://alpha.app.net/mthurman/post/1",
-    "provider_name": "App.net",
-    "type": "link",
-    "html": "...",
-    "author_name": "mthurman"
-}
-~~~
-
+<%= curl_example(:get, "oembed?url=https%3A%2F%2Fposts.app.net%2F1", response, {:base_url => "https://alpha-api.app.net/"}) %>

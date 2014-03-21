@@ -11,30 +11,7 @@ title: "App Stream"
 
 A customized view of the global events happening on App.net that is streamed to the client instead of polling.
 
-~~~ js
-{
-    "endpoint": "https://stream-channel.app.net...",
-    "filter": {
-        "clauses": [
-            {
-                "field": "/data/entities/hashtags/*/name",
-                "object_type": "post",
-                "operator": "matches",
-                "value": "rollout"
-            }
-        ],
-        "id": "1",
-        "match_policy": "include_any",
-        "name": "Posts about rollouts"
-    },
-    "id": "1",
-    "object_types": [
-        "post"
-    ],
-    "type": "long_poll",
-    "key": "rollout_stream"
-}
-~~~
+<%= json(:app_stream) %>
 
 ## Stream Fields
 
@@ -258,120 +235,88 @@ An App Stream can listen for the following object types:
 
 A new post is created.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347583834,
-        'type': 'post',
-        'id': '71611'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347583834,
+        'type' => 'post',
+        'id' => '71611'
     },
-    'data': {
-        ...post that was created...
-    }
-}
-~~~
+    'data' => "...post that was created..."
+}) %>
 
 A post is deleted.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347607233,
-        'is_deleted': true,
-        'type': 'post',
-        'id': '71611'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347607233,
+        'is_deleted' => true,
+        'type' => 'post',
+        'id' => '71611'
     },
-    'data': {
-        ...post that was deleted...
-    }
-}
-~~~
+    'data' => "...post that was deleted..."
+}) %>
 
 ### star
 
 A user stars a post.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347590751,
-        'type': 'star',
-        'id': '132'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347590751,
+        'type' => 'star',
+        'id' => '132'
     },
-    'data': {
-        'post': {
-            ...post that was starred...
-        },
-        'user': {
-            ...user that starred this post...
-        }
+    'data' => {
+        'post' => "...post that was starred...",
+        'user' => "...user that starred this post..."
     }
-}
-~~~
+}) %>
 
 A user unstars a post.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347603621,
-        'is_deleted': true,
-        'type': 'star',
-        'id': '132'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347603621,
+        'is_deleted' => true,
+        'type' => 'star',
+        'id' => '132'
     },
-    'data': {
-        'post': {
-            ...post that was unstarred...
-        },
-        'user': {
-            ...user that unstarred the post...
-        }
+    'data' => {
+        'post' => "...post that was unstarred...",
+        'user' => "...user that unstarred the post..."
     }
-}
-~~~
+}) %>
 
 ### user_follow
 
 A user follows another user.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347619758,
-        'type': 'user_follow',
-        'id': '486'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347619758,
+        'type' => 'user_follow',
+        'id' => '486'
     },
-    'data': {
-        'follows_user': {
-            ...user...
-        },
-        'user': {
-            ...user starts following follows_user...
-        }
+    'data' => {
+        'follows_user' => "...user who was followed...",
+        'user' => "...user starts following follows_user..."
     }
-}
-~~~
+}) %>
 
 A user unfollows another user.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355347618071,
-        'is_deleted': true,
-        'type': 'user_follow',
-        'id': '190'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355347618071,
+        'is_deleted' => true,
+        'type' => 'user_follow',
+        'id' => '190'
     },
-    'data': {
-        'follows_user': {
-            ...who was unfollowed...
-        },
-        'user': {
-            ...user unfollowed follows_user...
-        }
+    'data' => {
+        'follows_user' => "...who was unfollowed...",
+        'user' => "...user unfollowed follows_user..."
     }
-}
-~~~
+}) %>
 
 ### mute
 
@@ -379,44 +324,32 @@ A user unfollows another user.
 
 A user that has authorized your app mutes another user.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358373991082,
-        "type": "mute",
-        "id": "143:144"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358373991082,
+        "type" => "mute",
+        "id" => "143:144"
     },
-    "data": {
-        "muted_user": {
-            ...user object...
-        },
-        "user": {
-            ...user object...
-        }
+    "data" => {
+        "muted_user" => "...user object...",
+        "user" => "...user object..."
     }
-}
-~~~
+}) %>
 
 A user that has authorized your app unmutes another user.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358373991082,
-        "is_deleted": true,
-        "type": "mute",
-        "id": "143:144"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358373991082,
+        "is_deleted" => true,
+        "type" => "mute",
+        "id" => "143:144"
     },
-    "data": {
-        "muted_user": {
-            ...user object...
-        },
-        "user": {
-            ...user object...
-        }
+    "data" => {
+        "muted_user" => "...user object...",
+        "user" => "...user object..."
     }
-}
-~~~
+}) %>
 
 ### block
 
@@ -424,44 +357,32 @@ A user that has authorized your app unmutes another user.
 
 A user that has authorized your app blocks another user.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358373991082,
-        "type": "block",
-        "id": "143:144"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358373991082,
+        "type" => "block",
+        "id" => "143:144"
     },
-    "data": {
-        "blocked_user": {
-            ...user object...
-        },
-        "user": {
-            ...user object...
-        }
+    "data" => {
+        "blocked_user" => "...user object...",
+        "user" => "...user object..."
     }
-}
-~~~
+}) %>
 
 A user that has authorized your app unblocks another user.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358373991082,
-        "is_deleted": true,
-        "type": "block",
-        "id": "143:144"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358373991082,
+        "is_deleted" => true,
+        "type" => "block",
+        "id" => "143:144"
     },
-    "data": {
-        "blocked_user": {
-            ...user object...
-        },
-        "user": {
-            ...user object...
-        }
+    "data" => {
+        "blocked_user" => "...user object...",
+        "user" => "...user object..."
     }
-}
-~~~
+}) %>
 
 
 ### stream_marker
@@ -470,26 +391,20 @@ A user that has authorized your app unblocks another user.
 
 A stream marker is set. If the stream marker is not for a channel, then `meta.channel_id` and `meta.channel_type` will be omitted.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1355349119,
-        "user_id": "143",
-        "type": "stream_marker",
-        "id": "143:channel:39",
-        "channel_id": "39",
-        "channel_type": "net.app.core.pm"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1355349119,
+        "user_id" => "143",
+        "type" => "stream_marker",
+        "id" => "143:channel:39",
+        "channel_id" => "39",
+        "channel_type" => "net.app.core.pm"
     },
-    "data": {
-        "marker": {
-            ...marker object...
-        },
-        "user": {
-            ...user object...
-        }
+    "data" => {
+        "marker" => "...marker object...",
+        "user" => "...user object..."
     }
-}
-~~~
+}) %>
 
 ### message
 
@@ -497,40 +412,32 @@ A stream marker is set. If the stream marker is not for a channel, then `meta.ch
 
 A message is created.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355348398679,
-        'channel_type' : 'net.app.core.pm',
-        'subscribed_user_ids': [
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355348398679,
+        'channel_type'  => 'net.app.core.pm',
+        'subscribed_user_ids' => [
             '1',
             '2'
         ],
-        'type': 'message',
-        'id': '1'
+        'type' => 'message',
+        'id' => '1'
     },
-    'data': {
-        ...message object...
-    }
-}
-~~~
+    'data' => "...message object..."
+}) %>
 
 A message is deleted.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355348398679,
-        'channel_type' : 'net.app.core.pm',
-        'is_deleted': true,
-        'type': 'message',
-        'id': '1'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355348398679,
+        'channel_type'  => 'net.app.core.pm',
+        'is_deleted' => true,
+        'type' => 'message',
+        'id' => '1'
     },
-    'data': {
-        ...message object...
-    }
-}
-~~~
+    'data' => "...message object..."
+}) %>
 
 ### channel
 
@@ -538,119 +445,101 @@ A message is deleted.
 
 A channel is created or updated.
 
-~~~ js
-{
-    'meta': {
-        'timestamp': 1355348399284,
-        'type': 'channel',
-        'id': '1'
+<%= json_output({
+    'meta' => {
+        'timestamp' => 1355348399284,
+        'type' => 'channel',
+        'id' => '1'
     },
-    'data': {
-        ...channel...
-    }
-}
-~~~
+    'data' => "...channel..."
+}) %>
 
 ### channel_subscription
 
 A user subscribes to a channel.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1355349183060,
-        "type": "channel_subscription",
-        "id": "92"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1355349183060,
+        "type" => "channel_subscription",
+        "id" => "92"
     },
-    "data": {
-        "user": "...user object...",
-        "channel": {
-            ...
-        }
+    "data" => {
+        "user" => "...user object...",
+        "channel" => "...channel object..."
     }
-}
-~~~
+}) %>
 
 A user unsubscribes to a channel.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1355349183060,
-        'is_deleted': true,
-        "type": "channel_subscription",
-        "id": "92"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1355349183060,
+        'is_deleted' => true,
+        "type" => "channel_subscription",
+        "id" => "92"
     },
-    "data": {
-        "user": "...user object...",
-        "channel": {
-            ...
-        }
+    "data" => {
+        "user" => "...user object...",
+        "channel" => "...channel object..."
     }
-}
-~~~
+}) %>
 
 ### token
 
 A user authorizes an application.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358365986869,
-        "type": "token",
-        "id": "12345",
-        "user_id": "29"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358365986869,
+        "type" => "token",
+        "id" => "12345",
+        "user_id" => "29"
     },
-    "data": {
-        "scopes": ["update_profile", "basic"],
-        "app": {
-            "link": "http://app.net",
-            "name": "My test app",
-            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+    "data" => {
+        "scopes" => ["update_profile", "basic"],
+        "app" => {
+            "link" => "http://app.net",
+            "name" => "My test app",
+            "client_id" => "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
         },
-        "user": {...},
-        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+        "user" => "...user object...",
+        "client_id" => "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
     }
-}
-~~~
+}) %>
 
 A user changes scopes for an application.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358365986869,
-        "type": "token",
-        "id": "12345",
-        "user_id": "29"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358365986869,
+        "type" => "token",
+        "id" => "12345",
+        "user_id" => "29"
     },
-    "data": {
-        "scopes": ["basic", "follow", "stream"],
-        "app": {
-            "link": "http://app.net",
-            "name": "My test app",
-            "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+    "data" => {
+        "scopes" => ["basic", "follow", "stream"],
+        "app" => {
+            "link" => "http://app.net",
+            "name" => "My test app",
+            "client_id" => "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
         },
-        "user": {...},
-        "client_id": "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
+        "user" => "...user object...",
+        "client_id" => "pXUH9kGNx54tA9B4EYkJc9kB9Ne8ZVdS"
     }
-}
-~~~
+}) %>
 
 A user deauthorizes an application.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358365986869,
-        "is_deleted": true,
-        "type": "token",
-        "id": "12345",
-        "user_id": "29"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358365986869,
+        "is_deleted" => true,
+        "type" => "token",
+        "id" => "12345",
+        "user_id" => "29"
     }
-}
-~~~
+}) %>
 
 ### file
 
@@ -658,85 +547,75 @@ A user deauthorizes an application.
 
 A file is created.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358986634896,
-        "type": "file",
-        "id": "85"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358986634896,
+        "type" => "file",
+        "id" => "85"
     },
-    "data": {
-        "kind": "other",
-        "name": "my_dog",
-        "id": "85",
-        "source": {
-            ...
-        },
-        "user": "...user object...",
-        "type": "com.example.test",
-        "annotations": [],
-        "complete": false
+    "data" => {
+        "kind" => "other",
+        "name" => "my_dog",
+        "id" => "85",
+        "source" => "...source object...",
+        "user" => "...user object...",
+        "type" => "com.example.test",
+        "annotations" => [],
+        "complete" => false
     }
-}
-~~~
+}) %>
 
 A file is uploaded to (or updated).
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358986636754,
-        "type": "file",
-        "id": "85"
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358986636754,
+        "type" => "file",
+        "id" => "85"
     },
-    "data": {
-        "kind": "other",
-        "sha1": "ef0ccae4d36d4083b53e121a6cf9cc9d7aca1234",
-        "name": "my_dog",
-        "source": {
-            ...
-        },
-        "url": "https://example.com/image.png",
-        "derived_files": {
-            "image_thumb_200s": {
-                "url": "https://example.com/image_thumb.png",
-                "sha1": "be91cb06d69df13bb103a359ce70cf9fba3e1234",
-                "url_expires": "2013-01-25T03:00:00Z",
-                "mime_type": "image/png",
-                "size": 33803
+    "data" => {
+        "kind" => "other",
+        "sha1" => "ef0ccae4d36d4083b53e121a6cf9cc9d7aca1234",
+        "name" => "my_dog",
+        "source" => "...source object...",
+        "url" => "https://example.com/image.png",
+        "derived_files" => {
+            "image_thumb_200s" => {
+                "url" => "https://example.com/image_thumb.png",
+                "sha1" => "be91cb06d69df13bb103a359ce70cf9fba3e1234",
+                "url_expires" => "2013-01-25T03:00:00Z",
+                "mime_type" => "image/png",
+                "size" => 33803
             },
-            "image_thumb_960r": {
-                "url": "https://example.com/image_large_thumb.png",
-                "sha1": "57004b55119002f551be5b9f2d5439dd4adf1234",
-                "url_expires": "2013-01-25T03:00:00Z",
-                "mime_type": "image/png",
-                "size": 140173
+            "image_thumb_960r" => {
+                "url" => "https://example.com/image_large_thumb.png",
+                "sha1" => "57004b55119002f551be5b9f2d5439dd4adf1234",
+                "url_expires" => "2013-01-25T03:00:00Z",
+                "mime_type" => "image/png",
+                "size" => 140173
             }
         },
-        "id": "85",
-        "total_size": 346369,
-        "user": "...user object...",
-        "complete": true,
-        "size": 172393,
-        "type": "com.example.test",
-        "annotations": [],
-        "mime_type": "image/png",
-        "url_expires": "2013-01-25T03:00:00Z"
+        "id" => "85",
+        "total_size" => 346369,
+        "user" => "...user object...",
+        "complete" => true,
+        "size" => 172393,
+        "type" => "com.example.test",
+        "annotations" => [],
+        "mime_type" => "image/png",
+        "url_expires" => "2013-01-25T03:00:00Z"
     }
-}
-~~~
+}) %>
 
 A file is deleted.
 
-~~~ js
-{
-    "meta": {
-        "timestamp": 1358986636754,
-        "type": "file",
-        "id": "85",
-        "is_deleted": true,
+<%= json_output({
+    "meta" => {
+        "timestamp" => 1358986636754,
+        "type" => "file",
+        "id" => "85",
+        "is_deleted" => true,
     },
-}
-~~~
+}) %>
 
 <%= render 'partials/endpoints-tab', :for => "app-stream" %>

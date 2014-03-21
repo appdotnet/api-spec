@@ -23,41 +23,14 @@ A JSON object representing the stream to create. See [the stream object](/refere
 
 #### Example
 
-> POST https://alpha-api.app.net/stream/0/streams
-> 
-> Content-Type: application/json
-> 
-> DATA {"object_types": ["post"], "type": "long_poll", "filter_id": "1", "key": "rollout_stream"}
+<% data = {
+    "object_types" => ["post"],
+    "type" => "long_poll",
+    "filter_id" => "1",
+    "key" => "rollout_stream"
+} %>
+<%= curl_example(:post, "streams", :app_stream, {:data => data, :token => "<YOUR APP TOKEN>"})%>
 
-~~~js
-{
-    "data": {
-        "endpoint": "https://stream-channel.app.net...",
-        "filter": {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        "id": "1",
-        "object_types": [
-            "post"
-        ],
-        "type": "long_poll",
-        "key": "rollout_stream"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
 
 ## Retrieve a Stream
 
@@ -71,36 +44,7 @@ Returns a specific [Stream](/reference/resources/app-stream/) object.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/streams/1
-
-~~~ js
-{
-    "data": {
-        "endpoint": "https://stream-channel.app.net...",
-        "filter": {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        "id": "1",
-        "object_types": [
-            "post"
-        ],
-        "type": "long_poll"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:get, "streams/1", :app_stream, {:token => "<YOUR APP TOKEN>"}) %>
 
 ## Get current token's Streams
 
@@ -114,43 +58,7 @@ Return the [Streams](/reference/resources/app-stream/) for the current token.
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/streams?key=rollout_stream
-
-~~~ js
-{
-    "data": [
-        {
-            "endpoint": "https://stream-channel.app.net...",
-            "filter": {
-                "clauses": [
-                    {
-                        "field": "/data/entities/hashtags/*/name",
-                        "object_type": "post",
-                        "operator": "matches",
-                        "value": "rollout"
-                    }
-                ],
-                "id": "1",
-                "match_policy": "include_any",
-                "name": "Posts about rollouts"
-            },
-            "id": "1",
-            "object_types": [
-                "post"
-            ],
-            "type": "long_poll",
-            "key": "rollout_stream"
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
-    }
-}
-~~~
+<%= curl_example(:get, "streams?key=rollout_stream", :app_stream, {:response => :collection, :token => "<YOUR APP TOKEN>"}) %>
 
 ## Update a Stream
 
@@ -164,42 +72,15 @@ Update a [Stream](/reference/resources/app-stream/). You can update a Stream by 
 
 #### Example
 
-> PUT https://alpha-api.app.net/stream/0/streams/1
-> 
-> Content-Type: application/json
-> 
-> DATA {"object_types": ["post","star"], "type": "long_poll", "id": "1", "filter_id": "1", "key": "rollout_stream"}
-
-~~~js
-{
-    "data": {
-        "endpoint": "https://stream-channel.app.net...",
-        "filter": {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        "id": "1",
-        "object_types": [
-            "post",
-            "star"
-        ],
-        "type": "long_poll",
-        "key": "rollout_stream"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<% data = {
+    "object_types" => ["post","star"],
+    "type" => "long_poll",
+    "filter_id" => "1",
+    "key" => "rollout_stream"
+} %>
+<%= curl_example(:put, "streams/1", :app_stream, {:data => data, :token => "<YOUR APP TOKEN>"}) do |h|
+    h["data"]["object_types"] = data["object_types"]
+end %>
 
 ## Delete a Stream
 
@@ -217,36 +98,7 @@ If you'd like your app stream to be automatically deleted when you disconnect fr
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/streams/1
-
-~~~ js
-{
-    "data": {
-        "endpoint": "https://stream-channel.app.net...",
-        "filter": {
-            "clauses": [
-                {
-                    "field": "/data/entities/hashtags/*/name",
-                    "object_type": "post",
-                    "operator": "matches",
-                    "value": "rollout"
-                }
-            ],
-            "id": "1",
-            "match_policy": "include_any",
-            "name": "Posts about rollouts"
-        },
-        "id": "1",
-        "object_types": [
-            "post"
-        ],
-        "type": "long_poll"
-    },
-    "meta": {
-        "code": 200
-    }
-}
-~~~
+<%= curl_example(:delete, "streams/1", :app_stream, {:token => "<YOUR APP TOKEN>"}) %>
 
 ## Delete all of the current user's Streams
 
@@ -258,39 +110,4 @@ Delete all [Streams](/reference/resources/app-stream/) for the current token. It
 
 #### Example
 
-> DELETE https://alpha-api.app.net/stream/0/streams
-
-~~~ js
-{
-    "data": [
-        {
-            "endpoint": "https://stream-channel.app.net...",
-            "filter": {
-                "clauses": [
-                    {
-                        "field": "/data/entities/hashtags/*/name",
-                        "object_type": "post",
-                        "operator": "matches",
-                        "value": "rollout"
-                    }
-                ],
-                "id": "1",
-                "match_policy": "include_any",
-                "name": "Posts about rollouts"
-            },
-            "id": "1",
-            "object_types": [
-                "post"
-            ],
-            "type": "long_poll"
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
-    }
-}
-~~~
+<%= curl_example(:delete, "streams", :app_stream, {:response => :collection, :token => "<YOUR APP TOKEN>"}) %>

@@ -11,21 +11,7 @@ title: "Filter"
 
 A Filter restricts a stream of messages on the server side so your client only sees what it's interested in. [Streams](/reference/resources/app-stream/) are currently the only way to use filters right now.
 
-~~~ js
-{
-    "clauses": [
-        {
-            "field": "/data/entities/hashtags/*/name",
-            "object_type": "post",
-            "operator": "matches",
-            "value": "rollout"
-        }
-    ],
-    "id": "1",
-    "match_policy": "include_any",
-    "name": "Posts about rollouts"
-}
-~~~
+<%= json(:filter) %>
 
 ## Filter fields
 
@@ -57,6 +43,11 @@ A Filter restricts a stream of messages on the server side so your client only s
             <td><code>match_policy</code></td>
             <td>string</td>
             <td>How should the clauses be joined together? One of <code>include_any</code>, <code>include_all</code>, <code>exclude_any</code>, or <code>exclude_all</code>. For example, <code>include_any</code> will include a message if it matches any of the clauses and <code>exclude_all</code> will exclude a message if it matches all of the clauses. This allows either white- or blacklist filtering.</td>
+        </tr>
+        <tr>
+            <td><code>owner</code></td>
+            <td><a href="/reference/resources/user/">User object</a></td>
+            <td>This is an embedded version of the <a href='/reference/resources/user/'>User</a> object. <em>In certain cases (e.g., when a user account has been deleted), this key may be omitted.</em></td>
         </tr>
     </tbody>
 </table>
@@ -158,52 +149,11 @@ We use a slightly modified version of the [JSON Pointer standard](http://tools.i
 
 For instance, in the message:
 
-~~~ js
-{
-    "data": [
-        {
-            "id": "2", // note this is a string
-            "user": "...user object...",
-            "created_at": "2012-07-16T17:25:47Z",
-            "text": "@mthurman stop trolling",
-            "html": "<span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling",
-            "source": {
-                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
-                "name": "Clientastic for iOS",
-                "link": "http://app.net"
-            },
-            "machine_only": false,
-            "reply_to": "1",
-            "thread_id": "1",
-            "num_replies": 0,
-            "num_reposts": 0,
-            "num_stars": 0,
-            "entities": {
-                "mentions": [{
-                    "name": "mthurman",
-                    "id": "2",
-                    "pos": 0,
-                    "len": 9
-                }],
-                "hashtags": [{],
-                "links": []
-            },
-            "you_reposted": false,
-            "you_starred": false
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": "2",
-        "min_id": "1",
-        "more": false
-    }
-~~~
+<%= response(:post) %>
 
-* ```/data/source/client_id``` = "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"
-* ```/data/entities/mentions/0/name``` = "mthurman"
-* ```/data/num_replies``` = 0
+* ```/data/source/client_id``` = "<%= get_hash(:post)["source"]["client_id"] %>"
+* ```/data/entities/mentions/0/name``` = "<%= get_hash(:post)["entities"]["mentions"][0]["name"] %>"
+* ```/data/num_replies``` = <%= get_hash(:post)["num_replies"] %>
 
 We extend JSON pointer slightly to allow all the elements of a list to match. For example, to answer the question "Does this post contain the hashtag 'rollout'", you'd use a field selector like ```/data/entities/hashtags/*/name```. Following the JSON Pointer spec, if you'd like to encode a literal ```*``` you can use ```~2``` instead.
 

@@ -13,44 +13,11 @@ Interactions are objects that represent users taking certain actions on App.net.
 
 (Example) @dalton and @berg reposted post 1:
 
-~~~ js
-{
-    "action": "repost",
-    "event_date": "2012-07-16T17:23:34Z",
-    "objects": [
-        {
-            // ... post 1 ...
-        }
-    ],
-    "users": [
-        {
-            // ... @berg's user object ...
-        },
-        {
-            // ... @dalton's user object ...
-        },
-    ]
-}
-~~~
+<%= json_output(:repost_interaction) %>
 
 (Example) @berg started following @dalton:
 
-~~~ js
-{
-    "action": "follow",
-    "event_date": "2012-07-16T17:23:34Z",
-    "objects": [
-        {
-            // ... @dalton's user object ...
-        }
-    ],
-    "users": [
-        {
-            // ... @berg's user object ...
-        }
-    ]
-}
-~~~
+<%= json(:follow_interaction) %>
 
 ## Interactions Fields
 
@@ -103,54 +70,6 @@ This endpoint accepts the `interaction_actions` as a query string parameter whos
 
 #### Example
 
-> GET https://alpha-api.app.net/stream/0/users/me/interactions
-
-~~~ js
-{
-    "data": [
-        {
-            "action": "repost",
-            "event_date": "2012-07-16T17:23:34Z",
-            "objects": [
-                {
-                    "id": "1",
-                    ...
-                }
-            ],
-            "users": [
-                {
-                    "id": "2",
-                    ...
-                },
-                {
-                    "id": "1",
-                    ...
-                },
-            ]
-        },
-        {
-            "action": "follow",
-            "event_date": "2012-07-16T17:23:34Z",
-            "objects": [
-                {
-                    "id": "1",
-                    ...
-                }
-            ],
-            "users": [
-                {
-                    "id": "2",
-                    ...
-                }
-            ]
-        },
-        ...
-    ],
-    "meta": {
-        "code": 200,
-        "max_id": 10,
-        "min_id": 4,
-        "more": true
-    }
-}
-~~~
+<%= curl_example(:get, "users/me/interactions", :repost_interaction, {:response => :paginated}) do |h|
+    h["data"][0]["pagination_id"] = "10"
+end %>
