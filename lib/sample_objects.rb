@@ -161,7 +161,7 @@ module Resources
       "user" => "...user object...",  # TODO render this as a user placholder somehow
   }
 
-  USER = {
+  USER_SELF = {
       "id" => "1",
       "username" => "mthurman",
       "name" => "Mark Thurman",
@@ -210,18 +210,18 @@ module Resources
           "posts" => 24,
           "stars" => 76
       },
+      "verified_domain" => "example.com",
+      "canonical_url" => "https://alpha.app.net/mthurman"
+  }
+
+  USER = USER_SELF.merge({
       "follows_you" => false,
       "you_blocked" => false,
       "you_follow" => false,
       "you_muted" => false,
       "you_can_subscribe" => true,
       "you_can_follow" => true,
-      "verified_domain" => "example.com",
-      "canonical_url" => "https://alpha.app.net/mthurman"
-  }
-
-  USER_SELF_BLACKLIST = ['follows_you', 'you_follow', 'you_muted', 'you_blocked', 'you_can_subscribe', 'you_can_follow']
-  USER_SELF = USER.reject {|key, value| USER_SELF_BLACKLIST.include?(key) }
+  })
 
   CONFIG = {
     "text" => {
@@ -250,7 +250,7 @@ module Resources
     }
   }
 
-  CHANNEL_WITH_MARKER = {
+  CHANNEL = {
     "counts" => {
         "messages" => 42,
         "subscribers" => 43
@@ -286,12 +286,13 @@ module Resources
     "you_can_edit" => true,
     "you_subscribed" => true,
     "you_muted" => false,
-    "marker" => "...marker object..."
   }
 
-  CHANNEL = CHANNEL_WITH_MARKER.reject {|key, value| key == "marker" }
+  CHANNEL_WITH_MARKER = CHANNEL.merge({
+      "marker" => "...marker object..."
+  })
 
-  FULL_POST = {
+  POST = {
       "id" => "1",
       "user" => "...user object...",
       "created_at" => "2012-07-16T17:25:47Z",
@@ -309,13 +310,6 @@ module Resources
       "num_replies" => 0,
       "num_reposts" => 0,
       "num_stars" => 0,
-      "annotations" => [{
-          "type" => "net.app.core.geolocation",
-          "value" => {
-              "latitude" => 74.0064,
-              "longitude" => 40.7142
-          }
-      }],
       "entities" => {
           "mentions" => [{
               "name" => "berg",
@@ -337,72 +331,91 @@ module Resources
       },
       "you_reposted" => false,
       "you_starred" => false,
+  }
+
+  FULL_POST = POST.merge({
+      "annotations" => [{
+          "type" => "net.app.core.geolocation",
+          "value" => {
+              "latitude" => 74.0064,
+              "longitude" => 40.7142
+          }
+      }],
       "reposters" => [
           "...user objects..."
       ],
       "starred_by" => [
           "...user objects..."
       ]
-  }
+  })
 
-  post_fields_omitted = ["annotations", "reposters", "starred_by"]
-  POST = FULL_POST.reject {|key, value| post_fields_omitted.include? key }
   # since posts have text, html, entities, instead of always having to override in the block, provide more options here if we care
   # about what the text is
-  FIRST_POST = Helpers.deep_copy(POST)
-  # get rid of the user defined link through here
-  FIRST_POST["html"] = "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>"
-  FIRST_POST["entities"]["links"] = []
 
-  POST_REPLY = Helpers.deep_copy(POST)
-  POST_REPLY["id"] = "2"
-  POST_REPLY["canonical_url"] = "https://alpha.app.net/berg/post/2"
-  POST_REPLY["reply_to"] = "1"
-  POST_REPLY["thread_id"] = "1"
-  POST_REPLY["text"] = "@mthurman stop trolling"
-  POST_REPLY["html"] = "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling</span>"
-  POST_REPLY["entities"] = {
-      "mentions" => [{
-          "name" => "mthurman",
-          "id" => "2",
-          "pos" => 0,
-          "len" => 9
-      }],
-      "hashtags" => [],
-      "links" => []
-  }
+  # No user defined link here
+  FIRST_POST = POST.merge({
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>",
+      "entities" => POST["entities"].merge({
+          "links" => []
+      })
+  })
 
-  # simplify POST before we "repost" it so there are fewer entities etc
-  REPOST_OF = Helpers.deep_copy(POST)
-  REPOST_OF["text"] = "a really insightful post that must be shared with the world"
-  REPOST_OF["html"] = "<span itemscope=\"https://app.net/schemas/Post\">" + REPOST_OF["text"] + "</span>"
-  REPOST_OF["entities"] = {
-      "hashtags" => [],
-      "links" => [],
-      "mentions" => []
-  }
-  REPOST_OF["id"] = "3"
-  REPOST_OF["thread_id"] = "3"
-  REPOST_OF["canonical_url"] = "https://alpha.app.net/berg/post/3"
-
-  REPOST = Helpers.deep_copy(REPOST_OF)
-  REPOST["repost_of"] = REPOST_OF
-  REPOST["repost_of"]["you_reposted"] = true
-  REPOST["repost_of"]["num_reposts"] += 1
-  REPOST["id"] = "4"
-  REPOST["created_at"] = "2012-09-13T21:26:19Z"
-  REPOST["canonical_url"] = "https://alpha.app.net/mthurman/post/4"
-  REPOST["num_replies"] = 0
-  REPOST["num_reposts"] = 0
-  REPOST["num_stars"] = 0
-  REPOST["text"] = ">> @berg: " + REPOST_OF["text"]
-  REPOST["html"] = "<span itemscope=\"https://app.net/schemas/Post\">&gt;&gt; <span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span>: a really insightful post that must be shared with the world</span>"
-  REPOST["entities"]["mentions"] = [{
-      "name" => "berg",
+  # A reply to POST
+  POST_REPLY = POST.merge({
       "id" => "2",
-      "pos" => 3,
-      "len" => 5
-  }]
+      "canonical_url" => "https://alpha.app.net/berg/post/2",
+      "reply_to" => "1",
+      "thread_id" => "1",
+      "text" => "@mthurman stop trolling",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling</span>",
+      "entities" => {
+          "mentions" => [{
+              "name" => "mthurman",
+              "id" => "2",
+              "pos" => 0,
+              "len" => 9
+          }],
+          "hashtags" => [],
+          "links" => []
+      }
+  })
+
+  # Building up to REPOST which is a repost of a REPOST_OF (which is just POST with fewer entities)
+  REPOST_OF = POST.merge({
+      "text" => "a really insightful post that must be shared with the world",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\">a really insightful post that must be shared with the world</span>",
+      "entities" => {
+          "hashtags" => [],
+          "links" => [],
+          "mentions" => []
+      },
+      "id" => "3",
+      "thread_id" => "3",
+      "canonical_url" => "https://alpha.app.net/berg/post/3",
+  })
+
+  REPOST = REPOST_OF.merge({
+      "id" => "4",
+      "created_at" => "2012-09-13T21:26:19Z",
+      "canonical_url" => "https://alpha.app.net/mthurman/post/4",
+      "num_replies" => 0,
+      "num_reposts" => 0,
+      "num_stars" => 0,
+      "text" => ">> @berg: " + REPOST_OF["text"],
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\">&gt;&gt; <span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span>: a really insightful post that must be shared with the world</span>",
+      "entities" => REPOST_OF["entities"].merge({
+          "mentions" => [{
+              "name" => "berg",
+              "id" => "2",
+              "pos" => 3,
+              "len" => 5
+          }]
+      }),
+      "repost_of" => REPOST_OF.merge({
+          "you_reposted" => true,
+          "num_reposts" => REPOST_OF["num_reposts"] + 1
+      })
+  })
 
   MESSAGE = {
       "channel_id" => "1",
