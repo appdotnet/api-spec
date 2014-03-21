@@ -9,26 +9,21 @@ The App.net API provides lots of functionality that could be useful to implement
 * TOC
 {:toc}
 
-## API Ovierview
+## API Overview
 
 App.net provides 5 major kinds of functionality.
 
-* Identity and Authentication
-    * Sign in with App.net. This can make user management much easier.
-* Social graph
-    * Find friends from App.net. This helps solve the "cold start" problem when a user signs into your app.
-* Microblogging
-    * Publish short public updates to App.net followers.
-* Messaging
-    * Publish short public or private updates to any App.net user(s).
-* File storage
-    * Store files (photos, documents, videos) with App.net.
+* Identity and Authentication: Sign in with App.net. Streamline your app's authentication and signup processes.
+* Social Graph: Find friends from App.net. Solve the "cold start" problem when a user signs into your app.
+* Microblogging: Publish short public updates to App.net followers.
+* Messaging: Publish short public or private updates to any App.net user(s).
+* File Storage: Store files (photos, documents, videos) with App.net.
 
 ## Get started
 
-1. [Create an app](/docs/guides/create-an-app)
-2. Generate a token for yourself and your new app
-3. Make API requests using one of our [API Libraries](/docs/libraries).
+1. [Create an app.](/docs/guides/create-an-app)
+2. Generate a token for yourself and your new app.
+3. Make API requests using one of our [API Libraries.](/docs/libraries)
 
 ## Notable API features
 
@@ -52,4 +47,4 @@ App.net gives each user space to store and share files. These files can be share
 
 If you find a problem with the documentation, please [open an issue](https://github.com/appdotnet/api-spec/issues) and let us know. If you have questions about the API, the quickest way to get answers is usually the [Developer Chat Room](http://patter-app.net/room.html?channel=1383) powered by the App.net API through Patter. 
 
-During typical San Francisco business hours there are also App.net staff members available to answer questions in our [HipChat chat room](http://www.hipchat.com/garqCaGOZ). For other inquiries about account/service related issues, please email [support@app.net](mailto:support@app.net).
+During typical San Francisco business hours, there are also App.net staff members available to answer questions in our [HipChat chat room](http://www.hipchat.com/garqCaGOZ). For other inquiries about account/service related issues, please email [support@app.net](mailto:support@app.net).
