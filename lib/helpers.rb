@@ -74,8 +74,7 @@ end
 
 def login_url(text)
     base_domain = lanai_hostname()
-    scopes = ["basic"]
-    # testing
+    scopes = ["basic", "files", "update_profile", "stream", "messages", "write_post", "follow"]
     client_id = ENV['CLIENT_ID'] || "gvfM7pVsPBAkVmFWeCDF22uLTyTuMzdd"
     redirect_uri = "<script>document.write(window.location);</script>"
     path = "/oauth/authenticate?response_type=token"
