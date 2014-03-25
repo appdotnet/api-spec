@@ -31,4 +31,4 @@ Returns an oEmbed response for a given URL.
     "author_name" => "mthurman"
 } %>
 
-<%= curl_example(:get, "oembed?url=https%3A%2F%2Fposts.app.net%2F1", response, {:base_url => "https://alpha-api.app.net/"}) %>
+<%= curl_example(:get, "oembed?url=https://posts.app.net/1", response, {:path_prefix => "/"}) %>

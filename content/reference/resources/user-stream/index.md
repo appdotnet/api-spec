@@ -84,7 +84,8 @@ Ordering is not guaranteed for events delivered on streams, but we aim to have t
 To avoid thinking about limits, you can create User streams that automatically delete themselves once you disconnect from them. If you use this option, you will always have to recreate your subscriptions from scratch. To enable this, add the `auto_delete=1` query string parameter when connecting to a stream.
 
 <%= curl_example(:get, "user?auto_delete=1", :none, {
-    :base_url => "https://stream-channel.app.net/stream/",
+    :subdomain => "stream-channel",
+    :path_prefix => "/stream/",
     :pretty_json => false,
     :print_headers => true,
 }) %>
@@ -96,7 +97,8 @@ The App.net API accepts many query string parameters (`include_deleted`, `includ
 For example, if I never want to receive the `html` attribute over my user stream, when I connect I can specify that:
 
 <%= curl_example(:get, "user?include_html=0", :none, {
-    :base_url => "https://stream-channel.app.net/stream/",
+    :subdomain => "stream-channel",
+    :path_prefix => "/stream/",
     :pretty_json => false,
     :print_headers => true,
 }) %>
@@ -152,7 +154,8 @@ In general, the User Streams API tries to mimc the format and conventions of the
 1. Create a User Stream:
 
     <%= curl_example(:get, "user", :none, {
-        :base_url => "https://stream-channel.app.net/stream/",
+        :subdomain => "stream-channel",
+        :path_prefix => "/stream/",
         :pretty_json => false,
         :print_headers => true,
     }) %>

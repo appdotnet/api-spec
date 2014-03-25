@@ -66,7 +66,7 @@ Retrieve a feed for the User [@voidfiles](http://alpha.app.net/voidfiles). This 
     :token => nil,
     :response => :raw,
     :response_syntax => "xml",
-    :base_url => "https://alpha-api.app.net/feed/rss/",
+    :path_prefix => "/feed/rss/",
 }) %>
 
 ## Retrieve a feed for a hashtag
@@ -102,5 +102,5 @@ Retrieve a feed for the specified hashtag. This endpoint is similar to the [Retr
     :token => nil,
     :response => :raw,
     :response_syntax => "xml",
-    :base_url => "https://alpha-api.app.net/feed/rss/",
+    :path_prefix => "/feed/rss/",
 }) %>

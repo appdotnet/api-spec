@@ -97,7 +97,9 @@ def curl_example(method, path, response_key, options = {}, &block)
     default_curl_options = {
         :token => "<YOUR ACCESS TOKEN>",
         :pretty_json => true,
-        :base_url => "https://alpha-api.app.net/stream/0/",
+        :domain => lanai_hostname,
+        :subdomain => "alpha-api",
+        :path_prefix => "/stream/0/",
         :response => :response,
         :content_type => "application/json", # we only show this on put/post/patch
         :data => {},
@@ -189,8 +191,8 @@ def curl_example(method, path, response_key, options = {}, &block)
         curl_parts.unshift %{echo '#{options[:stdin]}' |}
     end
 
-    # don't foget to quote this when we have qs params
-    curl_parts << %{"#{options[:base_url] + path}"}
+    url = "https://#{options[:subdomain]}.#{options[:domain]}#{options[:path_prefix]}#{path}"
+    curl_parts << %{"#{url}"}
 
     # do some cleanup and wrapping
     curl_parts = curl_parts.map { |p| CGI.escapeHTML(p) }
