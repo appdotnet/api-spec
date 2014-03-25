@@ -19,7 +19,7 @@ module Resources
     end
 
     def json_output(hash)
-      "\n<pre><code class='language-js'>\n" + CGI.escapeHTML(JSON.pretty_generate(hash)) + "\n</code></pre>\n"
+      "\n<pre><code class='language-js'>" + CGI.escapeHTML(JSON.pretty_generate(hash)) + "</code></pre>\n"
     end
 
     def process_json(key, &block)
@@ -298,7 +298,7 @@ module Resources
       "user" => "...user object...",
       "created_at" => "2012-07-16T17:25:47Z",
       "text" => "@berg FIRST post on this new site #newsocialnetwork",
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>",
       "source" => {
           "name" => "Clientastic for iOS",
           "link" => "http://app.net",

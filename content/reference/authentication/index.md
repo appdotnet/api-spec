@@ -91,32 +91,31 @@ All requests to the API—authenticated or not—must be made over HTTPS.
 
 When making a call to one of our API resources, there are three ways to include authentication information.
 
-> In all of these examples, `[access token]` is the user's access token, free of any JSON framing or query string parameters.
+> In all of these examples, `<YOUR ACCESS TOKEN>` is the user's access token, free of any JSON framing or query string parameters.
 
 * Adding an Authorization header (**preferred**)
 
     Add the following header to your request:
-    `Authorization: Bearer [access token]`
-    where `[access token]` is the value of the user's access token.
+    `Authorization: Bearer <YOUR ACCESS TOKEN>`
+    where `<YOUR ACCESS TOKEN>` is the value of the user's access token.
 
     Here's an example:
 
     <%= curl_example(:post, "posts", :none, {
         :data => {"text" => "Test post"},
         :content_type => nil,
-        :token => "[access token]"
     }) %>
 
 * Add `access_token` to query string
 
-    <%= curl_example(:get, "posts/1?access_token=[access token]", :none, {:data => "text=Test post", :content_type => nil, :token => nil}) %>
+    <%= curl_example(:get, "posts/1?access_token=<YOUR ACCESS TOKEN>", :none, {:data => "text=Test post", :content_type => nil, :token => nil}) %>
 
 * Add `access_token` to HTTP body. 
 
     > Note: this method will only work with the `PUT`, `POST`, and `PATCH` methods. `GET` and `DELETE` do not accept an HTTP body.
 
     <%= curl_example(:post, "posts", :none, {
-        :data => {"text" => "Test post", "access_token" => "[access token]"},
+        :data => {"text" => "Test post", "access_token" => "<YOUR ACCESS TOKEN>"},
         :content_type => nil,
         :token => nil
     }) %>

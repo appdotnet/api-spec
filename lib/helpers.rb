@@ -72,6 +72,27 @@ def local_hostname()
     ENV['LOCAL_HOSTNAME'] || 'localhost'
 end
 
+def login_url(text)
+    base_domain = "https://account.app.net"
+    scopes = ["basic"]
+    client_id = "gvfM7pVsPBAkVmFWeCDF22uLTyTuMzdd"
+    redirect_uri = "<script>document.write(window.location);</script>"
+    path = "/oauth/authenticate?response_type=token"
+
+    url = "#{base_domain}#{path}&scope=#{scopes.join(' ')}&client_id=#{client_id}&redirect_uri="
+    link = "\"<a href='#{url}\" + window.location + \"'>#{text}</a>\""
+
+    "<script>document.write(#{link})</script>"
+end
+
+def access_token_banner()
+    login_url = login_url("Authorize the App.net docs")
+    "<div class=\"alert alert-success alert-block authorize-prompt hide\">
+    #{login_url} to see more complete examples.
+    </div>
+    "
+end
+
 def curl_example(method, path, response_key, options = {}, &block)
     # things left to figure out
     # - some quoting/escaping stuff
@@ -109,9 +130,7 @@ def curl_example(method, path, response_key, options = {}, &block)
             paginated_response(response_key, &block)
         when :raw
             options[:pretty_json] = false
-            %{<pre><code class="language-#{options[:response_syntax]}">
-#{CGI.escapeHTML(response_key)}
-</code></pre>
+            %{<pre><code class="language-#{options[:response_syntax]}">#{CGI.escapeHTML(response_key)}</code></pre>
 }
         when :none
             ""
@@ -192,10 +211,9 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
     curl_lines << cur_line.strip
 
-    # use pre, code instead of a fenced code block so I can use these insted of markdown lists. Fenced code blocks don't work in md lists
-    %{<pre><code class="language-sh">
-#{curl_lines.join(" \\\n    ")}
-</code></pre>
+    # use pre, code instead of a fenced code block so I can use these inside of markdown lists. Fenced code blocks don't work in md lists
+    %{#{access_token_banner}
+<pre><code class="language-sh">#{curl_lines.join(" \\\n    ")}</code></pre>
 #{response}
 }
 end

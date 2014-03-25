@@ -21,7 +21,7 @@ Using [adnpy](/docs/libraries#python)
 import adnpy
 
 # Set the default access token for API calls.
-adnpy.api.add_authorization_token('your access token here')
+adnpy.api.add_authorization_token('<YOUR ACCESS TOKEN>')
 
 # Create a post
 post = adnpy.api.create_post(data={'text':'Hello App.net from Python!'})
@@ -32,7 +32,7 @@ Or with the [adn](/docs/libraries#ruby) Ruby gem:
 ~~~ ruby
 require 'adn'
 
-ADN.token = 'your access token here'
+ADN.token = '<YOUR ACCESS TOKEN>'
 post = ADN::Post.send_post(:text => "Hello App.net from Ruby!")
 ~~~
 

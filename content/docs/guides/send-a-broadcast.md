@@ -31,7 +31,7 @@ Once you've installed the ADNPy library, it's as simple as:
 import adnpy
 
 # Set the default access token for API calls.
-adnpy.api.add_authorization_token('your access token here')
+adnpy.api.add_authorization_token('<YOUR ACCESS TOKEN>')
 
 # Send a broadcast with the BroadcastMessageBuilder recipe.
 builder = adnpy.recipes.BroadcastMessageBuilder(adnpy.api)
@@ -54,7 +54,7 @@ Or with the [adn](https://github.com/adn-rb/adn) Ruby gem:
 ~~~ ruby
 require 'adn'
 
-ADN.token = 'your access token here'
+ADN.token = '<YOUR ACCESS TOKEN>'
 
 builder = ADN::Recipes::BroadcastMessageBuilder.new
 builder.channel_id = 24204
