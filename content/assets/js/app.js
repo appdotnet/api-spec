@@ -23,7 +23,6 @@
                     _token = JSON.parse(localStorage.token);
                 }
             }).done(function () {
-                debugger
                 _token = {
                     user_token: new_token
                 };
