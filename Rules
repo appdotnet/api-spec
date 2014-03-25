@@ -13,6 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/js/*' do
+    filter :erb
+end
+
 compile '/static/*' do
 end
 
@@ -37,6 +41,10 @@ end
 
 route '/static/*' do
   '/assets'+item.identifier[7..-2]
+end
+
+route '/assets/js/*' do
+    item.identifier.chop + '.' + item[:extension]
 end
 
 route '*' do

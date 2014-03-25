@@ -73,13 +73,14 @@ def local_hostname()
 end
 
 def login_url(text)
-    base_domain = "https://account.app.net"
+    base_domain = lanai_hostname()
     scopes = ["basic"]
-    client_id = "gvfM7pVsPBAkVmFWeCDF22uLTyTuMzdd"
+    # testing
+    client_id = ENV['CLIENT_ID'] || "gvfM7pVsPBAkVmFWeCDF22uLTyTuMzdd"
     redirect_uri = "<script>document.write(window.location);</script>"
     path = "/oauth/authenticate?response_type=token"
 
-    url = "#{base_domain}#{path}&scope=#{scopes.join(' ')}&client_id=#{client_id}&redirect_uri="
+    url = "https://account.#{base_domain}#{path}&scope=#{scopes.join(' ')}&client_id=#{client_id}&redirect_uri="
     link = "\"<a href='#{url}\" + window.location + \"'>#{text}</a>\""
 
     "<script>document.write(#{link})</script>"
