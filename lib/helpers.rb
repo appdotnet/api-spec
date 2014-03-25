@@ -87,10 +87,7 @@ end
 
 def access_token_banner()
     login_url = login_url("Authorize the App.net docs")
-    "<div class=\"alert alert-success alert-block authorize-prompt hide\">
-    #{login_url} to see more complete examples.
-    </div>
-    "
+    "<div class=\"alert alert-success alert-block authorize-prompt hide\"><p>#{login_url} to see more complete examples.</p></div>\n"
 end
 
 def curl_example(method, path, response_key, options = {}, &block)
