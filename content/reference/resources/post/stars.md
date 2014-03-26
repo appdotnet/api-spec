@@ -23,7 +23,7 @@ Save a given Post to the current User's stars. This is just a "save" action, not
 
 #### Example
 
-<%= curl_example(:get, "posts/1/star", :post) do |h|
+<%= curl_example(:get, "posts/#{get_id(:post)}/star", :post) do |h|
     h["data"]["num_stars"] += 1
     h["data"]["you_starred"] = true
 end %>
@@ -42,7 +42,7 @@ Remove a Star from a Post.
 
 #### Example
 
-<%= curl_example(:delete, "posts/1/star", :post) do |h|
+<%= curl_example(:delete, "posts/#{get_id(:post)}/star", :post) do |h|
     h["data"]["you_starred"] = false
 end %>
 
@@ -64,7 +64,7 @@ Get the most recent [Posts](/reference/resources/post/) starred by a specific [U
 
 #### Example
 
-<%= curl_example(:get, "users/1/stars", :post, {:response => :paginated}) do |h|
+<%= curl_example(:get, "users/#{get_id(:user)}/stars", :post, {:response => :paginated}) do |h|
     h["data"][0]["num_stars"] += 1
     h["data"][0]["you_starred"] = true
 end %>

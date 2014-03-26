@@ -21,7 +21,7 @@ Returns a specific <a href="/reference/resources/user/">User</a> object.
 
 #### Example
 
-<%= curl_example(:get, "users/1", :user) %>
+<%= curl_example(:get, "users/#{get_id(:user)}", :user) %>
 
 ## Retrieve multiple Users
 Returns multiple Users requested by id. At most 200 users can be requested.

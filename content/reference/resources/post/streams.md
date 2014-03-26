@@ -37,7 +37,7 @@ Get the most recent [Posts](/reference/resources/post/) created by a specific [U
 
 #### Example
 
-<%= curl_example(:get, "users/1/posts", :post, {:response => :paginated}) %>
+<%= curl_example(:get, "users/#{get_id(:user)}/posts", :post, {:response => :paginated}) %>
 
 ## Retrieve Posts mentioning a User
 
@@ -101,4 +101,4 @@ Return the 20 most recent [Posts](/reference/resources/post/) for a specific has
 
 #### Example
 
-<%= curl_example(:get, "posts/tag/joinus", :post, {:response => :paginated}) %>
+<%= curl_example(:get, "posts/tag/adnhack", :post, {:response => :paginated}) %>

@@ -21,7 +21,7 @@ Returns a specific [Post](/reference/resources/post/).
 
 #### Example
 
-<%= curl_example(:get, "posts/1", :post) %>
+<%= curl_example(:get, "posts/#{get_id(:post)}", :post) %>
 
 ## Retrieve multiple Posts
 
@@ -37,7 +37,7 @@ Returns multiple Posts requested by id. At most 200 posts can be requested.
 
 #### Example
 
-<%= curl_example(:get, "posts?ids=1,2", :post, {:response => :collection}) do |h|
+<%= curl_example(:get, "posts?ids=#{get_id(:post)},2", :post, {:response => :collection}) do |h|
     second = h["data"][0].clone()
     second["id"] = "2"
     h["data"].unshift(second)

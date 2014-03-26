@@ -21,7 +21,7 @@ Returns the <a href="/reference/resources/user/">User</a> object of the user bei
 
 #### Example
 
-<%= curl_example(:post, "users/1/follow", :user) do |h|
+<%= curl_example(:post, "users/#{get_id(:user)}/follow", :user) do |h|
     h["data"]["you_follow"] = true
 end %>
 
@@ -41,7 +41,7 @@ Returns the <a href="/reference/resources/user/">User</a> object of the user bei
 
 #### Example
 
-<%= curl_example(:delete, "users/1/follow", :user) do |h|
+<%= curl_example(:delete, "users/#{get_id(:user)}/follow", :user) do |h|
     h["data"]["you_follow"] = false
 end %>
 
@@ -99,7 +99,7 @@ Returns an array of user ids the specified user is following.
 
 #### Example
 
-<%= curl_example(:get, "users/1/following/ids", ["2", "3"]) %>
+<%= curl_example(:get, "users/#{get_id(:user)}/following/ids", ["2", "3"]) %>
 
 ## List user ids following a user
 
@@ -113,4 +113,4 @@ Returns an array of user ids for users following the specified user.
 
 #### Example
 
-<%= curl_example(:get, "users/1/followers/ids", ["2", "3"]) %>
+<%= curl_example(:get, "users/#{get_id(:user)}/followers/ids", ["2", "3"]) %>

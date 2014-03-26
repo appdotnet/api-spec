@@ -25,4 +25,4 @@ Retrieve all the [Posts](/reference/resources/post/) that are in the same thread
 
 #### Example
 
-<%= curl_example(:get, "posts/1/replies", :post_reply, {:response => :paginated}) %>
+<%= curl_example(:get, "posts/#{get_id(:post)}/replies", :post_reply, {:response => :paginated}) %>

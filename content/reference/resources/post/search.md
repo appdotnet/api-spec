@@ -64,7 +64,7 @@ Returns [Post](/reference/resources/post/) objects which match a given search qu
 
 #### Example
 
-<%= curl_example(:get, "posts/search?hashtags=joinus&mentions=berg&count=-1", :post, {:response => :paginated}) do |h|
+<%= curl_example(:get, "posts/search?hashtags=adnhack&count=-1", :post, {:response => :paginated}) do |h|
     h["meta"]["count"] = 1
     h["data"][0]["pagination_id"] = "10000"
 end %>

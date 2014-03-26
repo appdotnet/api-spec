@@ -18,6 +18,10 @@ module Resources
       end
     end
 
+    def get_id(key)
+        Resources.const_get(key.to_s.upcase)["id"]
+    end
+
     def json_output(hash)
       "\n<pre><code class='language-js'>" + CGI.escapeHTML(JSON.pretty_generate(hash)) + "</code></pre>\n"
     end
@@ -164,54 +168,48 @@ module Resources
 
   USER_SELF = {
       "avatar_image" => {
-          "height" => 138,
+          "height" => 200,
           "is_default" => false,
-          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/IE7DNB7N4XE9OjQuP16-9zaPU1x7InMiOiJzMyIsImIiOiJhZG4tdXNlci1hc3NldHMiLCJrIjoiYXNzZXRzL3VzZXIvODgvNjgvNDAvODg2ODQwMDAwMDAwMDAwMC5qcGciLCJvIjoiIn0",
-          "width" => 138
+          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/aoveeP73f33UcFhyhqzn7VhwgS17InMiOiJzMyIsImIiOiJhZG4tdXNlci1hc3NldHMiLCJrIjoiYXNzZXRzL3VzZXIvOTkvYTYvNDAvOTlhNjQwMDAwMDAwMDAwMC5wbmciLCJvIjoiIn0",
+          "width" => 200
       },
-      "canonical_url" => "https://alpha.app.net/dalton",
+      "canonical_url" => "https://alpha.app.net/adnapi",
       "counts" => {
-          "followers" => 16833,
-          "following" => 666,
-          "posts" => 13284,
-          "stars" => 8301
+          "followers" => 1549,
+          "following" => 12,
+          "posts" => 115,
+          "stars" => 4
       },
       "cover_image" => {
-          "height" => 456,
-          "is_default" => false,
-          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/iV3sRFel7xEjDK7hCB9R0xgIFAF7InMiOiJzMyIsImIiOiJhZG4tdXNlci1hc3NldHMiLCJrIjoiYXNzZXRzL3VzZXIvNDIvMDAvMDAvNDIwMDAwMDAwMDAwMDAwMC5wbmciLCJvIjoiIn0",
-          "width" => 1103
+          "height" => 260,
+          "is_default" => true,
+          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/kZ-JRmTbmd3WVPswTJ8Nwxzkf917InMiOiJzMyIsImIiOiJ0YXBwLWFzc2V0cyIsImsiOiJpL1UvaS9ZL1VpWW5xRFNvTUtyTEhLNXA0OHN2NkxmTmRVMC5qcGciLCJvIjoiIn0",
+          "width" => 960
       },
-      "created_at" => "2012-08-03T01:17:14Z",
+      "created_at" => "2012-08-10T22:40:12Z",
       "description" => {
           "entities" => {
               "hashtags" => [],
               "links" => [
                   {
                       "len" => 7,
-                      "pos" => 12,
+                      "pos" => 31,
                       "text" => "App.net",
                       "url" => "http://App.net"
-                  },
-                  {
-                      "len" => 18,
-                      "pos" => 27,
-                      "text" => "daltoncaldwell.com",
-                      "url" => "http://daltoncaldwell.com"
                   }
               ],
               "mentions" => []
           },
-          "html" => "<span itemscope=\"https://app.net/schemas/Post\">Founder/CEO <a href=\"http://App.net\">App.net</a> <br>Blog => <a href=\"http://daltoncaldwell.com\">daltoncaldwell.com</a></span>",
-          "text" => "Founder/CEO App.net \nBlog => daltoncaldwell.com"
+          "html" => "<span itemscope=\"https://app.net/schemas/Post\">Updating you on changes to the <a href=\"http://App.net\">App.net</a> API</span>",
+          "text" => "Updating you on changes to the App.net API"
       },
-      "id" => "1",
+      "id" => "1558",
       "locale" => "en_US",
-      "name" => "Dalton Caldwell",
+      "name" => "ADN API",
       "timezone" => "America/Los_Angeles",
       "type" => "human",
-      "username" => "dalton",
-      "verified_domain" => "daltoncaldwell.com",
+      "username" => "adnapi",
+      "verified_domain" => "developers.app.net",
   }
 
   USER = USER_SELF.merge({
@@ -289,119 +287,39 @@ module Resources
   }
 
   POST = {
-      "canonical_url" => "https://alpha.app.net/mthurman/post/1",
-      "created_at" => "2012-08-03T03:59:06Z",
+      "canonical_url" => "https://alpha.app.net/adn/post/914440",
+      "created_at" => "2012-10-11T19:48:40Z",
       "entities" => {
           "hashtags" => [
               {
-                  "len" => 7,
-                  "name" => "joinus",
-                  "pos" => 167
+                  "len" => 8,
+                  "name" => "adnhack",
+                  "pos" => 90
               }
           ],
           "links" => [
               {
-                  "len" => 12,
-                  "pos" => 0,
-                  "text" => "join.app.net",
-                  "url" => "http://join.app.net"
+                  "len" => 29,
+                  "pos" => 100,
+                  "text" => "http://appnet.eventbrite.com/",
+                  "url" => "http://appnet.eventbrite.com/"
               }
           ],
-          "mentions" => [
-              {
-                  "id" => "1",
-                  "len" => 7,
-                  "name" => "dalton",
-                  "pos" => 44
-              },
-              {
-                  "id" => "2",
-                  "len" => 5,
-                  "name" => "berg",
-                  "pos" => 52
-              },
-              {
-                  "id" => "3",
-                  "len" => 10,
-                  "name" => "voidfiles",
-                  "pos" => 58
-              },
-              {
-                  "id" => "4",
-                  "len" => 9,
-                  "name" => "jhubball",
-                  "pos" => 69
-              },
-              {
-                  "id" => "5",
-                  "len" => 11,
-                  "name" => "aaronblyth",
-                  "pos" => 79
-              },
-              {
-                  "id" => "6",
-                  "len" => 7,
-                  "name" => "andrew",
-                  "pos" => 91
-              },
-              {
-                  "id" => "7",
-                  "len" => 9,
-                  "name" => "vinitlee",
-                  "pos" => 99
-              },
-              {
-                  "id" => "9",
-                  "len" => 5,
-                  "name" => "mark",
-                  "pos" => 109
-              },
-              {
-                  "id" => "10",
-                  "len" => 6,
-                  "name" => "mintz",
-                  "pos" => 115
-              },
-              {
-                  "id" => "11",
-                  "len" => 11,
-                  "name" => "barmstrong",
-                  "pos" => 122
-              },
-              {
-                  "id" => "12",
-                  "len" => 12,
-                  "name" => "laughingman",
-                  "pos" => 134
-              },
-              {
-                  "id" => "13",
-                  "len" => 14,
-                  "name" => "mikegreenspan",
-                  "pos" => 147
-              },
-              {
-                  "id" => "14",
-                  "len" => 4,
-                  "name" => "ben",
-                  "pos" => 162
-              }
-          ]
+          "mentions" => []
       },
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><a href=\"http://join.app.net\">join.app.net</a> getting ready for the world w/ <span data-mention-id=\"1\" data-mention-name=\"dalton\" itemprop=\"mention\">@dalton</span> <span data-mention-id=\"2\" data-mention-name=\"berg\" itemprop=\"mention\">@berg</span> <span data-mention-id=\"3\" data-mention-name=\"voidfiles\" itemprop=\"mention\">@voidfiles</span> <span data-mention-id=\"4\" data-mention-name=\"jhubball\" itemprop=\"mention\">@jhubball</span> <span data-mention-id=\"5\" data-mention-name=\"aaronblyth\" itemprop=\"mention\">@aaronblyth</span> <span data-mention-id=\"6\" data-mention-name=\"andrew\" itemprop=\"mention\">@andrew</span> <span data-mention-id=\"7\" data-mention-name=\"vinitlee\" itemprop=\"mention\">@vinitlee</span> <span data-mention-id=\"9\" data-mention-name=\"mark\" itemprop=\"mention\">@mark</span> <span data-mention-id=\"10\" data-mention-name=\"mintz\" itemprop=\"mention\">@mintz</span> <span data-mention-id=\"11\" data-mention-name=\"barmstrong\" itemprop=\"mention\">@barmstrong</span> <span data-mention-id=\"12\" data-mention-name=\"laughingman\" itemprop=\"mention\">@laughingman</span> <span data-mention-id=\"13\" data-mention-name=\"mikegreenspan\" itemprop=\"mention\">@mikegreenspan</span> <span data-mention-id=\"14\" data-mention-name=\"ben\" itemprop=\"mention\">@ben</span> <span data-hashtag-name=\"joinus\" itemprop=\"hashtag\">#joinus</span></span>",
-      "id" => "1",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\">If you're in San Francisco on Saturday October 20 and Sunday October 21 come to the first <span data-hashtag-name=\"adnhack\" itemprop=\"hashtag\">#adnhack</span> => <a href=\"http://appnet.eventbrite.com/\">http://appnet.eventbrite.com/</a></span>",
+      "id" => "914440",
       "machine_only" => false,
-      "num_replies" => 11,
-      "num_reposts" => 5,
-      "num_stars" => 53,
-      "reply_to" => nil,
+      "num_replies" => 1,
+      "num_reposts" => 3,
+      "num_stars" => 3,
       "source" => {
           "client_id" => "caYWDBvjwt2e9HWMm6qyKS6KcATHUkzQ",
           "link" => "https://alpha.app.net",
           "name" => "Alpha"
       },
-      "text" => "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
-      "thread_id" => "1",
+      "text" => "If you're in San Francisco on Saturday October 20 and Sunday October 21 come to the first #adnhack => http://appnet.eventbrite.com/",
+      "thread_id" => "914440",
       "user" => "...user object...",
       "you_reposted" => false,
       "you_starred" => false
@@ -428,73 +346,57 @@ module Resources
 
   # A reply to POST
   POST_REPLY = POST.merge({
-      "canonical_url" => "https://alpha.app.net/voidfiles/post/2",
-      "created_at" => "2012-08-03T04:00:20Z",
+      "canonical_url" => "https://alpha.app.net/ca/post/917679",
+      "created_at" => "2012-10-11T22:02:38Z",
       "entities" => {
           "hashtags" => [],
           "links" => [],
           "mentions" => [
               {
-                  "id" => "8",
+                  "id" => "136",
                   "is_leading" => true,
-                  "len" => 9,
-                  "name" => "mthurman",
+                  "len" => 4,
+                  "name" => "adn",
                   "pos" => 0
               }
           ]
       },
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span data-mention-id=\"8\" data-mention-name=\"mthurman\" itemprop=\"mention\">@mthurman</span> oh, I'm ready.</span>",
-      "id" => "2",
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span data-mention-id=\"136\" data-mention-name=\"adn\" itemprop=\"mention\">@adn</span> Dang! Looks like I&#8217;ll be in SF a week too early. </span>",
+      "id" => "917679",
       "machine_only" => false,
       "num_replies" => 0,
       "num_reposts" => 0,
-      "num_stars" => 2,
-      "reply_to" => "1",
+      "num_stars" => 0,
+      "reply_to" => "914440",
       "source" => {
-          "client_id" => "caYWDBvjwt2e9HWMm6qyKS6KcATHUkzQ",
-          "link" => "https://alpha.app.net",
-          "name" => "Alpha"
+          "client_id" => "QHhyYpuARCwurZdGuuR7zjDMHDRkwcKm",
+          "link" => "http://tapbots.com/software/netbot",
+          "name" => "Netbot for iOS"
       },
-      "text" => "@mthurman oh, I'm ready.",
-      "thread_id" => "1",
-      "user" => "...user object...",
+      "text" => "@adn Dang! Looks like I\u2019ll be in SF a week too early. ",
   })
 
-  # These aren't real posts anymore past this point
-  # Building up to REPOST which is a repost of a REPOST_OF (which is just POST with fewer entities)
-  REPOST_OF = POST.merge({
-      "text" => "a really insightful post that must be shared with the world",
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\">a really insightful post that must be shared with the world</span>",
-      "entities" => {
-          "hashtags" => [],
-          "links" => [],
-          "mentions" => []
-      },
-      "id" => "3",
-      "thread_id" => "3",
-      "canonical_url" => "https://alpha.app.net/berg/post/3",
-  })
-
-  REPOST = REPOST_OF.merge({
-      "id" => "4",
-      "created_at" => "2012-09-13T21:26:19Z",
-      "canonical_url" => "https://alpha.app.net/mthurman/post/4",
+  # Building up to REPOST which is a repost of a POST
+  REPOST = POST.merge({
+      "id" => "914455",
+      "canonical_url" => "https://alpha.app.net/berg/post/914455",
+      "created_at" => "2012-10-11T19:49:20Z",
       "num_replies" => 0,
       "num_reposts" => 0,
       "num_stars" => 0,
-      "text" => ">> @berg: " + REPOST_OF["text"],
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\">&gt;&gt; <span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span>: a really insightful post that must be shared with the world</span>",
-      "entities" => REPOST_OF["entities"].merge({
+      "text" => ">> @adn: " + POST["text"],
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\">&gt;&gt; <span data-mention-id=\"136\" data-mention-name=\"adn\" itemprop=\"mention\">@adn</span>: If you're in San Francisco on Saturday October 20 and Sunday October 21 come to the first <span data-hashtag-name=\"adnhack\" itemprop=\"hashtag\">#adnhack</span>: <a href=\"http://appnet.eventbrite.com/\">http://appnet.eventbrite.com/</a></span>",
+      "entities" => POST["entities"].merge({
           "mentions" => [{
-              "name" => "berg",
-              "id" => "2",
-              "pos" => 3,
-              "len" => 5
+              "id" => "136",
+              "len" => 4,
+              "name" => "adn",
+              "pos" => 3
           }]
       }),
-      "repost_of" => REPOST_OF.merge({
+      "repost_of" => POST.merge({
           "you_reposted" => true,
-          "num_reposts" => REPOST_OF["num_reposts"] + 1
+          "num_reposts" => POST["num_reposts"] + 1
       })
   })
 

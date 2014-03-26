@@ -23,7 +23,7 @@ In most cases, [muting a user](/reference/resources/user/muting/#mute-a-user) is
 
 #### Example
 
-<%= curl_example(:post, "users/1/block", :user) do |h|
+<%= curl_example(:post, "users/#{get_id(:user)}/block", :user) do |h|
     h["data"]["you_blocked"] = true
     h["data"]["you_follow"] = false
 end %>
@@ -44,7 +44,7 @@ Allow a blocked user to interact with my content.
 
 #### Example
 
-<%= curl_example(:delete, "users/1/block", :user) do |h|
+<%= curl_example(:delete, "users/#{get_id(:user)}/block", :user) do |h|
     h["data"]["you_blocked"] = false
     h["data"]["you_follow"] = false
 end %>

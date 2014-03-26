@@ -22,7 +22,7 @@ If you want to add or update a User's annotations, you may include the optional 
 ### Example
 
 <% data = {
-    "name" => "Mark Thurman 2",
+    "name" => "@adnapi has a new name",
     "locale" => "en",
     "timezone" => "US/Central",
     "description" => {

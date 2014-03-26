@@ -21,7 +21,7 @@ Hide all posts for a User in all streams. *Note: if you still explicitly request
 
 #### Example
 
-<%= curl_example(:post, "users/1/mute", :user) do |h|
+<%= curl_example(:post, "users/#{get_id(:user)}/mute", :user) do |h|
     h["data"]["you_muted"] = true
 end %>
 
@@ -41,7 +41,7 @@ Stop hiding all posts for a given user.
 
 #### Example
 
-<%= curl_example(:delete, "users/1/mute", :user) do |h|
+<%= curl_example(:delete, "users/#{get_id(:user)}/mute", :user) do |h|
   h["data"]["you_muted"] = false
 end %>
 

@@ -27,7 +27,7 @@ For compatibility with clients who don't wish to show reposts specially, we set 
 
 #### Example
 
-<%= curl_example(:get, "posts/3/repost", :repost) do |h|
+<%= curl_example(:get, "posts/#{get_id(:post)}/repost", :repost) do |h|
     h["data"]["repost_of"]["you_reposted"] = true
 end %>
 
@@ -45,6 +45,6 @@ Given the original `post_id`, delete the current user's repost. *Note: this same
 
 #### Example
 
-<%= curl_example(:delete, "posts/3/repost", :repost_of) do |h|
+<%= curl_example(:delete, "posts/#{get_id(:post)}/repost", :post) do |h|
     h["data"]["you_reposted"] = false
 end %>

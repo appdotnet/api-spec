@@ -28,12 +28,13 @@ If you want to test how your text will be processed you can use the [text proces
 
 #### Example
 
-<%= curl_example(:post, "posts", :post, {:data => "text=join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus", :content_type => nil}) %>
+<% text = get_hash(:post)["text"] %>
+<%= curl_example(:post, "posts", :post, {:data => "text=#{text}", :content_type => nil}) %>
 
 #### Example (JSON Data)
 
 <% data = {
-    "text" => "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
+    "text" => text,
     "annotations" => [{
         "type" => "net.app.core.geolocation",
         "value" => {
@@ -62,7 +63,7 @@ Delete a <a href="/reference/resources/post/">Post</a>. The current user must be
 
 #### Example
 
-<%= curl_example(:delete, "posts/1", :post) do |h|
+<%= curl_example(:delete, "posts/#{get_id(:post)}", :post) do |h|
     h["data"]["is_deleted"] = true
     h["data"].delete("text")
     h["data"].delete("html")

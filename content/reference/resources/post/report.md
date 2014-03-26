@@ -23,4 +23,4 @@ Report a post as spam. This will mute the author of the post and send a report t
 
 #### Example
 
-<%= curl_example(:post, "posts/1/report", :post) %>
+<%= curl_example(:post, "posts/#{get_id(:post)}/report", :post) %>
