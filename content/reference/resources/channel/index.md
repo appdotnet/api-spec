@@ -13,7 +13,8 @@ A Channel is a user created stream of Messages. It controls access to the messag
 
 ## Example Channel object
 
-<%= json(:CHANNEL_WITH_MARKER) do |h|
+<%= json(:channel) do |h|
+    h["marker"] = "...marker object..."
     h["writers"]["user_ids"] = ["2", "3"]
 end %>
 

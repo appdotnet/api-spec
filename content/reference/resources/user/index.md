@@ -18,7 +18,7 @@ A User is the central object of the App.net APIs. User objects have usernames, f
       {
           "type" => "net.app.core.directory.blog",
           "value" => {
-              "url" => "http://myawesomeblog.com"
+              "url" => "http://daltoncaldwell.com/"
           }
       }
     ]

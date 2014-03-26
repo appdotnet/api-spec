@@ -28,12 +28,12 @@ If you want to test how your text will be processed you can use the [text proces
 
 #### Example
 
-<%= curl_example(:post, "posts", :first_post, {:data => "text=%40berg+FIRST+post+on+this+new+site+%23newsocialnetwork", :content_type => nil}) %>
+<%= curl_example(:post, "posts", :post, {:data => "text=join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus", :content_type => nil}) %>
 
 #### Example (JSON Data)
 
 <% data = {
-    "text" => "@berg FIRST post on this new site #newsocialnetwork",
+    "text" => "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
     "annotations" => [{
         "type" => "net.app.core.geolocation",
         "value" => {
@@ -42,7 +42,7 @@ If you want to test how your text will be processed you can use the [text proces
         }
     }]
 } %>
-<%= curl_example(:post, "posts?include_post_annoations=1", :first_post, {:data => data}) do |h|
+<%= curl_example(:post, "posts?include_post_annoations=1", :post, {:data => data}) do |h|
     h["data"]["annotations"] = data["annotations"]
 end %>
 

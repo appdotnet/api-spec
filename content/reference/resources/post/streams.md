@@ -101,4 +101,4 @@ Return the 20 most recent [Posts](/reference/resources/post/) for a specific has
 
 #### Example
 
-<%= curl_example(:get, "posts/tag/newsocialnetwork", :post, {:response => :paginated}) %>
+<%= curl_example(:get, "posts/tag/joinus", :post, {:response => :paginated}) %>

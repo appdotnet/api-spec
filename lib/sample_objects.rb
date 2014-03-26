@@ -163,56 +163,55 @@ module Resources
   }
 
   USER_SELF = {
-      "id" => "1",
-      "username" => "mthurman",
-      "name" => "Mark Thurman",
-      "description" => {
-         "text" => "Hi, I'm Mark Thurman and I'm teaching you about the @appdotnet Stream #API.",
-         "html" => "Hi, I'm Mark Thurman and I'm <a href=\"https://github.com/appdotnet/api_spec\" rel=\"nofollow\">teaching you</a> about the <span itemprop=\"mention\" data-mention-name=\"appdotnet\" data-mention-id=\"3\">@appdotnet</span> Stream #<span itemprop=\"hashtag\" data-hashtag-name=\"api\">API</span>.",
-         "entities" => {
-             "mentions" => [{
-                 "name" => "appdotnet",
-                 "id" => "3",
-                 "pos" => 52,
-                 "len" => 10
-             }],
-             "hashtags" => [{
-                 "name" => "api",
-                 "pos" => 70,
-                 "len" => 4
-             }],
-             "links" => [{
-                 "text" => "teaching you",
-                 "url" => "https://github.com/appdotnet/api-spec",
-                 "pos" => 29,
-                 "len" => 12
-             }]
-          }
-      },
-      "timezone" => "US/Pacific",
-      "locale" => "en_US",
       "avatar_image" => {
-          "height" => 200,
-          "width" => 200,
-          "url" => "https://example.com/avatar_image.jpg",
-          "is_default" => false
+          "height" => 138,
+          "is_default" => false,
+          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/IE7DNB7N4XE9OjQuP16-9zaPU1x7InMiOiJzMyIsImIiOiJhZG4tdXNlci1hc3NldHMiLCJrIjoiYXNzZXRzL3VzZXIvODgvNjgvNDAvODg2ODQwMDAwMDAwMDAwMC5qcGciLCJvIjoiIn0",
+          "width" => 138
+      },
+      "canonical_url" => "https://alpha.app.net/dalton",
+      "counts" => {
+          "followers" => 16833,
+          "following" => 666,
+          "posts" => 13284,
+          "stars" => 8301
       },
       "cover_image" => {
-          "width" => 960,
-          "height" => 264,
-          "url" => "https://example.com/cover_image.jpg",
-          "is_default" => false
+          "height" => 456,
+          "is_default" => false,
+          "url" => "https://d2rfichhc2fb9n.cloudfront.net/image/5/iV3sRFel7xEjDK7hCB9R0xgIFAF7InMiOiJzMyIsImIiOiJhZG4tdXNlci1hc3NldHMiLCJrIjoiYXNzZXRzL3VzZXIvNDIvMDAvMDAvNDIwMDAwMDAwMDAwMDAwMC5wbmciLCJvIjoiIn0",
+          "width" => 1103
       },
+      "created_at" => "2012-08-03T01:17:14Z",
+      "description" => {
+          "entities" => {
+              "hashtags" => [],
+              "links" => [
+                  {
+                      "len" => 7,
+                      "pos" => 12,
+                      "text" => "App.net",
+                      "url" => "http://App.net"
+                  },
+                  {
+                      "len" => 18,
+                      "pos" => 27,
+                      "text" => "daltoncaldwell.com",
+                      "url" => "http://daltoncaldwell.com"
+                  }
+              ],
+              "mentions" => []
+          },
+          "html" => "<span itemscope=\"https://app.net/schemas/Post\">Founder/CEO <a href=\"http://App.net\">App.net</a> <br>Blog => <a href=\"http://daltoncaldwell.com\">daltoncaldwell.com</a></span>",
+          "text" => "Founder/CEO App.net \nBlog => daltoncaldwell.com"
+      },
+      "id" => "1",
+      "locale" => "en_US",
+      "name" => "Dalton Caldwell",
+      "timezone" => "America/Los_Angeles",
       "type" => "human",
-      "created_at" => "2012-07-16T17:23:34Z",
-      "counts" => {
-          "following" => 100,
-          "followers" => 200,
-          "posts" => 24,
-          "stars" => 76
-      },
-      "verified_domain" => "example.com",
-      "canonical_url" => "https://alpha.app.net/mthurman"
+      "username" => "dalton",
+      "verified_domain" => "daltoncaldwell.com",
   }
 
   USER = USER_SELF.merge({
@@ -289,49 +288,123 @@ module Resources
     "you_muted" => false,
   }
 
-  CHANNEL_WITH_MARKER = CHANNEL.merge({
-      "marker" => "...marker object..."
-  })
-
   POST = {
-      "id" => "1",
-      "user" => "...user object...",
-      "created_at" => "2012-07-16T17:25:47Z",
-      "text" => "@berg FIRST post on this new site #newsocialnetwork",
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>",
-      "source" => {
-          "name" => "Clientastic for iOS",
-          "link" => "http://app.net",
-          "client_id" => "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"
-      },
-      "machine_only" => false,
-      "reply_to" => nil,
-      "thread_id" => "1",
       "canonical_url" => "https://alpha.app.net/mthurman/post/1",
-      "num_replies" => 0,
-      "num_reposts" => 0,
-      "num_stars" => 0,
+      "created_at" => "2012-08-03T03:59:06Z",
       "entities" => {
-          "mentions" => [{
-              "name" => "berg",
-              "id" => "2",
-              "pos" => 0,
-              "len" => 5
-          }],
-          "hashtags" => [{
-              "name" => "newsocialnetwork",
-              "pos" => 34,
-              "len" => 17
-          }],
-          "links" => [{
-              "text" => "this new site",
-              "url" => "https://join.app.net",
-              "pos" => 20,
-              "len" => 13
-          }]
+          "hashtags" => [
+              {
+                  "len" => 7,
+                  "name" => "joinus",
+                  "pos" => 167
+              }
+          ],
+          "links" => [
+              {
+                  "len" => 12,
+                  "pos" => 0,
+                  "text" => "join.app.net",
+                  "url" => "http://join.app.net"
+              }
+          ],
+          "mentions" => [
+              {
+                  "id" => "1",
+                  "len" => 7,
+                  "name" => "dalton",
+                  "pos" => 44
+              },
+              {
+                  "id" => "2",
+                  "len" => 5,
+                  "name" => "berg",
+                  "pos" => 52
+              },
+              {
+                  "id" => "3",
+                  "len" => 10,
+                  "name" => "voidfiles",
+                  "pos" => 58
+              },
+              {
+                  "id" => "4",
+                  "len" => 9,
+                  "name" => "jhubball",
+                  "pos" => 69
+              },
+              {
+                  "id" => "5",
+                  "len" => 11,
+                  "name" => "aaronblyth",
+                  "pos" => 79
+              },
+              {
+                  "id" => "6",
+                  "len" => 7,
+                  "name" => "andrew",
+                  "pos" => 91
+              },
+              {
+                  "id" => "7",
+                  "len" => 9,
+                  "name" => "vinitlee",
+                  "pos" => 99
+              },
+              {
+                  "id" => "9",
+                  "len" => 5,
+                  "name" => "mark",
+                  "pos" => 109
+              },
+              {
+                  "id" => "10",
+                  "len" => 6,
+                  "name" => "mintz",
+                  "pos" => 115
+              },
+              {
+                  "id" => "11",
+                  "len" => 11,
+                  "name" => "barmstrong",
+                  "pos" => 122
+              },
+              {
+                  "id" => "12",
+                  "len" => 12,
+                  "name" => "laughingman",
+                  "pos" => 134
+              },
+              {
+                  "id" => "13",
+                  "len" => 14,
+                  "name" => "mikegreenspan",
+                  "pos" => 147
+              },
+              {
+                  "id" => "14",
+                  "len" => 4,
+                  "name" => "ben",
+                  "pos" => 162
+              }
+          ]
       },
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><a href=\"http://join.app.net\">join.app.net</a> getting ready for the world w/ <span data-mention-id=\"1\" data-mention-name=\"dalton\" itemprop=\"mention\">@dalton</span> <span data-mention-id=\"2\" data-mention-name=\"berg\" itemprop=\"mention\">@berg</span> <span data-mention-id=\"3\" data-mention-name=\"voidfiles\" itemprop=\"mention\">@voidfiles</span> <span data-mention-id=\"4\" data-mention-name=\"jhubball\" itemprop=\"mention\">@jhubball</span> <span data-mention-id=\"5\" data-mention-name=\"aaronblyth\" itemprop=\"mention\">@aaronblyth</span> <span data-mention-id=\"6\" data-mention-name=\"andrew\" itemprop=\"mention\">@andrew</span> <span data-mention-id=\"7\" data-mention-name=\"vinitlee\" itemprop=\"mention\">@vinitlee</span> <span data-mention-id=\"9\" data-mention-name=\"mark\" itemprop=\"mention\">@mark</span> <span data-mention-id=\"10\" data-mention-name=\"mintz\" itemprop=\"mention\">@mintz</span> <span data-mention-id=\"11\" data-mention-name=\"barmstrong\" itemprop=\"mention\">@barmstrong</span> <span data-mention-id=\"12\" data-mention-name=\"laughingman\" itemprop=\"mention\">@laughingman</span> <span data-mention-id=\"13\" data-mention-name=\"mikegreenspan\" itemprop=\"mention\">@mikegreenspan</span> <span data-mention-id=\"14\" data-mention-name=\"ben\" itemprop=\"mention\">@ben</span> <span data-hashtag-name=\"joinus\" itemprop=\"hashtag\">#joinus</span></span>",
+      "id" => "1",
+      "machine_only" => false,
+      "num_replies" => 11,
+      "num_reposts" => 5,
+      "num_stars" => 53,
+      "reply_to" => nil,
+      "source" => {
+          "client_id" => "caYWDBvjwt2e9HWMm6qyKS6KcATHUkzQ",
+          "link" => "https://alpha.app.net",
+          "name" => "Alpha"
+      },
+      "text" => "join.app.net getting ready for the world w/ @dalton @berg @voidfiles @jhubball @aaronblyth @andrew @vinitlee @mark @mintz @barmstrong @laughingman @mikegreenspan @ben #joinus",
+      "thread_id" => "1",
+      "user" => "...user object...",
       "you_reposted" => false,
-      "you_starred" => false,
+      "you_starred" => false
   }
 
   FULL_POST = POST.merge({
@@ -353,34 +426,41 @@ module Resources
   # since posts have text, html, entities, instead of always having to override in the block, provide more options here if we care
   # about what the text is
 
-  # No user defined link here
-  FIRST_POST = POST.merge({
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on this new site <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.</span>",
-      "entities" => POST["entities"].merge({
-          "links" => []
-      })
-  })
-
   # A reply to POST
   POST_REPLY = POST.merge({
-      "id" => "2",
-      "canonical_url" => "https://alpha.app.net/berg/post/2",
-      "reply_to" => "1",
-      "thread_id" => "1",
-      "text" => "@mthurman stop trolling",
-      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span itemprop=\"mention\" data-mention-name=\"mthurman\" data-mention-id=\"1\">@mthurman</span> stop trolling</span>",
+      "canonical_url" => "https://alpha.app.net/voidfiles/post/2",
+      "created_at" => "2012-08-03T04:00:20Z",
       "entities" => {
-          "mentions" => [{
-              "name" => "mthurman",
-              "id" => "2",
-              "pos" => 0,
-              "len" => 9
-          }],
           "hashtags" => [],
-          "links" => []
-      }
+          "links" => [],
+          "mentions" => [
+              {
+                  "id" => "8",
+                  "is_leading" => true,
+                  "len" => 9,
+                  "name" => "mthurman",
+                  "pos" => 0
+              }
+          ]
+      },
+      "html" => "<span itemscope=\"https://app.net/schemas/Post\"><span data-mention-id=\"8\" data-mention-name=\"mthurman\" itemprop=\"mention\">@mthurman</span> oh, I'm ready.</span>",
+      "id" => "2",
+      "machine_only" => false,
+      "num_replies" => 0,
+      "num_reposts" => 0,
+      "num_stars" => 2,
+      "reply_to" => "1",
+      "source" => {
+          "client_id" => "caYWDBvjwt2e9HWMm6qyKS6KcATHUkzQ",
+          "link" => "https://alpha.app.net",
+          "name" => "Alpha"
+      },
+      "text" => "@mthurman oh, I'm ready.",
+      "thread_id" => "1",
+      "user" => "...user object...",
   })
 
+  # These aren't real posts anymore past this point
   # Building up to REPOST which is a repost of a REPOST_OF (which is just POST with fewer entities)
   REPOST_OF = POST.merge({
       "text" => "a really insightful post that must be shared with the world",
