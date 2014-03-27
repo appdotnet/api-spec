@@ -13,7 +13,7 @@ Returns a specific [Channel](/reference/resources/channel/).
 
 <%= general_params_note_for "channel" %>
 
-<%= endpoint "GET", "channels/[channel_id]", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels/[channel_id]", "Any", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
     ["channel_id", "The id of the Channel to retrieve."]

@@ -15,7 +15,7 @@ Returns a specific [Message](/reference/resources/message/).
 
 <%= general_params_note_for "message" %>
 
-<%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "Varies" %>
+<%= endpoint "GET", "channels/[channel_id]/messages/[message_id]", "Any" %>
 
 <%= url_params [
     ["channel_id", "The id of the Channel containing the Message."],

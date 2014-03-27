@@ -75,7 +75,7 @@ Retrieve the users who are subscribed to a Channel.
 
 <%= pagination_note %>
 
-<%= endpoint "GET", "channels/[channel_id]/subscribers", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels/[channel_id]/subscribers", "Any", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
     ["channel_id", "The id of the Channel to retrieve subscribers for."]
@@ -92,7 +92,7 @@ end %>
 
 Retrieve all the user ids who are subscribed to a Channel.
 
-<%= endpoint "GET", "channels/[channel_id]/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels/[channel_id]/subscribers/ids", "Any", "public_messages</code> or <code>messages"%>
 
 <%= url_params [
     ["channel_id", "The id of the Channel to retrieve subscriber ids for."]
@@ -106,7 +106,7 @@ Retrieve all the user ids who are subscribed to a Channel.
 
 For each requested Channel, retrieve the ids of all Users who are subscribed to that Channel. Up to 200 Channels may be requested at one time. Channels which do not exist or which the requesting user does not have authorization to view will not be returned.
 
-<%= endpoint "GET", "channels/subscribers/ids", "User", "public_messages</code> or <code>messages"%>
+<%= endpoint "GET", "channels/subscribers/ids", "Any", "public_messages</code> or <code>messages"%>
 
 <%= query_params [
     ["ids", "A comma separated list of Channel ids to retrieve subscriber ids for."]
