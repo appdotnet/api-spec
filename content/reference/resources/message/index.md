@@ -44,7 +44,7 @@ A Message is very similar to a [Post](/reference/resources/post/) but 1) it does
     <tr>
         <td><code>text</code></td>
         <td>string</td>
-        <td>User supplied text of the Message.</td>
+        <td>User supplied text of the Message. All Unicode characters allowed. Maximum length 2048 characters. The maximum length can be retrieved from the <a href="/reference/resources/config/">Configuration endpoint</a>.</td>
     </tr>
     <tr>
         <td><code>html</code></td>

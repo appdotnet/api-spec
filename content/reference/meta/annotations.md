@@ -37,7 +37,7 @@ title: "Annotations"
 
 ## Limits
 
-- Each object (User, Post, Channel, Message, File) is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON).
+- Each object (User, Post, Channel, Message, File) is allowed at most 8192 bytes worth of annotations (in total, when serialized as JSON). This value can be retrieved from the [Configuration endpoint](/reference/resources/config/).
 - Post and Message annotations are immutable and can only be added at creation time.
 - A Post or Message can have multiple annotations of the same "type". 
 - User and Channel annotations are mutable and can be updated at any time.

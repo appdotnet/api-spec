@@ -241,7 +241,7 @@ module Resources
     },
     "message" => {
       "annotation_max_bytes" => 8192,
-      "text_max_length" => 256
+      "text_max_length" => 2048
     },
     "channel" => {
       "annotation_max_bytes" => 8192
