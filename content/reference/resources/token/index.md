@@ -15,7 +15,7 @@ Returns info about the current [OAuth access token](/reference/authentication/#a
 
 #### Example (App Token)
 
-<%= curl_example(:get, "token", :user_token, {:token => "YOUR APP TOKEN"}) %>
+<%= curl_example(:get, "token", :user_token, {:token => "<YOUR APP TOKEN>"}) %>
 
 #### Example (User Token)
 
@@ -42,7 +42,7 @@ Returns a list of ids of Users that have authorized an app. Must be requested us
 
 #### Example
 
-<%= curl_example(:get, "apps/me/tokens/user_ids", ["2", "3"]) %>
+<%= curl_example(:get, "apps/me/tokens/user_ids", ["2", "3"], {:token => "<YOUR APP TOKEN>"}) %>
 
 ## Retrieve authorized User tokens for an app
 
@@ -54,6 +54,6 @@ Returns a list of User tokens corresponding to an app token. Must be requested u
 
 #### Example
 
-<%= curl_example(:get, "apps/me/tokens", :user_token, {:response => :paginated}) do |h|
+<%= curl_example(:get, "apps/me/tokens", :user_token, {:response => :paginated, :token => "<YOUR APP TOKEN>"}) do |h|
     h["data"][0]["pagination_id"] = "10723"
 end %>

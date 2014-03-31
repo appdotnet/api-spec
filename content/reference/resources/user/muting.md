@@ -78,4 +78,4 @@ Returns a list of muted User ids for each User id requested. At most 200 User id
 <%= curl_example(:get, "users/muted/ids?ids=1,2", {
     "1" => ["3", "29"],
     "2" => []
-}) %>
+}, {:token => "<YOUR APP TOKEN>"}) %>
