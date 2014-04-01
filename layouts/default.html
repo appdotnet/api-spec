@@ -19,12 +19,6 @@
     <div id='replace-header'>
     </div>
     <div class="yui3-u-1 subnav-container">
-      <ul class="breadcrumb container">
-        <li><a class="brand" href="/">App.net API Documentation</a></li>
-        <li class="pull-right ordering">
-          <a href="https://github.com/appdotnet/api-spec/">View on Github</a>
-        </li>
-      </ul>
     </div>
     <script>
       ADN.write_markup('replace-header');
@@ -32,7 +26,7 @@
 
     <div class="container">
       <div class="yui3-g">
-        <div class="yui3-u-1-4 m-yui3-u-1">
+        <div class="yui3-u-1-5 m-yui3-u-1">
           <div class='sidebar'>
             <% if @item.identifier.start_with? '/reference' %>
               <%= render 'partials/reference_nav'%>
@@ -41,8 +35,10 @@
             <% end %>
           </div>
         </div>
-        <div class="yui3-u-3-4 m-yui3-u-1 content subpixel">
-          <%= yield %>
+        <div class="yui3-u-4-5 m-yui3-u-1 yui3-g content-container">
+            <div class="yui3-u-1 content subpixel">
+              <%= yield %>
+            </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,22 @@
 /* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
 
 body {
-    background-color: white;
+}
+
+.content-container {
+    margin-left: 6px;
 }
 
 .content {
-    padding-bottom: 100px;
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 100px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.sidebar {
+    margin-top: 46px;
 }
 
 .label-GET {
@@ -177,8 +188,7 @@ p, div.layout-like-p {
 }
 
 .subnav-container {
-    border-bottom: 1px solid #dddddd;
-    margin-bottom: 30px;
+    height: 0;
 }
 
 ul.nav-list .nav-header {
