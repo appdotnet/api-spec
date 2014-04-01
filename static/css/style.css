@@ -1,5 +1,9 @@
 /* we're currently modifying bootstrap.css to apply 'table' and 'table-striped' styles to all tables */
 
+body {
+    background-color: white;
+}
+
 .content {
     padding-bottom: 100px;
 }
@@ -35,11 +39,6 @@ body a:hover,
 ul.nav-list li a:hover {
     color: #005580;
     text-decoration: underline;
-}
-
-body a:visited {
-    color: #0088cc;
-    text-decoration: none;
 }
 
 #replace-header a:hover, .subnav-container a:hover {
@@ -88,27 +87,28 @@ body h1, body h2, body h3 {
     line-height: normal;
 }
 
-body h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-body h2 {
-    font-size: 24px;
-}
-
-body h3 {
-    font-size: 20px;
-}
-
-body h4 {
-    font-size: 16px;
-}
-
 body h2, body h3, body h4, body h5 {
     color: #4a484c;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+body h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+body h2 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+body h3 {
+    font-size: 14px;
+}
+
+body h4 {
+    font-size: 14px;
 }
 
 ul {
@@ -140,21 +140,33 @@ code {
 }
 
 #markdown-toc {
+    display: none;
     color: #ddd;
     margin: 0 0 30px 0;
-    padding: 0 0 0 25px;
-    font-size: 16px;
-    line-height: normal;
+    padding: 10px 0 0 25px;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
 #markdown-toc li {
+    font-size: 14px;
+    line-height: 16px;
     padding: 2px;
 }
 
 p, div.layout-like-p {
     line-height: 18px;
     font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.content ul, .content ol {
+    line-height: 18px;
+}
+
+.content li {
+    line-height: 18px;
+    font-size: 13px;
+    margin-left: 10px;
     margin-bottom: 10px;
 }
 
@@ -171,21 +183,23 @@ p, div.layout-like-p {
 
 ul.nav-list .nav-header {
     text-transform: none;
-    margin-bottom: 6px;
+    border: none;
 }
 
 ul.nav-list {
-    padding: 0 0 5px 0;
+    padding: 0 0 20px 0;
     -webkit-font-smoothing: subpixel-antialiased;
+    border: none;
 }
 
 ul.nav-list li {
     border-bottom: none;
+    line-height: normal;
 }
 
 ul.nav-list li a {
     padding: 6px;
-    padding-left: 28px;
+    padding-left: 14px;
     font-weight: 500;
     line-height: normal;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -208,11 +222,7 @@ ul.nav-list ul.nav-list ul.nav-list li {
 }
 
 ul.nav-list ul.nav-list ul.nav-list li a {
-    padding-left: 30px;
-}
-
-ul.nav-list ul.nav-list ul.nav-list li:first-child {
-    border-top: 1px solid #ddd;
+    padding-left: 10px;
 }
 
 ul.nav-list li.active a, ul.nav-list li.active a:hover {
