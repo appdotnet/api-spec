@@ -55,4 +55,29 @@ Be sure you also check out our [Login SDK](/reference/authentication/flows/sdk/)
 
 ## Other libraries
 
-Our community has also released many libraries for other languages and sample code. Check them out (or add your own) on [our developer wiki](https://github.com/appdotnet/api-spec/wiki/Developer-Resources).
+Our community has also released many libraries for other languages and sample code. To add a new library to the list, please [submit a pull request](https://github.com/appdotnet/api-spec/pulls).
+
+* Clojure
+    * [Paprika](https://github.com/literally/paprika) by [@jeremyheiler](https://alpha-app.net/jeremyheiler)
+* Erlang
+    * [erlang-appdotnet](https://github.com/ehedenst/erlang-appdotnet) by [@erikh](http://alpha.app.net/erikh)
+* Go
+    * [adn](https://github.com/whee/adn) by [@whee](http://alpha.app.net/whee)
+* Java
+    * [spring-social-appdotnet](http://github.com/arikg/spring-social-appdotnet) by [@arikg](http://alpha.app.net/arikg)
+* JavaScript
+    * [passport-appdotnet](https://npmjs.org/package/passport-appdotnet) by [@mko](https://alpha.app.net/mko)
+* .NET
+    * [Netter](https://bitbucket.org/hiddenpineapple/netter) by [@hiddenpineapple](http://alpha.app.net/hiddenpineapple)
+    * [AppNet.NET](https://github.com/liGhun/AppNet.NET) by [@lighun](http://alpha.app.net/lighun)
+* Objective C
+    * [ADN Activity Collection](https://github.com/brennanMKE/ADNActivityCollection) by [@smallsharptools](http://alpha.app.net/smallsharptools)
+    * [AppDotNet](https://github.com/mattrubin/AppDotNet) by [@mattrubin](http://alpha.app.net/mattrubin)
+    * [AppNetKit](https://github.com/brentdax/appnetkit) by [@brent](http://alpha.app.net/brent)
+* Python
+    * [appdotnet](https://github.com/briancline/appdotnet) by [@briancline](https://alpha.app.net/briancline)
+    * [apppy](https://github.com/mlv/apppy) by [@mlv](https://app.net/mlv)
+* Ruby
+    * [omniauth-appdotnet](https://github.com/railsjedi/omniauth-appdotnet) by [@railsjedi](http://alpha.app.net/railsjedi)
+* Scala
+    * [adn4s](https://github.com/levinotik/adn4s) by [@levinotik](http://alpha.app.net/levinotik)
