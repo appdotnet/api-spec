@@ -178,7 +178,10 @@ p, div.layout-like-p {
     line-height: 18px;
     font-size: 13px;
     margin-left: 10px;
-    margin-bottom: 10px;
+}
+
+.alert li {
+    line-height: 24px;
 }
 
 .new-nav .nav.header,
