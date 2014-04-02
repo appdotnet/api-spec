@@ -80,14 +80,14 @@ def login_url(text)
     path = "/oauth/authenticate?response_type=token"
 
     url = "https://account.#{base_domain}#{path}&scope=#{scopes.join(' ')}&client_id=#{client_id}&redirect_uri="
-    link = "\"<a href='#{url}\" + window.location + \"'>#{text}</a>\""
+    link = "'<a href=\"#{url}' + window.location + '\">#{text}</a>'"
 
     "<script>document.write(#{link})</script>"
 end
 
 def access_token_banner()
     login_url = login_url("Authorize the App.net docs")
-    "<div class=\"alert alert-success alert-block authorize-prompt hide\"><p>#{login_url} to see more complete examples.</p></div>\n"
+    "<div class=\"alert alert-success alert-block authorize-prompt hide\"><p>#{login_url} to see more complete examples.</p></div>"
 end
 
 def curl_example(method, path, response_key, options = {}, &block)
@@ -211,8 +211,7 @@ def curl_example(method, path, response_key, options = {}, &block)
     curl_lines << cur_line.strip
 
     # use pre, code instead of a fenced code block so I can use these inside of markdown lists. Fenced code blocks don't work in md lists
-    %{#{access_token_banner}
-<pre><code class="language-sh">#{curl_lines.join(" \\\n    ")}</code></pre>
+    %{#{access_token_banner}<pre><code class="language-sh">#{curl_lines.join(" \\\n    ")}</code></pre>
 #{response}
 }
 end
