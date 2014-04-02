@@ -80,3 +80,6 @@ redirects:
   -
     from: /docs/basics/(.*)
     to: /reference/make-request/$1
+  -
+    from: /docs/guides/getting-started/
+    to: /
