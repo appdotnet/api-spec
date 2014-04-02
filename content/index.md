@@ -41,20 +41,17 @@ This page is your starting point to getting familiar with the App.net developer 
 
 ## Tracking news and announcements
 
-To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adnapi). You may also want to subscribe to the [App.net blog](https://broadcast.app.net/26283/appnet-blog/) for general news and [App.net API Updates](https://broadcast.app.net/24368/appnet-api-updates/) for developer related news.
-
-{::options parse_block_html="true" /}
-<div class="alert alert-success alert-block">
-* (11/21/2013) **Introducing App.net Broadcast** - check out the [Send a Broadcast](/docs/guides/send-a-broadcast/) guide.
-* (7/25/2013) **Introducing the Search API** — check out the documentation for [Post Search](/reference/resources/post/search/).
-* (6/17/2013) **Introducing the User Stream API** — check out the documentation for [User Streams](/reference/resources/user-stream/).
-* (2/5/2013) **Introducing the Place API** — check out the documentation for [Places](/reference/resources/place/).
-* (1/28/2013) **Introducing the File API** — check out the documentation for [Files](/reference/resources/file/).
-</div>
+To see the latest updates to the API, follow [@adnapi](http://alpha.app.net/adnapi). You may also want to subscribe to the [App.net blog](https://broadcast.app.net/26283/appnet-blog/) for general news and the [App.net API Updates](https://broadcast.app.net/24368/appnet-api-updates/) Broadcast channel for developer related news.
 
 ## Getting help and providing feedback
 
-There are numerous ways for developers to get help utilizing the platform and to provide feedback. During typical San Francisco business hours there are App.net staff members available to answer questions in our [HipChat](http://www.hipchat.com/garqCaGOZ). Developers (along with App.net staff) are often chatting in the [Developer Channel](http://patter-app.net/room.html?channel=1383). For general inquiries about account/service related issues email [support@app.net](mailto:support@app.net). For developer inquiries about the API, our Terms of Service, letting us know about something you're working on, etc., email [developers@app.net](mailto:developers@app.net). In addition to the above you can report bugs and provide feedback on the API using the [issue tracker](https://github.com/appdotnet/api-spec/issues) or by using pull requests and commit comments on the [Github repo for the API](https://github.com/appdotnet/api-spec/) or the repo for these docs.
+There are numerous ways for developers to get help utilizing the platform and to provide feedback.
+
+* Developers (including App.net staff) are often chatting in the [Developer Channel](http://patter-app.net/room.html?channel=1383).
+* For developer inquiries about the API, our Terms of Service, letting us know about something you're working on, etc., email [developers@app.net](mailto:developers@app.net).
+* For general inquiries about account/service related issues, email [support@app.net](mailto:support@app.net).
+* In addition to the above, you can report bugs and provide feedback on the API using the [issue tracker](https://github.com/appdotnet/api-spec/issues).
+* This documentation is open source. If you find an error or something that's unclear, let us know with a pull request or issue on the [Github repo for the documentation](https://github.com/appdotnet/api-spec/).
 
 ## Your hosts
 
