@@ -23,16 +23,14 @@ It should go without saying, but for the sake of user privacy and security, plea
 
 You authenticate to our API by use of an **access token**. There are two types of access tokens: _app_ tokens and _user_ tokens. **App tokens** (referred to as "client tokens" in the [OAuth 2.0 internet-draft](http://tools.ietf.org/html/draft-ietf-oauth-v2-31)) represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. Some resources are only accessible to app or user tokens.
 
-{::options parse_block_html="true" /}
 <div class="alert alert-info alert-block">
-**Note:** Only Apps created by a developer account can request access tokens for other App.net users. If you do not have a developer account, then your app can only be used with your own account. If you ever downgrade your developer account, all current tokens for your app will still work but no new users will be able to authorize it.
+<p>Only Apps created by a developer account can request access tokens for other App.net users. If you do not have a developer account, then your app can only be used with your own account. If you ever downgrade your developer account, all current tokens for your app will still work but no new users will be able to authorize it.</p>
 </div>
 
 ## How do I get an access token?
 
-{::options parse_block_html="true" /}
 <div class="alert alert-info alert-block">
-**Note:** We changed the base domain that we use for the authentication flow from **alpha.app.net** to **account.app.net**. The old URLs will continue to work forever.
+<p>We changed the base domain that we use for the authentication flow from <code>alpha.app.net</code> to <code>account.app.net</code>. The old URLs will continue to work forever.</p>
 </div>
 
 **To obtain a user token**, you must use one of these flows:
@@ -42,9 +40,8 @@ You authenticate to our API by use of an **access token**. There are two types o
 * **[Native App SDK flow](/reference/authentication/flows/sdk/)** - use this if you're building an iOS or Android client. We provide an SDK that you can integrate into your app to streamline authentication.
 * **[Password flow](/reference/authentication/flows/password/)** - use this if you're building a native application (or an application where it is difficult to use a web browser) and want to avoid implementing a web-based authentication flow. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security.
 
-{::options parse_block_html="true" /}
 <div class="alert alert-error alert-block">
-**If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the [Native App SDK flow](/reference/authentication/flows/sdk/) or it's possible your app will be rejected.**
+<p>If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the <a href="/reference/authentication/flows/sdk/">Native App SDK flow</a> or it's possible your app will be rejected.</p>
 </div>
 
 **To obtain an app token**, you must use the **[app access token flow](/reference/authentication/flows/app-access-token)**. (The OAuth 2.0 internet-draft calls this this [Client Credentials Grant](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.4).)

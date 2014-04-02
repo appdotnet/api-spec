@@ -162,9 +162,10 @@ Performs a search for nearest places from given latitude and longitude. Optional
 
 Returns a list of Places sorted by distance or distance/string match if `q` is provided. These are the same Place objects as returned by the previous endpoint but will also include a `distance` property which gives, in meters, the distance from the search centroid to the Place.
 
-{::options parse_block_html="true" /}
 <div class="alert alert-error alert-block">
-**When using this endpoint, it is a requirement that _all_ requests originate from user actions.** As an example, acceptable use cases include when a user presses a button to search for local Places or when a user types a character to specify part of a Place name. Unacceptable use cases include automated access (e.g. "bots", "scrapers"), periodic scans and attempts to create comprehensive local caches or copies of the Place data. **We will be monitoring search usage and will take necessary actions to terminate unacceptable use.**
+<p>When using this endpoint, <em>all</em> requests originate from user actions. As an example, acceptable use cases include when a user presses a button to search for local Places or when a user types a character to specify part of a Place name. Unacceptable use cases include automated access (e.g. "bots", "scrapers"), periodic scans and attempts to create comprehensive local caches or copies of the Place data.</p>
+
+<p><strong>We will be monitoring search usage and will take necessary actions to terminate unacceptable use.</strong></p>
 </div>
 
 <%= endpoint "GET", "places/search", "User" %>
