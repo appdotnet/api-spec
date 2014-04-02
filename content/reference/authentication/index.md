@@ -82,12 +82,35 @@ The **basic** scope will always be granted on creation of a user access token, e
 
 ## Errors
 
-If an error occurs while obtaining an access token, we'll notify you by redirecting the user to the **Redirection URI** with the following additional query string or fragment parameters:
+All OAuth errors will have the following information provided:
 
-* `error` — a single error code from [this list](http://tools.ietf.org/html/rfc6749#section-5.2)
+* `error` — a single error code from one of the following lists (depending on which flow you're going through)
+    * [Errors when requesting an `authorization_code` from the user in the server-side web flow](http://tools.ietf.org/html/rfc6749#section-4.1.2.1)
+    * [Errors when requesting a token from the user in the client-side web flow](http://tools.ietf.org/html/rfc6749#section-4.2.2.1)
+    * [Errors when requesting a token from any other flow](http://tools.ietf.org/html/rfc6749#section-5.2)
 * `error_description` — a human readable error description.
 
+If you're requesting an `authorization_code` from a user in the [server-side web flow](/reference/authentication/flows/web/#server-side-flow) we'll notify you of the error by appending it to your `redirect_uri` as query string parameters.
+
+If you're requesting a token via the [client-side web flow](/reference/authentication/flows/web/#client-side-flow), we'll append the error to your `redirect_uri` as a URL encoded fragment.
+
+For all other cases, the error will be returned as JSON in the response to your request.
+
 Please ensure your application displays an error message to the user if you receive an error from App.net.
+
+### Common OAuth Errors
+
+#### "Please contact the website that sent you here and let them know that there is a problem with the Redirect URI."
+
+Please make sure that the `redirect_uri` you're passing to App.net is registered for your app in the [Apps dashboard](https://account.app.net/developer/apps/).
+
+#### "Non-developer apps can only be authorized by their owner."
+
+This app is owned by an account that isn't a developer account. Remember, apps not owned by a developer account can only authorized the owner of the app. If you believe you have a developer account, please check to make sure [your credit card is correct](https://account.app.net/settings/payment/) and that your account hasn't been downgraded.
+
+#### "Unknown grant type"
+
+This often indicates a problem with the encoding of the request you're sending us. Please make sure that you haven't URL encoded the request body multiple times. Also please make sure you're sending your request with a Content-type of `application/x-www-form-urlencoded` not `application/json`.
 
 ## Making Authenticated API Requests
 
