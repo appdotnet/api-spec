@@ -10,7 +10,7 @@ These pages contain the complete specification of how the App.net API works. We 
 
 ## Authentication
 
-We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/draft-ietf-oauth-v2-31) to authenticate clients to the API. There are multiple ways to get a token to a user's account. Please read our [Authentication Overview](/reference/authentication/) to choose the right one for your app.
+We use the [OAuth 2.0 protocol](http://tools.ietf.org/html/rfc6749) to authenticate clients to the API. There are multiple ways to get a token to a user's account. Please read our [Authentication Overview](/reference/authentication/) to choose the right one for your app.
 
 ## Responses
 

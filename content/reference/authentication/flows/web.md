@@ -45,7 +45,7 @@ Your `redirect_uri` must be registered with App.net before you can use it.
         &redirect_uri=[your registered redirect URI]
         &code=[code received from redirect URI]
 
-    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
+    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/rfc6749#section-2.3.1).
 
 1. App.net will respond with a JSON-encoded token: `{"access_token": "[user access token]", "token": {...Token object...}}`
 

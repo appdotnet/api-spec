@@ -19,7 +19,7 @@ with URL-encoded POST body:
         &client_secret=[your client secret]
         &grant_type=client_credentials
 
-> Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-2.3.1).
+> Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/rfc6749#section-2.3.1).
 
 App.net will respond with a JSON-encoded token:
 
