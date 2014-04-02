@@ -4,11 +4,11 @@ title: "Home"
 
 # App.net API Documentation
 
-App.net is a subscription-based, ad-free social network and API, a home for meaningful interactions and a platform developers can trust. We rely on our developers and our developers can rely on us for a robust, responsive and transparent platform. 
+App.net is a developer-friendly social infrastructure platform. Our API is the primary interface by which developers interact with the platform. The documentation is broken into two parts: these guides and our [full API reference](/reference/).
 
-Welcome aboard!
+## Quick Start
 
-This page is your starting point to getting familiar with the App.net developer platform. Our aim is to get you up and running as quickly and easily as possible. What you see here is always under revision and we always want you to give us your feedback.
+The App.net API is powerful and flexible -- if you're new to the API, we suggest you start with these guides.
 
 <div class="promo-block-wrapper ta-center">
     <div class="yui3-g">
@@ -38,6 +38,33 @@ This page is your starting point to getting familiar with the App.net developer 
         </div>
     </div>
 </div>
+
+## Notable API features
+
+### Identity & Authentication
+
+Use App.net's identity layer to authenticate users and populate user profiles. For more information, see the [Authentication reference](/reference/authentication/) and [User reference](/reference/resources/user/).
+
+### Social Graph
+
+App.net has a asymmetrical (follower-following) social graph which can be used to solve the "cold start" problem when a user signs into your app. The [Following reference](/reference/resources/user/following/) has more details.
+
+### Messaging
+
+Channels are like chat rooms. They're a time ordered series of messages that can be public, private, or restricted to a group of App.net users. The messages inside of channels can take advantage of App.net files, places, and anything else the API provides. [Chat rooms](https://directory.app.net/app/145/patter/), [Broadcasts](http://blog.app.net/2013/11/21/announcing-app-net-broadcast/), and private messages are all built on top of [App.net Messaging](/docs/guides/messaging/).
+
+### Places
+
+App.net has a location database that can be integrated with your app. This allows you to add location to Posts or Message to enable location aware apps. See the [Places reference](/docs/references/resources/places/) for more information.
+
+### Annotations
+
+Annotations are machine readable metadata that can be attached to most App.net objects (posts, messages, users, and more). They power [checkins](https://alpha.app.net/browse/checkins/), [photos](https://alpha.app.net/browse/photos/) and other rich posts on App.net. See the [Annotations introduction](/docs/references/resources/meta/annotations/) to get started.
+
+### Files
+
+App.net gives each user space to store and share files. These files can be shared publicly, attached to posts, or sent as a private message to a friend. All App.net apps share the same file storage space so if a new photo or video app comes along, you can check it out and not have to worry about migrating all your old data. See the [Files reference](/docs/references/resources/files/) for more information.
+
 
 ## Tracking news and announcements
 
