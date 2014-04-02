@@ -6,9 +6,6 @@ title: "Create an App"
 
 To start accessing parts of the API that require authentication you will need an **access token**. The easiest way to create an access token is to register an app in your [account dashboard](https://account.app.net/settings/).
 
-* TOC
-{:toc}
-
 ## Creating an App
 
 1. Start by visiting [account.app.net/settings/](https://account.app.net/settings/). Click on "[Your Apps](https://account.app.net/developer/apps/)" in the bottom left hand corner to go to Your Apps Dashboard.

@@ -8,9 +8,6 @@ title: "Create a Post"
 
 A [Post](/reference/resources/post) is the microblogging primitive of the App.net API. When a user creates a post, it appears in all of their follower's streams. Posts can have images, links, and annotations but at their simplest, they just contain a piece of text.
 
-* TOC
-{:toc}
-
 ## Create a post
 
 The easiest way to create a post is to use [one of the API libraries](/docs/libraries).

@@ -10,9 +10,6 @@ Broadcast Channels are designed to carry low-volume, high-value updates of inter
 
 Just a reminder: while you can do all of this using our API, you don't have to. We have [tools for publishers](https://broadcast.app.net/manage/) to help you quickly get started pulling content in from elsewhere on the web, and you can send them manually via the web or the App.net iOS and Android apps. To get started, **we recommend that you create and set up your broadcast channel with [our web publisher tools](https://broadcast.app.net/manage/)** and only use the API to send broadcasts via the channel you created.
 
-* TOC
-{:toc}
-
 ## Send a Broadcast
 
 There are a number of parts to each broadcast message. To illustrate, here's a screenshot of a broadcast in the App.net iOS app:

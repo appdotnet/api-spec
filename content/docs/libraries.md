@@ -6,9 +6,6 @@ title: "API Libraries"
 
 Using one of the following libraries will help you get up and running with the App.net API in no time. Most of these libraries are maintained by the community.
 
-* TOC
-{:toc}
-
 ## Python
 
     pip install adnpy
