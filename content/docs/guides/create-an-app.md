@@ -11,67 +11,55 @@ To start accessing parts of the API that require authentication you will need an
 
 ## Creating an App
 
-Start by visiting [account.app.net/settings/](https://account.app.net/settings/).
+1. Start by visiting [account.app.net/settings/](https://account.app.net/settings/). Click on "[Your Apps](https://account.app.net/developer/apps/)" in the bottom left hand corner to go to Your Apps Dashboard.
 
-![Your Account Dashboard](https://files.app.net/01q1LmOn.png)
+    ![Your Account Dashboard](https://files.app.net/01q1LmOn.png)
 
-Clicking on [Your Apps](https://account.app.net/developer/apps/) in the bottom left hand corner. Will take you to your app dashboard.
+2. Click "[Create An App](https://account.app.net/developer/app/create/)."
 
-![Your Apps Dashboard](https://files.app.net/01qsFuCH.png)
+    ![Your Apps Dashboard](https://files.app.net/2z0jz2E7Z.png)
 
-This is what you will see if you haven't created any apps. To start the process of registering your app click on [Create one here](https://account.app.net/developer/app/create/).
+3. Fill in information about your app.
 
-Next, you will see the App Create page.
+    All of the form details are required but you can always edit them later if you'd like to change anything. Give your app a unique name and provide a URL for users to find out more information. If it doesn't make sense for you to enter a website feel free to use your Alpha profile URL: `https://app.net/{YOUR USERNAME}`. This will let others know who is responsible for this app.
 
-![Create Your App](https://files.app.net/01qdir2Q.png)
+    The *Redirect URL* is used when your app [authenticates new users](/reference/authentication/). If you're not sure what to fill in, you can use `http://localhost:8000` (which we've already filled in for you).
 
-You will be able to change all of this later, but start by giving your app a name that is unique to you, or your organization.
+    Once all the fields are filled in, click "Create."
 
-Enter a website that is most closely related to this app. If it doesn't make sense for you to enter a website feel free to enter in your Alpha profile URL. (https://app.net/<YOUR USERNAME>). This will let others know who is responsible for this app.
+    ![Create Your App](https://files.app.net/01qdir2Q.png)
 
-The **Redirect URL** is prefilled with http://localhost:8000 as a convenience for local development. The Redirect URL will be used when you [authenticate your app](/reference/authentication/) later.
+4. Your app is now created. From here you can copy your *Client ID* and *Client Secret* into your code and use them. You can also add additional *Redirect URLs* for other development or production environments. To generate an access token, follow the instructions in the next section of this page.
 
-When you are satisfied with the information you have entered click create.
-
-You will see something like this once you have created your app.
-
-![Your New App](https://files.app.net/01qb1llv.png)
-
-As you can see the **client secret** is blurred, but this is roughly what your app will look like once it has been created. 
-
-From here you could add additional callback URL's for different environments. As well as update your apps information at any time.
-
-You can also generate your self an access token.
+    ![Your New App](https://files.app.net/01qb1llv.png)
 
 ## Generating an Access Token
 
 There are a few ways to get an access token, but the easiest way to get an access token for personal use or experimentation is to generate one from your app detail page.
 
-To see a list of your current apps visit [account.app.net/developer/apps/](https://account.app.net/developer/apps/).
+1. Visit [account.app.net/developer/apps/](https://account.app.net/developer/apps/). Find the app you would like to generate an access token for and click on the name.
 
-![Your Apps Dashboard](https://files.app.net/01qlWgpd.png)
+    ![Your Apps Dashboard](https://files.app.net/01qlWgpd.png)
 
-Find the app you would like to generate an access token for and click on the name. You should now see your app detail page.
+2. Click "Generate a user token for yourself"
 
-![Generate a token](https://files.app.net/0q1t3Zt2.png)
+    ![Generate a token](https://files.app.net/0q1t3Zt2.png)
 
-From this screen, if you look at the second block you will see a link: 'Generate a user token for yourself'. Click on that link, and you will see a page like this.
+3. Select the scopes for this token.
 
-![Scope Selection Screen](https://files.app.net/01qv_Geq.png)
+    To find out more about scopes your can [read the scope docs](/reference/authentication/#scopes). If you have previously generated a token, some of these boxes may already be checked.
 
-This is the scope authorization screen. If you have previously generated a token, some of these boxes may already be checked.
+    Once you have determined which scopes you will need select them in the form and then click "Generate."
 
-To find out more about scopes your can [read the scope docs](/reference/authentication/#scopes).
+    ![Scope Selection Screen](https://files.app.net/01qv_Geq.png)
 
-Once you have determined which scopes you will need select them in the form and then click generate.
+4. You now have a user access token for your app. You can copy that into your code and use it with a [client library](/docs/libraries/) or directly from curl.
 
-![Your new access token](https://files.app.net/01lz9mQt.png)
+    <div class="alert alert-error alert-block">
+        <b>Remember</b>: An access token is just like a password. It will allow applications to interact with the API on your behalf. So, keep it secret.
+    </div>
 
-Now you should see an access token in a textbox, then you can copy and use in a client library, or even from curl.
-
-<div class="alert alert-error alert-block">
-    <b>Remember</b>: An access token is just like a password. It will allow applications to interact with the API on your behalf. So, keep it secret.
-</div>
+    ![Your new access token](https://files.app.net/01lz9mQt.png)
 
 ## Launching your app
 
