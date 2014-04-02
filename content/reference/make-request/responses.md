@@ -11,6 +11,8 @@ All responses to requests to the App.net API endpoints listed under [Resources](
 
 *Please note: the [authentication endpoints](/reference/authentication) return a slightly different format that follows the OAuth2 specification.*
 
+{::options parse_block_html="true" /}
+
 ## Response Envelope
 
 The top-level response is an object containing two keys. The first key, `data`, corresponds to the actual response item requested. This may either be an object itself or a list of objects. The particular data returned is described in each endpoint's documentation. If the request is unsuccessful (results in an error), no `data` key will be present.

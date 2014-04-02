@@ -25,8 +25,9 @@ It should go without saying, but for the sake of user privacy and security, plea
 
 You authenticate to our API by use of an **access token**. There are two types of access tokens: _app_ tokens and _user_ tokens. **App tokens** (referred to as "client tokens" in the [OAuth 2.0 standard](http://tools.ietf.org/html/rfc6749)) represent access to API resources on behalf of the application and **user tokens** represent access to API resources on behalf of a specific user. Some resources are only accessible to app or user tokens.
 
+{::options parse_block_html="true" /}
 <div class="alert alert-info alert-block">
-<p>Only Apps created by a developer account can request access tokens for other App.net users. If you do not have a developer account, then your app can only be used with your own account. If you ever downgrade your developer account, all current tokens for your app will still work but no new users will be able to authorize it.</p>
+**Note:** Only Apps created by a developer account can request access tokens for other App.net users. If you do not have a developer account, then your app can only be used with your own account. If you ever downgrade your developer account, all current tokens for your app will still work but no new users will be able to authorize it.
 </div>
 
 ## What kind of token do I need?
