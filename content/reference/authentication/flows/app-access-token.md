@@ -19,6 +19,22 @@ with URL-encoded POST body:
         &client_secret=[your client secret]
         &grant_type=client_credentials
 
+Example:
+
+<%= curl_example(:post, "access_token", :none, {
+    :subdomain => "account",
+    :path_prefix => "/oauth/",
+    :pretty_json => false,
+    :token => nil,
+    :content_type => nil,
+    :data => {
+        "grant_type" => "client_credentials",
+        "client_id" => "[your client_id]",
+        "client_secret" => "[your client secret]",
+    }
+}) %>
+
+
 > We also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the OAuth 2 spec](http://tools.ietf.org/html/rfc6749#section-2.3.1).
 
 App.net will respond with a JSON-encoded token:

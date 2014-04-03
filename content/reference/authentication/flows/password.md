@@ -49,6 +49,24 @@ Once you have been approved, using the password flow is pretty straightforward:
         &password=[user's password]
         &scope=[scopes separated by spaces]
 
+    Example:
+
+    <%= curl_example(:post, "access_token", :none, {
+        :subdomain => "account",
+        :path_prefix => "/oauth/",
+        :pretty_json => false,
+        :token => nil,
+        :content_type => nil,
+        :data => {
+            "grant_type" => "password",
+            "client_id" => "[your client_id]",
+            "password_grant_secret" => "[your password grant secret that was emailed to you]",
+            "username" => "[user's email address or username]",
+            "password" => "[user's password]",
+            "scope" => "[scopes separated by spaces]",
+        }
+    }) %>
+
     > The use of `password_grant_secret` diverges from the OAuth 2.0 specification. `password_grant_secret` is a special token that we'll send you when your use of the password flow is approved.
 
     > **You can require app-specific passwords** by providing a `require_app_specific_password=1` URL parameter. **[Two-Factor Auth users](http://blog.app.net/2013/03/13/added-security-for-your-app-net-account/) must use app-specific passwords** regardless of this parameter. We strongly encourage the use of app-specific passwords by all users as they significantly increase account security.

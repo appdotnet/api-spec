@@ -160,7 +160,10 @@ def curl_example(method, path, response_key, options = {}, &block)
     end
 
 
-    if [:post, :put, :patch].include? method and options[:content_type] and (options[:data_binary] or not options[:data].empty?)
+    if [:post, :put, :patch].include? method and (options[:data_binary] or not options[:data].empty?)
+        unless options[:content_type]
+            options[:content_type] = "application/x-www-form-urlencoded"
+        end
         options[:headers]["Content-Type"] = options[:content_type]
     end
 
