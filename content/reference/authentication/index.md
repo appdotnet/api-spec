@@ -73,7 +73,7 @@ The **basic** scope will always be granted on creation of a user access token, e
 * **[Password flow](/reference/authentication/flows/password/)** - use this if you're building a native application (or an application where it is difficult to use a web browser) and want to avoid implementing a web-based authentication flow. This flow requires special permission to use and comes with a bunch of extra rules and requirements to protect user security.
 
 <div class="alert alert-error alert-block">
-<p>If you're submitting your application to one of Apple's App Stores, we suggest you implement authentication via the <a href="/reference/authentication/flows/sdk/">Native App SDK flow</a> or the <a href="/reference/authentication/flows/password/">Password Flow</a>. Otherwise, it's possible your app will be rejected.</p>
+<p>If you're submitting your application to one of Apple's App Stores, you should not use any of the web based flows. We suggest you implement authentication via the <a href="/reference/authentication/flows/sdk/">Native App SDK flow</a> with the <a href="/reference/authentication/flows/password/">Password Flow</a> as a backup. Otherwise, it's possible your app will be rejected.</p>
 </div>
 
 ### App Token
