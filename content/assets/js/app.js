@@ -62,4 +62,11 @@ $(function() {
             el.html(el.html().replace(needle, token.user_token));
         });
     });
+
+    $(".content h1, .content h2, .content h3, .content h4").each(function(e){
+        var id = $(this).attr("id");
+        if (!id) return;
+
+        $(this).append("<a class='header-anchor' href='#" + id + "'></a>");
+    });
 });
