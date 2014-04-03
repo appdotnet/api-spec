@@ -29,7 +29,7 @@ compile '*' do
     # don’t filter binary items
   else
     filter :erb
-    filter :kramdown, :toc_levels => [2], :enable_coderay => false, :parse_block_html => true
+    filter :kramdown, :toc_levels => [2], :enable_coderay => false
     filter :colorize_syntax, :default_colorizer => :pygmentsrb, :linenos => 'inline'
     layout 'default'
   end
