@@ -202,6 +202,7 @@ ul.nav-list {
     padding: 0 0 20px 0;
     -webkit-font-smoothing: subpixel-antialiased;
     border: none;
+    width: auto;
 }
 
 ul.nav-list li {
@@ -367,4 +368,28 @@ html.breakpoint-retina .promo-block-image.authentication {
     margin-right:auto;
     margin-left:auto;
     *zoom:1
+}
+
+.header-anchor {
+    top: 0;
+    opacity: 0;
+    padding: 0 5px 0 10px;
+    height: 100%;
+    width: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    -webkit-transition: opacity 0.3s ease-in-out 0s;
+    -moz-transition: opacity 0.3s ease-in-out 0s;
+    -ms-transition: opacity 0.3s ease-in-out 0s;
+}
+
+.content h1:hover .header-anchor, .content h2:hover .header-anchor, .content h3:hover .header-anchor, .content h4:hover .header-anchor, .header-anchor:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.header-anchor:before {
+    content:'#';
 }
