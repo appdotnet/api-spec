@@ -11,7 +11,9 @@ title: "Post Search"
 
 Returns [Post](/reference/resources/post/) objects which match a given search query. Searches ordered by `id` require at least one query or filter to be specified; searches ordered by `score` require at least one query and zero or more filters to be specified. Searches require an ordering and at least one search query to be specified, and allow for zero or more filters to be added. All parameters should be passed in the query string.
 
-<%= general_params_note_for "post" %> Note: Pagination is currently only available for the `id` ordering. All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Machine-only posts are not included in the search index. Separate lists of terms by spaces.
+All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Machine-only posts are not included in the search index. Separate lists of terms by spaces.
+
+<%= general_params_note_for "post" %>
 
 <%= endpoint "GET", "posts/search", "Any" %>
 
@@ -19,7 +21,7 @@ Returns [Post](/reference/resources/post/) objects which match a given search qu
 
     ["index", :optional, "string", "Type of index to use. The default (and currently, the only) index is <code>complete</code>, which searches all posts. <em>We may add additional index types later (e.g., an index only of recent posts, for speed.)</em>"],
 
-    ["order", :optional, "string", "One of: <code>id</code> (default), <code>score</code>. Searches of ordering <code>id</code> are returned in roughly the same order as other streams, and support pagination. Searches of ordering <code>score</code> are returned by a relevance score. Currently, the only ordering that supports pagination is <code>id</code>, and we are working on improving relevance scores."],
+    ["order", :optional, "string", "One of: <code>id</code> (default), <code>score</code>. Searches of ordering <code>id</code> are returned in roughly the same order as other streams. Searches of ordering <code>score</code> are returned by a relevance score."],
 
 ]%>
 
