@@ -11,7 +11,7 @@ Web intents are an easy way to integrate with App.net; you don't even need to us
 
 
 <div class="alert alert-info alert-block">
-    <p><strong>Note:</strong> If you just want a simple follow or share button you can use <a href='http://app.net/about/buttons/'>button builder</a> instead. We've also open sourced the buttons so that you could host them your self. Checkout the <a href="https://github.com/appdotnet/piha">github repo</a> for more information on how to do that.</p>
+    <p>If you just want a simple follow or share button you can use <a href='http://app.net/about/buttons/'>button builder</a> instead. We've also open sourced the buttons so that you could host them your self. Checkout the <a href="https://github.com/appdotnet/piha">github repo</a> for more information on how to do that.</p>
 </div>
 
 ## The Post Intent

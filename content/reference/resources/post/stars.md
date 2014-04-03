@@ -11,7 +11,7 @@ title: "Stars"
 
 Save a given Post to the current User's stars. This is just a "save" action, not a sharing action. A User's stars are visible to others, but they are not automatically added to your followers' streams.
 
-*Note: A repost cannot be starred. Please star the parent Post.*
+*A repost cannot be starred. Please star the parent Post.*
 
 <%= general_params_note_for "post" %>
 

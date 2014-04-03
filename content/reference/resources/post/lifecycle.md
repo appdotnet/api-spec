@@ -15,7 +15,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 
 If you want to test how your text will be processed you can use the [text processor](/reference/resources/text-processor).
 
-*Note: You cannot reply to a repost. Please reply to the parent Post.*
+*You cannot reply to a repost. Please reply to the parent Post.*
 
 <%= general_params_note_for "post" %>
 

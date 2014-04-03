@@ -52,7 +52,7 @@ end %>
 
 Delete a message. The current user must be the same user who created the Message. It returns the deleted Message on success.
 
-*Note: you can always delete a message you created even if you are no longer able to view the rest of the Channel anymore.*
+*You can always delete a message you created even if you are no longer able to view the rest of the Channel anymore.*
 
 *Remember, access tokens can not be passed in a HTTP body for `DELETE` requests. Please refer to the [authentication documentation](/reference/authentication/#making-authenticated-api-requests).*
 

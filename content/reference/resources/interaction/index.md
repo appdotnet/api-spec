@@ -9,7 +9,7 @@ title: "Interactions"
 
 Interactions are objects that represent users taking certain actions on App.net. Interactions are structured to form a sentence like: User X took action Y on object Z. If multiple users take the same action (e.g. multiple users reply to one post) within a set time window those events will be combined into a single Interaction.
 
-> Note: the `objects` list of an Interaction will vary based on the `action`
+> The `objects` list of an Interaction will vary based on the `action`
 
 (Example) @dalton and @berg reposted post 1:
 
@@ -59,10 +59,10 @@ List all the [Interactions](/reference/resources/interaction/) other users have 
 
 <%= pagination_note %>
 
-> Note: you can only request this list for the current user.
+> You can only request this list for the current user.
 
 <!-- blockquote break -->
-> Note: although this endpoint supports paging, a user's Interactions stream is continuously rebuilt as new actions in the system occur, so developers should generally plan to refetch the stream whenever switching to display it as Interactions may have shifted their position, with users being added or removed. If you need to keep track of activity in a more precise manner, you should using the [Streaming API](/reference/resources/app-stream/) to monitor the global feed for relevant activity.
+> Although this endpoint supports paging, a user's Interactions stream is continuously rebuilt as new actions in the system occur, so developers should generally plan to refetch the stream whenever switching to display it as Interactions may have shifted their position, with users being added or removed. If you need to keep track of activity in a more precise manner, you should using the [Streaming API](/reference/resources/app-stream/) to monitor the global feed for relevant activity.
 
 This endpoint accepts the `interaction_actions` as a query string parameter whose value is a comma separated list of actions you're interested in. For instance, if you're only interested in repost and follow interactions you could request `stream/0/users/me/interactions?interaction_actions=repost,follow`.
 

@@ -15,7 +15,7 @@ def migration_warning(migrations = [])
             plur = ""
         end
 
-        "<div class=\"alert alert-info\"><b>Note:</b> This endpoint is currently migrated by the <code>#{ join_all migrations }</code> migration#{ plur  }. Please refer to the <a href=\"/reference/make-request/migrations/#current-migrations\">Migrations documentation</a> for more info.</div>"
+        "<div class=\"alert alert-info\">This endpoint is currently migrated by the <code>#{ join_all migrations }</code> migration#{ plur  }. Please refer to the <a href=\"/reference/make-request/migrations/#current-migrations\">Migrations documentation</a> for more info.</div>"
     end
 end
 

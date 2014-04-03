@@ -9,7 +9,7 @@ title: "Responses"
 
 All responses to requests to the App.net API endpoints listed under [Resources](/reference/resources/), whether successful or not, will be returned in the same type of envelope structure. This document describes how that envelope works and what it may contain.
 
-*Please note: the [authentication endpoints](/reference/authentication) return a slightly different format that follows the OAuth2 specification.*
+*The [authentication endpoints](/reference/authentication) return a slightly different format that follows the OAuth2 specification.*
 
 ## Response Envelope
 
@@ -63,7 +63,7 @@ To request pretty-printing, send the following HTTP header with your request:
 
     X-ADN-Pretty-JSON: 1
 
-*Note: Sending any value is sufficient. Omit the header entirely if you wish to receive minified JSON.*
+Sending any value is sufficient. Omit the header entirely if you wish to receive minified JSON.
 
 ## Error Conditions
 
