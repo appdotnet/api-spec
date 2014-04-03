@@ -29,7 +29,7 @@ If you want to test how your text will be processed you can use the [text proces
 #### Example
 
 <% text = get_hash(:post)["text"] %>
-<%= curl_example(:post, "posts", :post, {:data => "text=#{text}", :content_type => nil}) %>
+<%= curl_example(:post, "posts", :post, {:data => {"text" => text}, :content_type => nil}) %>
 
 #### Example (JSON Data)
 

@@ -133,7 +133,7 @@ When making a call to one of our API resources, there are three ways to include 
 
 * Add `access_token` to query string
 
-    <%= curl_example(:get, "posts/1?access_token=<YOUR ACCESS TOKEN>", :none, {:data => "text=Test post", :content_type => nil, :token => nil}) %>
+    <%= curl_example(:get, "posts/1?access_token=<YOUR ACCESS TOKEN>", :none, {:data => {"text" => "Test post"}, :content_type => nil, :token => nil}) %>
 
 * Add `access_token` to HTTP body. 
 

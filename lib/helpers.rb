@@ -90,6 +90,10 @@ def access_token_banner()
     "<div class=\"alert alert-success alert-block authorize-prompt hide\"><p>#{login_url} to see more complete examples.</p></div>"
 end
 
+def bash_quote(v)
+    v.gsub('"', '\"')
+end
+
 def curl_example(method, path, response_key, options = {}, &block)
     # things left to figure out
     # - some quoting/escaping stuff
@@ -167,24 +171,23 @@ def curl_example(method, path, response_key, options = {}, &block)
     if [:post, :put, :patch].include? method
         if not options[:data].empty?
             if options[:content_type] == "application/json"
-                options[:data] = JSON.pretty_generate(options[:data])
-                # todo: escape any single quotes in json data since we're about to wrap in single quotes for bash
-                curl_parts << %{-d '#{options[:data]}'}
+                data = bash_quote(JSON.pretty_generate(options[:data]))
+                curl_parts << %{-d "#{data}"}
             elsif options[:data].instance_of? Hash
                 options[:data].each do |k, v|
-                    curl_parts << %{-d '#{k}=#{v}'}
+                    val = bash_quote(v)
+                    curl_parts << %{-d "#{k}=#{val}"}
                 end
-            else
-                # get rid of this case
-                curl_parts << %{-d '#{options[:data]}'}
             end
         elsif options[:data_binary]
-            curl_parts << %{--data-binary '#{options[:data_binary]}'}
+            val = bash_quote(options[:data_binary])
+            curl_parts << %{--data-binary "#{val}"}
         end
     end
 
     options[:files].each do |k, v|
-        curl_parts << %{-F "#{k}=#{v}"}
+        val = bash_quote(v)
+        curl_parts << %{-F "#{k}=#{val}"}
     end
 
     if options[:stdin]
