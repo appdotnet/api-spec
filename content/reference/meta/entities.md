@@ -13,7 +13,7 @@ Usually entities are extracted from the Post text by App.net's servers. We allow
 
 Ranges specified by entities may be adjacent, but may not overlap.
 
-<div class="alert alert-info"><b>Note:</b> <code>pos</code> and <code>len</code> fields are given as UTF-32 code points. Many string implementations (in particular, Cocoa's NSString class and Javascript's strings) use UTF-16 or UCS-2 encoding internally, and thus the indices given will not map directly to UTF-16 code points if encoded with surrogate pairs, e.g., emoji characters.</div>
+<div class="alert alert-info"><code>pos</code> and <code>len</code> fields are given as UTF-32 code points. Many string implementations (in particular, Cocoa's NSString class and Javascript's strings) use UTF-16 or UCS-2 encoding internally, and thus the indices given will not map directly to UTF-16 code points if encoded with surrogate pairs, e.g., emoji characters.</div>
 
 All of the following examples are about the following text:
 

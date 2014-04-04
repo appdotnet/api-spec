@@ -11,7 +11,7 @@ title: "Message Lookup"
 
 Returns a specific [Message](/reference/resources/message/).
 
-*Note: you can always retrieve a message you created even if you are no longer able to view the rest of the Channel anymore.*
+*You can always retrieve a message you created even if you are no longer able to view the rest of the Channel anymore.*
 
 <%= general_params_note_for "message" %>
 

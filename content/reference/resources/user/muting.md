@@ -9,7 +9,7 @@ title: "User Muting"
 
 ## Mute a User
 
-Hide all posts for a User in all streams. *Note: if you still explicitly request this User's stream or a Post from this User, it will not be hidden.*
+Hide all posts for a User in all streams. *If you still explicitly request this User's stream or a Post from this User, it will not be hidden.*
 
 <%= general_params_note_for "user" %>
 

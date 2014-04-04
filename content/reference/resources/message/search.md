@@ -11,7 +11,9 @@ title: "Message Search"
 
 Returns [Message](/reference/resources/message/) objects which match a given search query. This endpoint responds to a list of channel IDs which can either given specifically or performed on all PM or Broadcast channels that the user is subscribed to. Searches can either be ordered by `id` or `score`. Searches ordered by `id` require at least one query or filter to be specified; searches ordered by `score` require at least one query and zero or more filters to be specified. All parameters should be passed in the query string.
 
-<%= general_params_note_for "message" %> Note: Pagination is currently only available for the `id` ordering. All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Separate lists of terms by spaces.
+All queries and filters are combined with an AND operation. Query parameters (not filter parameters) can use <em>"quoted strings"</em> for phrases, search syntax like <em>+foo -bar</em> and <em>foo OR baz</em> for boolean queries. Separate lists of terms by spaces.
+
+<%= general_params_note_for "message" %>
 
 <%= endpoint "GET", "channels/messages/search", "Any" %>
 
@@ -19,7 +21,7 @@ Returns [Message](/reference/resources/message/) objects which match a given sea
 
     ["index", :optional, "string", "Type of index to use. The default (and currently, the only) index is <code>complete</code>, which searches all messages. <em>We may add additional index types later (e.g., an index only of recent messages, for speed.)</em>"],
 
-    ["order", :optional, "string", "One of: <code>id</code> (default), <code>score</code>. Searches of ordering <code>id</code> are returned in roughly the same order as other streams, and support pagination. Searches of ordering <code>score</code> are returned by a relevance score. Currently, the only ordering that supports pagination is <code>id</code>, and we are working on improving relevance scores."],
+    ["order", :optional, "string", "One of: <code>id</code> (default), <code>score</code>. Searches of ordering <code>id</code> are returned in roughly the same order as other streams. Searches of ordering <code>score</code> are returned by a relevance score."],
 
 ]%>
 

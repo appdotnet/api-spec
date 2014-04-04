@@ -45,7 +45,24 @@ Your `redirect_uri` must be registered with App.net before you can use it.
         &redirect_uri=[your registered redirect URI]
         &code=[code received from redirect URI]
 
-    > Note: we also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the spec](http://tools.ietf.org/html/rfc6749#section-2.3.1).
+    Example:
+
+    <%= curl_example(:post, "access_token", :none, {
+        :subdomain => "account",
+        :path_prefix => "/oauth/",
+        :pretty_json => false,
+        :token => nil,
+        :content_type => nil,
+        :data => {
+            "grant_type" => "authorization_code",
+            "client_id" => "[your client_id]",
+            "client_secret" => "[your client secret]",
+            "redirect_uri" => "[your registered redirect URI]",
+            "code" => "[code received in the previous step]"
+        }
+    }) %>
+
+    > We also accept the `client_id` and `client_secret` parameters via the Authorization header, as described in [section 2.3.1 of the OAuth 2 spec](http://tools.ietf.org/html/rfc6749#section-2.3.1).
 
 1. App.net will respond with a JSON-encoded token: `{"access_token": "[user access token]", "token": {...Token object...}}`
 

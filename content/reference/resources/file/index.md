@@ -200,7 +200,7 @@ Derived files will include the keys shown in the example below. Please see [the 
 
 ### Auto-generated derived files
 
-For some files, App.net will auto generate derived files. *Note: any new auto-generated derived file keys will be prefixed with `core_`.*
+For some files, App.net will auto generate derived files. *Any new auto-generated derived file keys will be prefixed with `core_`.*
 
 * `image_thumb_200s`: When the root file is an image, App.net will generate a 200x200 square thumbnail of the image that shrinks and crops the center square of the image.
 * `image_thumb_960r`: When the root file is an image, App.net will scale down the entire image so it fits within a 640x960 pixel bounding box. This thumbnail will not be cropped.

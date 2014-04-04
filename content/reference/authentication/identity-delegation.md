@@ -45,6 +45,20 @@ Intentionally not addressed in this document are the following:
 
     > For App.net, the OAuth token endpoint is: `https://account.app.net/oauth/access_token`
 
+    Example:
+
+    <%= curl_example(:post, "access_token", :none, {
+        :subdomain => "account",
+        :path_prefix => "/oauth/",
+        :pretty_json => false,
+        :content_type => nil,
+        :data => {
+            "grant_type" => "delegate",
+            "delegate_client_id" => "[your client_id]",
+        }
+    }) %>
+
+
 1. The authorized client makes a request to the delegate client with two additional headers, `Identity-Delegate-Token` and `Identity-Delegate-Endpoint`:
 
         POST /protected/resource HTTP/1.1
@@ -60,7 +74,26 @@ Intentionally not addressed in this document are the following:
 
     > The delegate token and delegate endpoint may also be sent as delegate_token and delegate_endpoint in the query string or POST body.
 
-1. The delegate client identifies the resource server by using the `Identity-Delegate-Endpoint` header and makes a request to that endpoint with the Authorization header set.
+    Example:
+
+    <%= curl_example(:post, "protected/resource", :none, {
+        :subdomain => "delegate-client",
+        :domain => "example.com",
+        :path_prefix => "/",
+        :pretty_json => false,
+        :content_type => nil,
+        :token => nil,
+        :headers => {
+            "Identity-Delegate-Token" => "[delegate_token from previous step]",
+            "Identity-Delegate-Endpoint" => "https://alpha-api.app.net/stream/0/token",
+        },
+        :data => {
+            "do_some_stuff" => "1",
+            "fo_reals" => "1",
+        }
+    }) %>
+
+1. The delegate client identifies the resource server (App.net) by using the `Identity-Delegate-Endpoint` header and makes a request to that endpoint with the Authorization header set.
 
     > The query string parameters `delegate_token`, `client_id` and `client_secret` may be used in place of HTTP headers if desired.
 
@@ -100,11 +133,21 @@ Intentionally not addressed in this document are the following:
             }
         }
 
-    The resource server replies with an implementation-dependent description of the current user, which must include the client_id the authorized client. In the case of App.net, this is the Token object of the authorizing client's access_token as returned by the [Retrieve current Token](/reference/resources/token/#retrieve-current-token) endpoint.
+    App.net replies with information about the authorized delegate token. This is the Token object of the authorizing client's access_token as returned by the [Retrieve current Token](/reference/resources/token/#retrieve-current-token) endpoint.
 
     The delegate client may verify that the authorized client matches some external authentication scheme and/or list of authorized applications. If the delegate token is not valid for the delegate client's client_id, this call will return a `401 Unauthorized`.
 
     > For App.net, the identity delegation endpoint is: `https://alpha-api.app.net/stream/0/token`
+
+    Example:
+
+    <%= curl_example(:get, "token", :none, {
+        :pretty_json => false,
+        :headers => {
+            "Authorization" => "Basic [base64(client_id + ':' + client_secret)]",
+            "Identity-Delegate-Token" => "[delegate_token]",
+        },
+    }) %>
 
 ## Notes
 

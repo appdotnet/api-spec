@@ -33,7 +33,7 @@ end %>
 
 ## Unrepost a Post
 
-Given the original `post_id`, delete the current user's repost. *Note: this same functionality can be accomplished by [deleting using the repost's post_id](/reference/resources/post/lifecycle/#delete-a-post)*.
+Given the original `post_id`, delete the current user's repost. *This same functionality can be accomplished by [deleting using the repost's post_id](/reference/resources/post/lifecycle/#delete-a-post)*.
 
 <%= general_params_note_for "post" %>
 

@@ -15,7 +15,7 @@ You can also create a Post by sending JSON in the HTTP post body that matches th
 
 If you want to test how your text will be processed you can use the [text processor](/reference/resources/text-processor).
 
-*Note: You cannot reply to a repost. Please reply to the parent Post.*
+*You cannot reply to a repost. Please reply to the parent Post.*
 
 <%= general_params_note_for "post" %>
 
@@ -29,7 +29,7 @@ If you want to test how your text will be processed you can use the [text proces
 #### Example
 
 <% text = get_hash(:post)["text"] %>
-<%= curl_example(:post, "posts", :post, {:data => "text=#{text}", :content_type => nil}) %>
+<%= curl_example(:post, "posts", :post, {:data => {"text" => text}, :content_type => nil}) %>
 
 #### Example (JSON Data)
 

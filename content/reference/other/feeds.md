@@ -18,7 +18,7 @@ There are 2 different kinds of feeds, but they all follow the same pattern:
 
 We intend to support more feed formats and richer support for filters in the near future.
 
-*Note:* While the URLs are similar to other API URLs feeds, they are under a different root.
+While the URLs are similar to other API URLs feeds, they are under a different root.
 
 ## Filters
 
